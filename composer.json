@@ -1,22 +1,35 @@
 {
     "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Project Template",
-    "keywords": ["yii2", "framework", "basic", "project template"],
-    "homepage": "http://www.yiiframework.com/",
+    "description": "Welcome to Eduardo Aparicio Cardenes website",
+    "authors": [
+        {
+            "name": "Eduardo Aparicio Cardenes",
+            "email": "eduardo@dreammakerfactory.com",
+            "homepage": "http://www.dreammakerfactory.com",
+            "role": "Software architect"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/EduardoAC/yii2-bootstrap.git"
+        }
+    ],
+    "keywords": ["yii2", "framework", "Curriculum", "CV","frontend"],
+    "homepage": "http://www.proyectonline.com/",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
+        "issues": "https://github.com/EduardoAC/eduardo-cv-frontend-web/issues?state=open",
+        "forum": "http://www.proyectonline.com/forum/",
+        "wiki": "http://www.proyectonline.com/wiki/",
+        "source": "https://github.com/EduardoAC/eduardo-cv-frontend-web"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.4",
-        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-bootstrap": "dev-bootstrap-sass",
         "yiisoft/yii2-swiftmailer": "*"
     },
     "require-dev": {
