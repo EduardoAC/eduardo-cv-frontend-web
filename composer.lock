@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e4dd13fb6a226816bdf659a81092e692",
+    "hash": "7d4d5438f70234e3570b0e8c267d9c17",
     "packages": [
         {
             "name": "bower-asset/bootstrap-sass",
@@ -369,17 +369,78 @@
             "time": "2015-07-15 23:24:06"
         },
         {
+            "name": "twig/twig",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "d65a1374a98c89467ac061a6baf486afa256b607"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/d65a1374a98c89467ac061a6baf486afa256b607",
+                "reference": "d65a1374a98c89467ac061a6baf486afa256b607",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.7"
+            },
+            "require-dev": {
+                "symfony/debug": "~2.7",
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.21-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2015-08-22 07:28:42"
+        },
+        {
             "name": "yiisoft/yii2",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "d9ca44e2eb6b6d35b6517a474d9bfde2900835a6"
+                "reference": "cf882497cb749e4ef65dadcde9aec6ad6cfddce0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/d9ca44e2eb6b6d35b6517a474d9bfde2900835a6",
-                "reference": "d9ca44e2eb6b6d35b6517a474d9bfde2900835a6",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/76500e2fe71c2ff4a4ec2195e1f18cb605140866",
+                "reference": "cf882497cb749e4ef65dadcde9aec6ad6cfddce0",
                 "shasum": ""
             },
             "require": {
@@ -454,7 +515,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2015-08-04 14:08:38"
+            "time": "2015-08-05 22:04:24"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -462,7 +523,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/EduardoAC/yii2-bootstrap.git",
-                "reference": "058b949ebc07ebaf1b00d836e48595d02068da88"
+                "reference": "95f112a803c8722750c0be7ffbd29ae3532743b2"
             },
             "require": {
                 "bower-asset/bootstrap-sass": "3.3.* | 3.2.* | 3.1.*",
@@ -504,7 +565,7 @@
                 "irc": "irc://irc.freenode.net/yii",
                 "source": "https://github.com/yiisoft/yii2-bootstrap"
             },
-            "time": "2015-08-05 18:08:27"
+            "time": "2015-08-08 10:47:52"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -602,6 +663,57 @@
                 "yii2"
             ],
             "time": "2015-06-18 08:31:25"
+        },
+        {
+            "name": "yiisoft/yii2-twig",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-twig.git",
+                "reference": "a47c57c2b3b7514f8387e2588299e55f4adfb3bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-twig/zipball/a47c57c2b3b7514f8387e2588299e55f4adfb3bc",
+                "reference": "a47c57c2b3b7514f8387e2588299e55f4adfb3bc",
+                "shasum": ""
+            },
+            "require": {
+                "twig/twig": "~1.0",
+                "yiisoft/yii2": ">=2.0.4"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                },
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\twig\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Makarov",
+                    "email": "sam@rmcreative.ru"
+                }
+            ],
+            "description": "The Twig integration for the Yii framework",
+            "keywords": [
+                "renderer",
+                "twig",
+                "yii2"
+            ],
+            "time": "2015-07-28 06:23:25"
         }
     ],
     "packages-dev": [
@@ -638,12 +750,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "55e5560de3e669ff9f3b8bfd3c3d456796fc2e8d"
+                "reference": "5015592f93c764c48f440511f56a6c83ce744137"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/55e5560de3e669ff9f3b8bfd3c3d456796fc2e8d",
-                "reference": "55e5560de3e669ff9f3b8bfd3c3d456796fc2e8d",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/5015592f93c764c48f440511f56a6c83ce744137",
+                "reference": "5015592f93c764c48f440511f56a6c83ce744137",
                 "shasum": ""
             },
             "require": {
@@ -682,7 +794,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2015-07-24 15:39:15"
+            "time": "2015-08-06 15:02:52"
         },
         {
             "name": "phpspec/php-diff",
@@ -769,12 +881,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "10b89bf195c552cc11206fb4812815e552a092f3"
+                "reference": "3c538c518cb514ec907baf527f6f47dc3b7860a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/10b89bf195c552cc11206fb4812815e552a092f3",
-                "reference": "10b89bf195c552cc11206fb4812815e552a092f3",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/edf9a4152c795d90e8b02fc6aa88e50d53a54d02",
+                "reference": "3c538c518cb514ec907baf527f6f47dc3b7860a1",
                 "shasum": ""
             },
             "require": {
@@ -808,7 +920,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2015-07-30 07:07:01"
+            "time": "2015-08-06 16:14:59"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -910,7 +1022,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "yiisoft/yii2-bootstrap": 20
+        "yiisoft/yii2-bootstrap": 20,
+        "yiisoft/yii2-twig": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -4,8 +4,9 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
-    'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'basePath'     => dirname(__DIR__),
+    'bootstrap'    => ['log'],
+    'defaultRoute' => 'pages/index',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -15,11 +16,21 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => false,
+            'enableAutoLogin' => false,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'pages/error',
+        ],
+        'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => false,
+            'rules' => [
+                '' => 'pages/index',
+                'frontend-experience-profile' => 'pages/frontendprofile',
+            ],
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -38,6 +49,13 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'view' => []
+    ],
+    'aliases' => [
+        'atoms' => '@app/views/atoms/',
+        'molecules' => '@app/views/molecules',
+        'organisms' => '@app/views/organisms',
+        'templates' => '@app/views/templates',
     ],
     'params' => $params,
 ];
