@@ -1,0 +1,45 @@
+.introduction{
+    min-height: 213px;
+    img{
+        position: absolute;
+        top: 51px;
+        left: 0px;
+        width: 100%;
+        z-index: -1;
+        
+    }
+    p{
+        text-align: center;
+        font-size: 30px;
+        color: white;
+    }
+    .title-block{
+        background: rgba(0,0,0,0.2);
+    }
+    @media (min-width: 480px){
+        min-height: 320px;        
+        .title-block{
+            margin-top: 20px;
+        }
+    }
+    @media (min-width: 768px){
+        min-height: 513px;
+        .title-block{
+            margin-top: 125px;
+        }
+    }
+    @media (min-width: 1024px){
+        min-height: 682px;
+        p{
+            font-size: 42px;
+        }
+        .title-block{
+            margin-top: 165px;
+        }
+    }
+    @media (min-width: 1200px){
+        .title-block{
+            margin-top: 270px;
+        }
+    }
+}
