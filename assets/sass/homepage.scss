@@ -1,4 +1,9 @@
 section{
     padding: 0;
 }
+@media (min-width: 1440px){
+    .container{
+        width: 1310px;
+    }
+}
 @import "organisms/introduction.scss";
