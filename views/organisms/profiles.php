@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 ?>
-<section class="clearfix">
+<section class="container clearfix">
     <div class="frontend-developer col-md-2 col-md-offset-2">
         <?php echo \Yii::$app->view->renderFile('@molecules/profile-block.php',[
             'title' => 'frontend developer'
