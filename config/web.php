@@ -26,10 +26,13 @@ $config = [
             'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'suffix' => '.html',
             'enableStrictParsing' => false,
             'rules' => [
                 '' => 'pages/index',
-                'frontend-experience-profile' => 'pages/frontendprofile',
+                'frontend-background' => 'pages/frontend-profile',
+                'backend-background' => 'pages/backend-profile',
+                'software-architect-background' => 'pages/software-architect-profile',
             ],
         ],
         'mailer' => [

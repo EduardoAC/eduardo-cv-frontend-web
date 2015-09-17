@@ -8,3 +8,34 @@ and open the template in the editor.
     Author     : Eduardo_2
 */
 
+.profiles{
+    padding: 50px 15px;
+    h2{
+        text-align: center;
+        font-weight: bold;
+        margin: 0 0 30px 0;
+    }
+    p.text{
+        text-align: justify;
+        text-decoration: none;
+        font-size: 16px;
+        margin-top: 24px;
+        text-indent: 30px;
+    }
+    p.link{        
+        text-align: center;
+        text-decoration: none;
+        font-size: 24px;
+        margin-top: 24px;
+    }
+    @media (min-width: 1024px){
+        padding: 100px 15px;
+        p.text{
+            text-align: center;
+            text-decoration: none;
+            font-size: 24px;
+            margin-top: 24px;
+        }
+    }
+    @import "../molecules/profile-block.scss";
+}
