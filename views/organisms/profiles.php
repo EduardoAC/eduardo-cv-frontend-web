@@ -22,6 +22,7 @@ use yii\helpers\Url;
     <div class="software-architect col-sm-4">
         <?php echo \Yii::$app->view->renderFile('@molecules/profile-block.php',[
             'title' => 'software architect',
+            'imgUrl' => 'images/software-architect.png',
             'link' => Url::to(['pages/software-architect-profile'])
         ]);?>
     </div>
