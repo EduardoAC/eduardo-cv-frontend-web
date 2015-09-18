@@ -50,6 +50,11 @@ class PagesController extends Controller
         return $this->render('software-architect-profile');
     }
 
+    public function actionMyProjects()
+    {
+        return $this->render('my-projects');
+    }
+
     public function actionContact()
     {
         $model = new ContactForm();

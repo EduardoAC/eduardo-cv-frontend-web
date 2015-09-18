@@ -33,6 +33,7 @@ $config = [
                 'frontend-background' => 'pages/frontend-profile',
                 'backend-background' => 'pages/backend-profile',
                 'software-architect-background' => 'pages/software-architect-profile',
+                'my-projects' => 'pages/my-projects',
             ],
         ],
         'mailer' => [
