@@ -17,7 +17,7 @@ class HomepageAsset extends AssetBundle
 {
     public $sourcePath = '@app/assets';
     public $css = [
-        'sass/homepage.scss',
+        'sass/templates/homepage.scss',
     ];
     public $js = [
     ];
