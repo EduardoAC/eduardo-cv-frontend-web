@@ -5,9 +5,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+use yii\helpers\Html;
+$imageUrl = isset($imgUrl)?$imgUrl:'images/defaultImage.png';
+$linkPage = isset($link)?$link:'#';
 ?>
 <div class="profile-block">
-    <img class="img-responsive" src="http://demo.patternlab.io/images/fpo_square.png">
-    <?php echo $title; ?>  
+    <a href="<?=$linkPage?>">
+        <?= Html::img($imageUrl, array('class'=>'img-responsive'));?>
+        <p class="link"><?php echo $title; ?></p>
+    </a>
 </div>
 

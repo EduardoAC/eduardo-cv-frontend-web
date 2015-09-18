@@ -35,9 +35,19 @@ class PagesController extends Controller
         return $this->render('index');
     }
 
-    public function actionFrontendprofile()
+    public function actionFrontendProfile()
     {
         return $this->render('frontend-profile');
+    }
+
+    public function actionBackendProfile()
+    {
+        return $this->render('backend-profile');
+    }
+
+    public function actionSoftwareArchitectProfile()
+    {
+        return $this->render('software-architect-profile');
     }
 
     public function actionContact()
