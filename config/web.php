@@ -26,7 +26,7 @@ $config = [
             'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'suffix' => '.html',
+//            'suffix' => '.html',
             'enableStrictParsing' => false,
             'rules' => [
                 '' => 'pages/index',
@@ -34,6 +34,8 @@ $config = [
                 'backend-background' => 'pages/backend-profile',
                 'software-architect-background' => 'pages/software-architect-profile',
                 'my-projects' => 'pages/my-projects',
+                'blog' => 'blog/index',
+                'the-brainstorming-forum' => 'forum/index',
             ],
         ],
         'mailer' => [
