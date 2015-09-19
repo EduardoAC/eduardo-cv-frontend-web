@@ -36,6 +36,7 @@ $config = [
                 'my-projects' => 'pages/my-projects',
                 'blog' => 'blog/index',
                 'the-brainstorming-forum' => 'forum/index',
+                'my-career-timeline' => 'jobs-timeline/index',
             ],
         ],
         'mailer' => [
