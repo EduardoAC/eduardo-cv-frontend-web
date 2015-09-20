@@ -16,7 +16,7 @@ p.text{
     text-decoration: none;
     font-size: 16px;
     margin-bottom: 24px;
-    text-indent: 30px;
+    text-indent: initial;
 }
 p.link{        
     text-align: center;
@@ -37,3 +37,4 @@ p.link{
 @import "../organisms/projects.scss";
 @import "../organisms/content-blogs.scss";
 @import "../organisms/jobs-timeline.scss";
+@import "../organisms/greetings.scss";
