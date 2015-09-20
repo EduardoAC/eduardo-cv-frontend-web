@@ -6,4 +6,4 @@ echo \Yii::$app->view->renderFile('@organisms/projects.php');
 echo \Yii::$app->view->renderFile('@organisms/content-blogs.php');
 echo \Yii::$app->view->renderFile('@organisms/jobs-timeline.php');
 echo \Yii::$app->view->renderFile('@organisms/greetings.php');
-echo \Yii::$app->view->renderFile('@organisms/yourself-information.php');
+//echo \Yii::$app->view->renderFile('@organisms/yourself-information.php');
