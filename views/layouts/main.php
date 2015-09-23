@@ -27,7 +27,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => 'My Interactive CV',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -38,6 +38,8 @@ AppAsset::register($this);
                 'items' => [
                     ['label' => 'Home', 'url' => ['/pages/index']],
                     ['label' => 'About', 'url' => ['/pages/about']],
+                    ['label' => 'My Projects', 'url' => ['/pages/my-projects']],
+                    ['label' => 'My Experience', 'url' => ['/jobs-timeline/index']],
                     ['label' => 'Contact', 'url' => ['/pages/contact']],
                 ],
             ]);
