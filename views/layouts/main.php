@@ -20,6 +20,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <link rel="icon" type="image/x-icon" href="<?=Url::to("@web/favicon.ico")?>" />
 </head>
 <body>
 
