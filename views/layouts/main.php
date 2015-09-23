@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -50,11 +51,39 @@ AppAsset::register($this);
             <?= $content ?>
         </div>
     </div>
-
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>
+            <div class="col-sm-6 col-md-4">
+                <h3>Navigate</h3>
+                <ul>
+                    <li><?= Html::a('Business And Technology blog', ['blog/index'], ['class' => 'profile-link']) ?></li>
+                    <li><?= Html::a('The brainstorming forum', ['forum/index'], ['class' => 'profile-link']) ?></li>
+                    <li><?= Html::a('About me', ['pages/about'], ['class' => 'profile-link']) ?></li>
+                    <li><?= Html::a('Contact', ['pages/contact'], ['class' => 'profile-link']) ?></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <h3>My development</h3>
+                <ul>
+                    <li><?= Html::a('As frontend developer', ['pages/frontend-profile'], ['class' => 'profile-link']) ?></li>
+                    <li><?= Html::a('As software architect', ['pages/software-architect-profile'], ['class' => 'profile-link']) ?></li>
+                    <li><?= Html::a('As backend developer', ['pages/backend-profile'], ['class' => 'profile-link']) ?></li>
+                    <li><?= Html::a('My career evolution', ['jobs-timeline/index'], ['class' => 'profile-link']) ?></li>
+                    <li><?= Html::a('Hackathons, work and personal projects', ['pages/my-projects'], ['class' => 'profile-link']) ?></li>
+                </ul>
+            </div>
+            <div class="hidden-sm col-md-4">
+                <h3>Useful links</h3>
+                <ul>
+                    <li><a href="https://github.com/EduardoAC" target="blank">Check me out on GitHub</a></li>
+                    <li><a href="http://www.tuocio.org" target="blank">TuOcio - Tools for event organizer</a></li>
+                    <li><a href="http://www.dreammakerfactory.com" target="blank">Dream Maker Factory</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="container footer-label">
+            <p class="center-block">&copy; Eduardo Aparicio Cardenes - Proyectonline <?= date('Y') ?></p>
         </div>
     </footer>
 
