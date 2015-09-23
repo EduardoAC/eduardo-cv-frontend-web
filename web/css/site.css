@@ -15,12 +15,30 @@ body {
 }
 
 .footer {
-    height: 60px;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
+    border-top: 5px solid #1c1c1c;
+    background: url(../images/sharpener.png) repeat;
+    background-color: #111;   
+    color: #999;
+    padding: 20px 0;
+}
+.footer hr{
+    border-top: 3px solid #1c1c1c; 
 }
 
+.footer ul{
+   padding-left: 10px;
+}
+.footer li{
+    list-style: none;
+}
+.footer p, .footer a{
+    font-size: 16px;
+    color: #999;
+}
+.footer  .footer-label{
+    margin-top: 20px;
+    text-align: center;
+}
 .jumbotron {
     text-align: center;
     background-color: transparent;
