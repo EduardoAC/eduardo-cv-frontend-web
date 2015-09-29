@@ -1,0 +1,60 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29-sep-2015, 11:34:21
+    Author     : Eduardo_2
+*/
+.about-me{
+    @media screen and (max-width: 768px){        
+        .gradient-effect{
+            position: relative;
+            display: block;
+        }
+        .gradient-effect::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(to bottom,rgba(255,255,255,0),#CCC) repeat left top;
+        }
+    }
+    img{
+    }
+    .heading-block{
+        padding: 15px;        
+        h1{
+            text-align: center;
+        }
+    }
+    @media screen and (min-width: 1024px){
+        .introduction{
+            position: relative;
+        }
+        .heading-block{
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            bottom: 60px;
+            width: 50%;
+            background-color: rgba(200,200,200,0.68);
+            border: 1px solid rgba(255,255,255,.1);
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+            box-shadow: 0 0 10px rgba(0,0,0,.4);
+        }
+    }
+    @media screen and (min-width: 1281px){
+        .introduction{
+            width: 1280px;
+            margin: 0 auto;
+        }
+    }
+    
+}
+.about-introduction{
+    
+}
