@@ -8,6 +8,7 @@ and open the template in the editor.
     Author     : Eduardo_2
 */
 .about-me{
+    margin-bottom: 30px;
     @media screen and (max-width: 768px){        
         .gradient-effect{
             position: relative;
@@ -38,9 +39,31 @@ and open the template in the editor.
             font-size: 28px;
         }
     }
+    .university{
+        img{
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+        .university-expedient{
+            margin: 15px auto;
+        }
+    }
     @media screen and (min-width: 768px){
         h1{
             font-size: 36px;
+        }
+        .university{
+            img {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            > img {
+                float: left;
+                padding-right: 15px;
+            }
+            .university-expedient{
+                margin-top: 50px;
+            }
         }
     }
     @media screen and (max-width: 1023px){

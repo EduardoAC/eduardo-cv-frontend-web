@@ -35,14 +35,40 @@ AboutAsset::register($this);
         <?= Html::img('images/my-life-timeline.png',array('class'=>'img-responsive'));?>
         <p>
             Since then, I was the first of my school colleges to have the latest version of computer at home. 
-            I mounted my first computer with 14 and fixing computers at 16 years old. 
+            <strong>I mounted my first computer with 14 and fixing computers at 16 years old.</strong> 
             I still remember how we used to connect to internet with our Intel 486 and 28k modem. 
             I knew that technology and internet it was my world, create things that other people use filled my soul.
         </p>
         <p>
             Everyone used to ask my about hardware and technologies all the time, help, fix and advice was my work until I joined to the university. 
-            My first year was the most exited day of my life, from Matemathic analysis to build computers, I did a really hard work studing every day 
-            but I enjoyed every second of my <a href='http://www2.ulpgc.es//index.php?pagina=estudios&ver=weees002&tipoplan=&codigo=180_1801_10_00#2' rel='nofollow'>Informatic engineer</a>
+            My first year it was the most exited day of my life, from Matemathic analysis to build computers, I did a really hard work studing every day 
+            but I enjoyed every second of my <a href='http://www2.ulpgc.es//index.php?pagina=estudios&ver=weees002&tipoplan=&codigo=180_1801_10_00#2' rel='nofollow'>Informatic engineer</a>.
         </p>
+        <div class='university'>
+            <?= Html::img('images/eduardo-aparicio-cardenes-graduation.jpg',array('class'=>'img-responsive'));?>
+            <p>
+                I always remember <strong>my time in the ULPGC and Rey Juan carlos Universities as the best time to exploit and develop my creativity</strong>,
+                 improving my skills, studying every day, doing my homework and spend a lot of hours coding and solving the task from my lectures.
+            </p>
+            <p>
+                Many times, I remember how my teachers struggle with me often doing more complex solutions that it was required for the exercise 
+                that I needed to solve it because I want to discover and research. 
+            </p>
+            <p>
+                I have been  different thinking all my life, <strong>sometimes wrong and other right</strong> 
+                but I did a lot of interesting things that open my mind that made me the man who i am now. 
+                I feel proud of my marks where my only a few low marks was in my expedient as you can see bellow.
+            </p>
+            <div class='row university-expedient'>
+                <div class='item col-sm-6'>
+                    <?= Html::img('images/certificacion-academica-eduardo-aparicio-cardenes-pag_1.jpg',array('class'=>'img-responsive'));?>
+                    <span>Eduardo Aparicio Cardenes Marks Page 1</span>
+                </div>
+                <div class='item col-sm-6'>
+                    <?= Html::img('images/certificacion-academica-eduardo-aparicio-cardenes-pag_2.jpg',array('class'=>'img-responsive'));?>
+                    <span>Eduardo Aparicio Cardenes Marks Page 2</span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
