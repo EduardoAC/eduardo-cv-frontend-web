@@ -45,7 +45,9 @@ AboutAsset::register($this);
             but I enjoyed every second of my <a href='http://www2.ulpgc.es//index.php?pagina=estudios&ver=weees002&tipoplan=&codigo=180_1801_10_00#2' rel='nofollow'>Informatic engineer</a>.
         </p>
         <div class='university'>
-            <?= Html::img('images/eduardo-aparicio-cardenes-graduation.jpg',array('class'=>'img-responsive'));?>
+            <div class="university-picture">
+                <?= Html::img('images/eduardo-aparicio-cardenes-graduation.jpg',array('class'=>'img-responsive'));?>
+            </div>
             <p>
                 I always remember <strong>my time in the ULPGC and Rey Juan carlos Universities as the best time to exploit and develop my creativity</strong>,
                  improving my skills, studying every day, doing my homework and spend a lot of hours coding and solving the task from my lectures.
@@ -57,18 +59,54 @@ AboutAsset::register($this);
             <p>
                 I have been  different thinking all my life, <strong>sometimes wrong and other right</strong> 
                 but I did a lot of interesting things that open my mind that made me the man who i am now. 
-                I feel proud of my marks where my only a few low marks was in my expedient as you can see bellow.
+                I feel proud of my marks where my only a few low marks was in my expedient as you can see about.
             </p>
-            <div class='row university-expedient'>
+            <div class='row university-expedient' id="university-expedient">
                 <div class='item col-sm-6'>
                     <?= Html::img('images/certificacion-academica-eduardo-aparicio-cardenes-pag_1.jpg',array('class'=>'img-responsive'));?>
-                    <span>Eduardo Aparicio Cardenes Marks Page 1</span>
+                    <p>Eduardo Aparicio Cardenes Marks Page 1</p>
                 </div>
                 <div class='item col-sm-6'>
                     <?= Html::img('images/certificacion-academica-eduardo-aparicio-cardenes-pag_2.jpg',array('class'=>'img-responsive'));?>
-                    <span>Eduardo Aparicio Cardenes Marks Page 2</span>
+                    <p>Eduardo Aparicio Cardenes Marks Page 2</p>
                 </div>
             </div>
+            <div class='clearfix'></div>
+            <h2>Looking for challenges</h2>
+            <p>
+                I guess my passion for creation and creativity came from all the times that people around me tried to take me down.
+                I grew trying to prove that I was right in front of my colleges, parents and friends in many differents subjects, no because I was right and they were wrong, 
+                it was more as I believe that <strong>you cannot say something because you hear from your enviroment and assume as a fact.</strong>
+            </p>
+            <p>
+                <strong>I always believe that everything is possible and the facts in my all life need to be challenge it</strong>, nothing is absolute true. 
+                Neither the gravity. we can simplify or assume facts when we are aware about it.
+            </p>
+            <p>
+                My parents usually often said "you are lucky because your time studying is the easiest time in your live" 
+                that a job is always more complex than study.
+            </p>
+            <p>
+                My colleges used to have opposite opinion than me, I usually proposed out of box thinking that they weren't capable to understand.
+                Examaple, if we clone a dinnosaour we can provide more food to each person because we have plenty of plant to feed them.
+                <strong>I heared all my life you cannot achieve, it will be impossible. </strong> or you are wrong when the time confirmed that I was right
+            </p>
+            <p>
+                I don't know why but I found these things as a challenge every time they told me 
+                that encourage me to show them that they were wrong. 
+                Probably this is one of the reasons because.
+                I never give up during my studies and achieve every single thing that's comes to my life
+            </p>
+            
+            <p class='final-thought'>
+                I am deeply thanks all the persons in my life that tried 
+                to discourage me, you helped me to become the person i am today
+            </p>
+            
+            <?= Html::img('images/eduardo-challenge-complete.jpg',array('class'=>'img-responsive img-thumbnail center-block'));?>
+            
+            <p class='final-thought'>I capable to achieve every goal in my life</p>
+            
         </div>
     </div>
 </section>

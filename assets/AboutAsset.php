@@ -20,6 +20,7 @@ class AboutAsset extends AssetBundle
         'sass/templates/about.scss',
     ];
     public $js = [
+        'js/about-me.js'
     ];
     public $depends = [
         'app\assets\CustomBootstrapAsset',

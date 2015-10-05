@@ -32,6 +32,11 @@ and open the template in the editor.
         font-size: 17px;
         text-align: justify;
     }
+    .final-thought{
+        font-size: 28px;
+        margin: 20px 0;
+        text-align: center;
+    }
     .heading-block{
         padding: 15px;        
         h1{
@@ -46,6 +51,12 @@ and open the template in the editor.
         }
         .university-expedient{
             margin: 15px auto;
+            .item{
+                padding: 0;
+                p{
+                    text-align: center;
+                }
+            }
         }
     }
     @media screen and (min-width: 768px){
@@ -57,11 +68,12 @@ and open the template in the editor.
                 margin-top: 0;
                 margin-bottom: 0;
             }
-            > img {
+            .university-picture > img {
                 float: left;
                 padding-right: 15px;
             }
             .university-expedient{
+                clear: both;
                 margin-top: 50px;
             }
         }
@@ -87,11 +99,31 @@ and open the template in the editor.
             -webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
             box-shadow: 0 0 10px rgba(0,0,0,.4);
         }
+        .university .university-picture > img{
+            max-width: 235px;
+        }
     }
-    @media screen and (min-width: 1281px){
+    @media screen and (min-width: 1280px){
         .introduction{
             width: 1280px;
             margin: 0 auto;
+        }
+        .university{
+            .university-picture > img {
+                max-width: none;
+            }
+            .university-expedient{
+                float: right;
+                clear: none;
+                margin-top: 0;
+                .item{
+                    width: 250px;
+                    margin: 0 50px;
+                    > img{
+                        width: 140px;
+                    }
+                }
+            }
         }
     }
     
