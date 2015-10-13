@@ -4,7 +4,7 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AboutAsset;
 
 /* @var $this yii\web\View */
-$this->title = 'About Eduardo';
+$this->title = 'About me - Eduardo Aparicio Cardenes';
 
 AboutAsset::register($this);
 ?>
