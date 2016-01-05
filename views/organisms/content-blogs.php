@@ -12,6 +12,7 @@ $blogLink = Url::to(['blog/index']);
 $forumLink = Url::to(['forum/index']);
 ?>
 <section class="container clearfix content-blogs">
+    <h2>Business and Technology Addiction</h2>
     <div class="col-md-5">
         <?= Html::img('images/ideas-content-blog.jpg', array('class'=>'img-responsive'));?>
     </div>
