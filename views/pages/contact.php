@@ -1,49 +1,54 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
+use app\assets\ContactAsset;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\ContactForm */
+$this->title = 'Hire or contact me - Eduardo Aparicio Cardenes';
 
-$this->title = 'Contact';
-$this->params['breadcrumbs'][] = $this->title;
+ContactAsset::register($this);
 ?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="contact-or-hire-me">
+    <object class="wold-wide-map" id="world-wide-svg-map" data="<?=Url::to('images/world-wide-map-high-res.svg')?>" type="image/svg+xml">
+        
+    </object>
+    <div class="heading-block">
+        <h1>Hire or contact me</h1>
 
-    <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
+        <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
-    <div class="alert alert-success">
-        Thank you for contacting us. We will respond to you as soon as possible.
-    </div>
+        <div class="alert alert-success">
+            Thank you for contacting us. We will respond to you as soon as possible.
+        </div>
 
-    <p>
-        Note that if you turn on the Yii debugger, you should be able
-        to view the mail message on the mail panel of the debugger.
-        <?php if (Yii::$app->mailer->useFileTransport): ?>
-        Because the application is in development mode, the email is not sent but saved as
-        a file under <code><?= Yii::getAlias(Yii::$app->mailer->fileTransportPath) ?></code>.
-        Please configure the <code>useFileTransport</code> property of the <code>mail</code>
-        application component to be false to enable email sending.
-        <?php endif; ?>
-    </p>
+        <p>
+            Note that if you turn on the Yii debugger, you should be able
+            to view the mail message on the mail panel of the debugger.
+            <?php if (Yii::$app->mailer->useFileTransport): ?>
+            Because the application is in development mode, the email is not sent but saved as
+            a file under <code><?= Yii::getAlias(Yii::$app->mailer->fileTransportPath) ?></code>.
+            Please configure the <code>useFileTransport</code> property of the <code>mail</code>
+            application component to be false to enable email sending.
+            <?php endif; ?>
+        </p>
 
-    <?php else: ?>
+        <?php else: ?>
 
-    <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-    </p>
+        <p>
+            If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+        </p> 
 
-    <div class="row">
-        <div class="col-lg-5">
+        <div>
             <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
                 <?= $form->field($model, 'name') ?>
                 <?= $form->field($model, 'email') ?>
-                <?= $form->field($model, 'subject') ?>
                 <?= $form->field($model, 'body')->textArea(['rows' => 6]) ?>
                 <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+                    'captchaAction' => 'pages/captcha',
                     'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
                 ]) ?>
                 <div class="form-group">
@@ -51,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             <?php ActiveForm::end(); ?>
         </div>
-    </div>
 
-    <?php endif; ?>
+        <?php endif; ?>
+    </div>
 </div>
