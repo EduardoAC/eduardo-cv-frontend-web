@@ -9,15 +9,7 @@ and open the template in the editor.
 */
 .projects-desc-block{
     padding: 25px 15px;
-    background:
-        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-    background-color: #131313;
-    background-size: 20px 20px;
+    
     .container{
         padding: 0;
     }
@@ -41,4 +33,27 @@ and open the template in the editor.
             padding: 0 15px;
         }
     }
+}
+.shadow{
+    -webkit-box-shadow: inset 0px 0px 20px 5px rgba(0,0,0,0.82);
+    -moz-box-shadow: inset 0px 0px 20px 5px rgba(0,0,0,0.82);
+    box-shadow: inset 0px 0px 20px 5px rgba(0,0,0,0.82);
+}
+.projects{//test 1 (#87e0fd,#53cbf1), test 2 (#44b4c4, #1792a4)
+    background: #44b4c4; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #44b4c4 0%, #1792a4 40%, #047ca0 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  #44b4c4 0%,#1792a4 40%,#047ca0 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  #44b4c4 0%,#1792a4 40%,#047ca0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.hackathons{ //test 1 (#d2ff52,#91e842), test 2 (#bed57e, #5fb677)
+    background: #bed57e; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #bed57e 0%, #5fb677 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  #bed57e 0%,#5fb677 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  #bed57e 0%,#5fb677 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.ideas{//test 1 (#ffd15e,#ffbc05), test 2 (#ece473, #f9d422)
+    background: #ffd15e; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #ffd15e 0%, #ffbc05 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  #ffd15e 0%,#ffbc05 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  #ffd15e 0%,#ffbc05 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }

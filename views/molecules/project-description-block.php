@@ -10,7 +10,7 @@ use yii\helpers\Url;
 
 $codeProjectsLink = Url::to(['pages/my-projects']);
 ?>
-<section class="container-fluid clearfix projects-desc-block">
+<section class="container-fluid clearfix projects-desc-block <?=$class?>">
     <div class="container">
         <div class="col-md-5 col-lg-4">
             <a href="<?=$codeProjectsLink?>">

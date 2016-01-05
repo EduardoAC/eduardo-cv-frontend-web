@@ -16,6 +16,19 @@ MyprojectspageAsset::register($this);
 
 <?php echo \Yii::$app->view->renderFile('@molecules/project-description-block.php',[
     'title' => 'frontend developer',
+    'class' => 'projects',
+    'imgUrl' => 'images/frontend-developer.png',
+    'link' => Url::to(['pages/frontend-profile'])
+]);?>
+<?php echo \Yii::$app->view->renderFile('@molecules/project-description-block.php',[
+    'title' => 'frontend developer',
+    'class' => 'hackathons',
+    'imgUrl' => 'images/frontend-developer.png',
+    'link' => Url::to(['pages/frontend-profile'])
+]);?>
+<?php echo \Yii::$app->view->renderFile('@molecules/project-description-block.php',[
+    'title' => 'frontend developer',
+    'class' => 'ideas shadow',
     'imgUrl' => 'images/frontend-developer.png',
     'link' => Url::to(['pages/frontend-profile'])
 ]);?>
