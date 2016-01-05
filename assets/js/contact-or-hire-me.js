@@ -76,6 +76,8 @@ TravelMap.prototype.drawCurve = function(pointA, pointB){
     path.setAttribute("opacity", 1);  
     path.setAttribute("fill", "none");
     _self.mapSvg.appendChild(path);
+
+    return path;
 };
 TravelMap.prototype.drawAirplane = function(){
     var _self = this;
@@ -105,46 +107,43 @@ TravelMap.prototype.drawItinerary = function(itinerary){
     var itineraryPath = [];
     $.each(itinerary, function(ky, el){
         center   = _self.calculateCenter(el.countryCode,el.area);
-        _self.drawCircle(center, 15);
+//        _self.drawCircle(center, 15);
         if(previous){
-            _self.drawCurve(previous,center);
+            itineraryPath.push(_self.drawCurve(previous,center));
         }
         previous = center;
-        itineraryPath.push(center);
     });
     _self.itineraryPath = itineraryPath;
 };
 
 TravelMap.prototype.flightItinerary = function(itinerary){
     var _self   = this;
-    var translate;
-    var orig    = itinerary[0];
-    var dest    = itinerary[1];
-    var x0      = orig.x;
-    var y0      = orig.y;
-    var xAmount = (dest.x - orig.x);
-    var yAmount = (dest.y - orig.y);
-    var inc     = 0;
     var index   = 0;
-    var end     = itinerary.length - 1;
+    var tacum   = 0;
+    var end     = itinerary.length;
+    
+    var moveIncrement = function transform(path,t){
+        var l = path.getTotalLength();
+        var p = path.getPointAtLength(t * l);
+        var t2 = Math.min(t + 0.05, 1);
+        var p2 = path.getPointAtLength(t2 * l);
 
-    function initialize(orig,dest){
-        x0 = orig.x;
-        y0 = orig.y;
-        xAmount = (dest.x - orig.x);
-        yAmount = (dest.y - orig.y);
-        inc     = 0;
+        var x = p2.x - p.x;
+        var y = p2.y - p.y;
+        var r = 90 - Math.atan2(-y, x) * 180 / Math.PI;
+        var s = Math.min(Math.sin(Math.PI * t) * 0.7, 1);
+        
+        return "translate(" + p.x + "," + p.y + ") scale(" + s + ") rotate(" + r + ")";
     }
     function frame() {
-
-      inc += 0.05;  // update parameters 
-      translate = "translate("+ (x0 + xAmount * inc)+" "+(y0 + yAmount * inc)+")";
-      _self.airplane.setAttribute("transform",translate);
-      if (inc >= 1){
+      var transform = moveIncrement(itinerary[index],tacum);
+      tacum += 0.05;  // update parameters 
+      _self.airplane.setAttribute("transform", transform);
+      if (tacum >= 1){
           index++;
           // check finish condition
           if(index < end){
-              initialize(itinerary[index],itinerary[index+1]);
+              tacum = 0;
           }else{
             clearInterval(id);
           }
@@ -176,6 +175,7 @@ window.addEventListener("load", function load(event){
     window.removeEventListener("load", load, false); //remove listener, no longer needed
     MyTravelMap = new TravelMap("world-wide-svg-map");  
     MyTravelMap.collectCountries();
+    MyTravelMap.drawAirplane();
 },false);
 
 var travelItinerary = [
