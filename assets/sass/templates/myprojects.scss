@@ -1,0 +1,33 @@
+.my-projects{
+    p{
+        margin-bottom: 20px;
+        font-size: 16px;
+        text-align: justify;
+        text-indent: 40px;
+    }
+    .collection-projects{
+    }
+    @media (min-width: 992px){
+        .collection-projects {
+            width: 970px;
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            -webkit-columns: 3;
+            -moz-columns: 3;
+            columns: 3;
+            -webkit-column-gap: 10px;
+            -moz-column-gap: 10px;
+            column-gap: 10px;
+        }
+    }
+    
+    @media (min-width: 1200px){
+        .collection-projects{
+            width: 1170px;
+        }
+    }
+}
+@import "../organisms/color-legend-projects.scss";
+@import "../molecules/project-description-block.scss";
