@@ -39,6 +39,7 @@ $config = [
                 'my-career-timeline' => 'jobs-timeline/index',
                 'about-me' => 'pages/about',
                 'contact-or-hire-me' => 'pages/contact',
+                'projects/how-did-i-build-my-interactive-cv' => 'projects/my-interactive-cv',
             ],
         ],
         'mailer' => [

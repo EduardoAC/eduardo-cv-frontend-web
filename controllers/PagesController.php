@@ -45,6 +45,10 @@ class PagesController extends Controller
     {
         return $this->render('software-architect-profile');
     }
+    public function actionMyInteractiveCv()
+    {
+        return $this->render('how-do-i-build-it');
+    }
 
     public function actionMyProjects()
     {
