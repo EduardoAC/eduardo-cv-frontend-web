@@ -1,35 +1,33 @@
-section{
-    padding: 0;
-}
-@media (min-width: 1440px){
-    .container{
-        width: 1310px;
-    }
-}
-h2{
-    text-align: left;
-    font-weight: bold;
-    margin: 0;
-}
-p.text{
-    text-align: justify;
-    text-decoration: none;
-    font-size: 16px;
-    margin: 0;
-    text-indent: initial;
-}
-p.link{        
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    margin: 0;
-}
-@media (min-width: 1024px){
-    p.text{
+.my-projects{
+    p{
+        margin-bottom: 20px;
+        font-size: 16px;
         text-align: justify;
-        text-decoration: none;
-        font-size: 24px;
-        text-indent: initial;
+        text-indent: 40px;
+    }
+    .collection-projects{
+    }
+    @media (min-width: 992px){
+        .collection-projects {
+            width: 970px;
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            -webkit-columns: 3;
+            -moz-columns: 3;
+            columns: 3;
+            -webkit-column-gap: 10px;
+            -moz-column-gap: 10px;
+            column-gap: 10px;
+        }
+    }
+    
+    @media (min-width: 1200px){
+        .collection-projects{
+            width: 1170px;
+        }
     }
 }
+@import "../organisms/color-legend-projects.scss";
 @import "../molecules/project-description-block.scss";

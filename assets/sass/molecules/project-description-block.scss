@@ -8,29 +8,70 @@ and open the template in the editor.
     Author     : Eduardo_2
 */
 .projects-desc-block{
-    padding: 25px 15px;
-    
     .container{
         padding: 0;
     }
     img{
-        margin: 0 auto;
+        margin: 0px auto;
+    }
+    a:hover{
+        color: white;
     }
     h2{
         color: white;
+        text-align: center;
+        font-weight: bold;
+        margin: 0 0 10px 0;
+    }
+    h3{
+        color: white;
+        font-size: 24px;
+        text-align: left;
+        font-weight: bold;
+        margin: 0 0 10px 0;
     }
     p.text{
         color: white;
+        text-align: justify;
+        text-decoration: none;
+        font-size: 18px;
+        margin: 0;
+        text-indent: initial;
     }
-    
+    > .row{
+        padding: 15px 0;
+    }
+    .details{
+        margin: 15px 0;
+    }
     @media (min-width: 768px) and (max-width: 1023px){
         p.text{
             font-size: 20px;
+        }
+        h2{
+            text-align: left;
+        }
+    }
+    @media (min-width: 992px){
+        padding: 0px;
+        margin-top: 10px;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        width: 100%;
+        > .row{
+            margin: 0;
         }
     }
     @media (min-width: 1024px){
         .container{
             padding: 0 15px;
+        }
+        p.text{
+            text-align: justify;
+            text-decoration: none;
+            font-size: 20px;
+            text-indent: initial;
         }
     }
 }

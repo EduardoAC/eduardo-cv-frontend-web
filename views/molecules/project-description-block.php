@@ -8,19 +8,30 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$codeProjectsLink = Url::to(['pages/my-projects']);
+$codeProjectsLink = $link;
 ?>
-<section class="container-fluid clearfix projects-desc-block <?=$class?>">
-    <div class="container">
-        <div class="col-md-5 col-lg-4">
-            <a href="<?=$codeProjectsLink?>">
-                <?= Html::img('images/code-projects-done.jpg', array('class'=>'img-responsive'));?>
+<div class="projects-desc-block <?=$class?>">
+    <div class="row <?=$type?> shadow">
+        <div class="logo col-sm-4 col-md-12">
+            <a href="<?=$codeProjectsLink?>" target="_blank" rel="nofollow">
+                <?= Html::img($imgUrl, array('class'=>'img-responsive img-thumbnail'));?>
             </a>
         </div>
-        <div class="col-md-7 col-lg-8">
-            <h2>Some of my projects</h2>
-            <p class="text">As part of this project that try to catch new employers and clients attention to open the door to my new contractor/freelance world.</p>
-            <p class="text">I upload all <a href="<?=$codeProjectsLink?>">text</a></p>
+        <div class="details col-sm-8 col-md-12">
+            <a href="<?=$codeProjectsLink?>" target="_blank" rel="nofollow">
+                <h2><?=$title?></h2>
+            </a>
+            <?php if(isset($subtitle)):?>
+                <?php if(is_array($subtitle) && isset($subtitle['link'])):?>
+                    <a href="<?=$subtitle['link']?>" target="_blank" rel="nofollow">
+                        <h3><?=$subtitle['title']?></h3>
+                    </a>                
+                <?php else: ?>
+                    <?php $text = (!is_array($subtitle))? $subtitle:$subtitle['title']; ?>
+                    <h3><?=$text?></h3>
+                <?php endif; ?>
+            <?php endif; ?>
+            <p class="text"><?=$description?></p>
         </div>
     </div>
-</section>
+</div>
