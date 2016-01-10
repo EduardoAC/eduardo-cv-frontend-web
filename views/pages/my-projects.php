@@ -7,7 +7,6 @@
  */
 $this->title = 'My Projects - Eduardo Aparicio Cardenes';
 $this->registerMetaTag(['name' => 'description', 'content' => 'My projects here include hackathons, work and personal ideas'], 'description');
-use yii\helpers\Url;
 
 use app\assets\MyprojectspageAsset;
 MyprojectspageAsset::register($this);
