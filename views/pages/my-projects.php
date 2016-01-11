@@ -1,10 +1,6 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+use yii\helpers\Url;
 $this->title = 'My Projects - Eduardo Aparicio Cardenes';
 $description = "Here you can find my projects here include hackathons, work and personal ideas. This page will be upgrade and change with the new comming projects";
 $imgUrl = Url::to(['images/introduction-image-1280.jpg'],true);

@@ -58,7 +58,7 @@ AppAsset::register($this);
     <footer class="footer">
         <div class="container">
             <div class="col-sm-6 col-md-4">
-                <h3>Navigate</h3>
+                <h3>Navigation</h3>
                 <ul>
                     <li><?= Html::a('Business And Technology blog', ['blog/index'], ['class' => 'profile-link']) ?></li>
                     <li><?= Html::a('The brainstorming forum', ['forum/index'], ['class' => 'profile-link']) ?></li>
@@ -67,13 +67,13 @@ AppAsset::register($this);
                 </ul>
             </div>
             <div class="col-sm-6 col-md-4">
-                <h3>My development</h3>
+                <h3>My background</h3>
                 <ul>
                     <li><?= Html::a('As frontend developer', ['pages/frontend-profile'], ['class' => 'profile-link']) ?></li>
                     <li><?= Html::a('As software architect', ['pages/software-architect-profile'], ['class' => 'profile-link']) ?></li>
                     <li><?= Html::a('As backend developer', ['pages/backend-profile'], ['class' => 'profile-link']) ?></li>
-                    <li><?= Html::a('My career evolution', ['jobs-timeline/index'], ['class' => 'profile-link']) ?></li>
-                    <li><?= Html::a('Hackathons, work and personal projects', ['pages/my-projects'], ['class' => 'profile-link']) ?></li>
+                    <li><?= Html::a('My work experience', ['jobs-timeline/index'], ['class' => 'profile-link']) ?></li>
+                    <li><?= Html::a('Projects, hackathons and ideas', ['pages/my-projects'], ['class' => 'profile-link']) ?></li>
                 </ul>
             </div>
             <div class="hidden-sm col-md-4">
