@@ -3,7 +3,17 @@
 use yii\helpers\Url;
 use app\assets\FrontendProfileAsset;
 $this->title = 'My Frontend background - Eduardo Aparicio Cardenes';
-$this->registerMetaTag(['name' => 'description', 'content' => ''], 'description');
+$description = "My frontend background is currently growing with elements as "
+        . "AngularJS, SVG, Grunt, etc. Here you will see my skills from my five years as web developer";
+$imgUrl = Url::to(['images/frontend/frameworks-libraries-plugins.jpg'],true);
+
+$this->registerMetaTag(['name' => 'description', 'content' => $description], 'description');
+$this->registerMetaTag(['name' => 'og:type', 'content' => "website"], 'og:type');
+$this->registerMetaTag(['name' => 'og:url', 'content' => Url::current([],true)], 'og:url');
+$this->registerMetaTag(['name' => 'og:title', 'content' => "My Frontend background"], 'og:title');
+$this->registerMetaTag(['name' => 'og:site_name', 'content' => "Eduardo Aparicio Cardenes Website"], 'og:site_name');
+$this->registerMetaTag(['name' => 'og:image', 'content' => $imgUrl], 'og:image');
+$this->registerMetaTag(['name' => 'og:description', 'content' => $description], 'og:description');
 
 $softwareArchitect = Url::to(['pages/software-architect-profile']);
 $backendDeveloper  = Url::toRoute(['pages/backend-profile']);
