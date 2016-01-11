@@ -6,7 +6,16 @@
  * and open the template in the editor.
  */
 $this->title = 'My Projects - Eduardo Aparicio Cardenes';
-$this->registerMetaTag(['name' => 'description', 'content' => 'My projects here include hackathons, work and personal ideas'], 'description');
+$description = "Here you can find my projects here include hackathons, work and personal ideas. This page will be upgrade and change with the new comming projects";
+$imgUrl = Url::to(['images/introduction-image-1280.jpg'],true);
+
+$this->registerMetaTag(['name' => 'description', 'content' => $description], 'description');
+$this->registerMetaTag(['name' => 'og:type', 'content' => "website"], 'og:type');
+$this->registerMetaTag(['name' => 'og:url', 'content' => Url::current([],true)], 'og:url');
+$this->registerMetaTag(['name' => 'og:title', 'content' => "My Projects"], 'og:title');
+$this->registerMetaTag(['name' => 'og:site_name', 'content' => "Eduardo Aparicio Cardenes Website"], 'og:site_name');
+$this->registerMetaTag(['name' => 'og:image', 'content' => $imgUrl], 'og:image');
+$this->registerMetaTag(['name' => 'og:description', 'content' => $description], 'og:description');
 
 use app\assets\MyprojectspageAsset;
 MyprojectspageAsset::register($this);

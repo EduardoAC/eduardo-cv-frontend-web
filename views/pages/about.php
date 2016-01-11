@@ -1,10 +1,20 @@
 <?php
+use yii\helpers\Url;
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
 use app\assets\AboutAsset;
 
 /* @var $this yii\web\View */
 $this->title = 'About me - Eduardo Aparicio Cardenes';
+$description = "I'm Eduardo Aparicio Cardenes a Web Developer, Software architect and Entrepreneur. Co-founder of Inner Virtuoso and Founder of Dream Maker Factory, enter to know more";
+$imgUrl = Url::to(['images/about-eduardo-hacktheviual-1280.jpg'],true);
+
+$this->registerMetaTag(['name' => 'description', 'content' => $description], 'description');
+$this->registerMetaTag(['name' => 'og:type', 'content' => "website"], 'og:type');
+$this->registerMetaTag(['name' => 'og:url', 'content' => Url::current([],true)], 'og:url');
+$this->registerMetaTag(['name' => 'og:title', 'content' => "About me"], 'og:title');
+$this->registerMetaTag(['name' => 'og:site_name', 'content' => "Eduardo Aparicio Cardenes Website"], 'og:site_name');
+$this->registerMetaTag(['name' => 'og:image', 'content' => $imgUrl], 'og:image');
+$this->registerMetaTag(['name' => 'og:description', 'content' => $description], 'og:description');
 
 AboutAsset::register($this);
 ?>
