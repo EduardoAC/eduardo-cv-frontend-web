@@ -1,0 +1,42 @@
+.software-architect-profile{
+    p{
+        margin-bottom: 20px;
+        font-size: 18px;
+        text-align: justify;
+        text-indent: 40px;
+    }
+    h1{
+        text-align: center;
+        color: #337ab7;
+        margin: 30px 0;
+    }
+    hr{
+        border-top: 1px solid #ccc;
+    }
+    h2{
+        margin-top: 0px;
+        color: #337ab7;
+        text-align: center;
+    }
+    .introduction{
+        margin-bottom: 50px;
+    }
+    .conclusion{
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 75px 0;
+    }
+    @media (min-width: 768px){
+        h2{
+            text-align: left;
+        }
+    }    
+    @media (min-width: 1024px){
+        p{
+            font-size: 20px;
+        }
+    }
+}
+@import "../molecules/content-block.scss";
