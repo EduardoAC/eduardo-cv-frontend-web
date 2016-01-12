@@ -5,7 +5,7 @@ use app\assets\SoftwareArchitectProfileAsset;
 $this->title = 'My Software Architect background - Eduardo Aparicio Cardenes';
 $description = "I'm a informatic engineer that I specialized in software architectures "
         . "that I use in my daily basic to improve the quality of the software I deliver to my clients";
-$imgUrl = Url::to(['images/software-architect/software-architect-development-steps'],true);
+$imgUrl = Url::to(['images/software-architect.png'],true);
 
 $this->registerMetaTag(['name' => 'description', 'content' => $description], 'description');
 $this->registerMetaTag(['name' => 'og:type', 'content' => "website"], 'og:type');
