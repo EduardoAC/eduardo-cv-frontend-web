@@ -1,5 +1,5 @@
-.frontend-profile{
-    p{
+.backend-profile{
+    p,ul{
         margin-bottom: 20px;
         font-size: 18px;
         text-align: justify;
@@ -34,7 +34,7 @@
         }
     }    
     @media (min-width: 1024px){
-        p{
+        p,ul{
             font-size: 20px;
         }
     }
