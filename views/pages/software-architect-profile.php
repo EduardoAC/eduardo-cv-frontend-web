@@ -101,7 +101,7 @@ $strengths = [
             grateful for that, they gave my the chance to improve my software architect skills.
         </p>
     </section>
-    <section class='my-frontend-skills'>
+    <section class='my-software-engineer-skills'>
         <hr>
         <?php 
             $odd = true;
