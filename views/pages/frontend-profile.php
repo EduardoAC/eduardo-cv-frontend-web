@@ -5,7 +5,7 @@ use app\assets\FrontendProfileAsset;
 $this->title = 'My Frontend background - Eduardo Aparicio Cardenes';
 $description = "My frontend background is currently growing with elements as "
         . "AngularJS, SVG, Grunt, etc. Here you will see my skills from my five years as web developer";
-$imgUrl = Url::to(['images/frontend/frameworks-libraries-plugins.jpg'],true);
+$imgUrl = Url::to(['images/frontend-developer.png'],true);
 
 $this->registerMetaTag(['name' => 'description', 'content' => $description], 'description');
 $this->registerMetaTag(['name' => 'og:type', 'content' => "website"], 'og:type');
