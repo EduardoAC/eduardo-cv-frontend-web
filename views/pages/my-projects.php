@@ -26,7 +26,7 @@ MyprojectspageAsset::register($this);
            that I realise all the ideas and opportinities that exist 
            in the world to make it better and succesful business. 
            There I met one of the most amazing people I could imagine in a 
-           atmosphere of innovation and hard work, person as Pablo Trianfilo, 
+           atmosphere of innovation and hard work with people as Pablo Trianfilo, 
            Luis Gonzalez-Blanch, Jose Sanz Polo and many others. 
         </p>            
         <p>
