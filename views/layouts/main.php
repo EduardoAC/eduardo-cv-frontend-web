@@ -40,7 +40,7 @@ AppAsset::register($this);
                     ['label' => 'Home', 'url' => ['/pages/index']],
                     ['label' => 'About', 'url' => ['/pages/about']],
                     ['label' => 'My Projects', 'url' => ['/pages/my-projects']],
-                    ['label' => 'My Experience', 'url' => ['/jobs-timeline/index']],
+                    ['label' => 'My Experience', 'url' => ['/pages/my-experience']],
                     ['label' => 'Contact', 'url' => ['/pages/contact']],
                 ],
             ]);
@@ -72,7 +72,7 @@ AppAsset::register($this);
                     <li><?= Html::a('As frontend developer', ['pages/frontend-profile'], ['class' => 'profile-link']) ?></li>
                     <li><?= Html::a('As software architect', ['pages/software-architect-profile'], ['class' => 'profile-link']) ?></li>
                     <li><?= Html::a('As backend developer', ['pages/backend-profile'], ['class' => 'profile-link']) ?></li>
-                    <li><?= Html::a('My work experience', ['jobs-timeline/index'], ['class' => 'profile-link']) ?></li>
+                    <li><?= Html::a('My work experience', ['pages/my-experience'], ['class' => 'profile-link']) ?></li>
                     <li><?= Html::a('Projects, hackathons and ideas', ['pages/my-projects'], ['class' => 'profile-link']) ?></li>
                 </ul>
             </div>
