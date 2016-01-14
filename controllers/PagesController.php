@@ -49,6 +49,10 @@ class PagesController extends Controller
     {
         return $this->render('how-do-i-build-it');
     }
+    public function actionMyExperience()
+    {
+        return $this->render('my-experience');
+    }
 
     public function actionMyProjects()
     {
