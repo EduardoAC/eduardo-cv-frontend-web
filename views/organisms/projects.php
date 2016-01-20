@@ -14,7 +14,7 @@ $codeProjectsLink = Url::to(['pages/my-projects']);
     <div class="container">
         <h2>Some of my projects</h2>
         <div class="col-md-7 col-lg-8">
-            <p class="text">As part of this project that try to catch new employers and clients attention to open the door to my new contractor/freelance world.</p>
+            <p class="text">As part of this project that try to catch new employers and clients attention to open the door to new work opportunities.</p>
             <p class="text">I upload all <a href="<?=$codeProjectsLink?>">my projects here that include hackathons, work and personal ideas</a></p>
             <p class="text">Please self yourself to enter and take a look</p>
         </div>
