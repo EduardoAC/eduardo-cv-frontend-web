@@ -38,6 +38,7 @@ $config = [
                 'the-brainstorming-forum' => 'forum/index',
                 'my-career-timeline' => 'pages/my-experience',
                 'about-me' => 'pages/about',
+                'sitemap' => 'pages/sitemap',
                 'contact-or-hire-me' => 'pages/contact',
                 'projects/how-did-i-build-my-interactive-cv' => 'projects/my-interactive-cv',
             ],

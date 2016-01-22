@@ -8,7 +8,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$jobsTimelineLink = Url::to(['jobs-timeline/index']);
+$jobsTimelineLink = Url::to(['/pages/my-experience']);
 ?>
 <section class="container-fluid clearfix jobs-timeline">
     <div class="container">

@@ -30,6 +30,15 @@ class PagesController extends Controller
     {
         return $this->render('index');
     }
+    
+    public function actionSitemap()
+    {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+        $headers = Yii::$app->response->headers;
+        $headers->add('Content-Type', 'application/xml');
+        $this->layout = false;
+        return $this->render('sitemap.xml');
+    }
 
     public function actionFrontendProfile()
     {
