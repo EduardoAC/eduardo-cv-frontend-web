@@ -1,0 +1,30 @@
+{
+  "name": "eduardo-cv-frontend-web",
+  "version": "2.0.0",
+  "description": "Personal Presentation website\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[W\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduardoAC/eduardo-cv-frontend-web.git"
+  },
+  "keywords": [
+    "Javascript",
+    "React",
+    "Rebuild",
+    "Webpack",
+    "Redux",
+    "Blueprint"
+  ],
+  "author": "Eduardo Aparicio Cardenes",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/EduardoAC/eduardo-cv-frontend-web/issues"
+  },
+  "homepage": "https://github.com/EduardoAC/eduardo-cv-frontend-web#readme"
+}
