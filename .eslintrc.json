@@ -5,5 +5,14 @@
         "es6": true,
         "node": true
     },
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "overrides": [
+        {
+            "files": [
+                "src/*.js",
+                "src/*.jsx"
+            ],
+            "excludedFiles": "*.test.js"
+        }
+    ]
 }
