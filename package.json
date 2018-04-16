@@ -11,7 +11,11 @@
     "start": "webpack-dev-server --mode development --config ./build-utils/webpack.config.js --open",
     "dev": "webpack --mode development --config ./build-utils/webpack.config.js",
     "build": "webpack --mode production --config ./build-utils/webpack.config.js",
-    "linter": "eslint src/*"
+    "linter": "eslint src/*",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,css,md}": ["prettier --write", "git add"]
   },
   "repository": {
     "type": "git",
