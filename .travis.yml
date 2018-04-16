@@ -3,10 +3,9 @@ sudo: required
 language: node_js
 addons:
   sonarcloud:
-    projectKey: "eduardo-website"
     organization: "eduardoac-github"
     token:
-      secure: SONAR_TOKEN
+      secure: $SONAR_TOKEN
 jdk:
   - oraclejdk8
 node_js:
