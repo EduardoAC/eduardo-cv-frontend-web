@@ -14,5 +14,8 @@
             ],
             "excludedFiles": "*.test.js"
         }
-    ]
+    ],
+    "rules": {
+      "import/no-extraneous-dependencies": 0
+    }
 }

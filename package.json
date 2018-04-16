@@ -19,6 +19,7 @@
   "lint-staged": {
     "*.{js,jsx,json,css,md}": ["prettier --write", "git add"]
   },
+  "setupFiles": ["<rootDir>/test-utils/shim.js", "<rootDir>/test-utils/enzyme-setup.js"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EduardoAC/eduardo-cv-frontend-web.git"
