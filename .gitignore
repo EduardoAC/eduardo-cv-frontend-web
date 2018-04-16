@@ -27,6 +27,7 @@ phpunit.phar
 /phpunit.xml
 
 # Java Script Ignore
+.scannerwork/
 dist
 node_modules
 package-lock.json

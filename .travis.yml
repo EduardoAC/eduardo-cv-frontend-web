@@ -1,8 +1,19 @@
+dist: trusty
+sudo: required
 language: node_js
+addons:
+  sonarcloud:
+    organization: "eduardoac-github"
+    token:
+      secure: "d7a1a7ed09518f778760b7d40b89f080978124bb"
+jdk:
+  - oraclejdk8
 node_js:
   - 8
 cache:
   directories:
     - node_modules
+    - '$HOME/.sonar/cache'
 script:
   - npm test
+  - sonar-scanner
