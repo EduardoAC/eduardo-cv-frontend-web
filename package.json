@@ -1,41 +1,30 @@
 {
   "name": "eduardo-cv-frontend-web",
   "version": "2.0.0",
-  "description": "Personal Presentation website\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[W\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
+  "description":
+    "Personal Presentation website\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[W\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "jest",
-    "start": "webpack-dev-server --mode development --config ./build-utils/webpack.config.js --open",
+    "test": "jest -v",
+    "start":
+      "webpack-dev-server --mode development --config ./build-utils/webpack.config.js --open",
     "dev": "webpack --mode development --config ./build-utils/webpack.config.js",
     "build": "webpack --mode production --config ./build-utils/webpack.config.js",
     "linter": "eslint src/*",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,jsx,json,css,md}": ["prettier --write", "git add"]
   },
-  "setupFiles": [
-    "<rootDir>/test-utils/shim.js",
-    "<rootDir>/test-utils/enzyme-setup.js"
-  ],
+  "setupFiles": ["<rootDir>/test-utils/shim.js", "<rootDir>/test-utils/enzyme-setup.js"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EduardoAC/eduardo-cv-frontend-web.git"
   },
-  "keywords": [
-    "Javascript",
-    "React",
-    "Rebuild",
-    "Webpack",
-    "Redux",
-    "Blueprint"
-  ],
+  "keywords": ["Javascript", "React", "Rebuild", "Webpack", "Redux", "Blueprint"],
   "author": "Eduardo Aparicio Cardenes",
   "license": "Apache-2.0",
   "bugs": {
