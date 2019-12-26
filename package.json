@@ -8,22 +8,34 @@
   },
   "scripts": {
     "test": "jest -v",
-    "start":
-      "webpack-dev-server --mode development --config ./build-utils/webpack.config.js --open",
+    "start": "webpack-dev-server --mode development --config ./build-utils/webpack.config.js --open",
     "dev": "webpack --mode development --config ./build-utils/webpack.config.js",
     "build": "webpack --mode production --config ./build-utils/webpack.config.js",
     "linter": "eslint src/*",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,json,css,md}": ["prettier --write", "git add"]
+    "*.{js,jsx,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
-  "setupFiles": ["<rootDir>/test-utils/shim.js", "<rootDir>/test-utils/enzyme-setup.js"],
+  "setupFiles": [
+    "<rootDir>/test-utils/shim.js",
+    "<rootDir>/test-utils/enzyme-setup.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EduardoAC/eduardo-cv-frontend-web.git"
   },
-  "keywords": ["Javascript", "React", "Rebuild", "Webpack", "Redux", "Blueprint"],
+  "keywords": [
+    "Javascript",
+    "React",
+    "Rebuild",
+    "Webpack",
+    "Redux",
+    "Blueprint"
+  ],
   "author": "Eduardo Aparicio Cardenes",
   "license": "Apache-2.0",
   "bugs": {
@@ -31,32 +43,32 @@
   },
   "homepage": "https://github.com/EduardoAC/eduardo-cv-frontend-web#readme",
   "dependencies": {
-    "@blueprintjs/core": "^2.1.1",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "@blueprintjs/core": "3.22.3",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-redux": "7.1.3",
+    "redux": "4.0.5",
+    "redux-thunk": "2.3.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-airbnb": "^2.4.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-loader": "^2.0.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "jest": "^22.4.3",
-    "redux-devtools": "^3.4.1",
-    "redux-devtools-extension": "^2.13.2",
-    "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.14",
-    "webpack-dev-server": "^3.1.3"
+    "babel-core": "6.26.3",
+    "babel-loader": "8.0.6",
+    "babel-preset-airbnb": "4.4.0",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.2",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-loader": "3.0.3",
+    "eslint-plugin-import": "2.19.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.17.0",
+    "html-loader": "0.5.5",
+    "html-webpack-plugin": "3.2.0",
+    "jest": "24.9.0",
+    "redux-devtools": "3.5.0",
+    "redux-devtools-extension": "2.13.8",
+    "webpack": "4.41.4",
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "3.10.1"
   }
 }
