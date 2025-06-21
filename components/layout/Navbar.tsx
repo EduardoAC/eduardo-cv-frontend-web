@@ -56,25 +56,23 @@ export const Navbar = ({
               {pageTitle}
             </span>
             {/* Desktop nav links on the right */}
-            <div className="hidden-xs hidden-sm ms-auto" style={{ marginLeft: 'auto' }}>
-              <ul className="nav navbar-nav navbar-right">
-                {navItems.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} onClick={closeMenu}>
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="nav navbar-nav navbar-right d-none d-md-flex flex-row ms-auto" style={{ marginLeft: 'auto' }}>
+              {navItems.map((item) => (
+                <li key={item.href} className="nav-item" style={{ display: 'inline-block' }}>
+                  <Link href={item.href} onClick={closeMenu} className="nav-link" style={{ color: '#fff', padding: '10px 15px' }}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
           {/* Mobile dropdown menu */}
           {isMenuOpen && (
-            <div className="visible-xs visible-sm" style={{ background: '#222', padding: '10px 0' }}>
-              <ul className="nav navbar-nav" style={{ display: 'block' }}>
+            <div className="d-block d-md-none" style={{ background: '#222', padding: '10px 0' }}>
+              <ul className="nav navbar-nav flex-column" style={{ display: 'block' }}>
                 {navItems.map((item) => (
-                  <li key={item.href} style={{ display: 'block' }}>
-                    <Link href={item.href} onClick={closeMenu} style={{ color: '#fff', padding: '10px 20px', display: 'block' }}>
+                  <li key={item.href} className="nav-item" style={{ display: 'block' }}>
+                    <Link href={item.href} onClick={closeMenu} className="nav-link" style={{ color: '#fff', padding: '10px 20px', display: 'block' }}>
                       {item.label}
                     </Link>
                   </li>
