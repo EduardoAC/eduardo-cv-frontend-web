@@ -11,26 +11,28 @@ export default function Profiles() {
         A whole life of passion for software developments (creations, projects, dreams, hobbies, hackathons, ...), It was hard to summarize in a four pages CV as usual is required.
       </p>
       <p className="text">I decided to group it in these three main categories</p>
-      <div className="frontend-developer col-sm-4">
-        <ProfileBlock
-          title="frontend developer"
-          imgUrl="/images/frontend-developer.png"
-          link="/frontend-profile"
-        />
-      </div>
-      <div className="software-architect col-sm-4">
-        <ProfileBlock
-          title="software architect"
-          imgUrl="/images/software-architect.png"
-          link="/software-architect-profile"
-        />
-      </div>
-      <div className="backend-developer col-sm-4">
-        <ProfileBlock
-          title="backend developer"
-          imgUrl="/images/backend-developer.png"
-          link="/backend-profile"
-        />
+      <div className="row">
+        <div className="frontend-developer col-sm-4">
+          <ProfileBlock
+            title="frontend developer"
+            imgUrl="/images/frontend-developer.png"
+            link="/frontend-profile"
+          />
+        </div>
+        <div className="software-architect col-sm-4">
+          <ProfileBlock
+            title="software architect"
+            imgUrl="/images/software-architect.png"
+            link="/software-architect-profile"
+          />
+        </div>
+        <div className="backend-developer col-sm-4">
+          <ProfileBlock
+            title="backend developer"
+            imgUrl="/images/backend-developer.png"
+            link="/backend-profile"
+          />
+        </div>
       </div>
     </section>
   )
