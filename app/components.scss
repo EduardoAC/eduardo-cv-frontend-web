@@ -102,7 +102,8 @@
 /* Profiles styles */
 .profiles {
   padding: 60px 0;
-  background-color: #f9f9f9;
+  background-color: #f9f9f9 !important;
+  background: #f9f9f9 !important;
 
   h2 {
     color: #333;
@@ -130,17 +131,25 @@
 /* Projects styles */
 .projects {
   padding: 60px 0;
-  background-color: #f8f8f8;
+  background:
+    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424) !important;
+  background-color: #131313 !important;
+  background-size: 20px 20px !important;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 
   h2 {
-    color: #333;
+    color: white;
     margin-bottom: 40px;
   }
 
   .text {
-    color: #666;
+    color: white;
     line-height: 1.6;
   }
 
@@ -159,10 +168,46 @@
   }
 }
 
+/* Color Legend Projects styles */
+.color-legend-projects {
+  clear: both;
+  padding-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  
+  p {
+    font-size: 20px;
+    text-indent: initial;
+    text-align: center;
+    color: #ccc;
+  }
+ 
+  > ul {
+    padding-left: 0;
+  }
+  
+  li {
+    text-align: center;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    list-style: none;
+  }
+  
+  @media (min-width: 1024px) {
+    li {
+      width: 30%;
+      float: left;
+      margin: 0 10px;
+    }
+  }
+}
+
 /* Content blogs styles */
 .content-blogs {
   padding: 60px 0;
-  background-color: #f9f9f9;
+  background-color: #f9f9f9 !important;
+  background: #f9f9f9 !important;
 
   h2 {
     color: #333;
@@ -192,15 +237,23 @@
 /* Jobs timeline styles */
 .jobs-timeline {
   padding: 60px 0;
-  background-color: #eee;
+  background:
+    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424) !important;
+  background-color: #131313 !important;
+  background-size: 20px 20px !important;
 
   h2 {
-    color: #333;
+    color: white;
     margin-bottom: 40px;
   }
 
   .text {
-    color: #666;
+    color: white;
     line-height: 1.6;
   }
 
@@ -222,7 +275,8 @@
 /* Greetings styles */
 .greetings-contact {
   padding: 60px 0;
-  background-color: #f9f9f9;
+  background-color: #f9f9f9 !important;
+  background: #f9f9f9 !important;
   border-top: 1px solid #ddd;
 
   h2 {
