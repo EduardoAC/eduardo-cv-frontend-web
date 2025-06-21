@@ -1,5 +1,6 @@
 /* Introduction styles */
 .introduction {
+  @extend .gradient-pattern;
   position: relative;
   background-color: black;
 
@@ -102,16 +103,14 @@
 /* Profiles styles */
 .profiles {
   padding: 60px 0;
-  background-color: #f9f9f9 !important;
-  background: #f9f9f9 !important;
 
   h2 {
-    color: #333;
+    color: white;
     margin-bottom: 40px;
   }
 
   .text {
-    color: #666;
+    color: white;
     line-height: 1.6;
   }
 
@@ -128,9 +127,8 @@
   }
 }
 
-/* Projects styles */
-.projects {
-  padding: 60px 0;
+/* Reusable gradient pattern class */
+.gradient-pattern {
   background:
     linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
     linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
@@ -140,6 +138,12 @@
     linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424) !important;
   background-color: #131313 !important;
   background-size: 20px 20px !important;
+}
+
+/* Projects styles */
+.projects {
+  @extend .gradient-pattern;
+  padding: 60px 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 
@@ -205,17 +209,16 @@
 
 /* Content blogs styles */
 .content-blogs {
+  @extend .gradient-pattern;
   padding: 60px 0;
-  background-color: #f9f9f9 !important;
-  background: #f9f9f9 !important;
 
   h2 {
-    color: #333;
+    color: white;
     margin-bottom: 40px;
   }
 
   .text {
-    color: #666;
+    color: white;
     line-height: 1.6;
   }
 
@@ -236,16 +239,8 @@
 
 /* Jobs timeline styles */
 .jobs-timeline {
+  @extend .gradient-pattern;
   padding: 60px 0;
-  background:
-    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424) !important;
-  background-color: #131313 !important;
-  background-size: 20px 20px !important;
 
   h2 {
     color: white;
@@ -274,18 +269,17 @@
 
 /* Greetings styles */
 .greetings-contact {
+  @extend .gradient-pattern;
   padding: 60px 0;
-  background-color: #f9f9f9 !important;
-  background: #f9f9f9 !important;
   border-top: 1px solid #ddd;
 
   h2 {
-    color: #333;
+    color: white;
     margin-bottom: 40px;
   }
 
   .text {
-    color: #666;
+    color: white;
     line-height: 1.6;
   }
 
@@ -311,7 +305,7 @@
       display: inline-block;
       margin: 0 10px;
       font-size: 24px;
-      color: #666;
+      color: #ccc;
       transition: color 0.3s ease;
 
       &:hover {
