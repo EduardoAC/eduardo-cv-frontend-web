@@ -1,0 +1,109 @@
+import Link from 'next/link'
+
+interface FooterLink {
+  href: string
+  label: string
+  external?: boolean
+}
+
+interface FooterSection {
+  title: string
+  links: FooterLink[]
+}
+
+interface FooterProps {
+  sections?: FooterSection[]
+  copyrightText?: string
+}
+
+const defaultSections: FooterSection[] = [
+  {
+    title: 'Navigation',
+    links: [
+      { href: '/blog', label: 'Business And Technology blog' },
+      { href: '/forum', label: 'The brainstorming forum' },
+      { href: '/about', label: 'About me' },
+      { href: '/contact', label: 'Contact' },
+    ]
+  },
+  {
+    title: 'My background',
+    links: [
+      { href: '/frontend-profile', label: 'As frontend developer' },
+      { href: '/software-architect-profile', label: 'As software architect' },
+      { href: '/backend-profile', label: 'As backend developer' },
+      { href: '/my-experience', label: 'My work experience' },
+      { href: '/my-projects', label: 'Projects, hackathons and ideas' },
+    ]
+  },
+  {
+    title: 'Useful links',
+    links: [
+      { 
+        href: 'https://github.com/EduardoAC', 
+        label: 'Check me out on GitHub',
+        external: true 
+      },
+      { 
+        href: 'http://www.tuocio.org', 
+        label: 'TuOcio - Tools for event organizer',
+        external: true 
+      },
+      { 
+        href: 'http://www.dreammakerfactory.com', 
+        label: 'Dream Maker Factory',
+        external: true 
+      },
+    ]
+  }
+]
+
+export const Footer = ({ 
+  sections = defaultSections, 
+  copyrightText = 'Eduardo Aparicio Cardenes - Proyectonline'
+}: FooterProps) => {
+  const currentYear = new Date().getFullYear()
+
+  return (
+    <footer className="footer">
+      <div className="container">
+        {sections.map((section, index) => (
+          <div 
+            key={section.title}
+            className={`${index === 2 ? 'hidden-sm ' : ''}col-sm-6 col-md-4`}
+          >
+            <h3>{section.title}</h3>
+            <ul>
+              {section.links.map((link) => (
+                <li key={link.href}>
+                  {link.external ? (
+                    <a 
+                      href={link.href} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="profile-link"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link href={link.href} className="profile-link">
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <hr />
+      <div className="container footer-label">
+        <p className="center-block">
+          &copy; {copyrightText} {currentYear}
+        </p>
+      </div>
+    </footer>
+  )
+}
+
+export type { FooterLink, FooterSection, FooterProps } 
