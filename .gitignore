@@ -3,6 +3,8 @@
 
 # netbeans project files
 nbproject
+node_modules
+.next
 
 # zend studio for eclipse project files
 .buildpath

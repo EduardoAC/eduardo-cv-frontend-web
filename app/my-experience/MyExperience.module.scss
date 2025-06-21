@@ -1,0 +1,150 @@
+.my_experience {
+  p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: justify;
+    text-indent: 40px;
+    color: #ccc;
+  }
+  h1 {
+    text-align: center;
+    color: #337ab7;
+    margin: 30px 0;
+  }
+  hr {
+    border-top: 1px solid #ccc;
+  }
+  h2 {
+    margin-top: 0px;
+    color: #337ab7;
+    text-align: center;
+  }
+  .introduction {
+    margin-bottom: 50px;
+  }
+  .conclusion {
+    margin-bottom: 100px;
+  }
+  @media (min-width: 768px) {
+    h2 {
+      text-align: left;
+    }
+  }
+  @media (min-width: 1024px) {
+    p {
+      font-size: 20px;
+    }
+  }
+
+  .my_experience_timeline {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.experience_block {
+  font-family: 'Open Sans', sans-serif;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dadada;
+
+  h4 {
+    color: #5b4c5c;
+    padding-bottom: 1px;
+    font-weight: 700;
+    font-size: 24px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+  }
+  h5 {
+    color: #5b4c5c;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0 0 15px;
+    padding-bottom: 11px;
+  }
+
+  .work_year {
+    font-size: 17px;
+    color: #fff;
+    line-height: 40px;
+  }
+
+  .work_year span {
+    display: block;
+    font-size: 18px;
+    padding: 0 21px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  .prev_y {
+    background-color: #047ca0;
+  }
+
+  .after_y {
+    background-color: #483c49;
+  }
+
+  .ex_con p {
+    color: #897f8a;
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 15px;
+    margin: 0px;
+  }
+
+  @media (min-width: 768px) {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    border-bottom: 0;
+
+    h5,
+    h4 {
+      margin-left: 0px;
+    }
+    p {
+      font-size: 18px;
+    }
+    .right_area {
+      border-left: dashed 1px #897f8a;
+      padding-bottom: 47px;
+    }
+    :last-child .right_area {
+      padding-bottom: 0px;
+    }
+    :last-child .right_area .ex_con p:last-child {
+      padding-bottom: 0;
+    }
+
+    .work_year span {
+      float: right;
+      margin-bottom: 2px;
+    }
+
+    .arrowpart {
+      margin-left: -26px;
+      margin-top: 32px;
+      float: left;
+      width: 22px;
+      height: 22px;
+      background: url(/images/arrow-left.png) no-repeat 0 0 #f8f7f8;
+    }
+    .ex_con {
+      width: auto;
+      padding: 0 47px 6px 70px;
+      margin-left: 15px;
+      text-align: left;
+    }
+
+    .ex_con h4 {
+      margin-top: -8px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .work_year span {
+      margin-right: 28px;
+    }
+  }
+} 

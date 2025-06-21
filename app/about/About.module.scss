@@ -1,0 +1,126 @@
+.about_me {
+  margin-bottom: 30px;
+  @media screen and (max-width: 768px) {
+    .gradient_effect {
+      position: relative;
+      display: block;
+    }
+    .gradient_effect::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      right: 0;
+      height: 30%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ccc) repeat
+        left top;
+    }
+  }
+  img {
+    margin: 0 auto;
+  }
+  p {
+    margin-bottom: 20px;
+    font-size: 17px;
+    text-align: justify;
+    color: #ccc;
+  }
+  .final_thought {
+    font-size: 28px;
+    margin: 20px 0;
+    text-align: center;
+  }
+  .heading_block {
+    padding: 15px;
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      color: #337ab7;
+    }
+  }
+  .university {
+    img {
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }
+    .university_expedient {
+      margin: 15px auto;
+      .item {
+        padding: 0;
+        p {
+          text-align: center;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 768px) {
+    h1 {
+      font-size: 36px;
+    }
+    .university {
+      img {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .university_picture > img {
+        float: left;
+        padding-right: 15px;
+      }
+      .university_expedient {
+        clear: both;
+        margin-top: 50px;
+      }
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    .site_about {
+      width: auto;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .introduction {
+      position: relative;
+    }
+    .heading_block {
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      bottom: 60px;
+      width: 50%;
+      padding: 30px;
+      background-color: rgba(200, 200, 200, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      p, h1 {
+          color: #333;
+      }
+    }
+    .university .university_picture > img {
+      max-width: 235px;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    .introduction {
+      width: 1280px;
+      margin: 0 auto;
+    }
+    .university {
+      .university_picture > img {
+        max-width: none;
+      }
+      .university_expedient {
+        float: right;
+        clear: none;
+        margin-top: 0;
+        .item {
+          width: 250px;
+          margin: 0 50px;
+          > img {
+            width: 140px;
+          }
+        }
+      }
+    }
+  }
+} 

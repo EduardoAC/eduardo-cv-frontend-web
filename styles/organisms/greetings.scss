@@ -1,0 +1,63 @@
+.greetings-contact {
+  padding: 50px 15px;
+  background-color: #f9f9f9;
+
+  h2 {
+    color: #333;
+    margin-bottom: 40px;
+  }
+
+  .text {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    margin: 0 auto;
+    padding-bottom: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .social-icons {
+    margin-top: 30px;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 24px;
+      color: #666;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 100px 15px;
+  }
+  
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    img {
+      margin-top: 10px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    p.text:first-child {
+      margin-top: 25px;
+    }
+  }
+} 

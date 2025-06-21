@@ -1,0 +1,46 @@
+.my_projects {
+  p {
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-align: justify;
+    text-indent: 40px;
+    color: #ccc;
+  }
+  h1 {
+    text-align: center;
+    color: #337ab7;
+    margin: 30px auto;
+  }
+  .collection_projects {
+  }
+  @media (min-width: 992px) {
+    .collection_projects {
+      width: 970px;
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+      -webkit-columns: 3;
+      -moz-columns: 3;
+      columns: 3;
+      -webkit-column-gap: 10px;
+      -moz-column-gap: 10px;
+      column-gap: 10px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .collection_projects {
+      width: 1170px;
+    }
+  }
+
+  .introduction, .conclusion {
+      p {
+          color: #ccc;
+      }
+      a {
+          color: #337ab7;
+      }
+  }
+} 

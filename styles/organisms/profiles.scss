@@ -1,0 +1,35 @@
+.profiles {
+  padding: 50px 15px;
+  
+  @media (min-width: 1024px) {
+    padding: 100px 15px 50px 15px;
+    p.text {
+      text-align: center;
+    }
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 40px;
+  }
+
+  .text {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .frontend-developer,
+  .software-architect,
+  .backend-developer {
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 768px) {
+    .col-sm-4 {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+// Import profile block styles
+@import '../molecules/profile-block'; 

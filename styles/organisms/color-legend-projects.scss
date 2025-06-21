@@ -1,0 +1,32 @@
+.color-legend-projects {
+  clear: both;
+  padding-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  
+  p {
+    font-size: 20px;
+    text-indent: initial;
+    text-align: center;
+  }
+ 
+  > ul {
+    padding-left: 0;
+  }
+  
+  li {
+    text-align: center;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    list-style: none;
+  }
+  
+  @media (min-width: 1024px) {
+    li {
+      width: 30%;
+      float: left;
+      margin: 0 10px;
+    }
+  }
+} 
