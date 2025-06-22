@@ -1,8 +1,9 @@
 import Image from 'next/image'
+import styles from './Introduction.module.scss'
 
 export default function Introduction() {
   return (
-    <section className="introduction">
+    <section className={styles.introduction}>
       <Image
         src="/images/introduction-image-1280.jpg"
         alt="Eduardo Aparicio Cardenes Introduction"
@@ -11,12 +12,12 @@ export default function Introduction() {
         className="img-responsive"
         priority
       />
-      <div className="title-block">
+      <div className={styles['title-block']}>
         <h1>
           <p>Welcome to my interactive curriculum</p>
           <p>My name is Eduardo Aparicio Cardenes</p>
         </h1>
-        <p className="hidden-xs">One place that define my worker soul and share with you</p>
+        <p className={`hidden-xs ${styles.subtitle}`}>One place that define my worker soul and share with you</p>
       </div>
     </section>
   )

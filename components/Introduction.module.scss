@@ -1,14 +1,15 @@
+@import '../styles/utilities/mixins';
+
 .introduction {
+  @include gradient-pattern;
   position: relative;
+  @include flex-center;
   background-color: black;
 
-  p {
+  .title-block {
     text-align: center;
     font-size: 30px;
     color: white;
-  }
-
-  .title-block {
     background: rgba(0, 0, 0, 0.2);
     position: absolute;
     overflow: hidden;
@@ -22,27 +23,24 @@
     margin: auto;
   }
 
+  .subtitle {
+    font-size: 34px;
+  }
+
   @media (min-width: 480px) {
     .title-block {
+      @include flex-center;
       width: 90%;
       height: 60%;
     }
   }
 
   @media (min-width: 768px) {
-    p {
-      font-size: 36px;
-    }
     .title-block {
+      font-size: 48px;
       padding: 10px 0;
       width: 90%;
       height: 45%;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    p {
-      font-size: 42px;
     }
   }
 

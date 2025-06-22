@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import styles from './ContentBlogs.module.scss'
 
 export default function ContentBlogs() {
   return (
-    <section className="container clearfix content-blogs">
+    <section className={`container clearfix ${styles['content-blogs']}`}>
       <h2>Business and Technology Addiction</h2>
       <div className="col-md-5">
         <Image

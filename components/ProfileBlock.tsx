@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import styles from './ProfileBlock.module.scss'
 
 interface ProfileBlockProps {
   title: string
@@ -9,7 +10,7 @@ interface ProfileBlockProps {
 
 export default function ProfileBlock({ title, imgUrl, link }: ProfileBlockProps) {
   return (
-    <div className="profile-block">
+    <div className={styles['profile-block']}>
       <Link href={link}>
         <Image
           src={imgUrl}

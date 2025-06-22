@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import styles from './Greetings.module.scss'
 
 export default function Greetings() {
   return (
-    <section className="container clearfix greetings-contact">
+    <section className={`container clearfix ${styles['greetings-contact']}`}>
       <h2>Thanks for reading my interactive curriculum</h2>
       <div className="col-md-5">
         <Image

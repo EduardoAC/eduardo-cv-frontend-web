@@ -1,8 +1,9 @@
 import ProfileBlock from './ProfileBlock'
+import styles from './Profiles.module.scss'
 
 export default function Profiles() {
   return (
-    <section className="container clearfix profiles">
+    <section className={`container clearfix ${styles.profiles}`}>
       <h2>My Background</h2>
       <p className="text">
         Since I started with my engineer in computer science. I'm always been curious about many subjects in specific all of things related as Artificial Intelligence until I discovered the web technologies that allow you to become real any ideas or business.
