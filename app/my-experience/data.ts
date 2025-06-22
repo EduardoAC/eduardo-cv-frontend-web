@@ -4,6 +4,7 @@ interface Experience {
   company: string;
   position: string;
   description: string;
+  logo?: string;
 }
 
 export const experienceList: Experience[] = [
@@ -12,6 +13,7 @@ export const experienceList: Experience[] = [
         'endDate':     'October, 2015',
         'company':     'Time Inc UK',
         'position':    'Web developer. ',
+        'logo':        '/images/defaultImage.png',
         'description': "<p>During my time in Time Inc UK (Previously Time & Warner). "
         + "I will be able to participate in project as housetohome.co.uk and theroomedit.com. </p>"
         + "<p>As web developer role I had the opportunity to focus more in "
@@ -32,6 +34,7 @@ export const experienceList: Experience[] = [
         'endDate':     'April ,2014',
         'company':     'GlobalIncubator',
         'position':    'Web developer',
+        'logo':        '/images/defaultImage.png',
         'description': '<p>I was responsible to develop new technologies to '
         + 'give support to our virtual incubation as well to provide a platform '
         + 'that allows them to collect data for business intelligence called Q-apps.</p>'
@@ -54,6 +57,7 @@ export const experienceList: Experience[] = [
         'endDate':     'July ,2012',
         'company':     'Rey Juan Carlos University',
         'position':    'Master in Computer graphics, games and virtual reality',
+        'logo':        '/images/defaultImage.png',
         'description':
          '<p>The overall objective of University / Master in Computer Graphics, '
         + 'Games and Virtual Reality is currently providing training and quality '
@@ -65,6 +69,7 @@ export const experienceList: Experience[] = [
         'endDate':     'December ,2011',
         'company':     'Canarias 7 Digital',
         'position':    'Junior Web developer',
+        'logo':        '/images/defaultImage.png',
         'description': '<p>Contract to develop '
         + '<a href="http://monicavieira.com/" rel="nofollow" target="_blank">Monica Vieira</a>. '
         + 'my second contract for Canarias 7 digital to develop a new website. '
@@ -79,6 +84,7 @@ export const experienceList: Experience[] = [
         'endDate':     'September,2011',
         'company':     'Canarias 7 Digital',
         'position':    'Junior Web developer',
+        'logo':        '/images/defaultImage.png',
         'description': '<p>Contract to develop '
         + '<a href="http://www.gestaltcanarias.es/" rel="nofollow" target="_blank">Gelstalt Canarias Website</a>. '
         + 'I started my professional career as a web developer '
@@ -96,6 +102,7 @@ export const experienceList: Experience[] = [
         'position':    '<a href="http://berlioz.dis.ulpgc.es/roc-siani/publicaciones-principal/pdfs/memoria-pfc-eduardo-aparicio-cardenes-jul-2011.pdf" rel="nofollow" target="_blank">'
         + 'Odometry error reduction in a mobile robot using scan '
         + 'matching algorithms based in laser sensor range</a>',
+        'logo':        '/images/defaultImage.png',
         'description': '<p>The MbICP is a variant of the ICP algorithm (Iterative '
         + 'Closest Point). This method has aim to correct the error caused by '
         + 'external odometry errors are not reflected Robot in codifcadores '
@@ -109,6 +116,7 @@ export const experienceList: Experience[] = [
         'endDate':     'May ,2009',
         'company':     'Mirada PLC',
         'position':    'Junior Software developer',
+        'logo':        '/images/defaultImage.png',
         'description': '<p>I started my professional career in my last year '
         + 'of university as a Junior Developer in C++ under Eclipse IDE. </p>'
         + '<p>My role were developing next graphic interface for the new platform '
@@ -124,6 +132,7 @@ export const experienceList: Experience[] = [
         'endDate':     'July, 2008',
         'company':     'University of Las Palmas de Gran Canaria',
         'position':    'Software Engineer',
+        'logo':        '/images/defaultImage.png',
         'description': '<p>I developed as a Software Engineer with knowledge in '
         + 'artificial intelligence, robotics, programming and a long list of '
         + 'skills to be ready to become a Software architect. From the beginning,'
