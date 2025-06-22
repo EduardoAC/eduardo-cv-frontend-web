@@ -66,7 +66,7 @@ export const experienceList: Experience[] = [
     },
     {
         'startDate':   'September, 2011',
-        'endDate':     'December ,2011',
+        'endDate':     'December, 2011',
         'company':     'Canarias 7 Digital',
         'position':    'Junior Web developer',
         'logo':        '/images/companies/canarias-7-digital.png',
@@ -81,7 +81,7 @@ export const experienceList: Experience[] = [
     },
     {
         'startDate':   'May, 2011',
-        'endDate':     'September,2011',
+        'endDate':     'September, 2011',
         'company':     'Canarias 7 Digital',
         'position':    'Junior Web developer',
         'logo':        '/images/companies/canarias-7-digital.png',
