@@ -67,13 +67,22 @@ export default function AboutPageClient() {
           CPC to My current Intel Core i5, (I used most of the IBM and INTEL as
           186, 286, 486, Pentium I, II, III, IV, etc.)
         </p>
-        <Image
-          src="/images/my-life-timeline.png"
-          alt="My life timeline"
-          width={1170}
-          height={400}
-          className="snap-img-fluid white-bg"
-        />
+        <div className="text-center">
+          <h2>My life timeline</h2>
+          <div className="center-block" style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <Image
+              src="/images/my-life-timeline.png"
+              alt="My Life Timeline"
+              width={800}
+              height={600}
+              className="snap-img-fluid snap-img-thumbnail"
+            />
+            <p className={styles.final_thought}>
+              I believe that a timeline is a good way to represent the
+              progression of my life and career.
+            </p>
+          </div>
+        </div>
         <p>
           Since then, I was the first of my school colleges to have the latest
           version of computer at home.{' '}
@@ -100,114 +109,118 @@ export default function AboutPageClient() {
           .
         </p>
         <div className={styles.university}>
-          <div className={styles.university_picture}>
-            <Image
-              src="/images/eduardo-aparicio-cardenes-graduation.jpg"
-              alt="Graduation"
-              width={300}
-              height={200}
-              className="snap-img-fluid"
-            />
-          </div>
-          <p>
-            I always remember{' '}
-            <strong>
-              my time in the ULPGC and Rey Juan carlos Universities as the best
-              time to exploit and develop my creativity
-            </strong>
-            , improving my skills, studying every day, doing my homework and
-            spend a lot of hours coding and solving the task from my lectures.
-          </p>
-          <p>
-            Many times, I remember how my teachers struggle with me often doing
-            more complex solutions that it was required for the exercise that I
-            needed to solve it because I want to discover and research.
-          </p>
-          <p>
-            I have been different thinking all my life,{' '}
-            <strong>sometimes wrong and other right</strong> but I did a lot of
-            interesting things that open my mind that made me the man who i am
-            now. I feel proud of my marks where my only a few low marks was in
-            my expedient as you can see about.
-          </p>
-          <div className={`snap-grid ${styles.university_expedient}`} id="university-expedient">
-            <div className="item snap-col snap-col-sm-6">
+          <div className="snap-grid">
+            <div className="snap-col snap-col-md-5">
               <Image
-                src="/images/certificacion-academica-eduardo-aparicio-cardenes-pag_1.jpg"
-                alt="Marks page 1"
-                width={500}
-                height={700}
-                className="snap-img-fluid"
+                src="/images/eduardo-aparicio-cardenes-graduation.jpg"
+                alt="Graduation"
+                width={300}
+                height={200}
+                className="snap-img-fluid snap-img-thumbnail snap-visible-xs snap-visible-lg"
               />
-              <p>Eduardo Aparicio Cardenes Marks Page 1</p>
             </div>
-            <div className="item snap-col snap-col-sm-6">
+            <div className="snap-col snap-col-md-7">
+              <p>
+                I always remember{' '}
+                <strong>
+                  my time in the ULPGC and Rey Juan carlos Universities as the best
+                  time to exploit and develop my creativity
+                </strong>
+                , improving my skills, studying every day, doing my homework and
+                spend a lot of hours coding and solving the task from my lectures.
+              </p>
+              <p>
+                Many times, I remember how my teachers struggle with me often doing
+                more complex solutions that it was required for the exercise that I
+                needed to solve it because I want to discover and research.
+              </p>
+              <p>
+                I have been different thinking all my life,{' '}
+                <strong>sometimes wrong and other right</strong> but I did a lot of
+                interesting things that open my mind that made me the man who i am
+                now. I feel proud of my marks where my only a few low marks was in
+                my expedient as you can see about.
+              </p>
+              <div className={`snap-grid ${styles.university_expedient}`} id="university-expedient">
+                <div className="item snap-col snap-col-sm-6">
+                  <Image
+                    src="/images/certificacion-academica-eduardo-aparicio-cardenes-pag_1.jpg"
+                    alt="Marks page 1"
+                    width={500}
+                    height={700}
+                    className="snap-img-fluid"
+                  />
+                  <p>Eduardo Aparicio Cardenes Marks Page 1</p>
+                </div>
+                <div className="item snap-col snap-col-sm-6">
+                  <Image
+                    src="/images/certificacion-academica-eduardo-aparicio-cardenes-pag_2.jpg"
+                    alt="Marks page 2"
+                    width={500}
+                    height={700}
+                    className="snap-img-fluid"
+                  />
+                  <p>Eduardo Aparicio Cardenes Marks Page 2</p>
+                </div>
+              </div>
+              <div className="snap-clearfix"></div>
+              <h2>Looking for challenges</h2>
+              <p>
+                I guess my passion for creation and creativity came from all the
+                times that people around me tried to take me down. I grew trying to
+                prove that I was right in front of my colleges, parents and friends
+                in many differents subjects, no because I was right and they were
+                wrong, it was more as I believe that{' '}
+                <strong>
+                  you cannot say something because you hear from your enviroment and
+                  assume as a fact.
+                </strong>
+              </p>
+              <p>
+                <strong>
+                  I always believe that everything is possible and the facts in my
+                  all life need to be challenge it
+                </strong>
+                , nothing is absolute true. Neither the gravity. we can simplify or
+                assume facts when we are aware about it.
+              </p>
+              <p>
+                My parents usually often said "you are lucky because your time
+                studying is the easiest time in your live" that a job is always
+                more complex than study.
+              </p>
+              <p>
+                My colleges used to have opposite opinion than me, I usually
+                proposed out of box thinking that they weren't capable to
+                understand. Examaple, if we clone a dinnosaour we can provide more
+                food to each person because we have plenty of plant to feed them.{' '}
+                <strong>
+                  I heared all my life you cannot achieve, it will be impossible.
+                </strong>{' '}
+                or you are wrong when the time confirmed that I was right
+              </p>
+              <p>
+                I don't know why but I found these things as a challenge every time
+                they told me that encourage me to show them that they were wrong.
+                Probably this is one of the reasons because. I never give up during
+                my studies and achieve every single thing that's comes to my life
+              </p>
+              <p className={styles.final_thought}>
+                I am deeply thanks all the persons in my life that tried to
+                discourage me, you helped me to become the person i am today
+              </p>
               <Image
-                src="/images/certificacion-academica-eduardo-aparicio-cardenes-pag_2.jpg"
-                alt="Marks page 2"
-                width={500}
-                height={700}
-                className="snap-img-fluid"
+                src="/images/eduardo-challenge-complete.jpg"
+                alt="Challenge Complete"
+                width={800}
+                height={600}
+                className="snap-img-fluid img-thumbnail center-block"
               />
-              <p>Eduardo Aparicio Cardenes Marks Page 2</p>
+              <p className={styles.final_thought}>
+                I capable to achieve every goal in my life
+              </p>
             </div>
           </div>
-          <div className="snap-clearfix"></div>
-          <h2>Looking for challenges</h2>
-          <p>
-            I guess my passion for creation and creativity came from all the
-            times that people around me tried to take me down. I grew trying to
-            prove that I was right in front of my colleges, parents and friends
-            in many differents subjects, no because I was right and they were
-            wrong, it was more as I believe that{' '}
-            <strong>
-              you cannot say something because you hear from your enviroment and
-              assume as a fact.
-            </strong>
-          </p>
-          <p>
-            <strong>
-              I always believe that everything is possible and the facts in my
-              all life need to be challenge it
-            </strong>
-            , nothing is absolute true. Neither the gravity. we can simplify or
-            assume facts when we are aware about it.
-          </p>
-          <p>
-            My parents usually often said "you are lucky because your time
-            studying is the easiest time in your live" that a job is always
-            more complex than study.
-          </p>
-          <p>
-            My colleges used to have opposite opinion than me, I usually
-            proposed out of box thinking that they weren't capable to
-            understand. Examaple, if we clone a dinnosaour we can provide more
-            food to each person because we have plenty of plant to feed them.{' '}
-            <strong>
-              I heared all my life you cannot achieve, it will be impossible.
-            </strong>{' '}
-            or you are wrong when the time confirmed that I was right
-          </p>
-          <p>
-            I don't know why but I found these things as a challenge every time
-            they told me that encourage me to show them that they were wrong.
-            Probably this is one of the reasons because. I never give up during
-            my studies and achieve every single thing that's comes to my life
-          </p>
-          <p className={styles.final_thought}>
-            I am deeply thanks all the persons in my life that tried to
-            discourage me, you helped me to become the person i am today
-          </p>
-          <Image
-            src="/images/eduardo-challenge-complete.jpg"
-            alt="Challenge Complete"
-            width={800}
-            height={600}
-            className="snap-img-fluid img-thumbnail center-block"
-          />
-          <p className={styles.final_thought}>
-            I capable to achieve every goal in my life
-          </p>
         </div>
       </div>
       <div className={`snap-container ${styles.site_about}`}>

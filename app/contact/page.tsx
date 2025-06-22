@@ -27,8 +27,8 @@ export default function ContactPage() {
         <h1>Hire or contact me</h1>
 
         {submitted ? (
-          <div className="alert alert-success">
-            Thank you for contacting us. We will respond to you as soon as
+          <div className="snap-alert snap-alert-success">
+            Thank you for your message! I will get back to you as soon as
             possible.
           </div>
         ) : (
@@ -39,37 +39,37 @@ export default function ContactPage() {
             </p>
 
             <form id="contact-form" onSubmit={handleSubmit}>
-              <div className="form-group">
+              <div className="snap-form-group">
                 <label htmlFor="name">Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  className="form-control"
+                  className="snap-form-control"
                   required
                 />
               </div>
-              <div className="form-group">
+              <div className="snap-form-group">
                 <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  className="form-control"
+                  className="snap-form-control"
                   required
                 />
               </div>
-              <div className="form-group">
+              <div className="snap-form-group">
                 <label htmlFor="body">Message</label>
                 <textarea
                   id="body"
                   name="body"
-                  className="form-control"
+                  className="snap-form-control"
                   rows={6}
                   required
                 ></textarea>
               </div>
-              <div className="form-group">
+              <div className="snap-form-group">
                 <button
                   type="submit"
                   className="snap-btn snap-btn-primary"

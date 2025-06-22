@@ -49,18 +49,18 @@
 }
 
 /* --- Form Styles --- */
-.heading_block :global(.form-group) {
+.heading_block :global(.snap-form-group) {
   margin-bottom: 1.5rem;
 }
 
-.heading_block :global(.form-group label) {
+.heading_block :global(.snap-form-group label) {
   display: block;
   margin-bottom: 0.5rem;
   color: #ccc;
   font-weight: 500;
 }
 
-.heading_block :global(.form-control) {
+.heading_block :global(.snap-form-control) {
   display: block;
   width: 100%;
   padding: 0.75rem 1rem;
@@ -73,7 +73,7 @@
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.heading_block :global(.form-control:focus) {
+.heading_block :global(.snap-form-control:focus) {
   outline: 0;
   border-color: #9B2B9A;
   background-color: rgba(0, 0, 0, 0.3);

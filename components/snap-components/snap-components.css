@@ -8,4 +8,5 @@
 @import url('./css/layout/_grid.css');
 @import url('./css/layout/_columns.css');
 
-@import url('./css/components/_button.css'); 
+@import url('./css/components/_button.css');
+@import url('./css/components/_alert.css'); 
