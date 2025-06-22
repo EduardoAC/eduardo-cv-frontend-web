@@ -18,12 +18,12 @@ body {
 
 /* Links */
 a {
-  color: #9B2B9A;
+  color: #ccc;
   text-decoration: none;
 }
 
 a:hover {
-  color: #c537c4; /* Lighter purple for hover */
+  color: #fff; /* Lighter purple for hover */
   text-decoration: underline;
 }
 
