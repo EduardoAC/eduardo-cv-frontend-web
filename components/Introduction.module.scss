@@ -5,6 +5,7 @@
   position: relative;
   @include flex-center;
   background-color: black;
+  width: 100%;
 
   .title-block {
     text-align: center;

@@ -11,9 +11,10 @@
   background-size: 20px 20px;
 }
 
-// Common section mixin
+// Common section mixin for full-width backgrounds
 @mixin section-base {
   padding: 60px 0;
+  width: 100%;
   
   h2 {
     color: white;
@@ -38,6 +39,13 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+}
+
+// Content container mixin for constrained content
+@mixin content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 // Flex center mixin
