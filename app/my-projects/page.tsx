@@ -16,8 +16,8 @@ export default function MyProjectsPage() {
 
   return (
     <article className={styles.my_projects}>
-      <h1 className="snap-container">My projects</h1>
       <section className="snap-container introduction">
+        <h1>My projects</h1>
         <p>
           I started to have ideas and dream since I was child however it wasn't
           until I joined as a Web Developer for a wonderful company call{' '}

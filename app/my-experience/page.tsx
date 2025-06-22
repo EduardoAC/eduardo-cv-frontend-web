@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function MyExperiencePage() {
   return (
-    <article className={`snap-container ${styles.my_experience}`}>
-      <h1>My Work Experience</h1>
-      <section className={styles.introduction}>
+    <article className={styles.my_experience}>
+      <section className="snap-container introduction">
+        <h1>My Work Experience</h1>
         <p>
           I've been working as web developer for almost five years switched from
           a software engineer job because I found more attractive for my
@@ -40,12 +40,16 @@ export default function MyExperiencePage() {
           across my work timeline .
         </p>
       </section>
-      <section className={styles.my_experience_timeline}>
-        {experienceList.map((experience) => (
-          <ExperienceBlock key={experience.company} {...experience} />
-        ))}
+      <section className="snap-container">
+        <div className={styles.my_experience_timeline}>
+          <div className="snap-container">
+            {experienceList.map((experience) => (
+              <ExperienceBlock key={experience.company} {...experience} />
+            ))}
+          </div>
+        </div>
       </section>
-      <section className={styles.conclusion}>
+      <section className="snap-container conclusion">
         <p>
           If you want to ask me, please feel free to{' '}
           <Link href="/contact">contact me</Link> or drop me a{' '}

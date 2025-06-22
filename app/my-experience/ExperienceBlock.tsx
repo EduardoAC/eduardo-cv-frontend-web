@@ -7,7 +7,7 @@ interface ExperienceBlockProps {
   endDate: string;
   position: string;
   description: string;
-  logo: string;
+  logo?: string;
 }
 
 export default function ExperienceBlock({
@@ -28,7 +28,7 @@ export default function ExperienceBlock({
       <div className={styles.content}>
         <div className={styles.logo_container}>
           <Image
-            src={logo}
+            src={logo || '/images/defaultImage.png'}
             alt={company}
             width={80}
             height={80}
