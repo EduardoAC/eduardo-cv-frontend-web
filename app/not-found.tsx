@@ -16,9 +16,11 @@ export default function NotFound() {
         Please contact us if you think this is a server error. Thank you.
       </p>
 
-      <div style={{ marginTop: '20px' }}>
-        <Link href="/" className="btn btn-primary">
-          Return to Home
+      <div className="text-center">
+        <h2>404 - Page Not Found</h2>
+        <p>Sorry, the page you are looking for does not exist.</p>
+        <Link href="/" className="snap-btn snap-btn-primary">
+          Go back home
         </Link>
       </div>
     </div>

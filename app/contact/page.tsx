@@ -72,10 +72,10 @@ export default function ContactPage() {
               <div className="form-group">
                 <button
                   type="submit"
-                  className="btn btn-primary"
+                  className="snap-btn snap-btn-primary"
                   name="contact-button"
                 >
-                  Submit
+                  Send Message
                 </button>
               </div>
             </form>
