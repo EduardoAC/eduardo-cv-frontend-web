@@ -14,21 +14,21 @@ export default function Profiles() {
         </p>
         <p className="text">I decided to group it in these three main categories</p>
         <div className="row">
-          <div className="frontend-developer col-sm-4">
+          <div className="profile-block frontend-developer col-sm-4">
             <ProfileBlock
               title="frontend developer"
               imgUrl="/images/frontend-developer.png"
               link="/frontend-profile"
             />
           </div>
-          <div className="software-architect col-sm-4">
+          <div className="profile-block software-architect col-sm-4">
             <ProfileBlock
               title="software architect"
               imgUrl="/images/software-architect.png"
               link="/software-architect-profile"
             />
           </div>
-          <div className="backend-developer col-sm-4">
+          <div className="profile-block backend-developer col-sm-4">
             <ProfileBlock
               title="backend developer"
               imgUrl="/images/backend-developer.png"

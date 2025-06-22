@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import ColorLegendProjects from './ColorLegendProjects'
 import styles from './Projects.module.scss'
 
 export default function Projects() {
@@ -28,7 +27,6 @@ export default function Projects() {
             />
           </Link>
         </div>
-        <ColorLegendProjects />
       </div>
     </section>
   )
