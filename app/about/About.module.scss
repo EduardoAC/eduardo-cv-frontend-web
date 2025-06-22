@@ -1,5 +1,8 @@
 .about_me {
   margin-bottom: 30px;
+  .white-bg {
+    background-color: #fff;
+  }
   @media screen and (max-width: 768px) {
     .gradient_effect {
       position: relative;

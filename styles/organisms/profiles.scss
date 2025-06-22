@@ -23,13 +23,16 @@
   .backend-developer {
     margin-bottom: 30px;
   }
-
-  @media (max-width: 768px) {
-    .col-sm-4 {
-      margin-bottom: 30px;
-    }
-  }
 }
 
 // Import profile block styles
 @import '../molecules/profile-block'; 
+@import '../../styles/utilities/mixins';
+.profiles {
+  @include section-base;
+  .frontend-developer,
+  .software-architect,
+  .backend-developer {
+    margin-bottom: 30px;
+  }
+}

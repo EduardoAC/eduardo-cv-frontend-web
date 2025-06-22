@@ -9,7 +9,7 @@ export default function Introduction() {
         alt="Eduardo Aparicio Cardenes Introduction"
         width={1280}
         height={853}
-        className="img-responsive"
+        className="snap-img-fluid"
         priority
       />
       <div className={styles['title-block']}>

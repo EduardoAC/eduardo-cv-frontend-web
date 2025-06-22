@@ -33,14 +33,6 @@ a:hover {
   flex-direction: column;
 }
 
-.wrap > .container-fluid {
-    padding: 51px 0px 0px;
-}
-
-.container-fluid {
-  flex: 1;
-}
-
 /* Footer styles */
 .footer {
   border-top: 5px solid #1c1c1c;
@@ -97,7 +89,7 @@ a:hover {
 }
 
 /* Image responsive styles */
-.img-responsive {
+.snap-img-fluid {
   max-width: 100%;
   height: auto;
 }
@@ -105,12 +97,6 @@ a:hover {
 /* Section styles */
 section {
   padding: 0;
-}
-
-@media (min-width: 1440px) {
-  .container {
-    width: 1310px;
-  }
 }
 
 /* Headings */

@@ -30,7 +30,7 @@ export default function ContentBlock({
                 alt={title}
                 width={300}
                 height={300}
-                className="img-responsive img-thumbnail"
+                className="snap-img-fluid"
               />
             </div>
           </div>

@@ -1,8 +1,4 @@
-.projects-desc-block {
-  .container {
-    padding: 0;
-  }
-  
+.projects_desc_block {
   img {
     margin: 0px auto;
   }
@@ -35,10 +31,6 @@
     text-indent: initial;
   }
   
-  > .row {
-    padding: 15px 0;
-  }
-  
   .details {
     margin: 15px 0;
   }
@@ -59,15 +51,9 @@
     page-break-inside: avoid;
     break-inside: avoid;
     width: 100%;
-    > .row {
-      margin: 0;
-    }
   }
   
   @media (min-width: 1024px) {
-    .container {
-      padding: 0 15px;
-    }
     p.text {
       text-align: justify;
       text-decoration: none;

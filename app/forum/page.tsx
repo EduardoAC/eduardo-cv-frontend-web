@@ -28,12 +28,13 @@ export default function ForumPage() {
         <Image 
           src="/images/comingsoon.png" 
           alt="Coming Soon"
-          width={800}
-          height={600}
-          className="img-responsive"
-          style={{ maxWidth: '100%', height: 'auto' }}
+          width={400}
+          height={300}
+          className="snap-img-fluid"
         />
       </div>
+      <h1>Coming soon</h1>
+      <p>I'm working on this section. Please come back later.</p>
     </section>
   )
 } 

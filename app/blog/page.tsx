@@ -30,7 +30,7 @@ export default function BlogPage() {
           alt="Coming Soon"
           width={800}
           height={600}
-          className="img-responsive"
+          className="snap-img-fluid"
           style={{ maxWidth: '100%', height: 'auto' }}
         />
       </div>

@@ -10,16 +10,19 @@ interface ProfileBlockProps {
 
 export default function ProfileBlock({ title, imgUrl, link }: ProfileBlockProps) {
   return (
-    <div className={styles['profile-block']}>
+    <div className={styles.profile_block}>
       <Link href={link}>
-        <Image
-          src={imgUrl}
-          alt={title}
-          width={300}
-          height={300}
-          className="img-responsive"
-        />
-        <p className="link">{title}</p>
+        <div className={styles.profile_block_picture}>
+          <Image
+            src={imgUrl}
+              alt={title}
+              width={0}
+              height={0}
+              sizes="100%"
+            className={styles.img_full_width}
+          />
+        </div>
+        <h3>{title}</h3>
       </Link>
     </div>
   )

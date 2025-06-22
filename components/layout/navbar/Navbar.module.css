@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #343a40; /* Dark background from screenshot */
+  background-color: #212121; /* Dark background from screenshot */
   position: relative;
   z-index: 999; /* Below the overlay */
 }
@@ -102,7 +102,7 @@
   right: -280px; /* Start off-screen */
   width: 280px;
   height: 100%;
-  background-color: #343a40;
+  background-color: #212121;
   padding: 2rem;
   transition: right 0.3s ease-in-out;
   z-index: 1000;

@@ -18,7 +18,8 @@ export default function AboutPageClient() {
             alt="About Eduardo"
             width={1280}
             height={853}
-            className="img-responsive"
+            className="snap-img-fluid"
+            priority
           />
         </div>
         <div className={styles.heading_block}>
@@ -52,11 +53,11 @@ export default function AboutPageClient() {
             alt="Working"
             width={300}
             height={200}
-            className="img-responsive img-thumbnail visible-xs visible-lg"
+            className="snap-img-fluid img-thumbnail visible-xs visible-lg"
           />
         </div>
       </div>
-      <div className={`container ${styles.site_about}`}>
+      <div className={`snap-container ${styles.site_about}`}>
         <h2>How did I started in this world?</h2>
         <p>
           I grew with computers, coding and internet. My mom was informatic
@@ -71,7 +72,7 @@ export default function AboutPageClient() {
           alt="My life timeline"
           width={1170}
           height={400}
-          className="img-responsive"
+          className="snap-img-fluid white-bg"
         />
         <p>
           Since then, I was the first of my school colleges to have the latest
@@ -105,7 +106,7 @@ export default function AboutPageClient() {
               alt="Graduation"
               width={300}
               height={200}
-              className="img-responsive"
+              className="snap-img-fluid"
             />
           </div>
           <p>
@@ -136,7 +137,7 @@ export default function AboutPageClient() {
                 alt="Marks page 1"
                 width={500}
                 height={700}
-                className="img-responsive"
+                className="snap-img-fluid"
               />
               <p>Eduardo Aparicio Cardenes Marks Page 1</p>
             </div>
@@ -146,7 +147,7 @@ export default function AboutPageClient() {
                 alt="Marks page 2"
                 width={500}
                 height={700}
-                className="img-responsive"
+                className="snap-img-fluid"
               />
               <p>Eduardo Aparicio Cardenes Marks Page 2</p>
             </div>
@@ -202,12 +203,35 @@ export default function AboutPageClient() {
             alt="Challenge Complete"
             width={800}
             height={600}
-            className="img-responsive img-thumbnail center-block"
+            className="snap-img-fluid img-thumbnail center-block"
           />
           <p className={styles.final_thought}>
             I capable to achieve every goal in my life
           </p>
         </div>
+      </div>
+      <div className={`snap-container ${styles.site_about}`}>
+        <h3>About this site</h3>
+        <p>
+          This site is a personal project created by Eduardo Aparicio Cardenes.
+          It's a place where he shares his thoughts, experiences, and projects
+          related to his career and interests.
+        </p>
+        <p>
+          The site is built using Next.js and is hosted on Vercel. It's designed
+          to be responsive and accessible, ensuring that it works well on
+          different devices and browsers.
+        </p>
+        <p>
+          Eduardo is passionate about web development and enjoys creating
+          interactive and visually appealing websites. He believes in the power
+          of technology to solve problems and improve people's lives.
+        </p>
+        <p>
+          If you're interested in learning more about Eduardo's work or
+          collaborating on a project, you can contact him through the
+          contact page on this site.
+        </p>
       </div>
     </section>
   );

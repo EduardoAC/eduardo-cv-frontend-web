@@ -1,9 +1,6 @@
+@import '../../styles/utilities/mixins';
 .projects {
-  padding: 50px 15px;
-  
-  .container {
-    padding: 0;
-  }
+  @include section-base;
   
   img {
     margin: 0 auto;
