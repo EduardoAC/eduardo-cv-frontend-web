@@ -13,4 +13,10 @@
 
 .snap-pull-right {
   float: right !important;
+}
+
+@media (max-width: 767px) {
+  .snap-hidden-sm {
+    display: none !important;
+  }
 } 

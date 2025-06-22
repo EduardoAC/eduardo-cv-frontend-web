@@ -4,7 +4,7 @@ import styles from './Profiles.module.scss'
 export default function Profiles() {
   return (
     <section className={styles.profiles}>
-      <div className="container clearfix">
+      <div className="snap-container">
         <h2>My Background</h2>
         <p className="text">
           Since I started with my engineer in computer science. I'm always been curious about many subjects in specific all of things related as Artificial Intelligence until I discovered the web technologies that allow you to become real any ideas or business.
@@ -13,22 +13,22 @@ export default function Profiles() {
           A whole life of passion for software developments (creations, projects, dreams, hobbies, hackathons, ...), It was hard to summarize in a four pages CV as usual is required.
         </p>
         <p className="text">I decided to group it in these three main categories</p>
-        <div className="row">
-          <div className="profile-block frontend-developer col-sm-4">
+        <div className="snap-grid">
+          <div className="snap-col snap-col-sm-4">
             <ProfileBlock
               title="frontend developer"
               imgUrl="/images/frontend-developer.png"
               link="/frontend-profile"
             />
           </div>
-          <div className="profile-block software-architect col-sm-4">
+          <div className="snap-col snap-col-sm-4">
             <ProfileBlock
               title="software architect"
               imgUrl="/images/software-architect.png"
               link="/software-architect-profile"
             />
           </div>
-          <div className="profile-block backend-developer col-sm-4">
+          <div className="snap-col snap-col-sm-4">
             <ProfileBlock
               title="backend developer"
               imgUrl="/images/backend-developer.png"

@@ -1,17 +1,5 @@
 @import '../styles/utilities/mixins';
 
 .profiles {
-  @include section-base;
-
-  .frontend-developer,
-  .software-architect,
-  .backend-developer {
-    margin-bottom: 30px;
-  }
-
-  @media (max-width: 768px) {
-    .col-sm-4 {
-      margin-bottom: 30px;
-    }
-  }
-} 
+  padding: 4rem 0;
+}

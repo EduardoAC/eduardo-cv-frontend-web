@@ -25,14 +25,14 @@ export default function JobsTimeline() {
             </p>
           </div>
           <div className="snap-col snap-col-md-5">
-            <Image
-              src="/images/jobs-timeline.jpg"
-              alt="Jobs Timeline"
-              width={400}
-              height={300}
-              className="img-responsive"
-            />
-          </div>
+          <Image
+            src="/images/jobs-timeline.jpg"
+            alt="Jobs Timeline"
+            width={400}
+            height={300}
+            className="img-responsive"
+          />
+        </div>
         </div>
       </div>
     </section>

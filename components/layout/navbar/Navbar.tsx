@@ -4,18 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import styles from './Navbar.module.css'
 
-interface NavItem {
-  href: string
-  label: string
-}
-
-interface NavbarProps {
-  brandName?: string
-  navItems?: NavItem[]
-  pageTitle?: string
-}
-
-const defaultNavItems: NavItem[] = [
+const navItems = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/my-projects', label: 'My Projects' },
@@ -23,83 +12,50 @@ const defaultNavItems: NavItem[] = [
   { href: '/contact', label: 'Contact' },
 ]
 
-export const Navbar = ({ 
-  brandName = 'Eduardo Aparicio Cardenes', 
-  navItems = defaultNavItems,
-  pageTitle = brandName
-}: NavbarProps) => {
+export const Navbar = ({ pageTitle }: { pageTitle: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Element;
-      if (isMenuOpen && !target.closest(`.${styles.mobileSidebar}`) && !target.closest(`.${styles.navbarToggle}`)) {
-        setIsMenuOpen(false);
-      }
-    };
-
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = 'unset'
     }
-
     return () => {
-      document.body.style.overflow = 'unset';
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isMenuOpen]);
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMenuOpen])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <header className="snap-container-fluid">
-      <nav
-        className={`${styles.navbar} navbar-inverse navbar-fixed-top`}
-      >
-        <div className="snap-container-fluid">
-          <div className="navbar-header d-flex align-items-center w-100" style={{width: '100%'}}>
-            {/* Page Title on the left */}
-            <span className="navbar-title" style={{ fontWeight: 600, fontSize: '1.2rem', color: '#fff', marginLeft: 10 }}>
-              {pageTitle}
-            </span>
-            
-            {/* Desktop nav links on the right */}
-            <ul className="nav navbar-nav navbar-right d-none d-md-flex flex-row ms-auto" style={{ marginLeft: 'auto' }}>
-              {navItems.map((item) => (
-                <li key={item.href} className="nav-item" style={{ display: 'inline-block' }}>
-                  <Link href={item.href} onClick={closeMenu} className="nav-link" style={{ color: '#fff', padding: '10px 15px' }}>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            
-            {/* Hamburger for mobile - This now uses our SCSS module */}
-            <button 
-              type="button" 
-              className={`${styles.navbarToggle} ${isMenuOpen ? styles.active : ''}`}
-              onClick={toggleMenu}
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-sidebar"
-              aria-label="Toggle navigation"
-            >
-              <span className={styles.iconBar}></span>
-              <span className={styles.iconBar}></span>
-              <span className={styles.iconBar}></span>
-            </button>
-          </div>
-        </div>
+    <header>
+      <nav className={styles.navbar}>
+        <Link href="/" className={styles.navbarBrand}>{pageTitle}</Link>
+        
+        <ul className={styles.navbarNavDesktop}>
+          {navItems.map((item) => (
+            <li key={item.href} className={styles.navItem}>
+              <Link href={item.href} className={styles.navLink}>
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        
+        <button 
+          className={`${styles.navbarToggle} ${isMenuOpen ? styles.active : ''}`}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation"
+        >
+          <span className={styles.iconBar}></span>
+          <span className={styles.iconBar}></span>
+          <span className={styles.iconBar}></span>
+        </button>
       </nav>
 
-      {/* Mobile Sidebar - This uses our SCSS module */}
-      <div 
-        id="mobile-sidebar"
-        className={`${styles.mobileSidebar} ${isMenuOpen ? styles.open : ''}`}
-        aria-hidden={!isMenuOpen}
-      >
+      <div className={`${styles.mobileSidebar} ${isMenuOpen ? styles.open : ''}`}>
         <div className={styles.mobileSidebarHeader} onClick={closeMenu}>
           <div className={styles.closeIcon}>&times;</div>
           <span>Close</span>
@@ -114,10 +70,7 @@ export const Navbar = ({
           ))}
         </ul>
       </div>
-
       {isMenuOpen && <div className={styles.sidebarOverlay} onClick={closeMenu}></div>}
     </header>
   )
 }
-
-export type { NavItem, NavbarProps } 

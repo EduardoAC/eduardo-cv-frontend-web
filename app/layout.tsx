@@ -1,17 +1,18 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
-import { Navbar, Footer, GoogleAnalytics } from '../components/layout'
-import { BootstrapClient } from '../components/BootstrapClient'
+import { GoogleAnalytics } from '../components/layout/GoogleAnalytics'
+import { Navbar } from '../components/layout/navbar'
+import { Footer } from '../components/layout/Footer'
 import './globals.css'
+import '../components/snap-components/snap-components.css'
 import '../styles/main.scss'
-import '../components/snap-components/snap-components.css';
 import './components.scss'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Eduardo Aparicio Cardenes - Interactive CV',
-  description: 'I am passionate software architect that loves create new products and see how they become successful. I did this site to collect my career.',
+  description: 'The personal website of Eduardo Aparicio Cardenes. A Software developer with experience in Frontend, Backend, and Software Architecture.',
   icons: {
     icon: '/favicon.ico',
   },
@@ -32,15 +33,10 @@ export default function RootLayout({
   const pageTitle = 'Eduardo Aparicio Cardenes - Interactive CV';
   return (
     <html lang="en">
+      <GoogleAnalytics />
       <body className={inter.className}>
-        <BootstrapClient />
-        <GoogleAnalytics />
-        <div className="wrap">
-          <Navbar pageTitle={pageTitle} />
-          <main className="snap-container-fluid">
-            {children}
-          </main>
-        </div>
+        <Navbar pageTitle={pageTitle} />
+        <div className="wrap">{children}</div>
         <Footer />
       </body>
     </html>

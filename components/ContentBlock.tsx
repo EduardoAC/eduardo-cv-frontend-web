@@ -6,6 +6,7 @@ interface ContentBlockProps {
   description: string;
   imgUrl: string;
   odd: boolean;
+  swap?: boolean;
 }
 
 export default function ContentBlock({
@@ -13,16 +14,15 @@ export default function ContentBlock({
   description,
   imgUrl,
   odd,
+  swap,
 }: ContentBlockProps) {
-  const colLeftSwap = 'col-sm-push-6 col-md-push-8';
-  const colRightSwap = 'col-sm-pull-6 col-md-pull-4';
-  const leftClass = odd ? '' : colLeftSwap;
-  const rightClass = odd ? '' : colRightSwap;
+  const leftClass = swap ? 'snap-order-sm-2 snap-order-md-2' : '';
+  const rightClass = swap ? 'snap-order-sm-1 snap-order-md-1' : '';
 
   return (
     <div className={styles.content_block}>
-      <div className="row">
-        <div className={`logo col-sm-6 col-md-4 ${leftClass}`}>
+      <div className="snap-grid">
+        <div className={`logo snap-col snap-col-sm-6 snap-col-md-4 ${leftClass}`}>
           <div className={styles.thumbnail_mid_container}>
             <div className={styles.thumbnail_mid}>
               <Image
@@ -35,7 +35,7 @@ export default function ContentBlock({
             </div>
           </div>
         </div>
-        <div className={`details col-sm-6 col-md-8 ${rightClass}`}>
+        <div className={`details snap-col snap-col-sm-6 snap-col-md-8 ${rightClass}`}>
           <h2>{title}</h2>
           <div
             className={styles.text}
