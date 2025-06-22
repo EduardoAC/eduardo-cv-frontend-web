@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function BackendProfilePage() {
   return (
-    <article className={`container ${styles.backend_profile}`}>
+    <article className={`snap-container ${styles.backend_profile}`}>
       <h1>My Backend Developer Background</h1>
       <section className={styles.introduction}>
         <p>

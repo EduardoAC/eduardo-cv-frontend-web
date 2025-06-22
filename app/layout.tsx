@@ -4,6 +4,7 @@ import { Navbar, Footer, GoogleAnalytics } from '../components/layout'
 import { BootstrapClient } from '../components/BootstrapClient'
 import './globals.css'
 import '../styles/main.scss'
+import '../components/snap-components/snap-components.css';
 import './components.scss'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -36,7 +37,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <div className="wrap">
           <Navbar pageTitle={pageTitle} />
-          <main className="container-fluid">
+          <main className="snap-container-fluid">
             {children}
           </main>
         </div>

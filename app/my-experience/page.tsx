@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function MyExperiencePage() {
   return (
-    <article className={`container ${styles.my_experience}`}>
+    <article className={`snap-container ${styles.my_experience}`}>
       <h1>My Work Experience</h1>
       <section className={styles.introduction}>
         <p>

@@ -66,38 +66,42 @@ export const Footer = ({
 
   return (
     <footer className="footer">
-      <div className="container">
-        {sections.map((section, index) => (
-          <div 
-            key={section.title}
-            className={`${index === 2 ? 'hidden-sm ' : ''}col-sm-6 col-md-4`}
-          >
-            <h3>{section.title}</h3>
-            <ul>
-              {section.links.map((link) => (
-                <li key={link.href}>
-                  {link.external ? (
-                    <a 
-                      href={link.href} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="profile-link"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link href={link.href} className="profile-link">
-                      {link.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div className="snap-container">
+        <div className="snap-grid">
+          {sections.map((section, index) => (
+            <div
+              key={section.title}
+              className={`${
+                index === 2 ? 'hidden-sm ' : ''
+              }snap-col snap-col-sm-6 snap-col-md-4`}
+            >
+              <h4>{section.title}</h4>
+              <ul>
+                {section.links.map((link) => (
+                  <li key={link.href}>
+                    {link.external ? (
+                      <a 
+                        href={link.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="profile-link"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link href={link.href} className="profile-link">
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
       <hr />
-      <div className="container footer-label">
+      <div className="snap-container footer-label">
         <p className="center-block">
           &copy; {copyrightText} {currentYear}
         </p>

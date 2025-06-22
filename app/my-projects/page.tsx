@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import ProjectCard from '@/components/ProjectCard';
-import ColorLegendProjects from '@/components/ColorLegendProjects';
 import { projectsData } from './data';
 import styles from './MyProjects.module.scss';
 
@@ -11,10 +10,14 @@ export const metadata: Metadata = {
 };
 
 export default function MyProjectsPage() {
+  const projects = projectsData.filter((p) => p.type === 'projects');
+  const hackathons = projectsData.filter((p) => p.type === 'hackathons');
+  const ideas = projectsData.filter((p) => p.type === 'ideas');
+
   return (
     <article className={styles.my_projects}>
-      <h1 className="container">My projects</h1>
-      <section className="container introduction">
+      <h1 className="snap-container">My projects</h1>
+      <section className="snap-container introduction">
         <p>
           I started to have ideas and dream since I was child however it wasn't
           until I joined as a Web Developer for a wonderful company call{' '}
@@ -41,13 +44,32 @@ export default function MyProjectsPage() {
           set and who knows may be discuss futher or support me with them.
         </p>
       </section>
-      <ColorLegendProjects />
-      <section className={styles.collection_projects}>
-        {projectsData.map((project) => (
-          <ProjectCard key={project.title} {...project} />
-        ))}
+      <section className={styles.projects_list}>
+        <div className="snap-container">
+          <h2>Project Types</h2>
+          <div className="snap-grid">
+            <div className="snap-col snap-col-md-4">
+              <h3>Projects</h3>
+              {projects.map((project: any) => (
+                <ProjectCard key={project.title} {...project} />
+              ))}
+            </div>
+            <div className="snap-col snap-col-md-4">
+              <h3>Hackathons</h3>
+              {hackathons.map((hackathon: any) => (
+                <ProjectCard key={hackathon.title} {...hackathon} />
+              ))}
+            </div>
+            <div className="snap-col snap-col-md-4">
+              <h3>Ideas</h3>
+              {ideas.map((idea: any) => (
+                <ProjectCard key={idea.title} {...idea} />
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
-      <section className="container conclusion">
+      <section className="snap-container conclusion">
         <h2>Final Considerations</h2>
         <p>
           All these projects you can see above are only a part of the content.

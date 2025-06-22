@@ -1,0 +1,16 @@
+/* --- Snap Utilities --- */
+
+.snap-img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.snap-clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.snap-pull-right {
+  float: right !important;
+} 

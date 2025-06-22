@@ -129,11 +129,8 @@ export default function AboutPageClient() {
             now. I feel proud of my marks where my only a few low marks was in
             my expedient as you can see about.
           </p>
-          <div
-            className={`row ${styles.university_expedient}`}
-            id="university-expedient"
-          >
-            <div className={`item col-sm-6`}>
+          <div className={`snap-grid ${styles.university_expedient}`} id="university-expedient">
+            <div className="item snap-col snap-col-sm-6">
               <Image
                 src="/images/certificacion-academica-eduardo-aparicio-cardenes-pag_1.jpg"
                 alt="Marks page 1"
@@ -143,7 +140,7 @@ export default function AboutPageClient() {
               />
               <p>Eduardo Aparicio Cardenes Marks Page 1</p>
             </div>
-            <div className={`item col-sm-6`}>
+            <div className="item snap-col snap-col-sm-6">
               <Image
                 src="/images/certificacion-academica-eduardo-aparicio-cardenes-pag_2.jpg"
                 alt="Marks page 2"
@@ -154,7 +151,7 @@ export default function AboutPageClient() {
               <p>Eduardo Aparicio Cardenes Marks Page 2</p>
             </div>
           </div>
-          <div className="clearfix"></div>
+          <div className="snap-clearfix"></div>
           <h2>Looking for challenges</h2>
           <p>
             I guess my passion for creation and creativity came from all the

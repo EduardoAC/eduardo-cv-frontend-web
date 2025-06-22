@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function FrontendProfilePage() {
   return (
-    <article className={`container ${styles.frontend_profile}`}>
+    <article className={`snap-container ${styles.frontend_profile}`}>
       <h1>My Frontend Developer Background</h1>
       <section className={styles.introduction}>
         <p>

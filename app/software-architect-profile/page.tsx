@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function SoftwareArchitectProfilePage() {
   return (
-    <article className={`container ${styles.software_architect_profile}`}>
+    <article className={`snap-container ${styles.software_architect_profile}`}>
       <h1>My Software Architect Background</h1>
       <section className={styles.introduction}>
         <p>

@@ -55,9 +55,11 @@ export const Navbar = ({
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <header>
-      <nav className="navbar navbar-inverse navbar-fixed-top">
-        <div className="container-fluid">
+    <header className="snap-container-fluid">
+      <nav
+        className={`${styles.navbar} navbar-inverse navbar-fixed-top`}
+      >
+        <div className="snap-container-fluid">
           <div className="navbar-header d-flex align-items-center w-100" style={{width: '100%'}}>
             {/* Page Title on the left */}
             <span className="navbar-title" style={{ fontWeight: 600, fontSize: '1.2rem', color: '#fff', marginLeft: 10 }}>
