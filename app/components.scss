@@ -373,4 +373,33 @@
       text-decoration: none;
     }
   }
+}
+
+/* Fixed Navbar Layout Adjustments */
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure content doesn't get hidden behind fixed navbar */
+main {
+  flex: 1;
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print styles - hide navbar when printing */
+@media print {
+  .navbar,
+  .navbar-collapse {
+    display: none !important;
+  }
+  
+  .container-fluid {
+    padding-top: 0 !important;
+  }
 } 

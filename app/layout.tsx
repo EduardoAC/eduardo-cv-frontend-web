@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import { Navbar, Footer, GoogleAnalytics } from '../components/layout'
 import { BootstrapClient } from '../components/BootstrapClient'
@@ -16,6 +16,12 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#000000',
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -30,9 +36,9 @@ export default function RootLayout({
         <GoogleAnalytics />
         <div className="wrap">
           <Navbar pageTitle={pageTitle} />
-          <div className="container-fluid">
+          <main className="container-fluid">
             {children}
-          </div>
+          </main>
         </div>
         <Footer />
       </body>
