@@ -1,0 +1,154 @@
+/* 
+  Mobile-First Sidebar Navigation Styles
+  This is a plain CSS Module file.
+*/
+
+.navbarToggle {
+  display: block; /* Hidden on desktop via media query */
+  position: relative;
+  z-index: 1041;
+  border: none;
+  background: transparent;
+  padding: 9px 10px;
+  margin-left: auto;
+  margin-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbarToggle:hover,
+.navbarToggle:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.navbarToggle.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbarToggle.active .iconBar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbarToggle.active .iconBar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbarToggle.active .iconBar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+  
+.iconBar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+  
+.mobileSidebar {
+  position: fixed;
+  top: 0;
+  right: -280px; /* Starts off-screen */
+  width: 280px;
+  height: 100%;
+  background: #222;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+  z-index: 1040;
+  transition: right 0.3s ease-in-out;
+  visibility: hidden;
+}
+
+.mobileSidebar.open {
+    right: 0;
+    visibility: visible;
+}
+
+.mobileSidebarHeader {
+  padding: 15px 25px;
+  border-bottom: 1px solid #444;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.mobileSidebarHeader:hover {
+    color: #fff;
+}
+
+.mobileSidebarHeader .navbarToggle {
+    padding: 0;
+    margin-right: 15px;
+    position: static;
+    z-index: auto;
+    background-color: transparent;
+}
+
+.mobileSidebarHeader .navbarToggle .iconBar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.mobileSidebarHeader .navbarToggle .iconBar:nth-child(2) {
+  opacity: 0;
+}
+.mobileSidebarHeader .navbarToggle .iconBar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobileSidebarHeader > span {
+    font-size: 20px;
+    font-weight: 500;
+}
+  
+.mobileSidebarNav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+  
+.navLink {
+  color: #fff;
+  padding: 18px 25px;
+  display: block;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.navLink:hover {
+    background-color: #333;
+}
+  
+.sidebarOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1039;
+}
+  
+/* --- Media Queries --- */
+
+/* Hide mobile elements on desktop */
+@media (min-width: 768px) {
+  .navbarToggle, .mobileSidebar, .sidebarOverlay {
+    display: none;
+  }
+}
+  
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .navbarToggle,
+  .iconBar,
+  .mobileSidebar {
+    transition: none;
+  }
+} 

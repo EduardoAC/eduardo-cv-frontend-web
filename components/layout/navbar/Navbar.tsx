@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import styles from './Navbar.module.scss'
+import styles from './Navbar.module.css'
 
 interface NavItem {
   href: string
@@ -99,12 +99,8 @@ export const Navbar = ({
         aria-hidden={!isMenuOpen}
       >
         <div className={styles.mobileSidebarHeader} onClick={closeMenu}>
-            <div className={`${styles.navbarToggle} ${styles.active}`}>
-              <span className={styles.iconBar}></span>
-              <span className={styles.iconBar}></span>
-              <span className={styles.iconBar}></span>
-            </div>
-            <span>Close</span>
+          <div className={styles.closeIcon}>&times;</div>
+          <span>Close</span>
         </div>
         <ul className={styles.mobileSidebarNav}>
           {navItems.map((item) => (
