@@ -2,6 +2,7 @@ import type { CustomProjectConfig } from 'lost-pixel';
 
 export const config: CustomProjectConfig = {
   pageShots: {
+    breakpoints: [375, 768, 1440, 1920],
     pages: [
       { path: '/', name: 'home' },
       { path: '/about', name: 'about' },
