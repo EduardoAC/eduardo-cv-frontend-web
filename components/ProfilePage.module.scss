@@ -1,0 +1,88 @@
+// Unified Profile Page Styles
+// Consolidates styles from frontend, backend, and software architect profile pages
+
+.profile_page {
+  // CSS Custom Properties for role-specific theming
+  --profile-color: #ccc;
+  --profile-accent: var(--profile-color);
+  --profile-text-color: var(--profile-color);
+  --profile-border-color: var(--profile-color);
+  
+  // Common typography and spacing
+  p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: justify;
+    text-indent: 40px;
+    color: var(--profile-text-color);
+  }
+
+  h1 {
+    text-align: center;
+    color: var(--profile-text-color);
+    margin: 30px 0;
+  }
+
+  hr {
+    border-top: 1px solid var(--profile-border-color);
+  }
+
+  h2 {
+    margin-top: 0px;
+    color: var(--profile-text-color);
+    text-align: center;
+  }
+
+  // Introduction section
+  .introduction {
+    margin-bottom: 50px;
+    
+    a {
+      color: var(--profile-text-color);
+    }
+  }
+
+  // Skills section
+  .skills {
+    // Inherits common styles
+  }
+
+  // Conclusion section
+  .conclusion {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 75px 0;
+    color: var(--profile-text-color);
+  }
+
+  // Responsive design
+  @media (min-width: 768px) {
+    h2 {
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    p {
+      font-size: 20px;
+    }
+  }
+
+  // Role-specific variations
+  &[data-role="frontend"] {
+    --profile-color: #ccc;
+    --profile-accent: #4a90e2;
+  }
+
+  &[data-role="backend"] {
+    --profile-color: #ccc;
+    --profile-accent: #50c878;
+  }
+
+  &[data-role="software-architect"] {
+    --profile-color: #ccc;
+    --profile-accent: #9b59b6;
+  }
+} 
