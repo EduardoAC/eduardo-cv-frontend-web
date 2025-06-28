@@ -27,7 +27,7 @@ export const strengths: Strength[] = [
   },
   {
     title: 'Testing',
-    description: `<p>I forgot this one for many years because in most of the cases because it wasn't a priority in the frontend. It was enough using tools as New Relic, Google analitycs and Selenium to test our systems.</p><p>However, I started to use Grunt with Unit testing around a year ago to verify our class expected behaviour were working properly and I rediscovered how important is having a testing to avoid small issues when you are in a team or you revisit a file after some time.</p><p>Therefore, I decided to spend some time learning new technices useful for future projects</p>`,
-    imgUrl: '/images/frontend/testing.jpg',
+    description: `<p>I forgot this one for many years because in most of the cases because it wasn't a priority in the frontend. It was enough using tools as Chrome DevTools, Firebug and Selenium to test our systems.</p><p>However, I started to use Jest with Unit testing around a year ago to verify our JavaScript expected behaviour were working properly and I rediscovered how important is having a testing to avoid small issues when you are in a team or you revisit a file after some time.</p><p>Therefore, I decided to spend some time learning new techniques useful for future projects</p>`,
+    imgUrl: '/images/testing-optimized-640.webp',
   },
 ]; 

@@ -16,18 +16,18 @@ export const strengths: Strength[] = [
     imgUrl: '/images/backend/frameworks.jpg',
   },
   {
-    title: 'Working tools',
-    description: `<p>As a developer, you must be capable of use control version systems in order to track your changes, specially when you are collaborating in projects with more people working at the same time. That why <strong>I started to use Git 4 years ago</strong>, however, it wasn't until one and half years ago I added code review and pull requests using github to my developments learned from my Time Inc UK job.</p><p>As a complement, I've been doing web developments in Netbeans and PHPStorm for years. However, I do prefer Eclipse for Java and Android developments.That will make extremely easy to adapt to the IDE you are using in the company</p>`,
-    imgUrl: '/images/backend/working-tools.jpg',
+    title: 'Database & APIs',
+    description: `<p>These elements are key in the current developments to be a good backend developer. I understood the importance from my experience in various companies where we tested every change impact in performance and scalability basing our measures in tools like New Relic, MySQL Workbench and Postman.</p><p>All these knowledges I acquired in these companies, it allows me to put in place changes for backend systems to handle data properly and efficiently. In addition to use REST APIs that improve communication between systems.</p>`,
+    imgUrl: '/images/backend/comunications-rest-api.jpg',
   },
   {
-    title: 'Performance',
-    description: `<p>I'm love to achieve the maximal perfomance in any feature i do, as first iteration i develop my code using <a href='https://en.wikipedia.org/wiki/Big_O_notation' target='_blank' rel='nofollow'> Big O notation for time complexity </a> each time.</p> <p>Once I done this I go for server tools that allow me to reduce the bottleknecks using Memcached, APC and Apache set up to reduce algorithm calculations, databases access and client requests. Adding to this system a update cache system on demand avoid inconsistent data</p><p>Finally, I like to enable monitoring of the system with NewRelic for two reasons. First for debugging and testing porposes, Secondly, it's hard to extract the best performance in one iteration so this allow to analyze the opportunities to improve the system</p>`,
+    title: 'Performance & Security',
+    description: `<p>This is key for the success of your backend system. I have been working for last four years to find how to improve every single detail in order to get the best performance possible for the system because a one second of delay could cost you a client</p><p>Optimize database queries, implement caching strategies, reduce the number of requests are some of the considerations to do when you are optimizing your backend.</p><p>However, I will study what are your necessities because I won't shoot a mosquito with a cannon, easy solution could work better in some cases</p>`,
     imgUrl: '/images/backend/performance.jpg',
   },
   {
-    title: 'Testing & Debugging',
-    description: `<p>I use combine NewRelic, Unit testing, XDebug and Jenkings to test and debug the systems, I work with. These are a good tools that allow us to validate our code or find bugs.</p><p>Therefore each time a person try to deploy we  will be able to run a battery of tests on our feature and the whole system. to helps us to see what will it be the impact of releasing our feature. Preventing us to put on live features that can break our sites. In addtition to that, when we join this to our control version enviroment we can find what need to be fixed and where locate it.</p><p>However, I aware this setup won't avoid all the bugs in live releases but it's a good filter against common bug and issues in a collaborative development enviroment</p>`,
+    title: 'Testing & Deployment',
+    description: `<p>I forgot this one for many years because in most of the cases because it wasn't a priority in the backend. It was enough using tools as New Relic, MySQL Workbench and Selenium to test our systems.</p><p>However, I started to use PHPUnit with Unit testing around a year ago to verify our class expected behaviour were working properly and I rediscovered how important is having a testing to avoid small issues when you are in a team or you revisit a file after some time.</p><p>Therefore, I decided to spend some time learning new techniques useful for future projects</p>`,
     imgUrl: '/images/backend/testing-debuging.jpg',
   },
 ]; 

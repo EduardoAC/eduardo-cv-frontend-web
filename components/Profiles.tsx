@@ -1,4 +1,4 @@
-import ProfileBlock from './ProfileBlock'
+import ContentBlock from './ContentBlock'
 import styles from './Profiles.module.scss'
 
 export default function Profiles() {
@@ -15,23 +15,26 @@ export default function Profiles() {
         <p className="text">I decided to group it in these three main categories</p>
         <div className="snap-grid">
           <div className="snap-col snap-col-sm-4">
-            <ProfileBlock
+            <ContentBlock
               title="frontend developer"
               imgUrl="/images/frontend-developer.png"
+              variant="profile"
               link="/frontend-profile"
             />
           </div>
           <div className="snap-col snap-col-sm-4">
-            <ProfileBlock
+            <ContentBlock
               title="software architect"
               imgUrl="/images/software-architect.png"
+              variant="profile"
               link="/software-architect-profile"
             />
           </div>
           <div className="snap-col snap-col-sm-4">
-            <ProfileBlock
+            <ContentBlock
               title="backend developer"
               imgUrl="/images/backend-developer.png"
+              variant="profile"
               link="/backend-profile"
             />
           </div>
