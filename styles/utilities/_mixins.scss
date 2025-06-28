@@ -1,12 +1,19 @@
 // Gradient pattern mixin
 @mixin gradient-pattern {
-  background:
-    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
     linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
     linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
     linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
     linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    linear-gradient(
+      #1d1d1d 25%,
+      #1a1a1a 25%,
+      #1a1a1a 50%,
+      transparent 50%,
+      transparent 75%,
+      #242424 75%,
+      #242424
+    );
   background-color: #131313;
   background-size: 20px 20px;
 }
@@ -15,7 +22,7 @@
 @mixin section-base {
   padding: 60px 0;
   width: 100%;
-  
+
   h2 {
     color: white;
     margin-bottom: 40px;
@@ -39,6 +46,61 @@
   img {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Page typography mixin for consistent page-level typography
+@mixin page-typography {
+  p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: justify;
+    text-indent: 40px;
+    color: #ccc;
+  }
+
+  h1 {
+    text-align: center;
+    color: #fff;
+    margin: 30px auto;
+  }
+
+  h2 {
+    text-align: center;
+    color: #fff;
+    margin: 30px auto;
+  }
+
+  .introduction,
+  .conclusion {
+    p {
+      color: #ccc;
+    }
+    a {
+      color: #ccc;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+// Enhanced section base mixin with common patterns
+@mixin section-base-enhanced {
+  @include section-base;
+
+  // Additional common patterns
+  .introduction,
+  .conclusion {
+    p {
+      color: #ccc;
+    }
+    a {
+      color: #ccc;
+    }
   }
 }
 
@@ -71,4 +133,11 @@
   &:hover {
     transform: translateY(-5px);
   }
-} 
+}
+
+// Component base mixin for common component patterns
+@mixin component-base {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
