@@ -26,7 +26,7 @@ export default function JobsTimeline() {
           </div>
           <div className="snap-col snap-col-md-5">
             <Image
-              src="/images/jobs-timeline.jpg"
+              src="/images/jobs-timeline-optimized-1280.webp"
               alt="My Career Timeline"
               width={400}
               height={300}

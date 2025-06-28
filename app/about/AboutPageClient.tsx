@@ -14,7 +14,7 @@ export default function AboutPageClient() {
       <div className={styles.introduction}>
         <div className={styles.gradient_effect}>
           <Image
-            src="/images/about-eduardo-hacktheviual-1280.jpg"
+            src="/images/about-eduardo-hacktheviual-1280-optimized-1280.webp"
             alt="About Eduardo"
             width={1280}
             height={853}
@@ -50,7 +50,7 @@ export default function AboutPageClient() {
           </p>
           <div className={styles.centered_image_container}>
             <Image
-              src="/images/photo-working.jpg"
+              src="/images/photo-working-optimized-1280.webp"
               alt="Working"
               width={400}
               height={267}
@@ -76,7 +76,7 @@ export default function AboutPageClient() {
           </div>
           <div className={styles.timeline_image_container}>
             <Image
-              src="/images/my-life-timeline.png"
+              src="/images/my-life-timeline-optimized-1280.webp"
               alt="My Life Timeline"
               width={800}
               height={600}
@@ -117,7 +117,7 @@ export default function AboutPageClient() {
             discourage me, you helped me to become the person i am today
           </p>
           <Image
-            src="/images/eduardo-challenge-complete.jpg"
+            src="/images/eduardo-challenge-complete-optimized-1280.webp"
             alt="Challenge Complete"
             width={500}
             height={458}

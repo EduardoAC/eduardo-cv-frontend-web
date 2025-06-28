@@ -20,7 +20,7 @@ export default function Projects() {
           <div className="snap-col snap-col-md-5 snap-col-lg-4">
             <Link href="/my-projects">
               <Image
-                src="/images/code-projects-done.jpg"
+                src="/images/code-projects-done-optimized-1280.webp"
                 alt="Code Projects Done"
                 width={400}
                 height={300}

@@ -28,7 +28,7 @@ export default function ExperienceBlock({
       <div className={styles.content}>
         <div className={styles.logo_container}>
           <Image
-            src={logo || '/images/defaultImage.png'}
+            src={logo || '/images/defaultImage-optimized-1280.webp'}
             alt={company}
             width={80}
             height={80}

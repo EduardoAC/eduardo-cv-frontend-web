@@ -10,7 +10,7 @@ export default function Greetings() {
         <div className="snap-grid">
           <div className="snap-col snap-col-md-5">
             <Image
-              src="/images/finding-the-secrets.jpg"
+              src="/images/finding-the-secrets-optimized-1280.webp"
               alt="Finding the Secrets"
               width={400}
               height={300}

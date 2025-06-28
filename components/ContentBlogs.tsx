@@ -10,7 +10,7 @@ export default function ContentBlogs() {
         <div className="snap-grid">
           <div className="snap-col snap-col-md-5">
             <Image
-              src="/images/ideas-content-blog.jpg"
+              src="/images/ideas-content-blog-optimized-1280.webp"
               alt="Ideas Content Blog"
               width={400}
               height={300}
