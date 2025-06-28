@@ -7,6 +7,107 @@ Please be welcome to reuse, share or comment any of the code.
 
 # Eduardo Aparicio Cardenes - Interactive CV
 
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd eduardo-cv-frontend-web
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Install Playwright browsers (required for visual regression testing):
+   ```bash
+   npx playwright install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev -- --port 3001
+   ```
+
+5. Open [http://localhost:3001](http://localhost:3001) in your browser.
+
+## 🎨 Visual Regression Testing with Lost Pixel
+
+This project uses [Lost Pixel](https://lost-pixel.com/) for visual regression testing to ensure UI consistency across changes.
+
+### Setup for Visual Regression Testing
+
+1. **Install dependencies** (includes Lost Pixel and compatible Playwright version):
+   ```bash
+   npm install
+   ```
+
+2. **Install Playwright browsers** (required for Lost Pixel):
+   ```bash
+   npx playwright install
+   ```
+
+3. **Start the Next.js development server** (on port 3001):
+   ```bash
+   npm run dev -- --port 3001
+   ```
+
+4. **Run visual regression tests** (in another terminal):
+   ```bash
+   npm run lost-pixel
+   ```
+
+### Lost Pixel Commands
+
+- **Generate screenshots**: `npm run lost-pixel`
+- **Update baseline images**: `npm run lost-pixel:update`
+
+### Configuration
+
+Lost Pixel is configured in `lostpixel.config.ts` to capture screenshots of:
+- Home page (`/`)
+- About page (`/about`)
+- Contact page (`/contact`)
+- My Projects page (`/my-projects`)
+- My Experience page (`/my-experience`)
+- Frontend Profile page (`/frontend-profile`)
+- Backend Profile page (`/backend-profile`)
+- Software Architect Profile page (`/software-architect-profile`)
+- Blog page (`/blog`)
+- Forum page (`/forum`)
+- How Do I Build It page (`/projects/how-do-i-build-it`)
+
+### How It Works
+
+Lost Pixel uses three key directories:
+- **`.lostpixel/baseline/`** - Reference screenshots (committed to git)
+- **`.lostpixel/current/`** - Latest screenshots (ignored by git)
+- **`.lostpixel/difference/`** - Visual differences (ignored by git)
+
+When you run `npm run lost-pixel`, it compares current screenshots against the baseline and reports any visual differences.
+
+### Updating Baseline Images
+
+When you make intentional UI changes, update the baseline images:
+```bash
+npm run lost-pixel:update
+```
+
+This will replace the baseline images with the current screenshots, establishing a new reference point.
+
+### Troubleshooting
+
+If you encounter browser-related errors:
+1. Ensure you've run `npx playwright install`
+2. Make sure the development server is running on port 3001
+3. Check that all dependencies are properly installed
+
 ## 🚀 Optimized Navbar Features
 
 The website features an enhanced navigation header that maintains the original Bootstrap 3 design system while adding modern responsive functionality:
