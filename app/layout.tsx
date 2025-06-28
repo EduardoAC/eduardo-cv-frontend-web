@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import { GoogleAnalytics } from '../components/layout/GoogleAnalytics'
 import { Navbar } from '../components/layout/navbar'
 import { Footer } from '../components/layout/Footer'
+import ServiceWorkerRegistration from '../components/layout/ServiceWorkerRegistration'
 import './globals.css'
 import '../components/snap-components/snap-components.css'
 import '../styles/main.scss'
@@ -21,7 +22,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#000000',
+  maximumScale: 1,
+  userScalable: false,
 }
 
 export default function RootLayout({
@@ -33,11 +35,12 @@ export default function RootLayout({
   const pageTitle = 'Eduardo Aparicio Cardenes - Interactive CV';
   return (
     <html lang="en">
-      <GoogleAnalytics />
       <body className={inter.className}>
         <Navbar pageTitle={pageTitle} />
         <div className="wrap">{children}</div>
         <Footer />
+        <GoogleAnalytics />
+        <ServiceWorkerRegistration />
       </body>
     </html>
   )

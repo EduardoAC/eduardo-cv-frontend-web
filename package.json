@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true npm run build",
+    "lighthouse": "lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-report.json",
+    "lighthouse:html": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html",
+    "performance": "npm run build && npm run lighthouse",
+    "performance:all": "npm run build && npm run lighthouse && npm run lighthouse:html",
+    "bundle-size": "npm run build && npx next-bundle-analyzer"
   },
   "dependencies": {
     "next": "^14.2.30",

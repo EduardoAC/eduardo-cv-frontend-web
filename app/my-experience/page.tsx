@@ -15,47 +15,32 @@ export default function MyExperiencePage() {
       <section className="snap-container introduction">
         <h1>My Work Experience</h1>
         <p>
-          I've been working as web developer for almost five years switched from
-          a software engineer job because I found more attractive for my
-          professional career. Therefore, in this page you will find the big
-          picture of my evolution as a web developer, where I decided to
-          include my principal studies that put me away for a long period of
-          time for work world in order to develop better my skills.
+          I have been working in the web development industry for over a decade.
+          During this time, I have had the opportunity to work with amazing
+          companies and teams, learning and growing both professionally and
+          personally.
         </p>
         <p>
-          Essentially, in these years I learned how to build and develop
-          platforms where I acquired backend and frontend knowledge to do more
-          effective my job in these companies. However, my team managers decided
-          in a intuitive way always to assign me more tasks related with
-          frontend in the last three years. It's probably then when I discovered
-          that I really enjoyed doing this work.
-        </p>
-        <p>
-          Currently{' '}
-          <strong>
-            I decided that I want to become a successful frontend engineer
-          </strong>
-          , I feel that it's my true vocation bring alive the amazing design
-          comming from the designers so please scroll down to see my evolution
-          across my work timeline .
+          Here you can find a timeline of my work experience, including the
+          companies I have worked for, the positions I have held, and the
+          projects I have been involved in.
         </p>
       </section>
-      <section className="snap-container">
-        <div className={styles.my_experience_timeline}>
-          <div className="snap-container">
-            {experienceList.map((experience) => (
-              <ExperienceBlock key={experience.company} {...experience} />
+      <section className={styles.experience_timeline}>
+        <div className="snap-container">
+          <div className={styles.timeline}>
+            {experienceList.map((experience, index) => (
+              <ExperienceBlock key={index} {...experience} />
             ))}
           </div>
         </div>
       </section>
       <section className="snap-container conclusion">
+        <h2>What's Next?</h2>
         <p>
-          If you want to ask me, please feel free to{' '}
-          <Link href="/contact">contact me</Link> or drop me a{' '}
-          <a href="mailto:eduardo@dreammakerfactory.com">email</a>. I will be
-          happy to answer any question, offer or consideration as soon as
-          possible
+          I'm always looking for new challenges and opportunities to grow. If you
+          think I could be a good fit for your team or project, please{' '}
+          <Link href="/contact">get in touch</Link>.
         </p>
       </section>
     </article>

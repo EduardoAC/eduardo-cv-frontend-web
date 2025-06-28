@@ -1,87 +1,26 @@
-'use client';
-import { useState } from 'react';
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import ContactForm from './ContactForm';
 import styles from './Contact.module.scss';
 
+export const metadata: Metadata = {
+  title: 'Contact - Eduardo Aparicio Cardenes',
+  description: 'Get in touch with Eduardo Aparicio Cardenes for business inquiries, collaborations, or any questions.',
+  openGraph: {
+    images: ['/images/world-wide-map-high-res.svg'],
+  },
+};
+
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Here you would typically handle form submission,
-    // e.g., send the data to an API endpoint.
-    setSubmitted(true);
-  };
-
   return (
     <div className={styles.contact_or_hire_me}>
-      <Image
-        src="/images/world-wide-map-high-res.svg"
-        alt="World map"
-        width={1920}
-        height={1080}
-        className={styles.wold_wide_map}
-      />
       <div className={styles.heading_block}>
         <h1>Hire or contact me</h1>
-
-        {submitted ? (
-          <div className="snap-alert snap-alert-success">
-            Thank you for your message! I will get back to you as soon as
-            possible.
-          </div>
-        ) : (
-          <>
-            <p>
-              If you have business inquiries or other questions, please fill
-              out the following form to contact us. Thank you.
-            </p>
-
-            <form id="contact-form" onSubmit={handleSubmit}>
-              <div className="snap-form-group">
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="snap-form-control"
-                  required
-                />
-              </div>
-              <div className="snap-form-group">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="snap-form-control"
-                  required
-                />
-              </div>
-              <div className="snap-form-group">
-                <label htmlFor="body">Message</label>
-                <textarea
-                  id="body"
-                  name="body"
-                  className="snap-form-control"
-                  rows={6}
-                  required
-                ></textarea>
-              </div>
-              <div className="snap-form-group">
-                <button
-                  type="submit"
-                  className="snap-btn snap-btn-primary"
-                  name="contact-button"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
-          </>
-        )}
+        <p>
+          If you want to hire me or just want to contact me, you can do it
+          through the following form. I will get back to you as soon as possible.
+        </p>
       </div>
+      <ContactForm />
     </div>
   );
 } 
