@@ -1,18 +1,10 @@
+@import '../../styles/utilities/mixins';
+
 .my_projects {
-  p {
-    margin-bottom: 20px;
-    font-size: 20px;
-    text-align: justify;
-    text-indent: 40px;
-    color: #ccc;
-  }
-  h1 {
-    text-align: center;
-    color: #fff;
-    margin: 30px auto;
-  }
-  .collection_projects {
-  }
+  @include page-typography;
+
+  .collection_projects {}
+
   @media (min-width: 992px) {
     .collection_projects {
       width: 970px;
@@ -35,12 +27,14 @@
     }
   }
 
-  .introduction, .conclusion {
-      p {
-          color: #ccc;
-      }
-      a {
-          color: #ccc;
-      }
+  .introduction,
+  .conclusion {
+    p {
+      color: #ccc;
+    }
+
+    a {
+      color: #ccc;
+    }
   }
-} 
+}
