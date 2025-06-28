@@ -16,7 +16,7 @@ export const config: CustomProjectConfig = {
       { path: '/forum', name: 'forum' },
       { path: '/projects/how-do-i-build-it', name: 'how-do-i-build-it' },
     ],
-    baseUrl: 'http://localhost:3001',
+    baseUrl: 'http://localhost:3000',
   },
   generateOnly: true,
   failOnDifference: true,
