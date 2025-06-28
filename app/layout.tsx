@@ -5,7 +5,7 @@ import { Navbar } from '../components/layout/navbar'
 import { Footer } from '../components/layout/Footer'
 import ServiceWorkerRegistration from '../components/layout/ServiceWorkerRegistration'
 import './globals.css'
-import '../components/snap-components/snap-components.css'
+import '../components/snap-components/snap-components-optimized.css'
 import '../styles/main.scss'
 import './components.scss'
 

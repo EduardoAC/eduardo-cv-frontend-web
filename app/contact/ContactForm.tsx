@@ -1,7 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Image from 'next/image';
-import styles from './Contact.module.scss';
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -15,13 +13,6 @@ export default function ContactForm() {
 
   return (
     <>
-      <Image
-        src="/images/world-wide-map-high-res.svg"
-        alt="World map"
-        width={1920}
-        height={1080}
-        className={styles.wold_wide_map}
-      />
       
       {submitted ? (
         <div className="snap-alert snap-alert-success">
