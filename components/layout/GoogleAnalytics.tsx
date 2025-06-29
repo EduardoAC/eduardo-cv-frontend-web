@@ -10,7 +10,7 @@ export const GoogleAnalytics = ({
   return (
     <>
       <Script
-        src="https://www.googletagmanager.com/gtag/js"
+        src="https://www.googletagmanager.com/gtag/js?id=G-YRHBYKPJHZ"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -18,7 +18,8 @@ export const GoogleAnalytics = ({
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${trackingId}');
+
+          gtag('config', 'G-YRHBYKPJHZ');
         `}
       </Script>
     </>
