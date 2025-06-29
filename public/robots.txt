@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://eduardo-aparicio-cardenes.website/sitemap.xml 

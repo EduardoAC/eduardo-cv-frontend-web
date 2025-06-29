@@ -1,0 +1,15 @@
+/* --- Configuration Variables --- */
+:root {
+  --snap-gutter-width: 15px;
+
+  /* Breakpoint variables are kept here for reference, but not used in media queries */
+  --snap-breakpoint-sm: 576px;
+  --snap-breakpoint-md: 768px;
+  --snap-breakpoint-lg: 992px;
+  --snap-breakpoint-xl: 1200px;
+
+  --snap-container-max-width-sm: 540px;
+  --snap-container-max-width-md: 720px;
+  --snap-container-max-width-lg: 960px;
+  --snap-container-max-width-xl: 1140px;
+} 

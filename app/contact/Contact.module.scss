@@ -1,0 +1,90 @@
+.contact_or_hire_me {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center; /* Center on mobile */
+  align-items: center;
+  padding: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .contact_or_hire_me {
+    justify-content: flex-end; /* Align form to the right on desktop */
+    padding-right: 5rem;
+  }
+}
+
+.wold_wide_map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.3;
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+.heading_block {
+  background-color: rgba(30, 30, 30, 0.85);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 600px;
+  color: #fff;
+}
+
+.heading_block h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.heading_block p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+/* --- Form Styles --- */
+.heading_block :global(.snap-form-group) {
+  margin-bottom: 1.5rem;
+}
+
+.heading_block :global(.snap-form-group label) {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.heading_block :global(.snap-form-control) {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #555;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.heading_block :global(.snap-form-control:focus) {
+  outline: 0;
+  border-color: #9B2B9A;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 0.2rem rgba(155, 43, 154, 0.25);
+}
+
+.heading_block :global(#contact-form .snap-btn) {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+} 

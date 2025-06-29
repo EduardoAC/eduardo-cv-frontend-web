@@ -1,0 +1,6 @@
+@import '../styles/utilities/mixins';
+
+.jobs-timeline {
+  @include gradient-pattern;
+  @include section-base-enhanced;
+} 

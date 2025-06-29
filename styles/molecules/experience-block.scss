@@ -1,0 +1,112 @@
+.experience-block {
+  font-family: 'Open Sans', sans-serif;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dadada;
+  
+  h4 {
+    color: #5b4c5c;
+    padding-bottom: 1px;
+    font-weight: 700;
+    font-size: 24px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+  }
+  
+  h5 {
+    color: #5b4c5c;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0 0 15px;
+    padding-bottom: 11px;
+  }
+
+  .workYear {
+    font-size: 17px;
+    color: #fff;
+    line-height: 40px;
+  }
+  
+  .workYear span {
+    display: block;
+    font-size: 18px;
+    padding: 0 21px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+  
+  .prevY {
+    background-color: #047ca0;
+  }
+  
+  .afterY {
+    background-color: #483c49;
+  }
+  
+  .exCon p {
+    color: #897f8a;
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 15px;
+    margin: 0px;
+  }
+
+  @media (min-width: 768px) {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    border-bottom: 0;
+  
+    h5, h4 {
+      margin-left: 0px;
+    }
+    
+    p {
+      font-size: 18px;
+    }
+    
+    .rightArea {
+      border-left: dashed 1px #897f8a;
+      padding-bottom: 47px;
+    }
+    
+    :last-child .rightArea {
+      padding-bottom: 0px;
+    }
+    
+    :last-child .rightArea .exCon p:last-child {
+      padding-bottom: 0;
+    }
+
+    .workYear span {
+      float: right;
+      margin-bottom: 2px;
+    }
+
+    .arrowpart {
+      margin-left: -26px;
+      margin-top: 32px;
+      float: left;
+      width: 22px;
+      height: 22px;
+      background: url(/images/arrow-left.png) no-repeat 0 0 #f8f7f8;
+    }
+    
+    .exCon {
+      width: auto;
+      padding: 0 47px 6px 70px;
+      margin-left: 15px;
+      text-align: left;
+    }
+
+    .exCon h4 {
+      margin-top: -8px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .workYear span {
+      margin-right: 28px;
+    }
+  }
+} 

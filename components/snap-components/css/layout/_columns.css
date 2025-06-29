@@ -1,0 +1,42 @@
+/* --- Columns --- */
+/* Base styles for all columns */
+.snap-col {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%; /* Makes columns stack by default (mobile-first) */
+  padding-right: var(--snap-gutter-width);
+  padding-left: var(--snap-gutter-width);
+}
+
+@media (min-width: 576px) {
+  .snap-col-sm-4 { flex: 0 0 auto; width: 33.333333%; }
+  .snap-col-sm-6 { flex: 0 0 auto; width: 50%; }
+  .snap-col-sm-8 { flex: 0 0 auto; width: 66.666667%; }
+
+  .snap-order-sm-1 { order: 1; }
+  .snap-order-sm-2 { order: 2; }
+}
+
+/* Medium breakpoint (>=768px) */
+@media (min-width: 768px) {
+  .snap-col-md-1 { flex: 0 0 auto; width: 8.333333%; }
+  .snap-col-md-2 { flex: 0 0 auto; width: 16.666667%; }
+  .snap-col-md-3 { flex: 0 0 auto; width: 25%; }
+  .snap-col-md-4 { flex: 0 0 auto; width: 33.333333%; }
+  .snap-col-md-5 { flex: 0 0 auto; width: 41.666667%; }
+  .snap-col-md-6 { flex: 0 0 auto; width: 50%; }
+  .snap-col-md-7 { flex: 0 0 auto; width: 58.333333%; }
+  .snap-col-md-8 { flex: 0 0 auto; width: 66.666667%; }
+  .snap-col-md-9 { flex: 0 0 auto; width: 75%; }
+  .snap-col-md-10 { flex: 0 0 auto; width: 83.333333%; }
+  .snap-col-md-11 { flex: 0 0 auto; width: 91.666667%; }
+  .snap-col-md-12 { flex: 0 0 auto; width: 100%; }
+
+  .snap-order-md-1 { order: 1; }
+  .snap-order-md-2 { order: 2; }
+}
+
+@media (min-width: 992px) {
+  .snap-col-lg-4 { flex: 0 0 auto; width: 33.333333%; }
+  .snap-col-lg-8 { flex: 0 0 auto; width: 66.666667%; }
+} 

@@ -1,0 +1,36 @@
+{
+  "name": "eduardo-cv-frontend-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "analyze": "ANALYZE=true npm run build",
+    "lighthouse": "lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-report.json",
+    "lighthouse:html": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html",
+    "performance": "npm run build && npm run lighthouse",
+    "performance:all": "npm run build && npm run lighthouse && npm run lighthouse:html",
+    "bundle-size": "npm run build && npx next-bundle-analyzer",
+    "lost-pixel": "lost-pixel",
+    "lost-pixel:update": "lost-pixel update"
+  },
+  "dependencies": {
+    "next": "^14.2.30",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.69.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.32.3",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "lost-pixel": "^3.22.0",
+    "sharp": "^0.34.2",
+    "typescript": "^5"
+  }
+}

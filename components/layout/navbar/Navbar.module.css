@@ -1,0 +1,186 @@
+/* 
+  Mobile-First Sidebar Navigation Styles
+  This is a plain CSS Module file.
+*/
+
+/* 
+  Core Navbar Styling
+*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #212121; /* Dark background from screenshot */
+  position: relative;
+  z-index: 999; /* Below the overlay */
+}
+
+.navbarBrand {
+  color: #fff; /* White text from screenshot */
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* 
+  Desktop Navigation (hidden on mobile)
+*/
+.navbarNavDesktop {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem; /* Space between items */
+}
+
+@media (min-width: 768px) {
+  .navbarNavDesktop {
+    display: flex;
+  }
+}
+
+.navLink {
+  color: #ccc; /* Lighter grey for links */
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.navLink:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* 
+  Mobile Hamburger Toggle (hidden on desktop)
+*/
+.navbarToggle {
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .navbarToggle {
+    display: none;
+  }
+}
+
+.iconBar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 1px;
+  transition: all 0.3s;
+}
+
+.iconBar + .iconBar {
+  margin-top: 4px;
+}
+
+/* Active state for hamburger */
+.navbarToggle.active .iconBar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.navbarToggle.active .iconBar:nth-child(2) {
+  opacity: 0;
+}
+.navbarToggle.active .iconBar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* 
+  Mobile Sidebar Menu
+*/
+.mobileSidebar {
+  position: fixed;
+  top: 0;
+  right: -280px; /* Start off-screen */
+  width: 280px;
+  height: 100%;
+  background-color: #212121;
+  padding: 2rem;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileSidebarHeader {
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  align-items: center;
+  gap: 0.75rem; /* Add space between icon and text */
+  color: #ccc;
+  cursor: pointer;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #444;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.mobileSidebarHeader:hover {
+  color: #fff;
+}
+
+.closeIcon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.mobileSidebar.open {
+  right: 0; /* Slide in */
+}
+
+.mobileSidebarNav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobileSidebar .navItem {
+  margin: 0 0 1rem 0;
+}
+
+.mobileSidebar .navLink {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+.mobileSidebar .navLink:hover {
+  background-color: #495057;
+}
+
+.sidebarOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* --- Media Queries --- */
+
+/* Hide mobile elements on desktop */
+@media (min-width: 768px) {
+  .navbarToggle, .mobileSidebar, .sidebarOverlay {
+    display: none;
+  }
+}
+  
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .navbarToggle,
+  .iconBar,
+  .mobileSidebar {
+    transition: none;
+  }
+} 

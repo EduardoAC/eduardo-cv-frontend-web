@@ -1,0 +1,7 @@
+/* --- Layout: Grid --- */
+.snap-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: calc(var(--snap-gutter-width) * -1);
+  margin-left: calc(var(--snap-gutter-width) * -1);
+} 

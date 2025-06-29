@@ -1,0 +1,45 @@
+.content-blogs {
+  padding: 50px 15px;
+
+  h2 {
+    color: #333;
+    margin-bottom: 40px;
+  }
+
+  .text {
+    color: #fff;
+    line-height: 1.6;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    margin: 0 auto;
+    padding-bottom: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (min-width: 1024px) {
+    padding: 100px 15px;
+  }
+  
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    img {
+      margin-top: 40px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    img {
+      margin-top: 10px;
+    }
+  }
+} 

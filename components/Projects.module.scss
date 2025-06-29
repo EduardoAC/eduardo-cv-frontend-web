@@ -1,0 +1,6 @@
+@import '../styles/utilities/mixins';
+
+.projects {
+  @include gradient-pattern;
+  @include section-base-enhanced;
+} 

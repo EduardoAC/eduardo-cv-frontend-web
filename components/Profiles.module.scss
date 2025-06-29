@@ -1,0 +1,6 @@
+@import '../styles/utilities/mixins';
+
+.profiles {
+  @include section-base-enhanced;
+  padding: 4rem 0;
+}

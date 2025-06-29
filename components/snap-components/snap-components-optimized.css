@@ -1,0 +1,158 @@
+/* --- Snap Components Framework (Optimized) --- */
+/* Only includes classes actually used in the application */
+
+/* Import base files */
+@import url('./css/base/_reset.css');
+@import url('./css/base/_variables.css');
+@import url('./css/base/_utilities.css');
+@import url('./css/layout/_container.css');
+@import url('./css/layout/_grid.css');
+@import url('./css/layout/_columns.css');
+@import url('./css/components/_button.css');
+@import url('./css/components/_alert.css');
+
+/* --- Optimized Grid System --- */
+.snap-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: calc(var(--snap-gutter-width) * -1);
+  margin-left: calc(var(--snap-gutter-width) * -1);
+}
+
+/* Base styles for all columns */
+.snap-col {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%; /* Makes columns stack by default (mobile-first) */
+  padding-right: var(--snap-gutter-width);
+  padding-left: var(--snap-gutter-width);
+}
+
+/* Small breakpoint (>=576px) - Only used classes */
+@media (min-width: 576px) {
+  .snap-col-sm-4 { flex: 0 0 auto; width: 33.333333%; }
+  .snap-col-sm-6 { flex: 0 0 auto; width: 50%; }
+
+  .snap-order-sm-1 { order: 1; }
+  .snap-order-sm-2 { order: 2; }
+}
+
+/* Medium breakpoint (>=768px) - Only used classes */
+@media (min-width: 768px) {
+  .snap-col-md-4 { flex: 0 0 auto; width: 33.333333%; }
+  .snap-col-md-5 { flex: 0 0 auto; width: 41.666667%; }
+  .snap-col-md-7 { flex: 0 0 auto; width: 58.333333%; }
+  .snap-col-md-8 { flex: 0 0 auto; width: 66.666667%; }
+
+  .snap-order-md-1 { order: 1; }
+  .snap-order-md-2 { order: 2; }
+}
+
+/* Large breakpoint (>=992px) - Only used classes */
+@media (min-width: 992px) {
+  .snap-col-lg-4 { flex: 0 0 auto; width: 33.333333%; }
+  .snap-col-lg-8 { flex: 0 0 auto; width: 66.666667%; }
+}
+
+/* --- Optimized Utilities --- */
+.snap-img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.snap-img-thumbnail {
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Only used visibility utility */
+@media (max-width: 767px) {
+  .snap-hidden-sm {
+    display: none !important;
+  }
+}
+
+/* --- Optimized Components --- */
+/* Button styles */
+.snap-btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.snap-btn-primary {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.snap-btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+/* Alert styles */
+.snap-alert {
+  position: relative;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.snap-alert-success {
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+}
+
+.snap-alert-danger {
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+}
+
+/* Form styles */
+.snap-form-group {
+  margin-bottom: 1rem;
+}
+
+.snap-form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.snap-form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+} 
