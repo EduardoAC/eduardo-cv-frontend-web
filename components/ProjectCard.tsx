@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next-image-export-optimizer';
 import styles from './ProjectCard.module.scss';
 
 interface ProjectCardProps {

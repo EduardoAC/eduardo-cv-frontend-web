@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
 import styles from "./Contact.module.scss";
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 
 export const metadata: Metadata = {
   title: "Contact - Eduardo Aparicio Cardenes",
@@ -23,7 +23,7 @@ export default function ContactPage() {
         className={styles.wold_wide_map}
         priority
         sizes="100vw"
-        quality={85}
+        // quality={85}
       />
       <div className={styles.heading_block}>
         <h1>Hire or contact me</h1>

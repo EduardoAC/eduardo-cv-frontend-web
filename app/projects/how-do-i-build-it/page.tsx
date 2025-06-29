@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import Image from 'next-image-export-optimizer'
 
 export const metadata: Metadata = {
   title: 'How Do I build my interactive CV - Eduardo Aparicio Cardenes',

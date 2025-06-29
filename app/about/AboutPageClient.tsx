@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import Image from "next/image";
+import Image from "next-image-export-optimizer";
 import styles from "./About.module.scss";
 import { initializeAboutMe } from "../lib/about-me";
 
