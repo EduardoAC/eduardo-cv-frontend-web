@@ -31,12 +31,12 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
     <article style={{ maxWidth: 800, margin: '0 auto', padding: '2rem 1rem' }}>
       <header style={{ marginBottom: '2rem' }}>
         <div style={{ marginBottom: '1rem' }}>
-          <Link href="/posts" style={{ color: '#2563eb', textDecoration: 'none', fontWeight: 500 }}>
+          <Link className="snap-link snap-read-more" href="/posts">
             ← Back to all posts
           </Link>
         </div>
-        <h1 style={{ fontSize: '2.25rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>{post.title}</h1>
-        <div style={{ color: '#6b7280', fontSize: '1rem', marginBottom: '1rem' }}>
+        <h1 className="snap-heading-h1">{post.title}</h1>
+        <div className="snap-meta">
           <time dateTime={post.date} style={{ marginRight: '1rem' }}>
             {new Date(post.date).toLocaleDateString('en-GB', {
               year: 'numeric',
@@ -60,7 +60,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
             <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
-        <p style={{ color: '#374151', fontSize: '1.125rem', marginBottom: 0 }}>{post.description}</p>
+        <p style={{ color: '#fff', fontSize: '1.125rem', marginBottom: 0 }}>{post.description}</p>
       </header>
       <section style={{ marginBottom: '2rem' }}>
         <MarkdownRenderer content={post.content} showTableOfContents={true} />
@@ -96,8 +96,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
                       loading="lazy"
                     />
                   )}
-                  <h4 style={{ fontSize: '1rem', fontWeight: 600, margin: '0 0 0.5rem 0' }}>
-                    <Link href={`/posts/${relatedPost.slug}`} style={{ color: '#2563eb', textDecoration: 'none' }}>
+                  <h4 className="snap-heading-h4">
+                    <Link className="snap-link snap-read-more" href={`/posts/${relatedPost.slug}`}>
                       {relatedPost.title}
                     </Link>
                   </h4>
@@ -115,7 +115,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
                       <Tag key={tag}>{tag}</Tag>
                     ))}
                   </div>
-                  <p style={{ color: '#374151', fontSize: '0.95rem', margin: '0.5rem 0 0 0' }}>{relatedPost.description}</p>
+                  <p style={{ color: '#fff', fontSize: '0.95rem', margin: '0.5rem 0 0 0' }}>{relatedPost.description}</p>
                 </Card>
               ))}
             </div>

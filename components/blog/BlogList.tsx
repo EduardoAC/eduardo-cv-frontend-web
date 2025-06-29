@@ -73,10 +73,10 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
                     </Link>
                   )}
                   <header>
-                    <h2 style={{ fontSize: '1.5rem', margin: '0 0 0.5rem 0' }}>
-                      <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+                    <h2 className="snap-heading-h2">
+                      <Link className="snap-link" href={`/posts/${post.slug}`}>{post.title}</Link>
                     </h2>
-                    <div style={{ color: '#6b7280', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+                    <div className="snap-meta">
                       <time dateTime={post.date} style={{ marginRight: '1rem' }}>
                         {new Date(post.date).toLocaleDateString('en-GB', {
                           year: 'numeric',
@@ -87,14 +87,14 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
                       <span>• {post.readingTime} min read</span>
                     </div>
                   </header>
-                  <p style={{ color: '#374151', marginBottom: '1rem' }}>{post.description}</p>
-                  <div>
+                  <p className="blog-description">{post.description}</p>
+                  <div className="blog-tags">
                     {post.tags.map((tag) => (
                       <Tag key={tag}>{tag}</Tag>
                     ))}
                   </div>
-                  <div style={{ marginTop: '1rem' }}>
-                    <Link href={`/posts/${post.slug}`} style={{ color: '#2563eb', textDecoration: 'none', fontWeight: 500 }}>
+                  <div className="blog-read-more">
+                    <Link className="snap-link snap-read-more" href={`/posts/${post.slug}`}>
                       Read more →
                     </Link>
                   </div>
@@ -108,4 +108,4 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
   );
 };
 
-export default BlogList; 
+export default BlogList;
