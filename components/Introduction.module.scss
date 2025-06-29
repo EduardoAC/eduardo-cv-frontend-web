@@ -4,6 +4,7 @@
   @include gradient-pattern;
   position: relative;
   @include flex-center;
+  padding: 0;
   background-color: black;
   width: 100%;
 
