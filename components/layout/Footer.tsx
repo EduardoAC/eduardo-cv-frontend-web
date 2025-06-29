@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Container from './Container'
 
 interface FooterLink {
   href: string
@@ -66,7 +67,7 @@ export const Footer = ({
 
   return (
     <footer className="footer">
-      <div className="snap-container">
+      <Container variant="default" padding="medium">
         <div className="snap-grid">
           {sections.map((section, index) => (
             <div
@@ -99,13 +100,13 @@ export const Footer = ({
             </div>
           ))}
         </div>
-      </div>
+      </Container>
       <hr />
-      <div className="snap-container footer-label">
+      <Container variant="default" padding="small" className="footer-label">
         <p className="center-block">
           &copy; {copyrightText} {currentYear}
         </p>
-      </div>
+      </Container>
     </footer>
   )
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Container from './layout/Container';
 import ContentBlock from '@/components/ContentBlock';
 import styles from './ProfilePage.module.scss';
 
@@ -39,7 +40,7 @@ export default function ProfilePage({
   linkedInUrl = 'https://www.linkedin.com/in/eacardenes',
 }: ProfilePageProps) {
   return (
-    <article className={`snap-container ${styles.profile_page}`} data-role={role}>
+    <Container variant="default" padding="medium" className={styles.profile_page} data-role={role}>
       <h1>{title}</h1>
       <section className={styles.introduction}>
         {introduction.map((paragraph, index) => (
@@ -65,6 +66,6 @@ export default function ProfilePage({
           <p className={styles.conclusion}>Would you like to know more?</p>
         </a>
       </section>
-    </article>
+    </Container>
   );
 } 

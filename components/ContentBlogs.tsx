@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Container from './layout/Container'
 import styles from './ContentBlogs.module.scss'
 
 export default function ContentBlogs() {
   return (
     <section className={styles['content-blogs']}>
-      <div className="snap-container">
+      <Container variant="default" padding="medium">
         <h2>Business and Technology Addiction</h2>
         <div className="snap-grid">
           <div className="snap-col snap-col-md-5">
@@ -32,7 +33,7 @@ export default function ContentBlogs() {
             </p>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 } 

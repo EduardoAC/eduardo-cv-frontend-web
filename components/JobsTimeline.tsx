@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Container from './layout/Container'
 import styles from './JobsTimeline.module.scss'
 
 export default function JobsTimeline() {
   return (
     <section className={styles['jobs-timeline']}>
-      <div className="snap-container">
+      <Container variant="default" padding="medium">
         <h2 className={styles.title}>My Career Timeline</h2>
         <div className="snap-grid">
           <div className="snap-col snap-col-md-7">
@@ -34,7 +35,7 @@ export default function JobsTimeline() {
             />
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 } 

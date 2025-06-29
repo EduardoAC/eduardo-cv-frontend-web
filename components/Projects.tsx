@@ -1,3 +1,4 @@
+import Container from './layout/Container'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './Projects.module.scss'
@@ -5,7 +6,7 @@ import styles from './Projects.module.scss'
 export default function Projects() {
   return (
     <section className={styles.projects}>
-      <div className="snap-container">
+      <Container variant="default" padding="medium">
         <h2>Some of my projects</h2>
         <div className="snap-grid">
           <div className="snap-col snap-col-md-7 snap-col-lg-8">
@@ -29,7 +30,7 @@ export default function Projects() {
             </Link>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 } 

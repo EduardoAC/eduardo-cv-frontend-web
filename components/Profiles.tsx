@@ -1,10 +1,11 @@
+import Container from './layout/Container'
 import ContentBlock from './ContentBlock'
 import styles from './Profiles.module.scss'
 
 export default function Profiles() {
   return (
     <section className={styles.profiles}>
-      <div className="snap-container">
+      <Container variant="default" padding="medium">
         <h2>My Background</h2>
         <p className="text">
           Since I started with my engineer in computer science. I'm always been curious about many subjects in specific all of things related as Artificial Intelligence until I discovered the web technologies that allow you to become real any ideas or business.
@@ -39,7 +40,7 @@ export default function Profiles() {
             />
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 } 

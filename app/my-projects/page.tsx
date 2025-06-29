@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Container from '@/components/layout/Container';
 import ProjectCard from '@/components/ProjectCard';
 import { projectsData } from './data';
 import styles from './MyProjects.module.scss';
@@ -16,41 +17,41 @@ export default function MyProjectsPage() {
 
   return (
     <article className={styles.my_projects}>
-      <section className="snap-container introduction">
+      <Container variant="default" padding="large" className="introduction">
         <h1>My Projects</h1>
         <p>
           Here you can find my projects here include hackathons, work and
           personal ideas. This page will be upgrade and change with the new
           comming projects
         </p>
-      </section>
+      </Container>
 
-      <section className="snap-container">
+      <Container variant="default" padding="medium">
         <h2>Projects</h2>
         <div className={styles.projects_grid}>
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
         </div>
-      </section>
+      </Container>
 
-      <section className="snap-container">
+      <Container variant="default" padding="medium">
         <h2>Hackathons</h2>
         <div className={styles.projects_grid}>
           {hackathons.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
         </div>
-      </section>
+      </Container>
 
-      <section className="snap-container">
+      <Container variant="default" padding="medium">
         <h2>Ideas</h2>
         <div className={styles.projects_grid}>
           {ideas.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
         </div>
-      </section>
+      </Container>
     </article>
   );
 } 
