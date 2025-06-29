@@ -24,6 +24,8 @@
   object-fit: cover;
   z-index: -1;
   opacity: 0.3;
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .heading_block {

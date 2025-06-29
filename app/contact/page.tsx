@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Get in touch with Eduardo Aparicio Cardenes for business inquiries, collaborations, or any questions.",
   openGraph: {
-    images: ["/images/world-wide-map-high-res.svg"],
+    images: ["/images/world-wide-map-optimized.svg"],
   },
 };
 
@@ -16,11 +16,14 @@ export default function ContactPage() {
   return (
     <div className={styles.contact_or_hire_me}>
       <Image
-        src="/images/world-wide-map-high-res.svg"
-        alt="World map"
+        src="/images/world-wide-map-optimized.svg"
+        alt="World map background"
         width={1920}
         height={1080}
         className={styles.wold_wide_map}
+        priority
+        sizes="100vw"
+        quality={85}
       />
       <div className={styles.heading_block}>
         <h1>Hire or contact me</h1>
