@@ -1,0 +1,25 @@
+/* --- Components: Card --- */
+.snap-card {
+  display: block;
+  background: var(--snap-card-bg, #fff);
+  border: 1px solid var(--snap-card-border, #e5e7eb);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 var(--snap-card-shadow, rgba(0,0,0,0.04));
+  padding: 1.5rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.snap-card:hover {
+  box-shadow: 0 4px 8px -2px var(--snap-card-shadow-hover, rgba(0,0,0,0.08));
+  border-color: var(--snap-card-border-hover, #cbd5e1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .snap-card {
+    --snap-card-bg: #181a1b;
+    --snap-card-border: #23272b;
+    --snap-card-shadow: rgba(0,0,0,0.32);
+    --snap-card-shadow-hover: rgba(0,0,0,0.48);
+    color: #f3f4f6;
+  }
+} 

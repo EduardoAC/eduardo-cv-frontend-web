@@ -1,0 +1,28 @@
+/* --- Components: Tag --- */
+.snap-tag {
+  display: inline-block;
+  background: var(--snap-tag-bg, #f3f4f6);
+  color: var(--snap-tag-color, #374151);
+  font-size: 0.875rem;
+  padding: 0.25em 0.75em;
+  border-radius: 9999px;
+  font-weight: 500;
+  margin-right: 0.25em;
+  margin-bottom: 0.25em;
+  line-height: 1.5;
+  transition: background 0.2s, color 0.2s;
+}
+
+.snap-tag:hover {
+  background: var(--snap-tag-bg-hover, #e5e7eb);
+  color: var(--snap-tag-color-hover, #111827);
+}
+
+@media (prefers-color-scheme: dark) {
+  .snap-tag {
+    --snap-tag-bg: #23272b;
+    --snap-tag-color: #f3f4f6;
+    --snap-tag-bg-hover: #181a1b;
+    --snap-tag-color-hover: #fff;
+  }
+} 

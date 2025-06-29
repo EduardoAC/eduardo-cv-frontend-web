@@ -1,0 +1,230 @@
+/* --- Components: Markdown --- */
+.snap-markdown {
+  color: var(--snap-markdown-color, #23272b);
+  background: transparent;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.snap-markdown-content h1,
+.snap-markdown-content h2,
+.snap-markdown-content h3,
+.snap-markdown-content h4,
+.snap-markdown-content h5,
+.snap-markdown-content h6 {
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--snap-markdown-heading, #fff);
+}
+
+.snap-markdown-content h1 {
+  font-size: 2rem;
+  border-bottom: 2px solid var(--snap-markdown-border, #e5e7eb);
+  padding-bottom: 0.5rem;
+}
+
+.snap-markdown-content h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--snap-markdown-border, #e5e7eb);
+  padding-bottom: 0.25rem;
+}
+
+.snap-markdown-content p {
+  margin-bottom: 1.25rem;
+}
+
+.snap-link {
+  color: var(--snap-link, #2563eb);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.snap-link:hover {
+  text-decoration: underline;
+  color: var(--snap-link-hover, #60a5fa);
+}
+
+.snap-code-block {
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--snap-markdown-border, #e5e7eb);
+  background: var(--snap-code-bg, #f5f7fa);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+}
+.snap-code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--snap-code-header-bg, #f3f4f6);
+  border-bottom: 1px solid var(--snap-markdown-border, #e5e7eb);
+}
+.snap-code-lang {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-transform: uppercase;
+}
+.snap-code-copy {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  background: var(--snap-btn-bg, #f3f4f6);
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.snap-code-copy.copied {
+  background: #10b981;
+  color: #fff;
+  border-color: #10b981;
+}
+.snap-code-block pre {
+  margin: 0;
+  padding: 1rem;
+  background: transparent;
+  overflow-x: auto;
+}
+.snap-code-block code {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.95rem;
+  color: #23272b;
+}
+.snap-markdown-content code:not(pre code) {
+  background: #f3f4f6;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.95rem;
+  color: #b45309;
+}
+.snap-blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--snap-markdown-border, #e5e7eb);
+  background: var(--snap-blockquote-bg, #f3f4f6);
+  font-style: italic;
+  color: #6b7280;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.03);
+}
+.snap-callout {
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+}
+.snap-callout-note {
+  background: #e0f2fe;
+  border-color: #2563eb;
+}
+.snap-callout-warning {
+  background: #fef3c7;
+  border-color: #f59e0b;
+}
+.snap-callout-tip {
+  background: #d1fae5;
+  border-color: #10b981;
+}
+.snap-callout-header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid currentColor;
+  font-weight: 600;
+}
+.snap-callout-icon {
+  margin-right: 0.5rem;
+  font-size: 1.125rem;
+}
+.snap-callout-content {
+  padding: 1rem;
+}
+.snap-blog-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+}
+.snap-toc {
+  background: var(--snap-toc-bg, #f3f4f6);
+  border: 1px solid var(--snap-markdown-border, #e5e7eb);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.snap-toc-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #23272b;
+  margin-bottom: 1rem;
+}
+.snap-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.snap-toc-item {
+  margin-bottom: 0.5rem;
+}
+.snap-toc-link {
+  display: block;
+  padding: 0.25rem 0;
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.snap-toc-link:hover {
+  color: #60a5fa;
+}
+.snap-toc-active .snap-toc-link {
+  color: #10b981;
+  font-weight: 600;
+}
+@media (prefers-color-scheme: dark) {
+  .snap-markdown {
+    --snap-markdown-color: #f3f4f6;
+    --snap-markdown-heading: #fff;
+    --snap-markdown-border: #23272b;
+    --snap-link: #60a5fa;
+    --snap-link-hover: #38bdf8;
+    --snap-code-bg: #23272b;
+    --snap-code-header-bg: #282c34;
+    --snap-blockquote-bg: #23272b;
+    --snap-toc-bg: #23272b;
+  }
+  .snap-code-block code {
+    color: #f3f4f6;
+  }
+  .snap-markdown-content code:not(pre code) {
+    background: #282c34;
+    color: #fbbf24;
+  }
+  .snap-blockquote {
+    color: #cbd5e1;
+    background: #23272b;
+    border-left: 4px solid #60a5fa;
+  }
+  .snap-callout-note {
+    background: #23272b;
+    border-color: #60a5fa;
+    color: #bae6fd;
+  }
+  .snap-callout-warning {
+    background: #2d2612;
+    border-color: #f59e0b;
+    color: #fde68a;
+  }
+  .snap-callout-tip {
+    background: #1e2e22;
+    border-color: #10b981;
+    color: #6ee7b7;
+  }
+  .snap-toc-title {
+    color: #f3f4f6;
+  }
+  .snap-toc-link {
+    color: #60a5fa;
+  }
+} 
