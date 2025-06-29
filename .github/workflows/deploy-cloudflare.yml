@@ -24,9 +24,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Install Wrangler CLI
-        run: npm install -g wrangler
-
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
