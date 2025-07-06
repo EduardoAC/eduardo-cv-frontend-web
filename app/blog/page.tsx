@@ -1,39 +1,27 @@
-import type { Metadata } from 'next'
-import Image from 'next-image-export-optimizer'
+import React from 'react';
+import { Metadata } from 'next';
+import { getAllPosts, getAllTags } from '@/lib/blog/markdown';
+import BlogPageClient from './BlogPageClient';
 
 export const metadata: Metadata = {
-  title: 'Business And Technology blog - Eduardo Aparicio Cardenes',
-  description: 'Business And Technology blog',
+  title: 'Business And Technology blog | Eduardo Aparicio Cardenes',
+  description: 'Explore my latest thoughts on web development, performance optimization, and modern technologies.',
+  keywords: 'blog, web development, performance, Next.js, React, TypeScript',
   openGraph: {
-    title: 'Business And Technology blog',
-    description: 'Business And Technology blog',
+    title: 'Business And Technology blog | Eduardo Aparicio Cardenes',
+    description: 'Explore my latest thoughts on web development, performance optimization, and modern technologies.',
     type: 'website',
-    siteName: 'Eduardo Aparicio Cardenes Website',
-    images: [
-      {
-        url: '/images/comingsoon.png',
-        width: 800,
-        height: 600,
-        alt: 'Coming Soon',
-      },
-    ],
+    url: 'https://eduardoac.com/posts',
   },
-}
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Business And Technology blog | Eduardo Aparicio Cardenes',
+    description: 'Explore my latest thoughts on web development, performance optimization, and modern technologies.',
+  },
+};
 
 export default function BlogPage() {
-  return (
-    <section className="business-tech-blog">
-      <h1>Business And Technology blog</h1>
-      <div style={{ textAlign: 'center', margin: '50px auto' }}>
-        <Image 
-          src="/images/comingsoon.png" 
-          alt="Coming Soon"
-          width={800}
-          height={600}
-          className="snap-img-fluid"
-          style={{ maxWidth: '100%', height: 'auto' }}
-        />
-      </div>
-    </section>
-  )
+  const allPosts = getAllPosts();
+  const tags = getAllTags();
+  return <BlogPageClient allPosts={allPosts} tags={tags} />;
 } 
