@@ -3,7 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { marked } from 'marked';
 import Prism from 'prismjs';
-import 'prismjs/themes/prism.css';
+// import 'prismjs/themes/prism.css';
+import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-jsx';
@@ -39,7 +40,7 @@ const createCustomRenderer = () => {
       <div class=\"snap-code-block\">
         <div class=\"snap-code-header\">
           <span class=\"snap-code-lang\">${validLanguage}</span>
-          <button class=\"snap-code-copy\" onclick=\"copyToClipboard(this, '${text.replace(/'/g, "&#39;")}')\">Copy</button>
+          <button class=\"snap-code-copy\" data-code="${encodeURIComponent(text)}">Copy</button>
         </div>
         <pre><code class=\"language-${validLanguage}\">${highlighted}</code></pre>
       </div>
@@ -243,7 +244,8 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
                 const codeBlock = button.closest('.snap-code-block');
                 const codeElement = codeBlock?.querySelector('code');
                 if (codeElement) {
-                  copyToClipboard(button as HTMLButtonElement, codeElement.textContent || '');
+                  const codeText = decodeURIComponent(button.getAttribute('data-code') || '');
+                  copyToClipboard(button as HTMLButtonElement, codeText || '');
                 }
               });
             });
