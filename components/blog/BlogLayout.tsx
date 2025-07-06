@@ -31,15 +31,15 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({
           <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} aria-label="Main navigation">
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
               <Link href="/" style={{ fontWeight: 700, fontSize: '1.25rem', color: '#fff', textDecoration: 'none' }}>
-                Eduardo Aparicio Cárdenes
+                Business And Technology Blog
               </Link>
-              <span style={{ color: '#d1d5db', margin: '0 1rem' }}>|</span>
+              {/* <span style={{ color: '#d1d5db', margin: '0 1rem' }}>|</span>
               <Link href="/posts" style={{ fontSize: '1rem', color: '#fff', textDecoration: 'none' }}>
                 Blog
-              </Link>
+              </Link> */}
             </div>
             {onSearch && (
-              <div style={{ maxWidth: 400, width: '100%' }}>
+              <div style={{ maxWidth: 300, width: '100%' }}>
                 <SearchBar value="" onChange={onSearch} placeholder="Search blog posts..." />
               </div>
             )}

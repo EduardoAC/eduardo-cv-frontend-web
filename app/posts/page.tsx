@@ -5,18 +5,18 @@ import BlogList from '@/components/blog/BlogList';
 import BlogPageClient from './BlogPageClient';
 
 export const metadata: Metadata = {
-  title: 'Blog Posts | Eduardo Aparicio Cárdenes',
+  title: 'Business And Technology blog | Eduardo Aparicio Cardenes',
   description: 'Explore my latest thoughts on web development, performance optimization, and modern technologies.',
   keywords: 'blog, web development, performance, Next.js, React, TypeScript',
   openGraph: {
-    title: 'Blog Posts | Eduardo Aparicio Cárdenes',
+    title: 'Business And Technology blog | Eduardo Aparicio Cardenes',
     description: 'Explore my latest thoughts on web development, performance optimization, and modern technologies.',
     type: 'website',
     url: 'https://eduardoac.com/posts',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog Posts | Eduardo Aparicio Cárdenes',
+    title: 'Business And Technology blog | Eduardo Aparicio Cardenes',
     description: 'Explore my latest thoughts on web development, performance optimization, and modern technologies.',
   },
 };

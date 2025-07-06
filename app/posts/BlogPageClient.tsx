@@ -28,10 +28,10 @@ export default function BlogPageClient({ allPosts, tags }: BlogPageClientProps) 
     });
   }, [allPosts, searchQuery, selectedTag]);
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-    setSelectedTag(''); // Clear tag filter when searching
-  };
+  // const handleSearch = (query: string) => {
+  //   setSearchQuery(query);
+  //   setSelectedTag(''); // Clear tag filter when searching
+  // };
 
   const handleTagFilter = (tag: string) => {
     setSelectedTag(selectedTag === tag ? '' : tag);
@@ -41,7 +41,7 @@ export default function BlogPageClient({ allPosts, tags }: BlogPageClientProps) 
   return (
     <BlogLayout
       currentTag={selectedTag}
-      onSearch={handleSearch}
+      // onSearch={handleSearch}
       onTagFilter={handleTagFilter}
       tags={tags}
     >

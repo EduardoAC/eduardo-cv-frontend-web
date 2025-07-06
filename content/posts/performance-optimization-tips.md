@@ -4,7 +4,7 @@ description: "Discover essential techniques to improve your web application's pe
 date: "2024-12-18"
 author: "Eduardo Aparicio Cárdenes"
 tags: ["Performance", "Web Development", "Core Web Vitals", "Optimization", "JavaScript"]
-image: "/images/blog/performance-optimization.jpg"
+image: "/images/blog/performance-optimization.png"
 ---
 
 # Performance Optimization Tips for Modern Web Applications
