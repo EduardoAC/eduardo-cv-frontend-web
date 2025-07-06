@@ -43,7 +43,7 @@ npm run dev
 
 ```bash
 npm run build
-npm start
+npm run serve
 ```
 
 ## Project Structure

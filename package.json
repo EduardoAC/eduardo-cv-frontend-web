@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "serve": "npx serve dist -p 3000",
     "lint": "next lint",
     "analyze": "ANALYZE=true npm run build",
     "lighthouse": "lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-report.json",
@@ -36,6 +37,7 @@
     "eslint-config-next": "14.0.4",
     "lost-pixel": "^3.22.0",
     "next-image-export-optimizer": "^1.19.0",
+    "serve": "^14.2.4",
     "sharp": "^0.34.2",
     "typescript": "^5"
   }
