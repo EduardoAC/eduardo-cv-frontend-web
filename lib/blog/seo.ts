@@ -12,7 +12,7 @@ export interface BlogSEOData {
 
 // Generate Open Graph metadata
 export const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
-  const url = `${baseUrl}/posts/${post.slug}`;
+  const url = `${baseUrl}/blog/${post.slug}`;
   
   return {
     title: post.title,
@@ -51,7 +51,7 @@ export const generateTwitterCard = (post: BlogPost | BlogPostMeta, baseUrl: stri
 
 // Generate structured data (JSON-LD)
 export const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
-  const url = `${baseUrl}/posts/${post.slug}`;
+  const url = `${baseUrl}/blog/${post.slug}`;
   
   return {
     '@context': 'https://schema.org',
@@ -88,7 +88,7 @@ export const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: s
 
 // Generate canonical URL
 export const generateCanonicalUrl = (slug: string, baseUrl: string) => {
-  return `${baseUrl}/posts/${slug}`;
+  return `${baseUrl}/blog/${slug}`;
 };
 
 // Generate meta tags for blog post
@@ -123,8 +123,8 @@ export const generateSitemapEntry = (post: BlogPostMeta, baseUrl: string) => {
 // Generate robots.txt content for blog
 export const generateRobotsContent = (baseUrl: string) => {
   return `User-agent: *
-Allow: /posts/
-Allow: /posts/*
+Allow: /blog/
+Allow: /blog/*
 
 Sitemap: ${baseUrl}/sitemap.xml`;
 };

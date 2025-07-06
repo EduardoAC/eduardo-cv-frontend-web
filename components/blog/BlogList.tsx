@@ -63,7 +63,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
               <li key={post.slug} style={{ marginBottom: '2rem' }}>
                 <Card>
                   {post.image && (
-                    <Link href={`/posts/${post.slug}`}>
+                    <Link href={`/blog/${post.slug}`}>
                       <img
                         src={post.image}
                         alt={post.title}
@@ -74,7 +74,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
                   )}
                   <header>
                     <h2 className="snap-heading-h2">
-                      <Link className="snap-link" href={`/posts/${post.slug}`}>{post.title}</Link>
+                      <Link className="snap-link" href={`/blog/${post.slug}`}>{post.title}</Link>
                     </h2>
                     <div className="snap-meta">
                       <time dateTime={post.date} style={{ marginRight: '1rem' }}>
@@ -94,7 +94,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
                     ))}
                   </div>
                   <div className="blog-read-more">
-                    <Link className="snap-link snap-read-more" href={`/posts/${post.slug}`}>
+                    <Link className="snap-link snap-read-more" href={`/blog/${post.slug}`}>
                       Read more →
                     </Link>
                   </div>

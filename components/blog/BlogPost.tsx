@@ -97,7 +97,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
                     />
                   )}
                   <h4 className="snap-heading-h4">
-                    <Link className="snap-link snap-read-more" href={`/posts/${relatedPost.slug}`}>
+                    <Link className="snap-link snap-read-more" href={`/blog/${relatedPost.slug}`}>
                       {relatedPost.title}
                     </Link>
                   </h4>

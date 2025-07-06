@@ -34,7 +34,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({
                 Business And Technology Blog
               </Link>
               {/* <span style={{ color: '#d1d5db', margin: '0 1rem' }}>|</span>
-              <Link href="/posts" style={{ fontSize: '1rem', color: '#fff', textDecoration: 'none' }}>
+              <Link href="/blog" style={{ fontSize: '1rem', color: '#fff', textDecoration: 'none' }}>
                 Blog
               </Link> */}
             </div>
