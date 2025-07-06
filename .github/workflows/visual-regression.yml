@@ -28,7 +28,7 @@ jobs:
       run: npm run build
       
     - name: Start the application
-      run: npm start &
+      run: npm run serve &
       
     - name: Wait for application to be ready
       run: |
