@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getPostBySlug, getRelatedPosts } from '@/lib/blog/markdown';
+import { getPostBySlug, getRelatedPosts, getAllPosts } from '@/lib/blog/markdown';
 import { generateMetaTags } from '@/lib/blog/seo';
 import BlogPost from '@/components/blog/BlogPost';
 
@@ -8,6 +8,15 @@ interface BlogPostPageProps {
   params: {
     slug: string;
   };
+}
+
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {

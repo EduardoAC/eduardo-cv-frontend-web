@@ -58,8 +58,8 @@ export default function ContentBlock({
               <Image
                 src={imgUrl.replace('.png', '-optimized.png')}
                 alt={title}
-                width={0}
-                height={0}
+                width={1280}
+                height={960}
                 sizes="(max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px"
                 className={styles.img_full_width}
               />
