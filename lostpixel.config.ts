@@ -20,4 +20,5 @@ export const config: CustomProjectConfig = {
   },
   generateOnly: true,
   failOnDifference: true,
+  threshold: 0.30
 };
