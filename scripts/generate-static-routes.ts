@@ -4,6 +4,15 @@ import fg from 'fast-glob'
 import fs from 'fs'
 import path from 'path'
 
+const distPath = path.join(process.cwd(), 'dist')
+
+if (!fs.existsSync(distPath)) {
+  fs.mkdirSync(distPath, { recursive: true })
+  console.log('✅ dist/ directory created.')
+} else {
+  console.log('📁 dist/ already exists.')
+}
+
 async function generateRoutes() {
   const entries = await fg(['app/**/page.@(tsx|jsx)'], {
     ignore: ['**/sitemap.xml/**', '**/_*', '**/api/**'],
