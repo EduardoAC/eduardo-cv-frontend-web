@@ -27,19 +27,13 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({
   return (
     <div className={styles['blog-layout']}>
       <Container>
-        <header className={styles['blog-header']} style={{ padding: '1.5rem 0', marginBottom: '2rem' }}>
-          <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} aria-label="Main navigation">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <Link href="/" style={{ fontWeight: 700, fontSize: '1.25rem', color: '#fff', textDecoration: 'none' }}>
-                Business And Technology Blog
-              </Link>
-              {/* <span style={{ color: '#d1d5db', margin: '0 1rem' }}>|</span>
-              <Link href="/blog" style={{ fontSize: '1rem', color: '#fff', textDecoration: 'none' }}>
-                Blog
-              </Link> */}
-            </div>
+        <header className={styles['blog-header']}>
+          <nav className={styles['blog-navigation']} aria-label="Main navigation">
+            <Link href="/blog" className={styles['blog-title']}>
+              Business And Technology Blog
+            </Link>
             {onSearch && (
-              <div style={{ maxWidth: 300, width: '100%' }}>
+              <div className={styles['blog-search']}>
                 <SearchBar value="" onChange={onSearch} placeholder="Search blog posts..." />
               </div>
             )}
