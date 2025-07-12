@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
 import styles from "./Contact.module.scss";
-import Image from "next-image-export-optimizer";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Contact - Eduardo Aparicio Cardenes",

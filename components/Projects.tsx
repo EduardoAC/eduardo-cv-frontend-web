@@ -1,5 +1,5 @@
 import Container from './layout/Container'
-import Image from 'next-image-export-optimizer'
+import Image from 'next/image'
 import Link from 'next/link'
 import styles from './Projects.module.scss'
 

@@ -37,7 +37,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "lost-pixel": "^3.22.0",
-    "next-image-export-optimizer": "^1.19.0",
+
     "serve": "^14.2.4",
     "sharp": "^0.34.2",
     "typescript": "^5"

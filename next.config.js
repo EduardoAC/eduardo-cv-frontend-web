@@ -10,21 +10,11 @@ const nextConfig = {
   
   // Image optimization
   images: {
-    loader: "custom",
+    unoptimized: true,
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
-  },
-  transpilePackages: ["next-image-export-optimizer"],
-  env: {
-    nextImageExportOptimizer_imageFolderPath: "public/images",
-    nextImageExportOptimizer_exportFolderPath: "out",
-    nextImageExportOptimizer_quality: "75",
-    nextImageExportOptimizer_storePicturesInWEBP: "true",
-    nextImageExportOptimizer_exportFolderName: ".",
-    nextImageExportOptimizer_generateAndUseBlurImages: "true",
-    nextImageExportOptimizer_remoteImageCacheTTL: "0",
   },
 
   // Experimental optimizations

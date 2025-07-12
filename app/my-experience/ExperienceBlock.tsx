@@ -1,4 +1,4 @@
-import Image from 'next-image-export-optimizer';
+import Image from 'next/image';
 import styles from './MyExperience.module.scss';
 
 interface ExperienceBlockProps {
