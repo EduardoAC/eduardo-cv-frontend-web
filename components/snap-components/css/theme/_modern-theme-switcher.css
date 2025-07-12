@@ -1,0 +1,397 @@
+/* --- Snap Components Modern Theme Switcher --- */
+/* Modern theme switching using color-scheme and system colors */
+
+/* ===== ROOT THEME SETUP ===== */
+:root {
+  /* Default to light theme */
+  color-scheme: light;
+  
+  /* System color integration */
+  --snap-bg: Canvas;
+  --snap-bg-hover: Canvas;
+  --snap-bg-active: Canvas;
+  --snap-bg-selected: Highlight;
+  
+  --snap-fg: CanvasText;
+  --snap-fg-muted: GrayText;
+  --snap-fg-subtle: GrayText;
+  --snap-fg-contrast: Canvas;
+  
+  --snap-border: ButtonBorder;
+  --snap-border-hover: ButtonBorder;
+  --snap-border-focus: Highlight;
+  
+  /* Semantic color mappings */
+  --snap-color-background: var(--snap-bg);
+  --snap-color-background-hover: var(--snap-bg-hover);
+  --snap-color-background-active: var(--snap-bg-active);
+  --snap-color-background-selected: var(--snap-bg-selected);
+  
+  --snap-color-surface: var(--snap-bg);
+  --snap-color-surface-hover: var(--snap-bg-hover);
+  --snap-color-surface-active: var(--snap-bg-active);
+  
+  --snap-color-text: var(--snap-fg);
+  --snap-color-text-muted: var(--snap-fg-muted);
+  --snap-color-text-subtle: var(--snap-fg-subtle);
+  --snap-color-text-contrast: var(--snap-fg-contrast);
+  
+  --snap-color-border: var(--snap-border);
+  --snap-color-border-hover: var(--snap-border-hover);
+  --snap-color-border-focus: var(--snap-border-focus);
+  
+  /* Link colors */
+  --snap-color-link: LinkText;
+  --snap-color-link-hover: LinkText;
+  --snap-color-link-visited: VisitedText;
+  --snap-color-link-active: LinkText;
+  
+  /* Button colors */
+  --snap-color-button: ButtonFace;
+  --snap-color-button-text: ButtonText;
+  --snap-color-button-border: ButtonBorder;
+  
+  /* Form colors */
+  --snap-color-field: Field;
+  --snap-color-field-text: FieldText;
+  --snap-color-field-border: FieldText;
+  
+  /* Accent colors */
+  --snap-color-accent: AccentColor;
+  --snap-color-accent-text: AccentColorText;
+  
+  /* Highlight colors */
+  --snap-color-highlight: Highlight;
+  --snap-color-highlight-text: HighlightText;
+  
+  /* Mark colors */
+  --snap-color-mark: Mark;
+  --snap-color-mark-text: MarkText;
+}
+
+/* ===== DARK THEME ===== */
+[data-theme="dark"] {
+  color-scheme: dark;
+  
+  /* Dark theme system colors */
+  --snap-bg: Canvas;
+  --snap-bg-hover: Canvas;
+  --snap-bg-active: Canvas;
+  --snap-bg-selected: Highlight;
+  
+  --snap-fg: CanvasText;
+  --snap-fg-muted: GrayText;
+  --snap-fg-subtle: GrayText;
+  --snap-fg-contrast: Canvas;
+  
+  --snap-border: ButtonBorder;
+  --snap-border-hover: ButtonBorder;
+  --snap-border-focus: Highlight;
+  
+  /* Dark theme semantic mappings */
+  --snap-color-background: var(--snap-bg);
+  --snap-color-background-hover: var(--snap-bg-hover);
+  --snap-color-background-active: var(--snap-bg-active);
+  --snap-color-background-selected: var(--snap-bg-selected);
+  
+  --snap-color-surface: var(--snap-bg);
+  --snap-color-surface-hover: var(--snap-bg-hover);
+  --snap-color-surface-active: var(--snap-bg-active);
+  
+  --snap-color-text: var(--snap-fg);
+  --snap-color-text-muted: var(--snap-fg-muted);
+  --snap-color-text-subtle: var(--snap-fg-subtle);
+  --snap-color-text-contrast: var(--snap-fg-contrast);
+  
+  --snap-color-border: var(--snap-border);
+  --snap-color-border-hover: var(--snap-border-hover);
+  --snap-color-border-focus: var(--snap-border-focus);
+  
+  /* Dark theme link colors */
+  --snap-color-link: LinkText;
+  --snap-color-link-hover: LinkText;
+  --snap-color-link-visited: VisitedText;
+  --snap-color-link-active: LinkText;
+  
+  /* Dark theme button colors */
+  --snap-color-button: ButtonFace;
+  --snap-color-button-text: ButtonText;
+  --snap-color-button-border: ButtonBorder;
+  
+  /* Dark theme form colors */
+  --snap-color-field: Field;
+  --snap-color-field-text: FieldText;
+  --snap-color-field-border: FieldText;
+  
+  /* Dark theme accent colors */
+  --snap-color-accent: AccentColor;
+  --snap-color-accent-text: AccentColorText;
+  
+  /* Dark theme highlight colors */
+  --snap-color-highlight: Highlight;
+  --snap-color-highlight-text: HighlightText;
+  
+  /* Dark theme mark colors */
+  --snap-color-mark: Mark;
+  --snap-color-mark-text: MarkText;
+}
+
+/* ===== SYSTEM THEME DETECTION ===== */
+/* Auto-apply system theme when no theme is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+  }
+}
+
+/* ===== THEME TRANSITIONS ===== */
+/* Smooth transitions for theme switching */
+* {
+  transition: 
+    color-scheme 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Disable transitions during initial load */
+.snap-theme-loading * {
+  transition: none !important;
+}
+
+/* ===== THEME TOGGLE BUTTON ===== */
+.snap-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--snap-radius-4);
+  background-color: var(--snap-color-button);
+  border: 1px solid var(--snap-color-button-border);
+  color: var(--snap-color-button-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.snap-theme-toggle:hover {
+  background-color: var(--snap-color-background-hover);
+  border-color: var(--snap-color-border-hover);
+}
+
+.snap-theme-toggle:focus {
+  outline: none;
+  border-color: var(--snap-color-border-focus);
+  box-shadow: 0 0 0 2px var(--snap-color-highlight);
+}
+
+.snap-theme-toggle:active {
+  background-color: var(--snap-color-background-active);
+}
+
+/* Theme toggle icons */
+.snap-theme-toggle .snap-theme-icon {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.snap-theme-toggle .snap-theme-icon.sun {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg) scale(0.5);
+}
+
+.snap-theme-toggle .snap-theme-icon.moon {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+
+[data-theme="dark"] .snap-theme-toggle .snap-theme-icon.sun {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+
+[data-theme="dark"] .snap-theme-toggle .snap-theme-icon.moon {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-90deg) scale(0.5);
+}
+
+/* ===== ACCESSIBILITY ===== */
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --snap-color-border-focus: Highlight;
+    --snap-color-highlight: Highlight;
+    --snap-color-highlight-text: HighlightText;
+  }
+  
+  .snap-theme-toggle:focus {
+    box-shadow: 0 0 0 3px var(--snap-color-highlight);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+  
+  .snap-theme-toggle {
+    transition: none;
+  }
+  
+  .snap-theme-toggle .snap-theme-icon {
+    transition: none;
+  }
+}
+
+/* ===== THEME STATES ===== */
+/* Loading state */
+.snap-theme-loading {
+  /* Applied during theme initialization */
+}
+
+/* Ready state */
+.snap-theme-ready {
+  /* Applied after theme is ready */
+}
+
+/* ===== THEME UTILITIES ===== */
+/* Theme-aware background utilities */
+.snap-bg-theme {
+  background-color: var(--snap-color-background);
+}
+
+.snap-bg-theme-hover {
+  background-color: var(--snap-color-background-hover);
+}
+
+.snap-bg-theme-active {
+  background-color: var(--snap-color-background-active);
+}
+
+.snap-bg-theme-selected {
+  background-color: var(--snap-color-background-selected);
+}
+
+.snap-bg-surface {
+  background-color: var(--snap-color-surface);
+}
+
+.snap-bg-surface-hover {
+  background-color: var(--snap-color-surface-hover);
+}
+
+.snap-bg-surface-active {
+  background-color: var(--snap-color-surface-active);
+}
+
+/* Theme-aware text utilities */
+.snap-text-theme {
+  color: var(--snap-color-text);
+}
+
+.snap-text-theme-muted {
+  color: var(--snap-color-text-muted);
+}
+
+.snap-text-theme-subtle {
+  color: var(--snap-color-text-subtle);
+}
+
+.snap-text-theme-contrast {
+  color: var(--snap-color-text-contrast);
+}
+
+/* Theme-aware border utilities */
+.snap-border-theme {
+  border-color: var(--snap-color-border);
+}
+
+.snap-border-theme-hover {
+  border-color: var(--snap-color-border-hover);
+}
+
+.snap-border-theme-focus {
+  border-color: var(--snap-color-border-focus);
+}
+
+/* Theme-aware link utilities */
+.snap-link-theme {
+  color: var(--snap-color-link);
+}
+
+.snap-link-theme:hover {
+  color: var(--snap-color-link-hover);
+}
+
+.snap-link-theme:visited {
+  color: var(--snap-color-link-visited);
+}
+
+.snap-link-theme:active {
+  color: var(--snap-color-link-active);
+}
+
+/* Theme-aware button utilities */
+.snap-button-theme {
+  background-color: var(--snap-color-button);
+  color: var(--snap-color-button-text);
+  border-color: var(--snap-color-button-border);
+}
+
+.snap-button-theme:hover {
+  background-color: var(--snap-color-background-hover);
+  border-color: var(--snap-color-border-hover);
+}
+
+.snap-button-theme:focus {
+  border-color: var(--snap-color-border-focus);
+  box-shadow: 0 0 0 2px var(--snap-color-highlight);
+}
+
+.snap-button-theme:active {
+  background-color: var(--snap-color-background-active);
+}
+
+/* Theme-aware form utilities */
+.snap-field-theme {
+  background-color: var(--snap-color-field);
+  color: var(--snap-color-field-text);
+  border-color: var(--snap-color-field-border);
+}
+
+.snap-field-theme:focus {
+  border-color: var(--snap-color-border-focus);
+  box-shadow: 0 0 0 2px var(--snap-color-highlight);
+}
+
+/* Theme-aware accent utilities */
+.snap-accent-theme {
+  background-color: var(--snap-color-accent);
+  color: var(--snap-color-accent-text);
+}
+
+/* Theme-aware highlight utilities */
+.snap-highlight-theme {
+  background-color: var(--snap-color-highlight);
+  color: var(--snap-color-highlight-text);
+}
+
+/* Theme-aware mark utilities */
+.snap-mark-theme {
+  background-color: var(--snap-color-mark);
+  color: var(--snap-color-mark-text);
+} 

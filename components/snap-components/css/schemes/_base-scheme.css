@@ -1,0 +1,304 @@
+/* --- Snap Components Base Color Scheme --- */
+/* Base color scheme mapping design tokens to semantic colors */
+
+:root {
+  /* ===== SEMANTIC COLOR MAPPINGS ===== */
+  /* Background colors */
+  --snap-color-background: var(--snap-neutral-1);
+  --snap-color-background-hover: var(--snap-neutral-2);
+  --snap-color-background-active: var(--snap-neutral-3);
+  --snap-color-background-selected: var(--snap-primary-3);
+  
+  /* Surface colors */
+  --snap-color-surface: var(--snap-neutral-1);
+  --snap-color-surface-hover: var(--snap-neutral-2);
+  --snap-color-surface-active: var(--snap-neutral-3);
+  --snap-color-surface-selected: var(--snap-primary-3);
+  
+  /* Text colors */
+  --snap-color-text: var(--snap-neutral-12);
+  --snap-color-text-muted: var(--snap-neutral-11);
+  --snap-color-text-subtle: var(--snap-neutral-10);
+  --snap-color-text-contrast: var(--snap-neutral-1);
+  
+  /* Border colors */
+  --snap-color-border: var(--snap-neutral-6);
+  --snap-color-border-hover: var(--snap-neutral-7);
+  --snap-color-border-focus: var(--snap-primary-8);
+  --snap-color-border-selected: var(--snap-primary-9);
+  
+  /* Link colors */
+  --snap-color-link: var(--snap-primary-9);
+  --snap-color-link-hover: var(--snap-primary-10);
+  --snap-color-link-visited: var(--snap-primary-11);
+  --snap-color-link-active: var(--snap-primary-12);
+  
+  /* Button colors */
+  --snap-color-button: var(--snap-neutral-3);
+  --snap-color-button-hover: var(--snap-neutral-4);
+  --snap-color-button-active: var(--snap-neutral-5);
+  --snap-color-button-selected: var(--snap-primary-3);
+  
+  --snap-color-button-text: var(--snap-neutral-12);
+  --snap-color-button-text-hover: var(--snap-neutral-12);
+  --snap-color-button-text-active: var(--snap-neutral-12);
+  --snap-color-button-text-selected: var(--snap-primary-12);
+  
+  --snap-color-button-border: var(--snap-neutral-6);
+  --snap-color-button-border-hover: var(--snap-neutral-7);
+  --snap-color-button-border-active: var(--snap-neutral-8);
+  --snap-color-button-border-selected: var(--snap-primary-9);
+  
+  /* Primary button colors */
+  --snap-color-button-primary: var(--snap-primary-9);
+  --snap-color-button-primary-hover: var(--snap-primary-10);
+  --snap-color-button-primary-active: var(--snap-primary-11);
+  --snap-color-button-primary-selected: var(--snap-primary-12);
+  
+  --snap-color-button-primary-text: var(--snap-neutral-1);
+  --snap-color-button-primary-text-hover: var(--snap-neutral-1);
+  --snap-color-button-primary-text-active: var(--snap-neutral-1);
+  --snap-color-button-primary-text-selected: var(--snap-neutral-1);
+  
+  --snap-color-button-primary-border: var(--snap-primary-9);
+  --snap-color-button-primary-border-hover: var(--snap-primary-10);
+  --snap-color-button-primary-border-active: var(--snap-primary-11);
+  --snap-color-button-primary-border-selected: var(--snap-primary-12);
+  
+  /* Form colors */
+  --snap-color-field: var(--snap-neutral-1);
+  --snap-color-field-hover: var(--snap-neutral-2);
+  --snap-color-field-focus: var(--snap-neutral-1);
+  --snap-color-field-disabled: var(--snap-neutral-3);
+  
+  --snap-color-field-text: var(--snap-neutral-12);
+  --snap-color-field-text-hover: var(--snap-neutral-12);
+  --snap-color-field-text-focus: var(--snap-neutral-12);
+  --snap-color-field-text-disabled: var(--snap-neutral-9);
+  
+  --snap-color-field-border: var(--snap-neutral-6);
+  --snap-color-field-border-hover: var(--snap-neutral-7);
+  --snap-color-field-border-focus: var(--snap-primary-8);
+  --snap-color-field-border-disabled: var(--snap-neutral-5);
+  
+  /* Accent colors */
+  --snap-color-accent: var(--snap-primary-9);
+  --snap-color-accent-hover: var(--snap-primary-10);
+  --snap-color-accent-active: var(--snap-primary-11);
+  --snap-color-accent-selected: var(--snap-primary-12);
+  
+  --snap-color-accent-text: var(--snap-neutral-1);
+  --snap-color-accent-text-hover: var(--snap-neutral-1);
+  --snap-color-accent-text-active: var(--snap-neutral-1);
+  --snap-color-accent-text-selected: var(--snap-neutral-1);
+  
+  /* Highlight colors */
+  --snap-color-highlight: var(--snap-primary-3);
+  --snap-color-highlight-text: var(--snap-primary-12);
+  
+  /* Mark colors */
+  --snap-color-mark: var(--snap-warning-3);
+  --snap-color-mark-text: var(--snap-warning-12);
+  
+  /* Status colors */
+  --snap-color-success: var(--snap-success-9);
+  --snap-color-success-hover: var(--snap-success-10);
+  --snap-color-success-active: var(--snap-success-11);
+  --snap-color-success-text: var(--snap-neutral-1);
+  --snap-color-success-border: var(--snap-success-9);
+  
+  --snap-color-warning: var(--snap-warning-9);
+  --snap-color-warning-hover: var(--snap-warning-10);
+  --snap-color-warning-active: var(--snap-warning-11);
+  --snap-color-warning-text: var(--snap-neutral-1);
+  --snap-color-warning-border: var(--snap-warning-9);
+  
+  --snap-color-error: var(--snap-error-9);
+  --snap-color-error-hover: var(--snap-error-10);
+  --snap-color-error-active: var(--snap-error-11);
+  --snap-color-error-text: var(--snap-neutral-1);
+  --snap-color-error-border: var(--snap-error-9);
+  
+  --snap-color-info: var(--snap-info-9);
+  --snap-color-info-hover: var(--snap-info-10);
+  --snap-color-info-active: var(--snap-info-11);
+  --snap-color-info-text: var(--snap-neutral-1);
+  --snap-color-info-border: var(--snap-info-9);
+  
+  /* Shadow colors */
+  --snap-shadow-color: var(--snap-neutral-12);
+  --snap-shadow-color-light: var(--snap-neutral-12);
+  --snap-shadow-color-medium: var(--snap-neutral-12);
+  --snap-shadow-color-heavy: var(--snap-neutral-12);
+  
+  /* Focus colors */
+  --snap-color-focus: var(--snap-primary-8);
+  --snap-color-focus-ring: var(--snap-primary-3);
+  
+  /* Selection colors */
+  --snap-color-selection: var(--snap-primary-3);
+  --snap-color-selection-text: var(--snap-primary-12);
+  
+  /* Overlay colors */
+  --snap-color-overlay: var(--snap-neutral-12);
+  --snap-color-overlay-light: var(--snap-neutral-12);
+  --snap-color-overlay-medium: var(--snap-neutral-12);
+  --snap-color-overlay-heavy: var(--snap-neutral-12);
+  
+  /* Backdrop colors */
+  --snap-color-backdrop: var(--snap-neutral-12);
+  --snap-color-backdrop-light: var(--snap-neutral-12);
+  --snap-color-backdrop-medium: var(--snap-neutral-12);
+  --snap-color-backdrop-heavy: var(--snap-neutral-12);
+}
+
+/* ===== DARK THEME SEMANTIC MAPPINGS ===== */
+[data-theme="dark"] {
+  /* Background colors */
+  --snap-color-background: var(--snap-neutral-1);
+  --snap-color-background-hover: var(--snap-neutral-2);
+  --snap-color-background-active: var(--snap-neutral-3);
+  --snap-color-background-selected: var(--snap-primary-3);
+  
+  /* Surface colors */
+  --snap-color-surface: var(--snap-neutral-2);
+  --snap-color-surface-hover: var(--snap-neutral-3);
+  --snap-color-surface-active: var(--snap-neutral-4);
+  --snap-color-surface-selected: var(--snap-primary-3);
+  
+  /* Text colors */
+  --snap-color-text: var(--snap-neutral-12);
+  --snap-color-text-muted: var(--snap-neutral-11);
+  --snap-color-text-subtle: var(--snap-neutral-10);
+  --snap-color-text-contrast: var(--snap-neutral-1);
+  
+  /* Border colors */
+  --snap-color-border: var(--snap-neutral-6);
+  --snap-color-border-hover: var(--snap-neutral-7);
+  --snap-color-border-focus: var(--snap-primary-8);
+  --snap-color-border-selected: var(--snap-primary-9);
+  
+  /* Link colors */
+  --snap-color-link: var(--snap-primary-9);
+  --snap-color-link-hover: var(--snap-primary-10);
+  --snap-color-link-visited: var(--snap-primary-11);
+  --snap-color-link-active: var(--snap-primary-12);
+  
+  /* Button colors */
+  --snap-color-button: var(--snap-neutral-3);
+  --snap-color-button-hover: var(--snap-neutral-4);
+  --snap-color-button-active: var(--snap-neutral-5);
+  --snap-color-button-selected: var(--snap-primary-3);
+  
+  --snap-color-button-text: var(--snap-neutral-12);
+  --snap-color-button-text-hover: var(--snap-neutral-12);
+  --snap-color-button-text-active: var(--snap-neutral-12);
+  --snap-color-button-text-selected: var(--snap-primary-12);
+  
+  --snap-color-button-border: var(--snap-neutral-6);
+  --snap-color-button-border-hover: var(--snap-neutral-7);
+  --snap-color-button-border-active: var(--snap-neutral-8);
+  --snap-color-button-border-selected: var(--snap-primary-9);
+  
+  /* Primary button colors */
+  --snap-color-button-primary: var(--snap-primary-9);
+  --snap-color-button-primary-hover: var(--snap-primary-10);
+  --snap-color-button-primary-active: var(--snap-primary-11);
+  --snap-color-button-primary-selected: var(--snap-primary-12);
+  
+  --snap-color-button-primary-text: var(--snap-neutral-1);
+  --snap-color-button-primary-text-hover: var(--snap-neutral-1);
+  --snap-color-button-primary-text-active: var(--snap-neutral-1);
+  --snap-color-button-primary-text-selected: var(--snap-neutral-1);
+  
+  --snap-color-button-primary-border: var(--snap-primary-9);
+  --snap-color-button-primary-border-hover: var(--snap-primary-10);
+  --snap-color-button-primary-border-active: var(--snap-primary-11);
+  --snap-color-button-primary-border-selected: var(--snap-primary-12);
+  
+  /* Form colors */
+  --snap-color-field: var(--snap-neutral-2);
+  --snap-color-field-hover: var(--snap-neutral-3);
+  --snap-color-field-focus: var(--snap-neutral-2);
+  --snap-color-field-disabled: var(--snap-neutral-4);
+  
+  --snap-color-field-text: var(--snap-neutral-12);
+  --snap-color-field-text-hover: var(--snap-neutral-12);
+  --snap-color-field-text-focus: var(--snap-neutral-12);
+  --snap-color-field-text-disabled: var(--snap-neutral-9);
+  
+  --snap-color-field-border: var(--snap-neutral-6);
+  --snap-color-field-border-hover: var(--snap-neutral-7);
+  --snap-color-field-border-focus: var(--snap-primary-8);
+  --snap-color-field-border-disabled: var(--snap-neutral-5);
+  
+  /* Accent colors */
+  --snap-color-accent: var(--snap-primary-9);
+  --snap-color-accent-hover: var(--snap-primary-10);
+  --snap-color-accent-active: var(--snap-primary-11);
+  --snap-color-accent-selected: var(--snap-primary-12);
+  
+  --snap-color-accent-text: var(--snap-neutral-1);
+  --snap-color-accent-text-hover: var(--snap-neutral-1);
+  --snap-color-accent-text-active: var(--snap-neutral-1);
+  --snap-color-accent-text-selected: var(--snap-neutral-1);
+  
+  /* Highlight colors */
+  --snap-color-highlight: var(--snap-primary-3);
+  --snap-color-highlight-text: var(--snap-primary-12);
+  
+  /* Mark colors */
+  --snap-color-mark: var(--snap-warning-3);
+  --snap-color-mark-text: var(--snap-warning-12);
+  
+  /* Status colors */
+  --snap-color-success: var(--snap-success-9);
+  --snap-color-success-hover: var(--snap-success-10);
+  --snap-color-success-active: var(--snap-success-11);
+  --snap-color-success-text: var(--snap-neutral-1);
+  --snap-color-success-border: var(--snap-success-9);
+  
+  --snap-color-warning: var(--snap-warning-9);
+  --snap-color-warning-hover: var(--snap-warning-10);
+  --snap-color-warning-active: var(--snap-warning-11);
+  --snap-color-warning-text: var(--snap-neutral-1);
+  --snap-color-warning-border: var(--snap-warning-9);
+  
+  --snap-color-error: var(--snap-error-9);
+  --snap-color-error-hover: var(--snap-error-10);
+  --snap-color-error-active: var(--snap-error-11);
+  --snap-color-error-text: var(--snap-neutral-1);
+  --snap-color-error-border: var(--snap-error-9);
+  
+  --snap-color-info: var(--snap-info-9);
+  --snap-color-info-hover: var(--snap-info-10);
+  --snap-color-info-active: var(--snap-info-11);
+  --snap-color-info-text: var(--snap-neutral-1);
+  --snap-color-info-border: var(--snap-info-9);
+  
+  /* Shadow colors */
+  --snap-shadow-color: var(--snap-neutral-1);
+  --snap-shadow-color-light: var(--snap-neutral-1);
+  --snap-shadow-color-medium: var(--snap-neutral-1);
+  --snap-shadow-color-heavy: var(--snap-neutral-1);
+  
+  /* Focus colors */
+  --snap-color-focus: var(--snap-primary-8);
+  --snap-color-focus-ring: var(--snap-primary-3);
+  
+  /* Selection colors */
+  --snap-color-selection: var(--snap-primary-3);
+  --snap-color-selection-text: var(--snap-primary-12);
+  
+  /* Overlay colors */
+  --snap-color-overlay: var(--snap-neutral-1);
+  --snap-color-overlay-light: var(--snap-neutral-1);
+  --snap-color-overlay-medium: var(--snap-neutral-1);
+  --snap-color-overlay-heavy: var(--snap-neutral-1);
+  
+  /* Backdrop colors */
+  --snap-color-backdrop: var(--snap-neutral-1);
+  --snap-color-backdrop-light: var(--snap-neutral-1);
+  --snap-color-backdrop-medium: var(--snap-neutral-1);
+  --snap-color-backdrop-heavy: var(--snap-neutral-1);
+} 

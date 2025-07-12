@@ -1,0 +1,161 @@
+/* --- Snap Components Purple Color Scheme --- */
+/* Example custom color scheme based on purple palette */
+
+[data-scheme="purple"] {
+  /* ===== PURPLE PRIMARY COLORS ===== */
+  /* Light theme purple colors */
+  --snap-primary-1: hsl(280 100% 99.2%);
+  --snap-primary-2: hsl(280 100% 98%);
+  --snap-primary-3: hsl(280 100% 96.6%);
+  --snap-primary-4: hsl(280 98% 94%);
+  --snap-primary-5: hsl(280 95% 90.1%);
+  --snap-primary-6: hsl(280 81% 84.5%);
+  --snap-primary-7: hsl(280 77% 76.9%);
+  --snap-primary-8: hsl(280 81% 65.3%);
+  --snap-primary-9: hsl(280 100% 50%);
+  --snap-primary-10: hsl(280 100% 47.3%);
+  --snap-primary-11: hsl(280 100% 43%);
+  --snap-primary-12: hsl(280 84% 4.9%);
+
+  /* ===== PURPLE SEMANTIC COLORS ===== */
+  /* Success colors - Green with purple tint */
+  --snap-success-1: hsl(142 76% 97%);
+  --snap-success-2: hsl(142 76% 94%);
+  --snap-success-3: hsl(142 76% 90%);
+  --snap-success-4: hsl(142 76% 85%);
+  --snap-success-5: hsl(142 76% 75%);
+  --snap-success-6: hsl(142 76% 65%);
+  --snap-success-7: hsl(142 76% 55%);
+  --snap-success-8: hsl(142 76% 45%);
+  --snap-success-9: hsl(142 76% 36%);
+  --snap-success-10: hsl(142 76% 32%);
+  --snap-success-11: hsl(142 76% 28%);
+  --snap-success-12: hsl(142 76% 8%);
+
+  /* Warning colors - Orange with purple tint */
+  --snap-warning-1: hsl(38 92% 97%);
+  --snap-warning-2: hsl(38 92% 94%);
+  --snap-warning-3: hsl(38 92% 90%);
+  --snap-warning-4: hsl(38 92% 85%);
+  --snap-warning-5: hsl(38 92% 75%);
+  --snap-warning-6: hsl(38 92% 65%);
+  --snap-warning-7: hsl(38 92% 55%);
+  --snap-warning-8: hsl(38 92% 45%);
+  --snap-warning-9: hsl(38 92% 50%);
+  --snap-warning-10: hsl(38 92% 45%);
+  --snap-warning-11: hsl(38 92% 40%);
+  --snap-warning-12: hsl(38 92% 8%);
+
+  /* Error colors - Red with purple tint */
+  --snap-error-1: hsl(0 84% 97%);
+  --snap-error-2: hsl(0 84% 94%);
+  --snap-error-3: hsl(0 84% 90%);
+  --snap-error-4: hsl(0 84% 85%);
+  --snap-error-5: hsl(0 84% 75%);
+  --snap-error-6: hsl(0 84% 65%);
+  --snap-error-7: hsl(0 84% 55%);
+  --snap-error-8: hsl(0 84% 45%);
+  --snap-error-9: hsl(0 84% 60%);
+  --snap-error-10: hsl(0 84% 55%);
+  --snap-error-11: hsl(0 84% 50%);
+  --snap-error-12: hsl(0 84% 8%);
+
+  /* Info colors - Blue with purple tint */
+  --snap-info-1: hsl(220 89% 97%);
+  --snap-info-2: hsl(220 89% 94%);
+  --snap-info-3: hsl(220 89% 90%);
+  --snap-info-4: hsl(220 89% 85%);
+  --snap-info-5: hsl(220 89% 75%);
+  --snap-info-6: hsl(220 89% 65%);
+  --snap-info-7: hsl(220 89% 55%);
+  --snap-info-8: hsl(220 89% 45%);
+  --snap-info-9: hsl(220 89% 48%);
+  --snap-info-10: hsl(220 89% 43%);
+  --snap-info-11: hsl(220 89% 38%);
+  --snap-info-12: hsl(220 89% 8%);
+}
+
+/* ===== DARK THEME PURPLE SCHEME ===== */
+[data-scheme="purple"][data-theme="dark"] {
+  /* Dark theme purple colors */
+  --snap-primary-1: hsl(280 84% 4.9%);
+  --snap-primary-2: hsl(280 27.9% 16.9%);
+  --snap-primary-3: hsl(280 25.2% 27.1%);
+  --snap-primary-4: hsl(280 20.2% 65.1%);
+  --snap-primary-5: hsl(280 17.2% 83.9%);
+  --snap-primary-6: hsl(280 15.4% 89.8%);
+  --snap-primary-7: hsl(280 20.3% 94.1%);
+  --snap-primary-8: hsl(280 25% 96.9%);
+  --snap-primary-9: hsl(280 100% 50%);
+  --snap-primary-10: hsl(280 100% 47.3%);
+  --snap-primary-11: hsl(280 100% 43%);
+  --snap-primary-12: hsl(280 100% 99.2%);
+
+  /* Dark theme semantic colors */
+  --snap-success-1: hsl(142 76% 8%);
+  --snap-success-2: hsl(142 76% 12%);
+  --snap-success-3: hsl(142 76% 16%);
+  --snap-success-4: hsl(142 76% 20%);
+  --snap-success-5: hsl(142 76% 25%);
+  --snap-success-6: hsl(142 76% 30%);
+  --snap-success-7: hsl(142 76% 35%);
+  --snap-success-8: hsl(142 76% 40%);
+  --snap-success-9: hsl(142 76% 36%);
+  --snap-success-10: hsl(142 76% 40%);
+  --snap-success-11: hsl(142 76% 45%);
+  --snap-success-12: hsl(142 76% 97%);
+
+  --snap-warning-1: hsl(38 92% 8%);
+  --snap-warning-2: hsl(38 92% 12%);
+  --snap-warning-3: hsl(38 92% 16%);
+  --snap-warning-4: hsl(38 92% 20%);
+  --snap-warning-5: hsl(38 92% 25%);
+  --snap-warning-6: hsl(38 92% 30%);
+  --snap-warning-7: hsl(38 92% 35%);
+  --snap-warning-8: hsl(38 92% 40%);
+  --snap-warning-9: hsl(38 92% 50%);
+  --snap-warning-10: hsl(38 92% 55%);
+  --snap-warning-11: hsl(38 92% 60%);
+  --snap-warning-12: hsl(38 92% 97%);
+
+  --snap-error-1: hsl(0 84% 8%);
+  --snap-error-2: hsl(0 84% 12%);
+  --snap-error-3: hsl(0 84% 16%);
+  --snap-error-4: hsl(0 84% 20%);
+  --snap-error-5: hsl(0 84% 25%);
+  --snap-error-6: hsl(0 84% 30%);
+  --snap-error-7: hsl(0 84% 35%);
+  --snap-error-8: hsl(0 84% 40%);
+  --snap-error-9: hsl(0 84% 60%);
+  --snap-error-10: hsl(0 84% 65%);
+  --snap-error-11: hsl(0 84% 70%);
+  --snap-error-12: hsl(0 84% 97%);
+
+  --snap-info-1: hsl(220 89% 8%);
+  --snap-info-2: hsl(220 89% 12%);
+  --snap-info-3: hsl(220 89% 16%);
+  --snap-info-4: hsl(220 89% 20%);
+  --snap-info-5: hsl(220 89% 25%);
+  --snap-info-6: hsl(220 89% 30%);
+  --snap-info-7: hsl(220 89% 35%);
+  --snap-info-8: hsl(220 89% 40%);
+  --snap-info-9: hsl(220 89% 48%);
+  --snap-info-10: hsl(220 89% 53%);
+  --snap-info-11: hsl(220 89% 58%);
+  --snap-info-12: hsl(220 89% 97%);
+}
+
+/* ===== HIGH CONTRAST PURPLE SCHEME ===== */
+@media (prefers-contrast: high) {
+  [data-scheme="purple"] {
+    --snap-primary-9: hsl(280 100% 60%);
+    --snap-primary-10: hsl(280 100% 57.3%);
+    --snap-primary-11: hsl(280 100% 53%);
+  }
+  
+  [data-scheme="purple"][data-theme="dark"] {
+    --snap-primary-9: hsl(280 100% 60%);
+    --snap-primary-10: hsl(280 100% 57.3%);
+    --snap-primary-11: hsl(280 100% 53%);
+  }
+} 

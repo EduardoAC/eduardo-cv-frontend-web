@@ -1,118 +1,70 @@
-# Snap Components Theme System
+# Snap Components - Modern Token-Based CSS Framework
 
-A comprehensive CSS-based theme system for personalizing content, built with CSS custom properties and following the Radix UI themes approach.
+A modern, token-based CSS framework with advanced theme support, inspired by Radix UI themes and modern CSS practices.
 
 ## Features
 
-- **Breakpoints**: Responsive design with customizable breakpoints
-- **Colors**: Complete color system with light/dark themes
-- **Spacing**: Consistent spacing scale based on 4px grid
-- **Layout**: Grid system, containers, and layout utilities
-- **Typography**: Font families, sizes, weights, and line heights
-- **Theme Switching**: Light/dark theme support with system preference detection
-- **Accessibility**: High contrast and reduced motion support
+- **Design Tokens**: Comprehensive token system for colors, spacing, typography, and breakpoints
+- **Custom Media Queries**: Flexible breakpoint system using `@custom-media` queries
+- **Modern Theme Switching**: Uses CSS `color-scheme` property and system colors for seamless theme switching
+- **Multiple Color Schemes**: Easy customization with separate color scheme files
+- **System Integration**: Automatic system theme detection and integration
+- **Accessibility**: High contrast mode support and reduced motion preferences
+- **Responsive Design**: Mobile-first responsive utilities
+- **TypeScript Support**: Full TypeScript definitions included
 
 ## Quick Start
 
 ### 1. Include the CSS
 
 ```html
-<link rel="stylesheet" href="/components/snap-components/snap-components.css">
+<link rel="stylesheet" href="components/snap-components/snap-components.css">
 ```
 
-### 2. Include the JavaScript (optional)
+### 2. Include the JavaScript
 
 ```html
-<script src="/components/snap-components/js/theme-switcher.js"></script>
+<script src="components/snap-components/js/theme-switcher.js"></script>
 ```
 
-### 3. Add theme toggle button
+### 3. Initialize the Theme Switcher
 
 ```html
-<div data-snap-theme-toggle></div>
+<html data-snap-auto-theme>
+  <head>
+    <meta name="color-scheme" content="light dark">
+  </head>
+  <body>
+    <div data-snap-theme-toggle></div>
+  </body>
+</html>
 ```
 
-## Breakpoints
+## Design Tokens
 
-The theme system includes 6 breakpoints:
+### Colors
 
-| Breakpoint | Value | Container Max Width |
-|------------|-------|-------------------|
-| xs         | 480px | 100%              |
-| sm         | 576px | 540px             |
-| md         | 768px | 720px             |
-| lg         | 992px | 960px              |
-| xl         | 1200px| 1140px             |
-| 2xl        | 1400px| 1320px             |
-
-### Usage
-
-```html
-<!-- Responsive container -->
-<div class="snap-container">
-  <!-- Content -->
-</div>
-
-<!-- Responsive utilities -->
-<div class="snap-text-lg snap-md:text-xl snap-lg:text-2xl">
-  Responsive text
-</div>
-
-<!-- Responsive grid -->
-<div class="snap-grid">
-  <div class="snap-col-span-12 snap-md:col-span-6 snap-lg:col-span-4">
-    Grid item
-  </div>
-</div>
-```
-
-## Colors
-
-### Color Scale
-
-The theme uses a 12-step color scale for both neutral and primary colors:
+The color system uses a 12-step scale for each color family:
 
 ```css
-/* Neutral colors (1-12) */
---snap-color-neutral-1: hsl(0 0% 99%);    /* Lightest */
---snap-color-neutral-12: hsl(0 0% 9%);    /* Darkest */
+/* Neutral colors */
+--snap-neutral-1: hsl(0 0% 99%);
+--snap-neutral-2: hsl(0 0% 97.3%);
+/* ... up to neutral-12 */
 
-/* Primary colors (1-12) */
---snap-color-primary-1: hsl(206 100% 99.2%);
---snap-color-primary-9: hsl(206 100% 50%); /* Main brand color */
---snap-color-primary-12: hsl(222 84% 4.9%);
+/* Primary colors */
+--snap-primary-1: hsl(206 100% 99.2%);
+--snap-primary-2: hsl(210 100% 98%);
+/* ... up to primary-12 */
+
+/* Semantic colors */
+--snap-success-1: hsl(142 76% 97%);
+--snap-warning-1: hsl(38 92% 97%);
+--snap-error-1: hsl(0 84% 97%);
+--snap-info-1: hsl(199 89% 97%);
 ```
 
-### Semantic Colors
-
-```css
---snap-color-success-9: hsl(142 76% 36%);
---snap-color-warning-9: hsl(38 92% 50%);
---snap-color-error-9: hsl(0 84% 60%);
---snap-color-info-9: hsl(199 89% 48%);
-```
-
-### Usage
-
-```html
-<!-- Background colors -->
-<div class="snap-bg-neutral-1">Light background</div>
-<div class="snap-bg-primary-9">Primary background</div>
-<div class="snap-bg-success">Success background</div>
-
-<!-- Text colors -->
-<p class="snap-text-default">Default text</p>
-<p class="snap-text-muted">Muted text</p>
-<p class="snap-text-primary-9">Primary text</p>
-
-<!-- Border colors -->
-<div class="snap-border-default">Default border</div>
-<div class="snap-border-focus">Focus border</div>
-```
-
-## Spacing
-
-### Spacing Scale
+### Spacing
 
 Based on a 4px grid system:
 
@@ -121,335 +73,381 @@ Based on a 4px grid system:
 --snap-space-1: 4px;
 --snap-space-2: 8px;
 --snap-space-3: 12px;
---snap-space-4: 16px;
---snap-space-5: 20px;
---snap-space-6: 24px;
---snap-space-8: 32px;
---snap-space-10: 40px;
---snap-space-12: 48px;
---snap-space-16: 64px;
---snap-space-20: 80px;
+/* ... up to space-20 */
+
+/* Semantic spacing */
+--snap-space-gutter: var(--snap-space-4);
+--snap-space-section: var(--snap-space-16);
+--snap-space-page: var(--snap-space-8);
 ```
 
-### Usage
+### Typography
 
-```html
-<!-- Margin -->
-<div class="snap-m-4">Margin all sides</div>
-<div class="snap-mx-auto">Center horizontally</div>
-<div class="snap-my-8">Vertical margin</div>
-
-<!-- Padding -->
-<div class="snap-p-4">Padding all sides</div>
-<div class="snap-px-6">Horizontal padding</div>
-<div class="snap-py-12">Vertical padding</div>
-
-<!-- Gap -->
-<div class="snap-grid snap-gap-4">Grid with gap</div>
-```
-
-## Typography
-
-### Font Families
+Comprehensive typography scale:
 
 ```css
---snap-font-sans: ui-sans-serif, system-ui, ...;
---snap-font-mono: ui-monospace, SFMono-Regular, ...;
---snap-font-serif: ui-serif, Georgia, ...;
-```
-
-### Font Sizes
-
-```css
+/* Font sizes */
 --snap-text-xs: 0.75rem;    /* 12px */
 --snap-text-sm: 0.875rem;   /* 14px */
 --snap-text-base: 1rem;     /* 16px */
 --snap-text-lg: 1.125rem;   /* 18px */
---snap-text-xl: 1.25rem;    /* 20px */
---snap-text-2xl: 1.5rem;    /* 24px */
---snap-text-3xl: 1.875rem;  /* 30px */
---snap-text-4xl: 2.25rem;   /* 36px */
---snap-text-5xl: 3rem;      /* 48px */
---snap-text-6xl: 3.75rem;   /* 60px */
+/* ... up to text-9xl */
+
+/* Font weights */
+--snap-font-thin: 100;
+--snap-font-light: 300;
+--snap-font-normal: 400;
+--snap-font-medium: 500;
+--snap-font-semibold: 600;
+--snap-font-bold: 700;
+--snap-font-black: 900;
 ```
 
-### Usage
+### Breakpoints
 
-```html
-<!-- Font families -->
-<p class="snap-font-sans">Sans-serif text</p>
-<p class="snap-font-mono">Monospace text</p>
-<p class="snap-font-serif">Serif text</p>
+Using `@custom-media` queries for flexibility:
 
-<!-- Font sizes -->
-<h1 class="snap-text-4xl snap-font-bold">Large heading</h1>
-<p class="snap-text-base snap-leading-normal">Body text</p>
-<small class="snap-text-sm snap-text-muted">Small text</small>
+```css
+/* Base breakpoints */
+@custom-media --snap-xs (min-width: 480px);
+@custom-media --snap-sm (min-width: 576px);
+@custom-media --snap-md (min-width: 768px);
+@custom-media --snap-lg (min-width: 992px);
+@custom-media --snap-xl (min-width: 1200px);
+@custom-media --snap-2xl (min-width: 1400px);
 
-<!-- Font weights -->
-<p class="snap-font-normal">Normal weight</p>
-<p class="snap-font-medium">Medium weight</p>
-<p class="snap-font-bold">Bold weight</p>
+/* Device type breakpoints */
+@custom-media --snap-mobile (max-width: 767px);
+@custom-media --snap-tablet (min-width: 768px) and (max-width: 1023px);
+@custom-media --snap-desktop (min-width: 1024px);
 
-<!-- Line heights -->
-<p class="snap-leading-tight">Tight line height</p>
-<p class="snap-leading-normal">Normal line height</p>
-<p class="snap-leading-relaxed">Relaxed line height</p>
+/* Theme breakpoints */
+@custom-media --snap-theme-light [data-theme="light"];
+@custom-media --snap-theme-dark [data-theme="dark"];
 ```
 
-## Layout
+## Color Schemes
 
-### Container
+### Base Scheme
 
-```html
-<div class="snap-container">
-  <!-- Content with responsive max-width -->
-</div>
+The default color scheme maps design tokens to semantic colors:
+
+```css
+/* Background colors */
+--snap-color-background: var(--snap-neutral-1);
+--snap-color-background-hover: var(--snap-neutral-2);
+
+/* Text colors */
+--snap-color-text: var(--snap-neutral-12);
+--snap-color-text-muted: var(--snap-neutral-11);
+
+/* Border colors */
+--snap-color-border: var(--snap-neutral-6);
+--snap-color-border-focus: var(--snap-primary-8);
+```
+
+### Custom Schemes
+
+Create custom color schemes by adding new files in `css/schemes/`:
+
+```css
+/* css/schemes/_purple-scheme.css */
+[data-scheme="purple"] {
+  --snap-primary-1: hsl(280 100% 99.2%);
+  --snap-primary-2: hsl(280 100% 98%);
+  /* ... define all primary colors */
+}
+
+[data-scheme="purple"][data-theme="dark"] {
+  --snap-primary-1: hsl(280 84% 4.9%);
+  --snap-primary-2: hsl(280 27.9% 16.9%);
+  /* ... define dark theme colors */
+}
+```
+
+## Modern Theme Switching
+
+### CSS-Based Theme Switching
+
+Uses the modern `color-scheme` property and system colors:
+
+```css
+:root {
+  color-scheme: light;
+  --snap-bg: Canvas;
+  --snap-fg: CanvasText;
+  --snap-border: ButtonBorder;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* System theme detection */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+  }
+}
+```
+
+### JavaScript API
+
+```javascript
+// Initialize theme switcher
+const themeSwitcher = new SnapThemeSwitcher({
+  storageKey: 'my-theme',
+  defaultTheme: 'system',
+  defaultScheme: 'base'
+});
+
+// Switch themes
+themeSwitcher.setTheme('dark');
+themeSwitcher.setScheme('purple');
+
+// Toggle themes
+themeSwitcher.toggleTheme();
+themeSwitcher.cycleScheme();
+
+// Get current state
+console.log(themeSwitcher.getTheme()); // 'dark'
+console.log(themeSwitcher.getScheme()); // 'purple'
+console.log(themeSwitcher.isDarkTheme()); // true
+```
+
+## Responsive Utilities
+
+### Using Custom Media Queries
+
+```css
+/* Responsive display */
+.snap-hidden {
+  display: none;
+}
+
+@media (--snap-md) {
+  .snap-hidden {
+    display: block;
+  }
+}
+
+/* Responsive text sizes */
+.snap-text-sm {
+  font-size: var(--snap-text-sm);
+}
+
+@media (--snap-lg) {
+  .snap-text-sm {
+    font-size: var(--snap-text-base);
+  }
+}
+
+/* Responsive spacing */
+.snap-p-4 {
+  padding: var(--snap-space-4);
+}
+
+@media (--snap-xl) {
+  .snap-p-4 {
+    padding: var(--snap-space-6);
+  }
+}
 ```
 
 ### Grid System
 
-```html
-<!-- 12-column grid -->
-<div class="snap-grid">
-  <div class="snap-col-span-12 snap-md:col-span-6 snap-lg:col-span-4">
-    <!-- Grid item -->
-  </div>
-</div>
-
-<!-- Grid with different gaps -->
-<div class="snap-grid snap-gap-4">Default gap</div>
-<div class="snap-grid snap-gap-sm">Small gap</div>
-<div class="snap-grid snap-gap-lg">Large gap</div>
-```
-
-### Border Radius
-
 ```css
---snap-radius-1: 2px;
---snap-radius-2: 4px;
---snap-radius-3: 6px;
---snap-radius-4: 8px;
---snap-radius-5: 10px;
---snap-radius-6: 12px;
---snap-radius-8: 16px;
---snap-radius-10: 20px;
-```
+/* Responsive grid */
+.snap-grid {
+  display: grid;
+  gap: var(--snap-space-grid-gap);
+}
 
-### Usage
+@media (--snap-grid-1-column) {
+  .snap-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
-```html
-<div class="snap-rounded-4">Rounded corners</div>
-<div class="snap-rounded-8">More rounded</div>
-```
+@media (--snap-grid-2-column) {
+  .snap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-### Shadows
-
-```css
---snap-shadow-1: 0 1px 2px 0 rgb(0 0 0 / 0.05);
---snap-shadow-2: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
---snap-shadow-3: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
---snap-shadow-4: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
---snap-shadow-5: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-```
-
-### Usage
-
-```html
-<div class="snap-shadow-2">Card with shadow</div>
-<div class="snap-shadow-4">Elevated element</div>
-```
-
-## Theme Switching
-
-### Automatic Setup
-
-Include the JavaScript file and add a toggle button:
-
-```html
-<script src="/components/snap-components/js/theme-switcher.js"></script>
-
-<div data-snap-theme-toggle></div>
-```
-
-### Manual Setup
-
-```javascript
-// Create theme switcher instance
-const themeSwitcher = new SnapThemeSwitcher({
-  storageKey: 'my-app-theme',
-  defaultTheme: 'system'
-});
-
-// Switch themes
-themeSwitcher.switchTheme('dark');
-themeSwitcher.switchTheme('light');
-themeSwitcher.switchTheme('system');
-
-// Toggle between light and dark
-themeSwitcher.toggleTheme();
-
-// Listen for theme changes
-window.addEventListener('snap-theme-change', (event) => {
-  console.log('Theme changed to:', event.detail.theme);
-  console.log('Effective theme:', event.detail.effectiveTheme);
-});
-```
-
-### Theme Options
-
-- `light`: Always use light theme
-- `dark`: Always use dark theme
-- `system`: Follow system preference (default)
-
-## Customization
-
-### Overriding Theme Variables
-
-```css
-:root {
-  /* Override primary colors */
-  --snap-color-primary-9: hsl(220 100% 50%);
-  --snap-color-primary-10: hsl(220 100% 47.3%);
-  --snap-color-primary-11: hsl(220 100% 43%);
-  
-  /* Override spacing */
-  --snap-space-gutter: 20px;
-  --snap-space-section: 80px;
-  
-  /* Override breakpoints */
-  --snap-breakpoint-lg: 1024px;
-  --snap-container-max-width-lg: 1024px;
+@media (--snap-grid-3-column) {
+  .snap-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 ```
 
-### Creating Custom Themes
+## Theme Utilities
+
+### Background Utilities
 
 ```css
-[data-theme="custom"] {
-  /* Custom color palette */
-  --snap-color-neutral-1: hsl(0 0% 98%);
-  --snap-color-neutral-12: hsl(0 0% 8%);
-  
-  /* Custom primary colors */
-  --snap-color-primary-9: hsl(280 100% 50%);
-  --snap-color-primary-10: hsl(280 100% 47.3%);
-  --snap-color-primary-11: hsl(280 100% 43%);
+.snap-bg-theme { background-color: var(--snap-color-background); }
+.snap-bg-theme-hover { background-color: var(--snap-color-background-hover); }
+.snap-bg-surface { background-color: var(--snap-color-surface); }
+.snap-bg-surface-hover { background-color: var(--snap-color-surface-hover); }
+```
+
+### Text Utilities
+
+```css
+.snap-text-theme { color: var(--snap-color-text); }
+.snap-text-theme-muted { color: var(--snap-color-text-muted); }
+.snap-text-theme-subtle { color: var(--snap-color-text-subtle); }
+.snap-text-theme-contrast { color: var(--snap-color-text-contrast); }
+```
+
+### Border Utilities
+
+```css
+.snap-border-theme { border-color: var(--snap-color-border); }
+.snap-border-theme-hover { border-color: var(--snap-color-border-hover); }
+.snap-border-theme-focus { border-color: var(--snap-color-border-focus); }
+```
+
+### Button Utilities
+
+```css
+.snap-button-theme {
+  background-color: var(--snap-color-button);
+  color: var(--snap-color-button-text);
+  border-color: var(--snap-color-button-border);
+}
+
+.snap-button-theme:hover {
+  background-color: var(--snap-color-background-hover);
+  border-color: var(--snap-color-border-hover);
 }
 ```
 
 ## Accessibility
 
-### High Contrast Support
-
-The theme automatically adapts to high contrast mode:
+### High Contrast Mode
 
 ```css
 @media (prefers-contrast: high) {
-  /* Enhanced contrast colors */
+  :root {
+    --snap-color-border-focus: Highlight;
+    --snap-color-highlight: Highlight;
+    --snap-color-highlight-text: HighlightText;
+  }
 }
 ```
 
-### Reduced Motion Support
+### Reduced Motion
 
 ```css
 @media (prefers-reduced-motion: reduce) {
-  /* Disabled transitions */
+  * {
+    transition: none !important;
+  }
 }
 ```
 
-### Focus Indicators
+### Focus Management
 
-```html
-<button class="snap-border-focus">Button with focus indicator</button>
+```css
+.snap-focus-ring:focus {
+  outline: 2px solid var(--snap-color-focus);
+  outline-offset: 2px;
+}
+
+@media (--snap-focus-ring) {
+  .snap-focus-ring:focus-visible {
+    outline: 2px solid var(--snap-color-focus);
+    outline-offset: 2px;
+  }
+}
 ```
-
-## Browser Support
-
-- Modern browsers with CSS custom properties support
-- IE11+ with polyfills for CSS custom properties
-- Mobile browsers (iOS Safari, Chrome Mobile, etc.)
 
 ## File Structure
 
 ```
 components/snap-components/
 ├── css/
-│   ├── base/
-│   │   ├── _reset.css
-│   │   ├── _variables.css
-│   │   └── _utilities.css
+│   ├── tokens/
+│   │   ├── _colors.css          # Color design tokens
+│   │   ├── _spacing.css         # Spacing design tokens
+│   │   ├── _typography.css      # Typography design tokens
+│   │   └── _breakpoints.css     # Custom media queries
+│   ├── schemes/
+│   │   ├── _base-scheme.css     # Base color scheme
+│   │   └── _purple-scheme.css   # Custom purple scheme
 │   ├── theme/
-│   │   ├── _theme.css              # Main theme variables
-│   │   ├── _dark-theme.css         # Dark theme overrides
-│   │   ├── _utilities.css          # Theme utility classes
-│   │   ├── _responsive.css         # Responsive utilities
-│   │   └── _theme-switcher.css     # Theme switching styles
-│   ├── layout/
-│   │   ├── _container.css
-│   │   ├── _grid.css
-│   │   └── _columns.css
-│   └── components/
-│       ├── _button.css
-│       └── _alert.css
+│   │   ├── _modern-theme-switcher.css  # Modern theme system
+│   │   ├── _utilities.css       # Theme utilities
+│   │   ├── _responsive.css      # Responsive utilities
+│   │   └── _theme-switcher.css  # Theme switcher styles
+│   ├── base/
+│   │   ├── _reset.css           # CSS reset
+│   │   ├── _utilities.css       # Base utilities
+│   │   └── _variables.css       # Base variables
+│   ├── components/
+│   │   ├── _alert.css           # Alert component
+│   │   ├── _button.css          # Button component
+│   │   ├── _card.css            # Card component
+│   │   ├── _container.css       # Container component
+│   │   └── _grid.css            # Grid component
+│   └── layout/
+│       ├── _columns.css         # Column layout
+│       ├── _container.css       # Container layout
+│       └── _grid.css            # Grid layout
 ├── js/
-│   └── theme-switcher.js           # Theme switching JavaScript
-├── snap-components.css             # Main CSS file
-└── README.md                       # This documentation
+│   └── theme-switcher.js        # Theme switcher JavaScript
+├── examples/
+│   └── theme-demo.html          # Interactive demo
+├── snap-components.css          # Main CSS file
+└── README.md                    # This file
 ```
 
-## Examples
+## Browser Support
 
-### Complete Component Example
+- **Modern browsers**: Full support for all features
+- **CSS Custom Properties**: IE11+ (with polyfill)
+- **CSS Custom Media Queries**: Requires PostCSS or similar processor
+- **color-scheme**: Chrome 81+, Firefox 67+, Safari 13+
+- **System Colors**: Chrome 81+, Firefox 67+, Safari 13+
 
-```html
-<div class="snap-container snap-py-16">
-  <div class="snap-grid snap-gap-8">
-    <div class="snap-col-span-12 snap-md:col-span-6">
-      <h1 class="snap-text-4xl snap-font-bold snap-text-default snap-mb-4">
-        Welcome to Snap Components
-      </h1>
-      <p class="snap-text-lg snap-text-muted snap-mb-6">
-        A comprehensive theme system for modern web applications.
-      </p>
-      <button class="snap-bg-primary-9 snap-text-contrast snap-px-6 snap-py-3 snap-rounded-4 snap-font-medium">
-        Get Started
-      </button>
-    </div>
-    <div class="snap-col-span-12 snap-md:col-span-6">
-      <div class="snap-bg-surface snap-p-8 snap-rounded-6 snap-shadow-2">
-        <h2 class="snap-text-2xl snap-font-semibold snap-mb-4">Feature Card</h2>
-        <p class="snap-text-muted">This card demonstrates the theme system.</p>
-      </div>
-    </div>
-  </div>
-</div>
-```
+## Customization
 
-### Theme Toggle Example
+### Adding New Color Schemes
 
-```html
-<header class="snap-bg-surface snap-p-4 snap-border-b snap-border-default">
-  <div class="snap-container">
-    <div class="snap-flex snap-justify-between snap-items-center">
-      <h1 class="snap-text-xl snap-font-bold">My App</h1>
-      <div data-snap-theme-toggle></div>
-    </div>
-  </div>
-</header>
-```
+1. Create a new file in `css/schemes/` (e.g., `_blue-scheme.css`)
+2. Define your color tokens using the 12-step scale
+3. Import the file in `snap-components.css`
+4. Add the scheme name to the JavaScript schemes array
+
+### Adding New Design Tokens
+
+1. Add tokens to the appropriate token file
+2. Update the base scheme to use the new tokens
+3. Add corresponding utilities if needed
+
+### Custom Breakpoints
+
+1. Add new `@custom-media` queries in `_breakpoints.css`
+2. Use them in your responsive utilities
+3. Update the JavaScript if needed
 
 ## Contributing
 
-When contributing to the theme system:
-
-1. Follow the existing naming conventions
-2. Use CSS custom properties for all values
-3. Include both light and dark theme variants
-4. Add responsive utilities where appropriate
-5. Test with accessibility tools
-6. Update documentation
+1. Follow the existing token naming conventions
+2. Ensure all color schemes work in both light and dark themes
+3. Test accessibility features (high contrast, reduced motion)
+4. Update documentation for new features
+5. Add examples for new utilities or components
 
 ## License
 
-This theme system is part of the Snap Components framework and follows the same license as the main project. 
+MIT License - see LICENSE file for details.
+
+## References
+
+- [Radix UI Themes](https://github.com/radix-ui/themes) - Inspiration for design tokens and structure
+- [CSS-Tricks: Come to the Light-Dark Side](https://css-tricks.com/come-to-the-light-dark-side/) - Modern theme switching approach
+- [CSS Custom Media Queries](https://drafts.csswg.org/mediaqueries-5/#custom-mq) - Specification for custom media queries 

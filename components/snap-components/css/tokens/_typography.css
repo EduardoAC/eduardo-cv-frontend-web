@@ -1,0 +1,260 @@
+/* --- Snap Components Typography Design Tokens --- */
+/* Typography tokens for consistent text styling */
+
+:root {
+  /* ===== FONT FAMILIES ===== */
+  /* System font stacks */
+  --snap-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --snap-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  --snap-font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  /* ===== FONT SIZES ===== */
+  /* Base font sizes using rem units */
+  --snap-text-xs: 0.75rem;    /* 12px */
+  --snap-text-sm: 0.875rem;   /* 14px */
+  --snap-text-base: 1rem;     /* 16px */
+  --snap-text-lg: 1.125rem;   /* 18px */
+  --snap-text-xl: 1.25rem;    /* 20px */
+  --snap-text-2xl: 1.5rem;    /* 24px */
+  --snap-text-3xl: 1.875rem;  /* 30px */
+  --snap-text-4xl: 2.25rem;   /* 36px */
+  --snap-text-5xl: 3rem;      /* 48px */
+  --snap-text-6xl: 3.75rem;   /* 60px */
+  --snap-text-7xl: 4.5rem;    /* 72px */
+  --snap-text-8xl: 6rem;      /* 96px */
+  --snap-text-9xl: 8rem;      /* 128px */
+
+  /* ===== FONT WEIGHTS ===== */
+  --snap-font-thin: 100;
+  --snap-font-extralight: 200;
+  --snap-font-light: 300;
+  --snap-font-normal: 400;
+  --snap-font-medium: 500;
+  --snap-font-semibold: 600;
+  --snap-font-bold: 700;
+  --snap-font-extrabold: 800;
+  --snap-font-black: 900;
+
+  /* ===== LINE HEIGHTS ===== */
+  --snap-leading-none: 1;
+  --snap-leading-tight: 1.25;
+  --snap-leading-snug: 1.375;
+  --snap-leading-normal: 1.5;
+  --snap-leading-relaxed: 1.625;
+  --snap-leading-loose: 2;
+
+  /* ===== LETTER SPACING ===== */
+  --snap-tracking-tighter: -0.05em;
+  --snap-tracking-tight: -0.025em;
+  --snap-tracking-normal: 0em;
+  --snap-tracking-wide: 0.025em;
+  --snap-tracking-wider: 0.05em;
+  --snap-tracking-widest: 0.1em;
+
+  /* ===== FONT STYLES ===== */
+  --snap-font-style-normal: normal;
+  --snap-font-style-italic: italic;
+
+  /* ===== TEXT DECORATION ===== */
+  --snap-text-decoration-underline: underline;
+  --snap-text-decoration-line-through: line-through;
+  --snap-text-decoration-no-underline: none;
+
+  /* ===== TEXT TRANSFORM ===== */
+  --snap-text-transform-uppercase: uppercase;
+  --snap-text-transform-lowercase: lowercase;
+  --snap-text-transform-capitalize: capitalize;
+  --snap-text-transform-none: none;
+
+  /* ===== TEXT ALIGN ===== */
+  --snap-text-align-left: left;
+  --snap-text-align-center: center;
+  --snap-text-align-right: right;
+  --snap-text-align-justify: justify;
+
+  /* ===== VERTICAL ALIGN ===== */
+  --snap-align-baseline: baseline;
+  --snap-align-top: top;
+  --snap-align-middle: middle;
+  --snap-align-bottom: bottom;
+  --snap-align-text-top: text-top;
+  --snap-align-text-bottom: text-bottom;
+  --snap-align-sub: sub;
+  --snap-align-super: super;
+
+  /* ===== WHITE SPACE ===== */
+  --snap-whitespace-normal: normal;
+  --snap-whitespace-nowrap: nowrap;
+  --snap-whitespace-pre: pre;
+  --snap-whitespace-pre-line: pre-line;
+  --snap-whitespace-pre-wrap: pre-wrap;
+  --snap-whitespace-break-spaces: break-spaces;
+
+  /* ===== WORD BREAK ===== */
+  --snap-break-normal: normal;
+  --snap-break-words: break-words;
+  --snap-break-all: break-all;
+  --snap-break-keep: keep-all;
+
+  /* ===== OVERFLOW WRAP ===== */
+  --snap-overflow-wrap-normal: normal;
+  --snap-overflow-wrap-break-words: break-words;
+  --snap-overflow-wrap-anywhere: anywhere;
+
+  /* ===== TEXT OVERFLOW ===== */
+  --snap-text-overflow-clip: clip;
+  --snap-text-overflow-ellipsis: ellipsis;
+
+  /* ===== SEMANTIC TYPOGRAPHY ===== */
+  /* Heading styles */
+  --snap-heading-1-size: var(--snap-text-4xl);
+  --snap-heading-1-weight: var(--snap-font-bold);
+  --snap-heading-1-line-height: var(--snap-leading-tight);
+  --snap-heading-1-letter-spacing: var(--snap-tracking-tight);
+
+  --snap-heading-2-size: var(--snap-text-3xl);
+  --snap-heading-2-weight: var(--snap-font-bold);
+  --snap-heading-2-line-height: var(--snap-leading-tight);
+  --snap-heading-2-letter-spacing: var(--snap-tracking-tight);
+
+  --snap-heading-3-size: var(--snap-text-2xl);
+  --snap-heading-3-weight: var(--snap-font-semibold);
+  --snap-heading-3-line-height: var(--snap-leading-snug);
+  --snap-heading-3-letter-spacing: var(--snap-tracking-normal);
+
+  --snap-heading-4-size: var(--snap-text-xl);
+  --snap-heading-4-weight: var(--snap-font-semibold);
+  --snap-heading-4-line-height: var(--snap-leading-snug);
+  --snap-heading-4-letter-spacing: var(--snap-tracking-normal);
+
+  --snap-heading-5-size: var(--snap-text-lg);
+  --snap-heading-5-weight: var(--snap-font-semibold);
+  --snap-heading-5-line-height: var(--snap-leading-normal);
+  --snap-heading-5-letter-spacing: var(--snap-tracking-normal);
+
+  --snap-heading-6-size: var(--snap-text-base);
+  --snap-heading-6-weight: var(--snap-font-semibold);
+  --snap-heading-6-line-height: var(--snap-leading-normal);
+  --snap-heading-6-letter-spacing: var(--snap-tracking-normal);
+
+  /* Body text styles */
+  --snap-body-large-size: var(--snap-text-lg);
+  --snap-body-large-weight: var(--snap-font-normal);
+  --snap-body-large-line-height: var(--snap-leading-relaxed);
+  --snap-body-large-letter-spacing: var(--snap-tracking-normal);
+
+  --snap-body-medium-size: var(--snap-text-base);
+  --snap-body-medium-weight: var(--snap-font-normal);
+  --snap-body-medium-line-height: var(--snap-leading-normal);
+  --snap-body-medium-letter-spacing: var(--snap-tracking-normal);
+
+  --snap-body-small-size: var(--snap-text-sm);
+  --snap-body-small-weight: var(--snap-font-normal);
+  --snap-body-small-line-height: var(--snap-leading-normal);
+  --snap-body-small-letter-spacing: var(--snap-tracking-normal);
+
+  /* Caption styles */
+  --snap-caption-size: var(--snap-text-xs);
+  --snap-caption-weight: var(--snap-font-normal);
+  --snap-caption-line-height: var(--snap-leading-normal);
+  --snap-caption-letter-spacing: var(--snap-tracking-wide);
+
+  /* Code styles */
+  --snap-code-size: var(--snap-text-sm);
+  --snap-code-weight: var(--snap-font-normal);
+  --snap-code-line-height: var(--snap-leading-normal);
+  --snap-code-letter-spacing: var(--snap-tracking-normal);
+  --snap-code-font-family: var(--snap-font-mono);
+}
+
+/* ===== RESPONSIVE TYPOGRAPHY ===== */
+/* Responsive font size adjustments */
+@media (min-width: 480px) {
+  :root {
+    --snap-heading-1-size: var(--snap-text-5xl);
+    --snap-heading-2-size: var(--snap-text-4xl);
+    --snap-heading-3-size: var(--snap-text-3xl);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --snap-heading-1-size: var(--snap-text-6xl);
+    --snap-heading-2-size: var(--snap-text-5xl);
+    --snap-heading-3-size: var(--snap-text-4xl);
+    --snap-heading-4-size: var(--snap-text-3xl);
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --snap-heading-1-size: var(--snap-text-7xl);
+    --snap-heading-2-size: var(--snap-text-6xl);
+    --snap-heading-3-size: var(--snap-text-5xl);
+    --snap-heading-4-size: var(--snap-text-4xl);
+  }
+}
+
+/* ===== DENSITY TYPOGRAPHY ADJUSTMENTS ===== */
+/* Compact density */
+[data-density="compact"] {
+  --snap-heading-1-size: var(--snap-text-3xl);
+  --snap-heading-2-size: var(--snap-text-2xl);
+  --snap-heading-3-size: var(--snap-text-xl);
+  --snap-heading-4-size: var(--snap-text-lg);
+  --snap-heading-5-size: var(--snap-text-base);
+  --snap-heading-6-size: var(--snap-text-sm);
+  
+  --snap-body-large-size: var(--snap-text-base);
+  --snap-body-medium-size: var(--snap-text-sm);
+  --snap-body-small-size: var(--snap-text-xs);
+}
+
+/* Spacious density */
+[data-density="spacious"] {
+  --snap-heading-1-size: var(--snap-text-6xl);
+  --snap-heading-2-size: var(--snap-text-5xl);
+  --snap-heading-3-size: var(--snap-text-4xl);
+  --snap-heading-4-size: var(--snap-text-3xl);
+  --snap-heading-5-size: var(--snap-text-2xl);
+  --snap-heading-6-size: var(--snap-text-xl);
+  
+  --snap-body-large-size: var(--snap-text-xl);
+  --snap-body-medium-size: var(--snap-text-lg);
+  --snap-body-small-size: var(--snap-text-base);
+}
+
+/* ===== ACCESSIBILITY TYPOGRAPHY ===== */
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  :root {
+    --snap-font-weight-normal: 600;
+    --snap-font-weight-medium: 700;
+    --snap-font-weight-semibold: 800;
+    --snap-font-weight-bold: 900;
+  }
+}
+
+/* Reduced motion adjustments */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    /* No specific typography changes for reduced motion */
+  }
+}
+
+/* ===== PRINT TYPOGRAPHY ===== */
+@media print {
+  :root {
+    --snap-heading-1-size: 24pt;
+    --snap-heading-2-size: 20pt;
+    --snap-heading-3-size: 16pt;
+    --snap-heading-4-size: 14pt;
+    --snap-heading-5-size: 12pt;
+    --snap-heading-6-size: 11pt;
+    
+    --snap-body-large-size: 12pt;
+    --snap-body-medium-size: 11pt;
+    --snap-body-small-size: 10pt;
+    --snap-caption-size: 9pt;
+  }
+} 

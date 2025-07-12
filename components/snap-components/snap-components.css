@@ -1,23 +1,50 @@
-/* --- Snap Components Framework --- */
-/* Import partials in the correct order */
+/* ===== Snap Components CSS Framework ===== */
+/* A modern, token-based CSS framework with theme support */
 
-/* Base styles */
+/* ===== DESIGN TOKENS ===== */
+/* Import design tokens first - these define the foundation */
+@import url('./css/tokens/_colors.css');
+@import url('./css/tokens/_spacing.css');
+@import url('./css/tokens/_typography.css');
+@import url('./css/tokens/_breakpoints.css');
+
+/* ===== COLOR SCHEMES ===== */
+/* Import color schemes - these map tokens to semantic colors */
+@import url('./css/schemes/_base-scheme.css');
+@import url('./css/schemes/_purple-scheme.css');
+
+/* ===== MODERN THEME SYSTEM ===== */
+/* Import modern theme switcher using color-scheme */
+@import url('./css/theme/_modern-theme-switcher.css');
+
+/* ===== BASE STYLES ===== */
+/* Import base styles */
 @import url('./css/base/_reset.css');
-@import url('./css/base/_variables.css');
 @import url('./css/base/_utilities.css');
+@import url('./css/base/_variables.css');
 
-/* Theme system */
-@import url('./css/theme/_theme.css');
-@import url('./css/theme/_dark-theme.css');
-@import url('./css/theme/_utilities.css');
-@import url('./css/theme/_responsive.css');
-@import url('./css/theme/_theme-switcher.css');
+/* ===== COMPONENT STYLES ===== */
+/* Import component styles */
+@import url('./css/components/_alert.css');
+@import url('./css/components/_button.css');
+@import url('./css/components/_card.css');
+@import url('./css/components/_container.css');
+@import url('./css/components/_grid.css');
 
-/* Layout */
+/* ===== LAYOUT STYLES ===== */
+/* Import layout styles */
+@import url('./css/layout/_columns.css');
 @import url('./css/layout/_container.css');
 @import url('./css/layout/_grid.css');
-@import url('./css/layout/_columns.css');
 
-/* Components */
-@import url('./css/components/_button.css');
-@import url('./css/components/_alert.css'); 
+/* ===== RESPONSIVE UTILITIES ===== */
+/* Import responsive utilities using custom media queries */
+@import url('./css/theme/_responsive.css');
+
+/* ===== THEME UTILITIES ===== */
+/* Import theme utilities */
+@import url('./css/theme/_utilities.css');
+
+/* ===== THEME SWITCHER ===== */
+/* Import theme switcher styles */
+@import url('./css/theme/_theme-switcher.css'); 
