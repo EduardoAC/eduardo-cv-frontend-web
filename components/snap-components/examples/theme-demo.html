@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snap Components Theme Demo</title>
+    <link rel="stylesheet" href="../snap-components.css">
+    <style>
+        /* Demo-specific styles */
+        .demo-section {
+            margin-bottom: var(--snap-space-16);
+        }
+        
+        .demo-card {
+            background-color: var(--snap-color-surface);
+            border: 1px solid var(--snap-color-border);
+            border-radius: var(--snap-radius-4);
+            padding: var(--snap-space-6);
+            margin-bottom: var(--snap-space-4);
+        }
+        
+        .color-swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--snap-radius-2);
+            border: 1px solid var(--snap-color-border);
+            margin: var(--snap-space-2);
+        }
+        
+        .spacing-demo {
+            background-color: var(--snap-color-primary-3);
+            border: 1px solid var(--snap-color-primary-6);
+            margin-bottom: var(--snap-space-2);
+        }
+    </style>
+</head>
+<body class="snap-bg-background snap-text-default snap-font-sans">
+    <!-- Header with theme toggle -->
+    <header class="snap-bg-surface snap-border-b snap-border-default">
+        <div class="snap-container">
+            <div class="snap-flex snap-justify-between snap-items-center snap-py-4">
+                <h1 class="snap-text-2xl snap-font-bold">Snap Components Theme Demo</h1>
+                <div data-snap-theme-toggle></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="snap-container snap-py-16">
+        <!-- Breakpoints Demo -->
+        <section class="demo-section">
+            <h2 class="snap-text-3xl snap-font-bold snap-mb-8">Breakpoints & Responsive Design</h2>
+            <div class="snap-grid snap-gap-6">
+                <div class="snap-col-span-12 snap-md:col-span-6 snap-lg:col-span-4">
+                    <div class="demo-card">
+                        <h3 class="snap-text-lg snap-font-semibold snap-mb-2">Responsive Text</h3>
+                        <p class="snap-text-sm snap-md:text-base snap-lg:text-lg snap-text-muted">
+                            This text changes size across breakpoints: small on mobile, base on tablet, large on desktop.
+                        </p>
+                    </div>
+                </div>
+                <div class="snap-col-span-12 snap-md:col-span-6 snap-lg:col-span-4">
+                    <div class="demo-card">
+                        <h3 class="snap-text-lg snap-font-semibold snap-mb-2">Responsive Spacing</h3>
+                        <div class="snap-p-2 snap-md:p-4 snap-lg:p-6 snap-bg-primary-3 snap-rounded-2">
+                            <p class="snap-text-sm">Padding increases with screen size</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-col-span-12 snap-md:col-span-6 snap-lg:col-span-4">
+                    <div class="demo-card">
+                        <h3 class="snap-text-lg snap-font-semibold snap-mb-2">Grid Layout</h3>
+                        <p class="snap-text-sm snap-text-muted">
+                            This card spans 12 columns on mobile, 6 on tablet, 4 on desktop.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Colors Demo -->
+        <section class="demo-section">
+            <h2 class="snap-text-3xl snap-font-bold snap-mb-8">Color System</h2>
+            
+            <!-- Neutral Colors -->
+            <div class="demo-card snap-mb-6">
+                <h3 class="snap-text-xl snap-font-semibold snap-mb-4">Neutral Colors</h3>
+                <div class="snap-flex snap-flex-wrap snap-gap-2">
+                    <div class="color-swatch snap-bg-neutral-1" title="Neutral 1"></div>
+                    <div class="color-swatch snap-bg-neutral-2" title="Neutral 2"></div>
+                    <div class="color-swatch snap-bg-neutral-3" title="Neutral 3"></div>
+                    <div class="color-swatch snap-bg-neutral-4" title="Neutral 4"></div>
+                    <div class="color-swatch snap-bg-neutral-5" title="Neutral 5"></div>
+                    <div class="color-swatch snap-bg-neutral-6" title="Neutral 6"></div>
+                    <div class="color-swatch snap-bg-neutral-7" title="Neutral 7"></div>
+                    <div class="color-swatch snap-bg-neutral-8" title="Neutral 8"></div>
+                    <div class="color-swatch snap-bg-neutral-9" title="Neutral 9"></div>
+                    <div class="color-swatch snap-bg-neutral-10" title="Neutral 10"></div>
+                    <div class="color-swatch snap-bg-neutral-11" title="Neutral 11"></div>
+                    <div class="color-swatch snap-bg-neutral-12" title="Neutral 12"></div>
+                </div>
+            </div>
+
+            <!-- Primary Colors -->
+            <div class="demo-card snap-mb-6">
+                <h3 class="snap-text-xl snap-font-semibold snap-mb-4">Primary Colors</h3>
+                <div class="snap-flex snap-flex-wrap snap-gap-2">
+                    <div class="color-swatch snap-bg-primary-1" title="Primary 1"></div>
+                    <div class="color-swatch snap-bg-primary-2" title="Primary 2"></div>
+                    <div class="color-swatch snap-bg-primary-3" title="Primary 3"></div>
+                    <div class="color-swatch snap-bg-primary-4" title="Primary 4"></div>
+                    <div class="color-swatch snap-bg-primary-5" title="Primary 5"></div>
+                    <div class="color-swatch snap-bg-primary-6" title="Primary 6"></div>
+                    <div class="color-swatch snap-bg-primary-7" title="Primary 7"></div>
+                    <div class="color-swatch snap-bg-primary-8" title="Primary 8"></div>
+                    <div class="color-swatch snap-bg-primary-9" title="Primary 9"></div>
+                    <div class="color-swatch snap-bg-primary-10" title="Primary 10"></div>
+                    <div class="color-swatch snap-bg-primary-11" title="Primary 11"></div>
+                    <div class="color-swatch snap-bg-primary-12" title="Primary 12"></div>
+                </div>
+            </div>
+
+            <!-- Semantic Colors -->
+            <div class="demo-card">
+                <h3 class="snap-text-xl snap-font-semibold snap-mb-4">Semantic Colors</h3>
+                <div class="snap-grid snap-gap-4">
+                    <div class="snap-col-span-12 snap-md:col-span-3">
+                        <div class="snap-bg-success snap-text-contrast snap-p-4 snap-rounded-4 snap-text-center">
+                            Success
+                        </div>
+                    </div>
+                    <div class="snap-col-span-12 snap-md:col-span-3">
+                        <div class="snap-bg-warning snap-text-contrast snap-p-4 snap-rounded-4 snap-text-center">
+                            Warning
+                        </div>
+                    </div>
+                    <div class="snap-col-span-12 snap-md:col-span-3">
+                        <div class="snap-bg-error snap-text-contrast snap-p-4 snap-rounded-4 snap-text-center">
+                            Error
+                        </div>
+                    </div>
+                    <div class="snap-col-span-12 snap-md:col-span-3">
+                        <div class="snap-bg-info snap-text-contrast snap-p-4 snap-rounded-4 snap-text-center">
+                            Info
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacing Demo -->
+        <section class="demo-section">
+            <h2 class="snap-text-3xl snap-font-bold snap-mb-8">Spacing Scale</h2>
+            <div class="demo-card">
+                <h3 class="snap-text-xl snap-font-semibold snap-mb-4">Spacing Examples (4px grid)</h3>
+                <div class="snap-space-y-2">
+                    <div class="spacing-demo snap-p-1">Padding 1 (4px)</div>
+                    <div class="spacing-demo snap-p-2">Padding 2 (8px)</div>
+                    <div class="spacing-demo snap-p-3">Padding 3 (12px)</div>
+                    <div class="spacing-demo snap-p-4">Padding 4 (16px)</div>
+                    <div class="spacing-demo snap-p-5">Padding 5 (20px)</div>
+                    <div class="spacing-demo snap-p-6">Padding 6 (24px)</div>
+                    <div class="spacing-demo snap-p-8">Padding 8 (32px)</div>
+                    <div class="spacing-demo snap-p-10">Padding 10 (40px)</div>
+                    <div class="spacing-demo snap-p-12">Padding 12 (48px)</div>
+                    <div class="spacing-demo snap-p-16">Padding 16 (64px)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Demo -->
+        <section class="demo-section">
+            <h2 class="snap-text-3xl snap-font-bold snap-mb-8">Typography</h2>
+            <div class="demo-card">
+                <h3 class="snap-text-xl snap-font-semibold snap-mb-4">Font Sizes</h3>
+                <div class="snap-space-y-2">
+                    <p class="snap-text-xs">Extra Small (12px) - snap-text-xs</p>
+                    <p class="snap-text-sm">Small (14px) - snap-text-sm</p>
+                    <p class="snap-text-base">Base (16px) - snap-text-base</p>
+                    <p class="snap-text-lg">Large (18px) - snap-text-lg</p>
+                    <p class="snap-text-xl">Extra Large (20px) - snap-text-xl</p>
+                    <p class="snap-text-2xl">2XL (24px) - snap-text-2xl</p>
+                    <p class="snap-text-3xl">3XL (30px) - snap-text-3xl</p>
+                    <p class="snap-text-4xl">4XL (36px) - snap-text-4xl</p>
+                    <p class="snap-text-5xl">5XL (48px) - snap-text-5xl</p>
+                    <p class="snap-text-6xl">6XL (60px) - snap-text-6xl</p>
+                </div>
+            </div>
+
+            <div class="demo-card snap-mt-6">
+                <h3 class="snap-text-xl snap-font-semibold snap-mb-4">Font Weights</h3>
+                <div class="snap-space-y-2">
+                    <p class="snap-font-thin">Thin (100) - snap-font-thin</p>
+                    <p class="snap-font-light">Light (300) - snap-font-light</p>
+                    <p class="snap-font-normal">Normal (400) - snap-font-normal</p>
+                    <p class="snap-font-medium">Medium (500) - snap-font-medium</p>
+                    <p class="snap-font-semibold">Semibold (600) - snap-font-semibold</p>
+                    <p class="snap-font-bold">Bold (700) - snap-font-bold</p>
+                    <p class="snap-font-extrabold">Extrabold (800) - snap-font-extrabold</p>
+                    <p class="snap-font-black">Black (900) - snap-font-black</p>
+                </div>
+            </div>
+
+            <div class="demo-card snap-mt-6">
+                <h3 class="snap-text-xl snap-font-semibold snap-mb-4">Font Families</h3>
+                <div class="snap-space-y-2">
+                    <p class="snap-font-sans">Sans-serif - snap-font-sans</p>
+                    <p class="snap-font-serif">Serif - snap-font-serif</p>
+                    <p class="snap-font-mono">Monospace - snap-font-mono</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout Demo -->
+        <section class="demo-section">
+            <h2 class="snap-text-3xl snap-font-bold snap-mb-8">Layout & Components</h2>
+            
+            <!-- Container Demo -->
+            <div class="demo-card snap-mb-6">
+                <h3 class="snap-text-xl snap-font-semibold snap-mb-4">Container</h3>
+                <div class="snap-bg-neutral-3 snap-p-4 snap-rounded-2">
+                    <p class="snap-text-sm snap-text-muted">This content is inside a snap-container with responsive max-widths</p>
+                </div>
+            </div>
+
+            <!-- Grid Demo -->
+            <div class="demo-card snap-mb-6">
+                <h3 class="snap-text-xl snap-font-semibold snap-mb-4">Grid System</h3>
+                <div class="snap-grid snap-gap-4">
+                    <div class="snap-col-span-12 snap-md:col-span-6 snap-lg:col-span-3">
+                        <div class="snap-bg-primary-3 snap-p-4 snap-rounded-2 snap-text-center">
+                            <p class="snap-text-sm">1/4 on desktop</p>
+                        </div>
+                    </div>
+                    <div class="snap-col-span-12 snap-md:col-span-6 snap-lg:col-span-3">
+                        <div class="snap-bg-primary-4 snap-p-4 snap-rounded-2 snap-text-center">
+                            <p class="snap-text-sm">1/4 on desktop</p>
+                        </div>
+                    </div>
+                    <div class="snap-col-span-12 snap-md:col-span-6 snap-lg:col-span-3">
+                        <div class="snap-bg-primary-5 snap-p-4 snap-rounded-2 snap-text-center">
+                            <p class="snap-text-sm">1/4 on desktop</p>
+                        </div>
+                    </div>
+                    <div class="snap-col-span-12 snap-md:col-span-6 snap-lg:col-span-3">
+                        <div class="snap-bg-primary-6 snap-p-4 snap-rounded-2 snap-text-center">
+                            <p class="snap-text-sm">1/4 on desktop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shadows Demo -->
+            <div class="demo-card">
+                <h3 class="snap-text-xl snap-font-semibold snap-mb-4">Shadows</h3>
+                <div class="snap-grid snap-gap-4">
+                    <div class="snap-col-span-12 snap-md:col-span-4">
+                        <div class="snap-bg-surface snap-p-6 snap-rounded-4 snap-shadow-1 snap-text-center">
+                            <p class="snap-text-sm">Shadow 1</p>
+                        </div>
+                    </div>
+                    <div class="snap-col-span-12 snap-md:col-span-4">
+                        <div class="snap-bg-surface snap-p-6 snap-rounded-4 snap-shadow-3 snap-text-center">
+                            <p class="snap-text-sm">Shadow 3</p>
+                        </div>
+                    </div>
+                    <div class="snap-col-span-12 snap-md:col-span-4">
+                        <div class="snap-bg-surface snap-p-6 snap-rounded-4 snap-shadow-5 snap-text-center">
+                            <p class="snap-text-sm">Shadow 5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section class="demo-section">
+            <h2 class="snap-text-3xl snap-font-bold snap-mb-8">Interactive Elements</h2>
+            <div class="demo-card">
+                <h3 class="snap-text-xl snap-font-semibold snap-mb-4">Buttons & Interactive States</h3>
+                <div class="snap-flex snap-flex-wrap snap-gap-4">
+                    <button class="snap-bg-primary-9 snap-text-contrast snap-px-6 snap-py-3 snap-rounded-4 snap-font-medium snap-transition-normal hover:snap-bg-primary-10">
+                        Primary Button
+                    </button>
+                    <button class="snap-bg-neutral-3 snap-text-default snap-px-6 snap-py-3 snap-rounded-4 snap-font-medium snap-transition-normal hover:snap-bg-neutral-4">
+                        Secondary Button
+                    </button>
+                    <button class="snap-border snap-border-primary-9 snap-text-primary-9 snap-bg-transparent snap-px-6 snap-py-3 snap-rounded-4 snap-font-medium snap-transition-normal hover:snap-bg-primary-9 hover:snap-text-contrast">
+                        Outline Button
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="snap-bg-surface snap-border-t snap-border-default snap-py-8 snap-mt-16">
+        <div class="snap-container">
+            <p class="snap-text-center snap-text-muted">
+                Snap Components Theme System Demo - Switch themes using the toggle in the header
+            </p>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher Script -->
+    <script src="../js/theme-switcher.js"></script>
+</body>
+</html> 

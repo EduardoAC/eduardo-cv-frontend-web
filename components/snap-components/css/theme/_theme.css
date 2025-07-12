@@ -1,0 +1,200 @@
+/* --- Snap Components Theme System --- */
+/* Based on Radix UI Themes approach for personalization */
+
+/* ===== BREAKPOINTS ===== */
+:root {
+  /* Breakpoint values */
+  --snap-breakpoint-xs: 480px;
+  --snap-breakpoint-sm: 576px;
+  --snap-breakpoint-md: 768px;
+  --snap-breakpoint-lg: 992px;
+  --snap-breakpoint-xl: 1200px;
+  --snap-breakpoint-2xl: 1400px;
+
+  /* Container max widths */
+  --snap-container-max-width-xs: 100%;
+  --snap-container-max-width-sm: 540px;
+  --snap-container-max-width-md: 720px;
+  --snap-container-max-width-lg: 960px;
+  --snap-container-max-width-xl: 1140px;
+  --snap-container-max-width-2xl: 1320px;
+}
+
+/* ===== COLORS ===== */
+:root {
+  /* Neutral colors */
+  --snap-color-neutral-1: hsl(0 0% 99%);
+  --snap-color-neutral-2: hsl(0 0% 97.3%);
+  --snap-color-neutral-3: hsl(0 0% 95.1%);
+  --snap-color-neutral-4: hsl(0 0% 93%);
+  --snap-color-neutral-5: hsl(0 0% 90.9%);
+  --snap-color-neutral-6: hsl(0 0% 88.7%);
+  --snap-color-neutral-7: hsl(0 0% 85.8%);
+  --snap-color-neutral-8: hsl(0 0% 78%);
+  --snap-color-neutral-9: hsl(0 0% 56.1%);
+  --snap-color-neutral-10: hsl(0 0% 52.3%);
+  --snap-color-neutral-11: hsl(0 0% 43.5%);
+  --snap-color-neutral-12: hsl(0 0% 9%);
+
+  /* Primary colors */
+  --snap-color-primary-1: hsl(206 100% 99.2%);
+  --snap-color-primary-2: hsl(210 100% 98%);
+  --snap-color-primary-3: hsl(209 100% 96.6%);
+  --snap-color-primary-4: hsl(210 98% 94%);
+  --snap-color-primary-5: hsl(209 95% 90.1%);
+  --snap-color-primary-6: hsl(209 81% 84.5%);
+  --snap-color-primary-7: hsl(208 77% 76.9%);
+  --snap-color-primary-8: hsl(206 81% 65.3%);
+  --snap-color-primary-9: hsl(206 100% 50%);
+  --snap-color-primary-10: hsl(208 100% 47.3%);
+  --snap-color-primary-11: hsl(212 100% 43%);
+  --snap-color-primary-12: hsl(222 84% 4.9%);
+
+  /* Semantic colors */
+  --snap-color-success-9: hsl(142 76% 36%);
+  --snap-color-warning-9: hsl(38 92% 50%);
+  --snap-color-error-9: hsl(0 84% 60%);
+  --snap-color-info-9: hsl(199 89% 48%);
+
+  /* Background colors */
+  --snap-color-background: var(--snap-color-neutral-1);
+  --snap-color-background-hover: var(--snap-color-neutral-2);
+  --snap-color-background-active: var(--snap-color-neutral-3);
+  --snap-color-background-selected: var(--snap-color-primary-3);
+
+  /* Surface colors */
+  --snap-color-surface: var(--snap-color-neutral-1);
+  --snap-color-surface-hover: var(--snap-color-neutral-2);
+  --snap-color-surface-active: var(--snap-color-neutral-3);
+
+  /* Text colors */
+  --snap-color-text: var(--snap-color-neutral-12);
+  --snap-color-text-muted: var(--snap-color-neutral-11);
+  --snap-color-text-subtle: var(--snap-color-neutral-10);
+  --snap-color-text-contrast: var(--snap-color-neutral-1);
+
+  /* Border colors */
+  --snap-color-border: var(--snap-color-neutral-6);
+  --snap-color-border-hover: var(--snap-color-neutral-7);
+  --snap-color-border-focus: var(--snap-color-primary-8);
+}
+
+/* ===== SPACING ===== */
+:root {
+  /* Base spacing scale (4px grid) */
+  --snap-space-0: 0px;
+  --snap-space-1: 4px;
+  --snap-space-2: 8px;
+  --snap-space-3: 12px;
+  --snap-space-4: 16px;
+  --snap-space-5: 20px;
+  --snap-space-6: 24px;
+  --snap-space-7: 28px;
+  --snap-space-8: 32px;
+  --snap-space-9: 36px;
+  --snap-space-10: 40px;
+  --snap-space-11: 44px;
+  --snap-space-12: 48px;
+  --snap-space-13: 52px;
+  --snap-space-14: 56px;
+  --snap-space-15: 60px;
+  --snap-space-16: 64px;
+  --snap-space-17: 68px;
+  --snap-space-18: 72px;
+  --snap-space-19: 76px;
+  --snap-space-20: 80px;
+
+  /* Semantic spacing */
+  --snap-space-gutter: var(--snap-space-4);
+  --snap-space-section: var(--snap-space-16);
+  --snap-space-page: var(--snap-space-8);
+}
+
+/* ===== LAYOUT ===== */
+:root {
+  /* Container settings */
+  --snap-container-padding: var(--snap-space-gutter);
+  --snap-container-margin: 0 auto;
+
+  /* Grid settings */
+  --snap-grid-columns: 12;
+  --snap-grid-gap: var(--snap-space-4);
+  --snap-grid-gap-sm: var(--snap-space-2);
+  --snap-grid-gap-lg: var(--snap-space-6);
+
+  /* Border radius */
+  --snap-radius-1: 2px;
+  --snap-radius-2: 4px;
+  --snap-radius-3: 6px;
+  --snap-radius-4: 8px;
+  --snap-radius-5: 10px;
+  --snap-radius-6: 12px;
+  --snap-radius-7: 14px;
+  --snap-radius-8: 16px;
+  --snap-radius-9: 18px;
+  --snap-radius-10: 20px;
+
+  /* Shadows */
+  --snap-shadow-1: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --snap-shadow-2: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --snap-shadow-3: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --snap-shadow-4: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --snap-shadow-5: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Z-index scale */
+  --snap-z-dropdown: 1000;
+  --snap-z-sticky: 1020;
+  --snap-z-fixed: 1030;
+  --snap-z-modal-backdrop: 1040;
+  --snap-z-modal: 1050;
+  --snap-z-popover: 1060;
+  --snap-z-tooltip: 1070;
+  --snap-z-toast: 1080;
+}
+
+/* ===== TYPOGRAPHY ===== */
+:root {
+  /* Font families */
+  --snap-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --snap-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  --snap-font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  /* Font sizes */
+  --snap-text-xs: 0.75rem;    /* 12px */
+  --snap-text-sm: 0.875rem;   /* 14px */
+  --snap-text-base: 1rem;     /* 16px */
+  --snap-text-lg: 1.125rem;   /* 18px */
+  --snap-text-xl: 1.25rem;    /* 20px */
+  --snap-text-2xl: 1.5rem;    /* 24px */
+  --snap-text-3xl: 1.875rem;  /* 30px */
+  --snap-text-4xl: 2.25rem;   /* 36px */
+  --snap-text-5xl: 3rem;      /* 48px */
+  --snap-text-6xl: 3.75rem;   /* 60px */
+
+  /* Font weights */
+  --snap-font-thin: 100;
+  --snap-font-extralight: 200;
+  --snap-font-light: 300;
+  --snap-font-normal: 400;
+  --snap-font-medium: 500;
+  --snap-font-semibold: 600;
+  --snap-font-bold: 700;
+  --snap-font-extrabold: 800;
+  --snap-font-black: 900;
+
+  /* Line heights */
+  --snap-leading-none: 1;
+  --snap-leading-tight: 1.25;
+  --snap-leading-snug: 1.375;
+  --snap-leading-normal: 1.5;
+  --snap-leading-relaxed: 1.625;
+  --snap-leading-loose: 2;
+}
+
+/* ===== TRANSITIONS ===== */
+:root {
+  --snap-transition-fast: 150ms ease;
+  --snap-transition-normal: 250ms ease;
+  --snap-transition-slow: 350ms ease;
+  --snap-transition-slower: 500ms ease;
+} 

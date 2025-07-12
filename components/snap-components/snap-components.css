@@ -1,12 +1,23 @@
 /* --- Snap Components Framework --- */
 /* Import partials in the correct order */
 
+/* Base styles */
 @import url('./css/base/_reset.css');
 @import url('./css/base/_variables.css');
 @import url('./css/base/_utilities.css');
+
+/* Theme system */
+@import url('./css/theme/_theme.css');
+@import url('./css/theme/_dark-theme.css');
+@import url('./css/theme/_utilities.css');
+@import url('./css/theme/_responsive.css');
+@import url('./css/theme/_theme-switcher.css');
+
+/* Layout */
 @import url('./css/layout/_container.css');
 @import url('./css/layout/_grid.css');
 @import url('./css/layout/_columns.css');
 
+/* Components */
 @import url('./css/components/_button.css');
 @import url('./css/components/_alert.css'); 

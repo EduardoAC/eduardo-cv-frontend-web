@@ -1,0 +1,76 @@
+/* --- Snap Components Dark Theme --- */
+/* Dark theme variant following Radix UI themes approach */
+
+[data-theme="dark"] {
+  /* Neutral colors - Dark */
+  --snap-color-neutral-1: hsl(0 0% 9%);
+  --snap-color-neutral-2: hsl(0 0% 10.9%);
+  --snap-color-neutral-3: hsl(0 0% 15.1%);
+  --snap-color-neutral-4: hsl(0 0% 18.4%);
+  --snap-color-neutral-5: hsl(0 0% 21.7%);
+  --snap-color-neutral-6: hsl(0 0% 24.9%);
+  --snap-color-neutral-7: hsl(0 0% 29.8%);
+  --snap-color-neutral-8: hsl(0 0% 37.5%);
+  --snap-color-neutral-9: hsl(0 0% 43.9%);
+  --snap-color-neutral-10: hsl(0 0% 47.7%);
+  --snap-color-neutral-11: hsl(0 0% 56.5%);
+  --snap-color-neutral-12: hsl(0 0% 91%);
+
+  /* Primary colors - Dark */
+  --snap-color-primary-1: hsl(222 84% 4.9%);
+  --snap-color-primary-2: hsl(215 27.9% 16.9%);
+  --snap-color-primary-3: hsl(215 25.2% 27.1%);
+  --snap-color-primary-4: hsl(215 20.2% 65.1%);
+  --snap-color-primary-5: hsl(216 17.2% 83.9%);
+  --snap-color-primary-6: hsl(214 15.4% 89.8%);
+  --snap-color-primary-7: hsl(215 20.3% 94.1%);
+  --snap-color-primary-8: hsl(215 25% 96.9%);
+  --snap-color-primary-9: hsl(206 100% 50%);
+  --snap-color-primary-10: hsl(208 100% 47.3%);
+  --snap-color-primary-11: hsl(212 100% 43%);
+  --snap-color-primary-12: hsl(206 100% 99.2%);
+
+  /* Semantic colors - Dark */
+  --snap-color-success-9: hsl(142 76% 36%);
+  --snap-color-warning-9: hsl(38 92% 50%);
+  --snap-color-error-9: hsl(0 84% 60%);
+  --snap-color-info-9: hsl(199 89% 48%);
+
+  /* Background colors - Dark */
+  --snap-color-background: var(--snap-color-neutral-1);
+  --snap-color-background-hover: var(--snap-color-neutral-2);
+  --snap-color-background-active: var(--snap-color-neutral-3);
+  --snap-color-background-selected: var(--snap-color-primary-3);
+
+  /* Surface colors - Dark */
+  --snap-color-surface: var(--snap-color-neutral-2);
+  --snap-color-surface-hover: var(--snap-color-neutral-3);
+  --snap-color-surface-active: var(--snap-color-neutral-4);
+
+  /* Text colors - Dark */
+  --snap-color-text: var(--snap-color-neutral-12);
+  --snap-color-text-muted: var(--snap-color-neutral-11);
+  --snap-color-text-subtle: var(--snap-color-neutral-10);
+  --snap-color-text-contrast: var(--snap-color-neutral-1);
+
+  /* Border colors - Dark */
+  --snap-color-border: var(--snap-color-neutral-6);
+  --snap-color-border-hover: var(--snap-color-neutral-7);
+  --snap-color-border-focus: var(--snap-color-primary-8);
+
+  /* Shadows - Dark */
+  --snap-shadow-1: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --snap-shadow-2: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+  --snap-shadow-3: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --snap-shadow-4: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --snap-shadow-5: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+}
+
+/* High contrast dark theme */
+[data-theme="dark"][data-contrast="high"] {
+  --snap-color-neutral-1: hsl(0 0% 0%);
+  --snap-color-neutral-12: hsl(0 0% 100%);
+  --snap-color-primary-9: hsl(206 100% 60%);
+  --snap-color-primary-10: hsl(208 100% 57.3%);
+  --snap-color-primary-11: hsl(212 100% 53%);
+} 
