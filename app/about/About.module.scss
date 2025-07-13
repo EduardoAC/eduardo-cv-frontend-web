@@ -3,7 +3,7 @@
 .about_me {
   @include page-typography;
   padding: 0;
-  background-color: #303030;
+  background-color: --color-background;
   .white-bg {
     background-color: #fff;
   }
@@ -30,7 +30,7 @@
     margin-bottom: 20px;
     font-size: 17px;
     text-align: justify;
-    color: #ccc;
+    color: var(--color-text-secondary);
   }
   .final_thought {
     font-size: 28px;
@@ -147,7 +147,7 @@
   text-decoration: underline;
 
   &:hover {
-    color: #ccc;
+    color: var(--color-text-secondary);
   }
 }
 
@@ -159,7 +159,7 @@
   text-align: center;
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  color: #ccc;
+  color: var(--color-text-secondary);
 }
 
 .timeline_section {
@@ -195,7 +195,7 @@
   text-decoration: underline;
 
   &:hover {
-    color: #ccc;
+    color: var(--color-text-secondary);
   }
 }
 
@@ -219,4 +219,4 @@
 .pull_quote {
   font-size: 1.5rem;
   font-style: italic;
-} 
+}

@@ -1,3 +1,4 @@
+@import url("../components/snap-components/styles/index.css");
 /*
  * OPTIMIZATION: Removed unused Font Awesome CSS import
  * This optimization removes render-blocking external CSS that was not being used
@@ -13,19 +14,19 @@ html {
 }
 
 body {
-  background-color: #303030;
-  color: #ccc;
+  background-color: var(--color-background);
+  color: var(--text-primary);
   background-size: 20px 20px !important;
 }
 
 /* Links */
 a {
-  color: #ccc;
+  color: var(--text-primary);
   text-decoration: none;
 }
 
 a:hover {
-  color: #fff; /* Lighter purple for hover */
+  color: var(--color-text-primary); /* Lighter purple for hover */
   text-decoration: underline;
 }
 
@@ -37,15 +38,15 @@ a:hover {
 
 /* Footer styles */
 .footer {
-  border-top: 5px solid #1c1c1c;
-  background-color: #111;
-  color: #999;
+  border-top: 5px solid var(--color-border-footer-top);
+  background-color: var(--color-background-footer);
+  color: var(--color-text-secondary);
   padding: 20px 0;
   margin-top: auto;
 }
 
 .footer hr {
-  border-top: 3px solid #1c1c1c;
+  border-top: 3px solid var(--color-border-footer-top);
 }
 
 .footer ul {
@@ -56,11 +57,11 @@ a:hover {
 .footer p,
 .footer a {
   font-size: 16px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .footer a:hover {
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .footer .footer-label {
@@ -74,12 +75,12 @@ a:hover {
 
 /* Profile link styles */
 .profile-link {
-  color: #666;
+  color: var(--color-text-secondary);
   text-decoration: none;
 }
 
 .profile-link:hover {
-  color: #333;
+  color: var(--color-text-primary);
   text-decoration: underline;
 }
 
@@ -103,7 +104,7 @@ section {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  color: #fff;
+  color: var(----color-text-primary);
   font-weight: 600;
   margin-bottom: 0.75rem;
 }

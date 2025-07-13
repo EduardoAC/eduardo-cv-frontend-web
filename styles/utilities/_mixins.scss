@@ -56,7 +56,7 @@
     font-size: 18px;
     text-align: justify;
     text-indent: 40px;
-    color: #ccc;
+    color: var(--color-text-secondary);
   }
 
   h1 {
@@ -74,10 +74,10 @@
   .introduction,
   .conclusion {
     p {
-      color: #ccc;
+      color: var(--color-text-secondary);
     }
     a {
-      color: #ccc;
+      color: var(--color-text-secondary);
     }
   }
 
@@ -96,10 +96,10 @@
   .introduction,
   .conclusion {
     p {
-      color: #ccc;
+      color: var(--color-text-secondary);
     }
     a {
-      color: #ccc;
+      color: var(--color-text-secondary);
     }
   }
 }

@@ -3,6 +3,7 @@
 
 /* Import base files */
 @import url('./css/base/_reset.css');
+@import url('./styles/index.css');
 @import url('./css/base/_variables.css');
 @import url('./css/base/_utilities.css');
 @import url('./css/layout/_container.css');
@@ -155,4 +156,4 @@
   border-color: #86b7fe;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-} 
+}
