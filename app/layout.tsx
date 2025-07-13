@@ -35,7 +35,7 @@ export default function RootLayout({
   const pageTitle = 'Eduardo Aparicio Cardenes - Interactive CV';
   return (
     <html lang="en">
-      <body className={`${inter.className} snap-components-theme light-theme`}>
+      <body className={`${inter.className} snap-components-theme dark-theme`}>
         <Navbar pageTitle={pageTitle} />
         <div className="wrap">{children}</div>
         <Footer />
