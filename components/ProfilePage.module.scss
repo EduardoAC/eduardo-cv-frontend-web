@@ -3,11 +3,11 @@
 
 .profile_page {
   // CSS Custom Properties for role-specific theming
-  --profile-color: #ccc;
+  --profile-color: var(--color-text-secondary);
   --profile-accent: var(--profile-color);
   --profile-text-color: var(--profile-color);
   --profile-border-color: var(--profile-color);
-  
+
   // Common typography and spacing
   p {
     margin-bottom: 20px;
@@ -36,7 +36,7 @@
   // Introduction section
   .introduction {
     margin-bottom: 50px;
-    
+
     a {
       color: var(--profile-text-color);
     }
@@ -72,17 +72,17 @@
 
   // Role-specific variations
   &[data-role="frontend"] {
-    --profile-color: #ccc;
+    --profile-color: var(--color-text-secondary);
     --profile-accent: #4a90e2;
   }
 
   &[data-role="backend"] {
-    --profile-color: #ccc;
+    --profile-color: var(--color-text-secondary);
     --profile-accent: #50c878;
   }
 
   &[data-role="software-architect"] {
-    --profile-color: #ccc;
+    --profile-color: var(--color-text-secondary);
     --profile-accent: #9b59b6;
   }
-} 
+}

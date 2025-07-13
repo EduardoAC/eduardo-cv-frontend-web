@@ -10,16 +10,16 @@ export default function JobsTimeline() {
         <h2 className={styles.title}>My Career Timeline</h2>
         <div className="snap-grid">
           <div className="snap-col snap-col-md-7">
-            <p className="text">
+            <p>
               Finally I created to have a deeper idea what it's{' '}
               <Link href="/my-experience">my work experience</Link>, I collected
               all job timeline.
             </p>
-            <p className="text">
+            <p>
               where you can see my career evolution since I was a child to what
               I'm currently doing.
             </p>
-            <p className="text">
+            <p>
               It will include personal projects, jobs, hackathons so you will
               get idea where I spend my professional and personal time to
               develop my skills
@@ -38,4 +38,4 @@ export default function JobsTimeline() {
       </Container>
     </section>
   )
-} 
+}

@@ -19,13 +19,11 @@
 }
 
 .snap-markdown-content h1 {
-  font-size: 2rem;
   border-bottom: 2px solid var(--snap-markdown-border, #e5e7eb);
   padding-bottom: 0.5rem;
 }
 
 .snap-markdown-content h2 {
-  font-size: 1.5rem;
   border-bottom: 1px solid var(--snap-markdown-border, #e5e7eb);
   padding-bottom: 0.25rem;
 }
@@ -305,4 +303,4 @@
   .snap-heading-h4 {
     color: #fff;
   }
-} 
+}

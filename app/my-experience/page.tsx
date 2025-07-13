@@ -14,7 +14,7 @@ export default function MyExperiencePage() {
   return (
     <article className={styles.my_experience}>
       <Container variant="default" padding="large" className="introduction">
-        <h1>My Work Experience</h1>
+        <h1 className='heading1'>My Work Experience</h1>
         <p>
           I have been working in the web development industry for over a decade.
           During this time, I have had the opportunity to work with amazing
@@ -46,4 +46,4 @@ export default function MyExperiencePage() {
       </Container>
     </article>
   );
-} 
+}

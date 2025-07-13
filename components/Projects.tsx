@@ -10,13 +10,13 @@ export default function Projects() {
         <h2>Some of my projects</h2>
         <div className="snap-grid">
           <div className="snap-col snap-col-md-7 snap-col-lg-8">
-            <p className="text">
+            <p>
               As part of this project that try to catch new employers and clients attention to open the door to new work opportunities.
             </p>
-            <p className="text">
+            <p>
               I upload all <Link href="/my-projects">my projects here that include hackathons, work and personal ideas</Link>
             </p>
-            <p className="text">Please self yourself to enter and take a look</p>
+            <p>Please self yourself to enter and take a look</p>
           </div>
           <div className="snap-col snap-col-md-5 snap-col-lg-4">
             <Link href="/my-projects">
@@ -33,4 +33,4 @@ export default function Projects() {
       </Container>
     </section>
   )
-} 
+}

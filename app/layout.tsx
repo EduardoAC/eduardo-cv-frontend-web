@@ -4,8 +4,7 @@ import { GoogleAnalytics } from '../components/layout/GoogleAnalytics'
 import { Navbar } from '../components/layout/navbar'
 import { Footer } from '../components/layout/Footer'
 import ServiceWorkerRegistration from '../components/layout/ServiceWorkerRegistration'
-import './globals.css'
-import '../components/snap-components/snap-components-optimized.css'
+import '../styles/snap-components/snap-components-optimized.css'
 import '../styles/main.scss'
 import './components.scss'
 
@@ -35,7 +34,7 @@ export default function RootLayout({
   const pageTitle = 'Eduardo Aparicio Cardenes - Interactive CV';
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} snap-components-theme dark-theme`}>
         <Navbar pageTitle={pageTitle} />
         <div className="wrap">{children}</div>
         <Footer />
@@ -44,4 +43,4 @@ export default function RootLayout({
       </body>
     </html>
   )
-} 
+}

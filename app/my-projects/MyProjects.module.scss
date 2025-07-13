@@ -30,11 +30,11 @@
   .introduction,
   .conclusion {
     p {
-      color: #ccc;
+      color: var(--color-text-secondary);
     }
 
     a {
-      color: #ccc;
+      color: var(--color-text-secondary);
     }
   }
 }
