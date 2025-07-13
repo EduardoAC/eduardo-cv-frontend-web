@@ -1,0 +1,19 @@
+@import "./colors/index.css";
+
+:where(.snap-components-theme) {
+  --color-background: var(--charcoal-1);
+  --color-background-header: var(--charcoal-2);
+  --color-background-footer: var(--charcoal-3);
+  --color-text-primary: var(--charcoal-12);
+  --color-text-secondary: var(--charcoal-8);
+  --color-border-footer-top: var(--charcoal-10);
+}
+:is(.dark, .dark-theme),
+:is(.dark, .dark-theme) :where(.snap-components-theme:not(.light, .light-theme)) {
+  --color-background: var(--charcoal-5);
+  --color-background-header: var(--charcoal-3);
+  --color-background-footer: var(--charcoal-1);
+  --color-text-primary: var(--charcoal-12);
+  --color-text-secondary: var(--charcoal-11);
+  --color-border-footer-top: var(--charcoal-2);
+}
