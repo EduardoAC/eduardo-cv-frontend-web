@@ -13,7 +13,7 @@ const navItems = [
   { href: '/contact', label: 'Contact' },
 ]
 
-export const Navbar = ({ pageTitle }: { pageTitle: string }) => {
+export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -33,7 +33,9 @@ export const Navbar = ({ pageTitle }: { pageTitle: string }) => {
   return (
     <header>
       <nav className={styles.navbar}>
-        <Link href="/" className={styles.navbarBrand}>{pageTitle}</Link>
+        <Link href="/" className={styles.navbarBrand}>
+          <span className='hidden-sm'>Eduardo Aparicio Cardenes - </span>Interactive CV
+        </Link>
         
         <ul className={styles.navbarNavDesktop}>
           {navItems.map((item) => (

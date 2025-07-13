@@ -77,6 +77,7 @@ p {
   letter-spacing: var(--letter-spacing-normal);
   font-family: var(--font-content);
   color: var(--color-text-secondary);
+  margin-bottom: 1rem;
 }
 span {
   font-size: var(--font-size-body2);
