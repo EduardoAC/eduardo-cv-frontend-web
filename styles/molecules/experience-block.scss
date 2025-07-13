@@ -3,7 +3,7 @@
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #dadada;
-  
+
   h4 {
     color: #5b4c5c;
     padding-bottom: 1px;
@@ -12,7 +12,7 @@
     margin-left: 15px;
     margin-bottom: 5px;
   }
-  
+
   h5 {
     color: #5b4c5c;
     font-size: 20px;
@@ -23,10 +23,10 @@
 
   .workYear {
     font-size: 17px;
-    color: #fff;
+    color: var(--color-text-primary);
     line-height: 40px;
   }
-  
+
   .workYear span {
     display: block;
     font-size: 18px;
@@ -35,15 +35,15 @@
     white-space: nowrap;
     font-weight: bold;
   }
-  
+
   .prevY {
     background-color: #047ca0;
   }
-  
+
   .afterY {
     background-color: #483c49;
   }
-  
+
   .exCon p {
     color: #897f8a;
     font-size: 18px;
@@ -56,24 +56,24 @@
     padding-bottom: 0px;
     margin-bottom: 0px;
     border-bottom: 0;
-  
+
     h5, h4 {
       margin-left: 0px;
     }
-    
+
     p {
       font-size: 18px;
     }
-    
+
     .rightArea {
       border-left: dashed 1px #897f8a;
       padding-bottom: 47px;
     }
-    
+
     :last-child .rightArea {
       padding-bottom: 0px;
     }
-    
+
     :last-child .rightArea .exCon p:last-child {
       padding-bottom: 0;
     }
@@ -91,7 +91,7 @@
       height: 22px;
       background: url(/images/arrow-left.png) no-repeat 0 0 #f8f7f8;
     }
-    
+
     .exCon {
       width: auto;
       padding: 0 47px 6px 70px;
@@ -103,10 +103,10 @@
       margin-top: -8px;
     }
   }
-  
+
   @media (min-width: 1200px) {
     .workYear span {
       margin-right: 28px;
     }
   }
-} 
+}

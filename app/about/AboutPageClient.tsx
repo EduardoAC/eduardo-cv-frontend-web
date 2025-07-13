@@ -23,7 +23,7 @@ export default function AboutPageClient() {
           />
         </div>
         <div className={`${styles.heading_block} snap-container`}>
-          <h1>The Story of Eduardo Aparicio Cardenes</h1>
+          <h1 className='heading2'>The Story of Eduardo Aparicio Cardenes</h1>
           <p>
             Hi! I'm Eduardo Aparicio Cardenes. I'm a Web Developer, Software
             architect and Entrepreneur.
@@ -48,7 +48,7 @@ export default function AboutPageClient() {
             developer or software architect. I'm always happy to join to your
             projects and make it happens.
           </p>
-          <div className={styles.centered_image_container}>
+          <div className={`${styles.centered_image_container} hidden-bigger-lg`}>
             <Image
               src="/images/photo-working-optimized-1280.webp"
               alt="Working"
@@ -112,7 +112,7 @@ export default function AboutPageClient() {
             Probably this is one of the reasons because. I never give up during
             my studies and achieve every single thing that's comes to my life
           </p>
-          <p className={styles.final_thought}>
+          <p className={`${styles.final_thought} heading2`}>
             I am deeply thanks all the persons in my life that tried to
             discourage me, you helped me to become the person i am today
           </p>

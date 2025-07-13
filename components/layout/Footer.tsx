@@ -40,27 +40,27 @@ const defaultSections: FooterSection[] = [
   {
     title: 'Useful links',
     links: [
-      { 
-        href: 'https://github.com/EduardoAC', 
+      {
+        href: 'https://github.com/EduardoAC',
         label: 'Check me out on GitHub',
-        external: true 
+        external: true
       },
-      { 
-        href: 'http://www.tuocio.org', 
+      {
+        href: 'http://www.tuocio.org',
         label: 'TuOcio - Tools for event organizer',
-        external: true 
+        external: true
       },
-      { 
-        href: 'http://www.dreammakerfactory.com', 
+      {
+        href: 'http://www.dreammakerfactory.com',
         label: 'Dream Maker Factory',
-        external: true 
+        external: true
       },
     ]
   }
 ]
 
-export const Footer = ({ 
-  sections = defaultSections, 
+export const Footer = ({
+  sections = defaultSections,
   copyrightText = 'Eduardo Aparicio Cardenes - Proyectonline'
 }: FooterProps) => {
   const currentYear = new Date().getFullYear()
@@ -73,7 +73,7 @@ export const Footer = ({
             <div
               key={section.title}
               className={`${
-                index === 2 ? 'snap-hidden-sm ' : ''
+                index === 2 ? 'hidden-sm ' : ''
               }snap-col snap-col-sm-6 snap-col-md-4`}
             >
               <h4>{section.title}</h4>
@@ -81,9 +81,9 @@ export const Footer = ({
                 {section.links.map((link) => (
                   <li key={link.href}>
                     {link.external ? (
-                      <a 
-                        href={link.href} 
-                        target="_blank" 
+                      <a
+                        href={link.href}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="profile-link"
                       >
@@ -111,4 +111,4 @@ export const Footer = ({
   )
 }
 
-export type { FooterLink, FooterSection, FooterProps } 
+export type { FooterLink, FooterSection, FooterProps }

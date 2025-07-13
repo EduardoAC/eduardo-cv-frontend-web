@@ -19,16 +19,16 @@ export default function ContentBlogs() {
             />
           </div>
           <div className="snap-col snap-col-md-7">
-            <p className="text">
+            <p>
               I'm passionate about technology, business and personal growing so I wanted to contribute to internet sharing
             </p>
-            <p className="text">
+            <p>
               Therefore I added two areas in that will contribute with my own posts and ideas about it
             </p>
-            <p className="text">
+            <p>
               These are <Link href="/blog">business and technology blog</Link> and <Link href="/forum">the brainstorming forum</Link>
             </p>
-            <p className="text">
+            <p>
               where I publish different about topic related with all the topics that I mentioned before
             </p>
           </div>
@@ -36,4 +36,4 @@ export default function ContentBlogs() {
       </Container>
     </section>
   )
-} 
+}

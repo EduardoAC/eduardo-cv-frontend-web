@@ -18,13 +18,13 @@ export default function Greetings() {
             />
           </div>
           <div className="snap-col snap-col-md-7">
-            <p className="text">
+            <p>
               I hope you like it. Discover more in each page some of them have amazing secrets. As my frontend career is done in Angular and NodeJs
             </p>
-            <p className="text">
+            <p>
               Are you ready to discover all of them? Then go to <Link href="/projects/how-do-i-build-it">how did i build my interactive CV</Link>
             </p>
-            <p className="text">
+            <p>
               Do you want to hire me or give me some feedback? You can <a href="mailto:eduardo@dreammakerfactory.com">contact me by email</a>
             </p>
           </div>
@@ -32,4 +32,4 @@ export default function Greetings() {
       </div>
     </section>
   )
-} 
+}

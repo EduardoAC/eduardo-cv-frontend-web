@@ -1,9 +1,9 @@
-/* 
+/*
   Mobile-First Sidebar Navigation Styles
   This is a plain CSS Module file.
 */
 
-/* 
+/*
   Core Navbar Styling
 */
 .navbar {
@@ -11,19 +11,19 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #212121; /* Dark background from screenshot */
+  background-color: var(--color-background-header); /* Dark background from screenshot */
   position: relative;
   z-index: 999; /* Below the overlay */
 }
 
 .navbarBrand {
-  color: #fff; /* White text from screenshot */
+  color: var(--color-text-primary); /* White text from screenshot */
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-/* 
+/*
   Desktop Navigation (hidden on mobile)
 */
 .navbarNavDesktop {
@@ -41,18 +41,18 @@
 }
 
 .navLink {
-  color: #ccc; /* Lighter grey for links */
+  color: var(--color-text-secondary); /* Lighter grey for links */
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.2s, background-color 0.2s;
 }
 
 .navLink:hover {
-  color: #fff;
+  color: var(--color-text-primary);
   text-decoration: none;
 }
 
-/* 
+/*
   Mobile Hamburger Toggle (hidden on desktop)
 */
 .navbarToggle {
@@ -73,7 +73,7 @@
   display: block;
   width: 22px;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--color-text-primary);
   border-radius: 1px;
   transition: all 0.3s;
 }
@@ -93,7 +93,7 @@
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* 
+/*
   Mobile Sidebar Menu
 */
 .mobileSidebar {
@@ -102,7 +102,7 @@
   right: -280px; /* Start off-screen */
   width: 280px;
   height: 100%;
-  background-color: #212121;
+  background-color: var(--color-background-header);
   padding: 2rem;
   transition: right 0.3s ease-in-out;
   z-index: 1000;
@@ -115,7 +115,7 @@
   justify-content: flex-start; /* Align items to the left */
   align-items: center;
   gap: 0.75rem; /* Add space between icon and text */
-  color: #ccc;
+  color: var(--color-text-secondary);
   cursor: pointer;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #444;
@@ -124,7 +124,7 @@
 }
 
 .mobileSidebarHeader:hover {
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .closeIcon {
@@ -175,7 +175,7 @@
     display: none;
   }
 }
-  
+
 /* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .navbarToggle,
@@ -183,4 +183,4 @@
   .mobileSidebar {
     transition: none;
   }
-} 
+}

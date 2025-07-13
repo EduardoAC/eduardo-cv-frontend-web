@@ -1,0 +1,45 @@
+/* --- Snap Utilities --- */
+
+.snap-img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.snap-clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.snap-pull-right {
+  float: right !important;
+}
+
+.snap-img-thumbnail {
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive visibility utilities */
+@media (max-width: 480px) {
+  .visible-xs { display: block !important; }
+  .hidden-xs { display: none !important; }
+}
+
+@media (max-width: 767px) {
+  .visible-sm { display: block !important; }
+  .hidden-sm { display: none !important; }
+}
+
+@media (min-width: 991px) {
+  .visible-lg { display: block !important; }
+  .hidden-lg { display: none !important; }
+  .hidden-lg-than-sm { display: none !important; }
+}
+@media (min-width: 1023px) {
+  .hidden-bigger-lg { display: none !important; }
+}
