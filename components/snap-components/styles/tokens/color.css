@@ -14,6 +14,6 @@
   --color-background-header: var(--charcoal-3);
   --color-background-footer: var(--charcoal-1);
   --color-text-primary: var(--charcoal-12);
-  --color-text-secondary: var(--charcoal-11);
+  --color-text-secondary: #ccc;
   --color-border-footer-top: var(--charcoal-2);
 }
