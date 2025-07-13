@@ -13,10 +13,6 @@
 @import url('./css/schemes/_base-scheme.css');
 @import url('./css/schemes/_purple-scheme.css');
 
-/* ===== MODERN THEME SYSTEM ===== */
-/* Import modern theme switcher using color-scheme */
-@import url('./css/theme/_modern-theme-switcher.css');
-
 /* ===== BASE STYLES ===== */
 /* Import base styles */
 @import url('./css/base/_reset.css');
@@ -36,15 +32,3 @@
 @import url('./css/layout/_columns.css');
 @import url('./css/layout/_container.css');
 @import url('./css/layout/_grid.css');
-
-/* ===== RESPONSIVE UTILITIES ===== */
-/* Import responsive utilities using custom media queries */
-@import url('./css/theme/_responsive.css');
-
-/* ===== THEME UTILITIES ===== */
-/* Import theme utilities */
-@import url('./css/theme/_utilities.css');
-
-/* ===== THEME SWITCHER ===== */
-/* Import theme switcher styles */
-@import url('./css/theme/_theme-switcher.css'); 
