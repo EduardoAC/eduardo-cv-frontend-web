@@ -7,7 +7,7 @@ const nextConfig = {
   sassOptions: {
     includePaths: ['./styles', './app'],
   },
-  
+
   // Image optimization
   images: {
     unoptimized: true,
@@ -77,4 +77,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig

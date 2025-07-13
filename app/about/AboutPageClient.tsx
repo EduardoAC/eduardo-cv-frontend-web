@@ -112,7 +112,7 @@ export default function AboutPageClient() {
             Probably this is one of the reasons because. I never give up during
             my studies and achieve every single thing that's comes to my life
           </p>
-          <p className={styles.final_thought}>
+          <p className={`${styles.final_thought} heading2`}>
             I am deeply thanks all the persons in my life that tried to
             discourage me, you helped me to become the person i am today
           </p>

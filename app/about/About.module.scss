@@ -27,13 +27,15 @@
     margin: 0 auto;
   }
   p {
-    margin-bottom: 20px;
-    font-size: 17px;
-    text-align: justify;
+    font-size: var(--font-size-body2);
+    line-height: var(--line-height-body2);
+    font-weight: var(--font-weight-regular);
+    letter-spacing: var(--letter-spacing-normal);
+    font-family: var(--font-content);
+    margin-bottom: 8px;
     color: var(--color-text-secondary);
   }
   .final_thought {
-    font-size: 28px;
     margin: 20px 0;
     text-align: center;
   }
@@ -41,8 +43,6 @@
     padding: 15px;
     h1 {
       text-align: center;
-      font-size: 28px;
-      color: var(--color-text-primary);
     }
   }
   .university {
@@ -61,9 +61,6 @@
     }
   }
   @media screen and (min-width: 768px) {
-    h1 {
-      font-size: 36px;
-    }
     .university {
       img {
         margin-top: 0;
