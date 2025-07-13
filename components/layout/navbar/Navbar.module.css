@@ -17,7 +17,7 @@
 }
 
 .navbarBrand {
-  color: #fff; /* White text from screenshot */
+  color: var(--color-text-primary); /* White text from screenshot */
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 600;
@@ -48,7 +48,7 @@
 }
 
 .navLink:hover {
-  color: #fff;
+  color: var(--color-text-primary);
   text-decoration: none;
 }
 
@@ -73,7 +73,7 @@
   display: block;
   width: 22px;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--color-text-primary);
   border-radius: 1px;
   transition: all 0.3s;
 }
@@ -124,7 +124,7 @@
 }
 
 .mobileSidebarHeader:hover {
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .closeIcon {
