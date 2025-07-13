@@ -17,10 +17,8 @@
 }
 
 .navbarBrand {
-  color: var(--color-text-primary); /* White text from screenshot */
   text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: var(--font-size-body2);
 }
 
 /*

@@ -30,12 +30,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // TODO: Dynamically extract page title from child metadata or context
-  const pageTitle = 'Eduardo Aparicio Cardenes - Interactive CV';
   return (
     <html lang="en">
       <body className={`${inter.className} snap-components-theme dark-theme`}>
-        <Navbar pageTitle={pageTitle} />
+        <Navbar />
         <div className="wrap">{children}</div>
         <Footer />
         <GoogleAnalytics />

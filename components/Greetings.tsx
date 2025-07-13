@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Container from './layout/Container'
 import styles from './Greetings.module.scss'
 
 export default function Greetings() {
   return (
     <section className={styles['greetings-contact']}>
-      <div className="snap-container">
+      <Container variant="default" padding="medium">
         <h2>Thanks for reading my interactive curriculum</h2>
         <div className="snap-grid">
           <div className="snap-col snap-col-md-5">
@@ -29,7 +30,7 @@ export default function Greetings() {
             </p>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }
