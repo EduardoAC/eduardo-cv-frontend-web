@@ -23,7 +23,7 @@ export default function AboutPageClient() {
           />
         </div>
         <div className={`${styles.heading_block} snap-container`}>
-          <h1>The Story of Eduardo Aparicio Cardenes</h1>
+          <h1 className='heading2'>The Story of Eduardo Aparicio Cardenes</h1>
           <p>
             Hi! I'm Eduardo Aparicio Cardenes. I'm a Web Developer, Software
             architect and Entrepreneur.
@@ -48,7 +48,7 @@ export default function AboutPageClient() {
             developer or software architect. I'm always happy to join to your
             projects and make it happens.
           </p>
-          <div className={styles.centered_image_container}>
+          <div className={`${styles.centered_image_container} hidden-bigger-lg`}>
             <Image
               src="/images/photo-working-optimized-1280.webp"
               alt="Working"

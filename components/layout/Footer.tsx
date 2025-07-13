@@ -73,7 +73,7 @@ export const Footer = ({
             <div
               key={section.title}
               className={`${
-                index === 2 ? 'snap-hidden-sm ' : ''
+                index === 2 ? 'hidden-sm ' : ''
               }snap-col snap-col-sm-6 snap-col-md-4`}
             >
               <h4>{section.title}</h4>

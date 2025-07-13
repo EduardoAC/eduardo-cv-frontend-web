@@ -15,12 +15,6 @@
   float: right !important;
 }
 
-@media (max-width: 767px) {
-  .snap-hidden-sm {
-    display: none !important;
-  }
-}
-
 .snap-img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -36,12 +30,16 @@
   .hidden-xs { display: none !important; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .visible-sm { display: block !important; }
   .hidden-sm { display: none !important; }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 991px) {
   .visible-lg { display: block !important; }
   .hidden-lg { display: none !important; }
+  .hidden-lg-than-sm { display: none !important; }
+}
+@media (min-width: 1023px) {
+  .hidden-bigger-lg { display: none !important; }
 }

@@ -71,13 +71,6 @@
   height: auto;
 }
 
-/* Only used visibility utility */
-@media (max-width: 767px) {
-  .snap-hidden-sm {
-    display: none !important;
-  }
-}
-
 /* --- Optimized Components --- */
 /* Button styles */
 .snap-btn {

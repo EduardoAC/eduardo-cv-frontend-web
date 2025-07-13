@@ -1,7 +1,6 @@
 @import '../../styles/utilities/mixins';
 
 .about_me {
-  @include page-typography;
   padding: 0;
   background-color: --color-background;
   .white-bg {
@@ -27,12 +26,8 @@
     margin: 0 auto;
   }
   p {
-    font-size: var(--font-size-body2);
-    line-height: var(--line-height-body2);
-    font-weight: var(--font-weight-regular);
-    letter-spacing: var(--letter-spacing-normal);
-    font-family: var(--font-content);
     margin-bottom: 8px;
+    text-align: justify;
     color: var(--color-text-secondary);
   }
   .final_thought {
