@@ -4,6 +4,7 @@
 /* Import base files */
 @import url('./css/base/_reset.css');
 @import url('./styles/index.css');
+@import url('./global-html-overrides.css');
 @import url('./css/base/_variables.css');
 @import url('./css/base/_utilities.css');
 @import url('./css/layout/_container.css');

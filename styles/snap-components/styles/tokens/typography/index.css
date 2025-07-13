@@ -1,0 +1,41 @@
+.snap-components-theme {
+  /* Font Families */
+  --font-heading: 'SanSerif', sans-serif;
+  --font-content: 'Arial', sans-serif;
+
+  /* Font Sizes */
+  --font-size-heading1: 48px;
+  --font-size-heading2: 40px;
+  --font-size-heading3: 32px;
+  --font-size-heading4: 24px;
+  --font-size-heading5: 20px;
+  --font-size-heading6: 18px;
+  --font-size-subtitle1: 24px;
+  --font-size-subtitle2: 16px;
+  --font-size-body1: 24px;
+  --font-size-body2: 16px;
+  --font-size-caption: 12px;
+
+  /* Line Heights */
+  --line-height-heading1: 56px;
+  --line-height-heading2: 48px;
+  --line-height-heading3: 40px;
+  --line-height-heading4: 32px;
+  --line-height-heading5: 28px;
+  --line-height-heading6: 26px;
+  --line-height-subtitle1: 32px;
+  --line-height-subtitle2: 24px;
+  --line-height-body1: 32px;
+  --line-height-body2: 24px;
+  --line-height-caption: 16px;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Letter Spacing */
+  --letter-spacing-normal: 0;
+  --letter-spacing-tight: -0.5px;
+  --letter-spacing-wide: 0.5px;
+}

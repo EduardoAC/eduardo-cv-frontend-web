@@ -31,12 +31,17 @@
 }
 
 /* Responsive visibility utilities */
-@media (max-width: 767.98px) {
-  .snap-visible-xs { display: block !important; }
-  .snap-hidden-xs { display: none !important; }
+@media (max-width: 480px) {
+  .visible-xs { display: block !important; }
+  .hidden-xs { display: none !important; }
+}
+
+@media (max-width: 768px) {
+  .visible-sm { display: block !important; }
+  .hidden-sm { display: none !important; }
 }
 
 @media (min-width: 992px) {
-  .snap-visible-lg { display: block !important; }
-  .snap-hidden-lg { display: none !important; }
-} 
+  .visible-lg { display: block !important; }
+  .hidden-lg { display: none !important; }
+}
