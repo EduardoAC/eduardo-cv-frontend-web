@@ -42,7 +42,7 @@
     h1 {
       text-align: center;
       font-size: 28px;
-      color: #fff;
+      color: var(--color-text-primary);
     }
   }
   .university {
@@ -143,7 +143,7 @@
 }
 
 .about_me a {
-  color: #fff;
+  color: var(--color-text-primary);
   text-decoration: underline;
 
   &:hover {
@@ -180,7 +180,7 @@
   margin: 2rem 0;
   font-size: 1.25rem;
   font-style: italic;
-  color: #fff;
+  color: var(--color-text-primary);
   font-weight: 500;
 }
 
@@ -191,7 +191,7 @@
 }
 
 .site_about a {
-  color: #fff;
+  color: var(--color-text-primary);
   text-decoration: underline;
 
   &:hover {
@@ -211,7 +211,7 @@
 
 .dark_section {
   background-color: #2c2c2c;
-  color: #fff;
+  color: var(--color-text-primary);
   padding-top: 1px;
   padding-bottom: 1px;
 }
