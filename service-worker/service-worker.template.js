@@ -1,6 +1,5 @@
-const CACHE_NAME = 'eduardo-cv-v1';
-const STATIC_CACHE = 'eduardo-cv-static-v1';
-const DYNAMIC_CACHE = 'eduardo-cv-dynamic-v1';
+const STATIC_CACHE = `eduardo-cv-__BUILD_VERSION__-static`;
+const DYNAMIC_CACHE = `eduardo-cv-__BUILD_VERSION__-dynamic`;
 
 // Static assets to cache
 const STATIC_ASSETS = [

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node --experimental-strip-types scripts/generate-static-routes.ts",
+    "prebuild": "node scripts/generate-static-routes.ts",
+    "postbuild": "node scripts/generate-sw.ts",
     "build": "next build",
     "start": "next start",
     "serve": "npx serve dist -p 3000",
