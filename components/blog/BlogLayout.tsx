@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import SearchBar from './SearchBar';
 import Container from '@/components/layout/Container';
 import styles from './Blog.module.scss';
@@ -15,14 +14,13 @@ interface BlogLayoutProps {
   tags: string[];
 }
 
-const BlogLayout: React.FC<BlogLayoutProps> = ({
+export function BlogLayout({
   children,
   currentTag,
   onSearch,
   onTagFilter,
   tags,
-}) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+}: BlogLayoutProps) {
   const popularTags = tags.slice(0, 10);
 
   return (
@@ -50,5 +48,3 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({
     </Container>
   );
 };
-
-export default BlogLayout; 

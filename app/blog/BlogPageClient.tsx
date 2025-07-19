@@ -2,8 +2,8 @@
 
 import React, { useState, useMemo } from 'react';
 import { BlogPostMeta } from '@/lib/blog/markdown';
-import BlogList from '@/components/blog/BlogList';
-import BlogLayout from '@/components/blog/BlogLayout';
+import { BlogList } from '@/components/blog/BlogList';
+import { BlogLayout } from '@/components/blog/BlogLayout';
 
 interface BlogPageClientProps {
   allPosts: BlogPostMeta[];

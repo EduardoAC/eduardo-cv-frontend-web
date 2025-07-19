@@ -3,8 +3,6 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { BlogPostMeta } from '@/lib/blog/markdown';
-import SearchBar from './SearchBar';
-import TagFilter from './TagFilter';
 import Container from '../content/Container';
 import Card from '../content/Card';
 import Tag from '../content/Tag';
@@ -13,45 +11,7 @@ interface BlogListProps {
   posts: BlogPostMeta[];
 }
 
-const BlogList: React.FC<BlogListProps> = ({ posts }) => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-
-  // Get all unique tags
-  const allTags = useMemo(() => {
-    const tags = posts.flatMap((post) => post.tags);
-    return Array.from(new Set(tags)).sort();
-  }, [posts]);
-
-  // Filter posts based on search query and selected tags
-  const filteredPosts = useMemo(() => {
-    return posts.filter((post) => {
-      const matchesSearch = searchQuery === '' || 
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
-
-      const matchesTags = selectedTags.length === 0 || 
-        selectedTags.some(tag => post.tags.includes(tag));
-
-      return matchesSearch && matchesTags;
-    });
-  }, [posts, searchQuery, selectedTags]);
-
-  const handleTagToggle = (tag: string) => {
-    setSelectedTags(prev => 
-      prev.includes(tag) 
-        ? prev.filter(t => t !== tag)
-        : [...prev, tag]
-    );
-  };
-
-  const clearFilters = () => {
-    setSearchQuery('');
-    setSelectedTags([]);
-  };
-
+export function BlogList({ posts }: BlogListProps){
   return (
     <Container>
       <section aria-label="Blog posts list">
@@ -107,5 +67,3 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
     </Container>
   );
 };
-
-export default BlogList;
