@@ -7,9 +7,9 @@ interface TravelPoint {
 }
 
 export class TravelMap {
-  private map: HTMLObjectElement | null;
-  private mapDoc: Document | null;
-  private mapSvg: SVGElement | null;
+  private map: Readonly<HTMLObjectElement | null>;
+  private mapDoc: Readonly<Document | null>;
+  private mapSvg: Readonly<SVGElement | null>;
   private countryByCode: Record<string, Element> | null;
   private airplane: Element | null;
   private itineraryPath: SVGPathElement[];

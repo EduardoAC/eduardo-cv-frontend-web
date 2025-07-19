@@ -119,6 +119,9 @@
   border-bottom: 1px solid #444;
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
+  text-decoration: none;
+  background: none;
+  border: none;
 }
 
 .mobileSidebarHeader:hover {
@@ -126,8 +129,8 @@
 }
 
 .closeIcon {
-  font-size: 2rem;
-  line-height: 1;
+  font-size: 28px;
+  line-height: 28px;
 }
 
 .mobileSidebar.open {

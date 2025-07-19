@@ -59,10 +59,10 @@ export const Navbar = () => {
       </nav>
 
       <div className={`${styles.mobileSidebar} ${isMenuOpen ? styles.open : ''}`}>
-        <div className={styles.mobileSidebarHeader} onClick={closeMenu}>
+        <button className={styles.mobileSidebarHeader} onClick={closeMenu}>
           <div className={styles.closeIcon}>&times;</div>
-          <span>Close</span>
-        </div>
+          <span className='heading5'>Close</span>
+        </button>
         <ul className={styles.mobileSidebarNav}>
           {navItems.map((item) => (
             <li key={item.href} className={styles.navItem}>
@@ -73,7 +73,7 @@ export const Navbar = () => {
           ))}
         </ul>
       </div>
-      {isMenuOpen && <div className={styles.sidebarOverlay} onClick={closeMenu}></div>}
+      {isMenuOpen && <button className={styles.sidebarOverlay} onClick={closeMenu} />}
     </header>
   )
 }
