@@ -72,9 +72,7 @@ export const Footer = ({
           {sections.map((section, index) => (
             <div
               key={section.title}
-              className={`${
-                index === 2 ? 'hidden-sm ' : ''
-              }snap-col snap-col-sm-6 snap-col-md-4`}
+              className={'snap-col snap-col-md-6 snap-col-lg-4'}
             >
               <h4>{section.title}</h4>
               <ul>
