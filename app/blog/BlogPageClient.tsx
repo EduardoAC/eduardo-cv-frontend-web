@@ -6,8 +6,8 @@ import { BlogList } from '@/components/blog/BlogList';
 import { BlogLayout } from '@/components/blog/BlogLayout';
 
 interface BlogPageClientProps {
-  allPosts: BlogPostMeta[];
-  tags: string[];
+  allPosts: Readonly<BlogPostMeta[]>;
+  tags: Readonly<string[]>;
 }
 
 export default function BlogPageClient({ allPosts, tags }: BlogPageClientProps) {

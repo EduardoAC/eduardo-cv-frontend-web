@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://eduardoac.com';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website';
   const metaTags = generateMetaTags(post, baseUrl);
 
   return {
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+export default function BlogPostPage({ params }: Readonly<BlogPostPageProps>) {
   const post = getPostBySlug(params.slug);
   
   if (!post) {
@@ -58,7 +58,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   const relatedPosts = getRelatedPosts(params.slug, 3);
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://eduardoac.com';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website';
   const structuredData = generateMetaTags(post, baseUrl).structuredData;
 
   return (
