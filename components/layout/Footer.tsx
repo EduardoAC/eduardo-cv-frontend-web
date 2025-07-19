@@ -47,7 +47,7 @@ const defaultSections: FooterSection[] = [
       },
       {
         href: 'http://www.tuocio.org',
-        label: 'TuOcio - Tools for event organizer',
+        label: 'TuOcio - Event organizer',
         external: true
       },
       {

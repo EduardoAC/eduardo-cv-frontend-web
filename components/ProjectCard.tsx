@@ -21,8 +21,8 @@ export default function ProjectCard({
   const typeClass = styles[type] || styles.projects;
 
   return (
-    <div className={`${styles.project_card_simple} ${typeClass} ${styles.projects_desc_block}`}>
-      <h3>{title}</h3>
+    <div className={`${styles.project_card_simple} ${typeClass}`}>
+      <h3 className='heading4'>{title}</h3>
       <Image
         src={imgUrl}
         alt={title}
@@ -31,7 +31,7 @@ export default function ProjectCard({
         className={styles.logo}
       />
       <p>{description}</p>
-      <h5>Technologies</h5>
+      <h4 className='heading5'>Technologies</h4>
       <p>{technologies}</p>
       {checkItOutUrl && (
         <a href={checkItOutUrl} target="_blank" rel="noopener noreferrer">

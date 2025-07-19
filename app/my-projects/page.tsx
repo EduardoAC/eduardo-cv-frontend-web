@@ -16,7 +16,7 @@ export default function MyProjectsPage() {
   const ideas = projectsData.filter((p) => p.type === 'ideas');
 
   return (
-    <Container as="article" variant="default" padding="large" className={styles.my_projects}>
+    <Container as="article" variant="default" padding="medium" className={styles.my_projects}>
       <h1>My Projects</h1>
       <p>
         Here you can find my projects here include hackathons, work and

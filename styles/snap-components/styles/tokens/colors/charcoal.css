@@ -13,7 +13,8 @@
   --charcoal-9: #777777;
   --charcoal-10: #555555;
   --charcoal-11: #333333;
-  --charcoal-12: #111111;
+  --charcoal-12: #222222;
+  --charcoal-13: #111111;
 }
 
 /* =======================
@@ -31,7 +32,8 @@
   --charcoal-9: #666666;
   --charcoal-10: #777777;
   --charcoal-11: #999999; /* Footer subcategories */
-  --charcoal-12: #ffffff; /* Main text */
+  --charcoal-12: #CCCCCC;
+  --charcoal-13: #ffffff; /* Main text */
 }
 
 /* =======================
@@ -51,7 +53,8 @@
       --charcoal-9: color(display-p3 0.47 0.47 0.47);
       --charcoal-10: color(display-p3 0.33 0.33 0.33);
       --charcoal-11: color(display-p3 0.2 0.2 0.2);
-      --charcoal-12: color(display-p3 0.07 0.07 0.07);
+      --charcoal-12: color(display-p3 0.1 0.1 0.1);
+      --charcoal-13: color(display-p3 0.07 0.07 0.07);
     }
 
     .dark, .dark-theme {
@@ -66,7 +69,8 @@
       --charcoal-9: color(display-p3 0.4 0.4 0.4);
       --charcoal-10: color(display-p3 0.47 0.47 0.47);
       --charcoal-11: color(display-p3 0.6 0.6 0.6);
-      --charcoal-12: color(display-p3 1 1 1);
+      --charcoal-12: color(display-p3 0.7 0.7 0.7);
+      --charcoal-13: color(display-p3 1 1 1);
     }
   }
 }
