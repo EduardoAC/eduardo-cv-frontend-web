@@ -2,8 +2,8 @@
 
 import React, { useState, useMemo } from 'react';
 import { BlogPostMeta } from '@/lib/blog/markdown';
-import BlogList from '@/components/blog/BlogList';
-import BlogLayout from '@/components/blog/BlogLayout';
+import { BlogList } from '@/components/blog/BlogList';
+import { BlogLayout } from '@/components/blog/BlogLayout';
 
 interface BlogPageClientProps {
   allPosts: BlogPostMeta[];
@@ -28,10 +28,10 @@ export default function BlogPageClient({ allPosts, tags }: BlogPageClientProps) 
     });
   }, [allPosts, searchQuery, selectedTag]);
 
-  // const handleSearch = (query: string) => {
-  //   setSearchQuery(query);
-  //   setSelectedTag(''); // Clear tag filter when searching
-  // };
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    setSelectedTag(''); // Clear tag filter when searching
+  };
 
   const handleTagFilter = (tag: string) => {
     setSelectedTag(selectedTag === tag ? '' : tag);
@@ -41,19 +41,10 @@ export default function BlogPageClient({ allPosts, tags }: BlogPageClientProps) 
   return (
     <BlogLayout
       currentTag={selectedTag}
-      // onSearch={handleSearch}
+      onSearch={handleSearch}
       onTagFilter={handleTagFilter}
       tags={tags}
     >
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Blog Posts
-        </h1>
-        <p className="text-lg text-gray-600">
-          Explore my latest thoughts on web development, performance optimization, and modern technologies.
-        </p>
-      </header>
-
       <BlogList posts={filteredPosts} />
     </BlogLayout>
   );

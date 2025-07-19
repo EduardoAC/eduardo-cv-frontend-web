@@ -4,7 +4,7 @@
   --color-background: var(--charcoal-1);
   --color-background-header: var(--charcoal-2);
   --color-background-footer: var(--charcoal-3);
-  --color-text-primary: var(--charcoal-12);
+  --color-text-primary: var(--charcoal-13);
   --color-text-secondary: var(--charcoal-8);
   --color-border-footer-top: var(--charcoal-10);
 }
@@ -13,7 +13,7 @@
   --color-background: var(--charcoal-5);
   --color-background-header: var(--charcoal-3);
   --color-background-footer: var(--charcoal-1);
-  --color-text-primary: var(--charcoal-12);
-  --color-text-secondary: #ccc;
+  --color-text-primary: var(--charcoal-13);
+  --color-text-secondary: var(--charcoal-12);
   --color-border-footer-top: var(--charcoal-2);
 }

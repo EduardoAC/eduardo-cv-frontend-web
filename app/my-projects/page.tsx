@@ -16,42 +16,40 @@ export default function MyProjectsPage() {
   const ideas = projectsData.filter((p) => p.type === 'ideas');
 
   return (
-    <article className={styles.my_projects}>
-      <Container variant="default" padding="large" className="introduction">
-        <h1>My Projects</h1>
-        <p>
-          Here you can find my projects here include hackathons, work and
-          personal ideas. This page will be upgrade and change with the new
-          comming projects
-        </p>
-      </Container>
-
-      <Container variant="default" padding="medium">
-        <h2>Projects</h2>
-        <div className={styles.projects_grid}>
-          {projects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
+    <Container as="article" variant="default" padding="medium" className={styles.my_projects}>
+      <h1>My Projects</h1>
+      <p>
+        Here you can find my projects here include hackathons, work and
+        personal ideas. This page will be upgrade and change with the new
+        comming projects
+      </p>
+      <div className="snap-grid">
+        <div className={'snap-col snap-col-md-6 snap-col-lg-4'}>
+          <h2>Projects</h2>
+          <div className={styles.projects_grid}>
+            {projects.map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
         </div>
-      </Container>
-
-      <Container variant="default" padding="medium">
-        <h2>Hackathons</h2>
-        <div className={styles.projects_grid}>
-          {hackathons.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
+        <div className={'snap-col snap-col-md-6 snap-col-lg-4'}>
+          <h2>Hackathons</h2>
+          <div className={styles.projects_grid}>
+            {hackathons.map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
         </div>
-      </Container>
+        <div className={'snap-col snap-col-md-6 snap-col-lg-4'}>
+          <h2>Ideas</h2>
+          <div className={styles.projects_grid}>
+            {ideas.map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
 
-      <Container variant="default" padding="medium">
-        <h2>Ideas</h2>
-        <div className={styles.projects_grid}>
-          {ideas.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
         </div>
-      </Container>
-    </article>
+      </div>
+    </Container>
   );
 } 

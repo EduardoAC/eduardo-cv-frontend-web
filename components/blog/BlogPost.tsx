@@ -31,7 +31,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
     <article style={{ maxWidth: 800, margin: '0 auto', padding: '2rem 1rem' }}>
       <header style={{ marginBottom: '2rem' }}>
         <div style={{ marginBottom: '1rem' }}>
-          <Link className="snap-link snap-read-more" href="/posts">
+          <Link className="snap-link snap-read-more" href="/blog">
             ← Back to all posts
           </Link>
         </div>

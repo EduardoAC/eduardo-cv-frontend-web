@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'Business And Technology blog | Eduardo Aparicio Cardenes',
     description: 'Explore my latest thoughts on web development, performance optimization, and modern technologies.',
     type: 'website',
-    url: 'https://eduardoac.com/posts',
+    url: 'https://eduardo-aparicio-cardenes.website/blog',
   },
   twitter: {
     card: 'summary_large_image',

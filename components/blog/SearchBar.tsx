@@ -17,7 +17,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   className = ''
 }) => {
   return (
-    <div className={`${styles['search-container']} ${className}`}>
+    <div className={`${styles['search-container']} ${className}`} role='search'>
       <div className={styles['search-icon']}>
         <svg
           className={styles['search-svg']}
@@ -36,6 +36,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       
       <input
         type="text"
+        role="search"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
