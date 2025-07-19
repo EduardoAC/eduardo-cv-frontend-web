@@ -105,7 +105,7 @@ export const getPostsByTag = (tag: string): BlogPostMeta[] => {
 export const getAllTags = (): string[] => {
   const allPosts = getAllPosts();
   const tags = allPosts.flatMap((post) => post.tags);
-  return Array.from(new Set(tags)).sort();
+  return Array.from(new Set(tags)).sort((a, b) => a.localeCompare(b));
 };
 
 // Validate post frontmatter
