@@ -6,8 +6,8 @@
 .blog-header {
   border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  padding: '1.5rem 0';
-  margin-bottom: '2rem';
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
 }
 
 .blog-navigation {
@@ -15,26 +15,9 @@
   margin-bottom: 16px;
 }
 
-.blog-title {
-  font-weight: 700;
-  font-size: '1.25rem';
-  color: 'var(--color-text-primary)';
-  text-decoration: 'none';
-}
-
 .blog-search {
   max-width: 300;
-  width: '100%';
-}
-
-.blog-sidebar {
-  @media (max-width: 1024px) {
-    display: none;
-
-    &.open {
-      display: block;
-    }
-  }
+  width: 100%;
 }
 
 // Search and Filter Styles
@@ -84,7 +67,7 @@
       border-color: #3b82f6;
       box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 
-      & + .search-icon .search-svg {
+      &+.search-icon .search-svg {
         color: #3b82f6;
       }
     }
@@ -143,65 +126,3 @@
   }
 }
 
-// Blog Tags Styles
-.blog-tags {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-
-  .snap-tag {
-    display: inline-block;
-    background: #f3f4f6;
-    color: #374151;
-    font-size: 0.875rem;
-    padding: 0.375rem 0.75rem;
-    border-radius: 9999px;
-    font-weight: 500;
-    line-height: 1.5;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    border: 1px solid #e5e7eb;
-
-    &:hover {
-      background: #e5e7eb;
-      color: #111827;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-    }
-  }
-}
-
-// Individual tag styling for better visibility
-.snap-tag {
-  display: inline-block;
-  background: #f3f4f6;
-  color: #374151;
-  font-size: 0.875rem;
-  padding: 0.375rem 0.75rem;
-  border-radius: 9999px;
-  font-weight: 500;
-  line-height: 1.5;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  border: 1px solid #e5e7eb;
-  margin-right: 0.25rem;
-  margin-bottom: 0.25rem;
-
-  &:hover {
-    background: #e5e7eb;
-    color: #111827;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-  }
-}
