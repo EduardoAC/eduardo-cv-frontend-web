@@ -11,7 +11,7 @@ interface BlogLayoutProps {
   currentTag?: string;
   onSearch?: (query: string) => void;
   onTagFilter?: (tag: string) => void;
-  tags: string[];
+  tags: Readonly<string[]>;
 }
 
 export function BlogLayout({
