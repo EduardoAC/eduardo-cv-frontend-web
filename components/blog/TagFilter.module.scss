@@ -1,0 +1,53 @@
+.tagFilter {
+  margin-top: 1rem;
+}
+.clearAll {
+  font-size: 0.875rem;
+  text-decoration: underline;
+  color: var(--color-text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
+}
+
+.tagFilterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tagButton {
+  background: #f3f4f6;
+  color: #374151;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    background: #e5e7eb;
+    color: #111827;
+  }
+}
+
+.activeTag {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(37, 99, 235, 0.2);
+}

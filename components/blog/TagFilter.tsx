@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import styles from './TagFilter.module.scss';
 
 interface TagFilterProps {
   tags: string[];
@@ -18,31 +19,27 @@ const TagFilter: React.FC<TagFilterProps> = ({
   if (tags.length === 0) return null;
 
   return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between">
-        <h3 className="text-sm font-medium text-gray-900">Filter by tags</h3>
+    <div className={styles.tagFilter}>
+      <div className={styles.tagFilterHeader}>
+        <h3 className='heading4'>Filter by tags</h3>
         {selectedTags.length > 0 && (
           <button
             onClick={onClearAll}
-            className="text-sm text-blue-600 hover:text-blue-800 underline"
+            className={styles.clearAll}
           >
             Clear all
           </button>
         )}
       </div>
       
-      <div className="flex flex-wrap gap-2">
+      <div className={styles.tagList}>
         {tags.map((tag) => {
           const isSelected = selectedTags.includes(tag);
           return (
             <button
               key={tag}
               onClick={() => onTagToggle(tag)}
-              className={`px-3 py-1 text-sm rounded-full transition-colors ${
-                isSelected
-                  ? 'bg-blue-600 text-white hover:bg-blue-700'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+              className={`${styles.tagButton} ${isSelected ? styles.activeTag : ''}`}
             >
               {tag}
             </button>
