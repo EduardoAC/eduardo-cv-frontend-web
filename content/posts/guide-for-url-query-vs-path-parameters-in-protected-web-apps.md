@@ -25,13 +25,13 @@ To understand the value of these URL components, let’s first revisit how they�
 
 When building API endpoints, the **URL path** (or slug) is often used to define access to a specific resource. This path needs a URL-friendly identifier for the data you want to access, and it should be readable by both machines and humans. On the other hand, **query parameters** are ideal for actions like searching, sorting, filtering, and paginating results.
 
-During my time at Zalando, I was part of the API chapter, where we had great guidelines for best practices in structuring these endpoints. These guidelines — still widely used in the industry — offer practical advice that can be applied to any web application, ensuring clarity and ease of use. They can be found [here](https://opensource.zalando.com/restful-api-guidelines/#urls).
+During my time at Zalando, I was part of the API chapter, where we had great guidelines for best practices in structuring these endpoints. These guidelines, still widely used in the industry, offer practical advice that can be applied to any web application, ensuring clarity and ease of use. They can be found [here](https://opensource.zalando.com/restful-api-guidelines/#urls).
 
 #### Why This Matters for Web Applications
 
-Though much of this applies to APIs, the same principles are relevant for frontend development. **A well-structured URL path is more than just a technical necessity** — Google’s SEO algorithms use these paths to index and rank website content. **If done right, URLs can even give users a preview of the content before they click the link**. This is why search engines reward clean, well-organised URL structures.
+Though much of this applies to APIs, the same principles are relevant for frontend development. **A well-structured URL path is more than just a technical necessity**, Google’s SEO algorithms use these paths to index and rank website content. **If done right, URLs can even give users a preview of the content before they click the link**. This is why search engines reward clean, well-organised URL structures.
 
-But what about internal or credential-protected applications where SEO isn’t a concern? In these cases, maintaining a clear, intuitive URL structure reduces cognitive load for your users. **Users are accustomed to specific navigation patterns, and deviating from those can be frustrating** — especially for those relying on accessibility tools to navigate your site.
+But what about internal or credential-protected applications where SEO isn’t a concern? In these cases, maintaining a clear, intuitive URL structure reduces cognitive load for your users. **Users are accustomed to specific navigation patterns, and deviating from those can be frustrating**, especially for those relying on accessibility tools to navigate your site.
 
 Moreover, adhering to standard URL practices makes life easier for your development team. If your APIs and frontend follow consistent URL patterns, **your team won’t need to switch mental gears when moving between projects**. This consistency reduces confusion and helps avoid unnecessary complexity.
 
@@ -40,7 +40,7 @@ Moreover, adhering to standard URL practices makes life easier for your developm
 Adopting industry-standard practices is a smart move when building web applications, whether internal or external. Here are a few key takeaways:
 
 1.  **Use URL paths or slugs for resources**: If you’re accessing a specific entity (like a product or user), include that entity in the URL path. Make the path short, readable, and descriptive.
-2.  **Reserve query parameters for actions**: Use query parameters for actions like searching, filtering, or sorting — actions that modify or refine the content being requested.
+2.  **Reserve query parameters for actions**: Use query parameters for actions like searching, filtering, or sorting, actions that modify or refine the content being requested.
 3.  **Keep it simple**: Avoid overcomplicating your URL structures. Overly complex or custom URL formats can confuse users and developers alike, increasing both the cognitive load and the maintenance burden.
 4.  **SEO considerations**: While I won’t go into SEO specifics here, it’s worth noting that a well-structured URL can improve your site’s visibility in search engines. For a more in-depth comparison of URL parameters and slugs, I recommend reading articles like “[URL Parameters vs. URL Slugs: What’s the Difference?](https://angulardive.com/blog/url-parameters-vs-url-slugs-what-s-the-difference/)” by Jose Matos.
 

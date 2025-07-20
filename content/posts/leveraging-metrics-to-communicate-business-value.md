@@ -9,7 +9,7 @@ image: "/images/blog/leveraging-metrics-to-communicate-business-value-frontmatte
 
 Over the past decades, it’s been a transformative reality where metrics have become part of our day-to-day lives with different flavours. We use them to compare products, select vacations, choose banks, decide between job opportunities or compare graphic cards; metrics provide us with simple to digest information to guide our decisions.
 
-![Metrics usage across products to communicate value (Booking, Amazon, Npm, etc)](/images/blog/leveraging-metrics-to-communicate-business-value-markdown.png)
+![Metrics usage across products to communicate value (Booking, Amazon, Npm, etc)](/images/blog/leveraging-communicate-business-value-introduction.webp)
 
 My goal with this article is to share my view on how you can enhance communications within your organisation through the use of metrics. Over the years of working within different organisations, I’ve noticed that technical conversations among engineers often revolve around opinions and personal preferences. While this might work to cause discussions, it becomes pretty ineffective in decision-making as it might lead to long, drawn-out conversations, as there is an invisible gap between understanding and knowing.
 
@@ -31,15 +31,15 @@ Let’s talk about one of the most critical areas where metrics can make a posit
 
 Consequently, this led me to take a step back and think critically about how we could quantify the value of the design system in a way that resonated with the team; I realised that by presenting a clear and simple message using metrics, we could cut through the noise and provide a compelling case based in data, not just a gut feeling. To illustrate this example, let’s look at an example of how these two ways of presenting arguments can look like
 
-![Component Usage across projects](/images/blog/leveraging-metrics-to-communicate-business-value-markdown-1.png)
+![Component Usage across projects](/images/blog/qualitative-vs-quantitative.webp)
 
 Looking at the example above, both messages have merit and describe the same reality. However, the second one offers a clearer, measurable message for the audience that we can optimise. Therefore, the next time you have to talk to others, think about ways to provide a clear message using metrics.
 
-![Design system — Component Usage across projects](/images/blog/leveraging-metrics-to-communicate-business-value-markdown-2.png)
+![Design system — Component Usage across projects](/images/blog/overall-component-adoption-library.webp)
 
 To further reinforce the concept, let’s take a closer look at the image above to understand how components are used in this design system. By examining the usage of components within a design system library, we can easily understand how we are utilising the available components. This provides us with actionable metrics we can optimise for, enabling better communication within the engineering team to understand why people may not use the components to their full extent. This could be due to various reasons, such as lack of need, difficulty in use, or lack of discoverability.
 
-![Component usage over time](/images/blog/leveraging-metrics-to-communicate-business-value-markdown-3.png)
+![Component usage over time](/images/blog/component-usage-overtime.webp)
 
 If we combine the component usage data above with their use over time, we can identify patterns to help us make better decisions. In this case, a likely cause of underutilisation could be that while the design team’s design has evolved, the design system itself hasn’t kept pace. As a result, engineers may be forced to create custom components to deliver new features.
 
@@ -53,7 +53,7 @@ We’ve already discussed the importance of using metrics to enhance conversatio
 
 A great example of where this “shift left” approach can bring value is issue triage. In many organisations, it’s common to jump straight into fixing an issue as soon as it’s spotted, often without fully understanding its impact. On the flip side, some issues get added to the backlog and are forgotten until a stakeholder suddenly demands action; sometimes, the bug can remain years in the backlog from the team without having provided any value in the meantime.
 
-![Incident Priority Matrix](/images/blog/leveraging-metrics-to-communicate-business-value-markdown-4.png)
+![Incident Priority Matrix](/images/blog/leveraging-incident-mess.webp)
 
 Here’s where metrics can help us give the right level of attention to each issue. Mature organisations typically have some form of triage process in place, but it’s often inefficient and requires multiple teams to weigh in, consuming time and resources. By using data more effectively, we can streamline this process.
 
@@ -72,7 +72,7 @@ With proper metrics in place, we can assess the real impact of an issue, whether
 
 This approach applies to many different cases, but when it comes to issue triage, a common method of measurement is an incident prioritisation matrix. This allows us to quickly and straightforwardly evaluate incoming issues to engineering and assign them a priority based on the category they fall into.
 
-![Incident Priority Matrix](/images/blog/leveraging-metrics-to-communicate-business-value-markdown-5.png)
+![Incident Priority Matrix](/images/blog/leveraging-metrics-to-communicate-business-value-markdown.png)
 
 In the image above, we illustrate a series of cases that can bring us some clarity on how to approach this. Nevertheless, this requires us to measure things correctly to know what’s causing each problem and categorise it, considering things like:
 
@@ -116,7 +116,7 @@ It’s essential to present a full picture for yourself and others when explorin
 
 Let’s explore the cost of using GitHub Actions as part of a continuous integration (CI) pipeline using a real-world example. For context, the CI cost of a GitHub project is generally expressed in GitHub minutes, and the price will vary depending on the machine used to run the actions.
 
-![Understanding CI Costs in GitHub Actions: A Real-Life Example](https://cdn-images-1.medium.com/max/800/0*GNyElrvd4aSoP1fF)
+![Understanding CI Costs in GitHub Actions: A Real-Life Example](/images/blog/real-life-example-github-pr-costs.webp)
 
 For simplicity, we will use the [smallest standard GitHub runner](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-standard-runners), which costs **$0.008 per minute.**
 
