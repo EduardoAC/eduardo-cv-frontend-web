@@ -2,4 +2,34 @@
 
 .profiles {
   @include section-base-enhanced;
+  padding: 4rem 0;
+}
+.circle {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  margin: 4rem auto;
+  border-radius: 50%;
+}
+
+.profileItem {
+  --total: 4;
+  --angle: calc(360deg / var(--total));
+  --index: calc(var(--nth-child) - 1);
+
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  width: 275PX;
+  height: auto;
+  transform:
+    rotateZ(calc(var(--angle) * var(--index)))
+    translateY(-369px)
+    rotateZ(calc(var(--angle) * var(--index) * -1));
+  transition: all 0.3s ease-in;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
