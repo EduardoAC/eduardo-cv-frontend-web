@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { BlogPost as BlogPostType, BlogPostMeta } from '@/lib/blog/markdown';
+import Container from '@/components/layout/Container';
 import MarkdownRenderer from './MarkdownRenderer';
 import Card from '../content/Card';
 import Tag from '../content/Tag';
@@ -28,13 +29,21 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
   ];
 
   return (
-    <article style={{ maxWidth: 800, margin: '0 auto', padding: '2rem 1rem' }}>
+    <Container as="article" padding="small">
       <header style={{ marginBottom: '2rem' }}>
-        <div style={{ marginBottom: '1rem' }}>
+        <nav style={{ marginBottom: '1rem' }}>
           <Link className="snap-link snap-read-more" href="/blog">
             ← Back to all posts
           </Link>
-        </div>
+        </nav>
+        {post.image && (
+          <img
+            src={post.image}
+            alt={post.title}
+            style={{ width: '100%', objectFit: 'cover', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
+            loading="lazy"
+          />
+        )}
         <h1 className="snap-heading-h1">{post.title}</h1>
         <div className="snap-meta">
           <time dateTime={post.date} style={{ marginRight: '1rem' }}>
@@ -44,17 +53,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
               day: 'numeric',
             })}
           </time>
-          <span>• {post.readingTime} min read</span>
+          <span >• {post.readingTime} min read</span>
           <span style={{ marginLeft: '1rem' }}>By {post.author}</span>
         </div>
-        {post.image && (
-          <img
-            src={post.image}
-            alt={post.title}
-            style={{ width: '100%', height: '320px', objectFit: 'cover', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
-            loading="lazy"
-          />
-        )}
         <div style={{ marginBottom: '1rem' }}>
           {post.tags.map((tag) => (
             <Tag key={tag}>{tag}</Tag>
@@ -122,7 +123,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
           </section>
         )}
       </footer>
-    </article>
+    </Container>
   );
 };
 
