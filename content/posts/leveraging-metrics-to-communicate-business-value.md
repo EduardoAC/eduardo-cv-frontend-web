@@ -7,10 +7,6 @@ tags: ["Metrics", "Engineering", "Business Value", "Web Development"]
 image: "/images/blog/leveraging-metrics-to-communicate-business-value-frontmatter.png"
 ---
 
-### Leveraging Metrics to Communicate Business Value
-
-![Leveraging Metrics to Communicate Business Value](/images/blog/leveraging-metrics-to-communicate-business-value-frontmatter.png)
-
 Over the past decades, it’s been a transformative reality where metrics have become part of our day-to-day lives with different flavours. We use them to compare products, select vacations, choose banks, decide between job opportunities or compare graphic cards; metrics provide us with simple to digest information to guide our decisions.
 
 ![Metrics usage across products to communicate value (Booking, Amazon, Npm, etc)](/images/blog/leveraging-metrics-to-communicate-business-value-markdown.png)

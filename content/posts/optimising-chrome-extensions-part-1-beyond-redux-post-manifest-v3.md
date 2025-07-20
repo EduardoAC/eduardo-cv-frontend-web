@@ -7,10 +7,6 @@ tags: ["Chrome Extensions", "Redux", "Web Development", "Manifest V3"]
 image: "/images/blog/optimising-chrome-extensions-part-1-beyond-redux-post-manifest-v3-frontmatter.png"
 ---
 
-### Optimising Chrome Extensions: Beyond Redux, Post-Manifest v3
-
-![Migrating away from Redux](/images/blog/optimising-chrome-extensions-part-1-beyond-redux-post-manifest-v3-frontmatter.png)
-
 The landscape of Chrome extension development underwent a significant shift with the introduction of Manifest v3. In this article, we’ll explore the journey of why we decided to part ways with the Redux ecosystem in our Chrome extension after adopting Manifest v3. We aim to provide insights and guidance for fellow extension developers facing similar decisions in selecting their tech stack.
 
 Our initial foray into Chrome extension development was rooted in manifest v2, where we employed a robust React-Redux stack. This setup, bolstered by the [webext-redux](https://github.com/tshaddix/webext-redux) package by Tyler Shaddix, facilitated seamless state management across background scripts and content scripts. The Chrome runtime connect mechanism allowed real-time synchronisation using the subscription pattern, enabling easy usage of Redux across all our scripts.

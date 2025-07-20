@@ -7,10 +7,6 @@ tags: ["Chrome Extensions", "React", "State Management", "Web Development"]
 image: "/images/blog/optimizing-chrome-extensions-state-and-communication-in-react-frontmatter.jpeg"
 ---
 
-### Optimising Chrome Extensions: Part 2- Managing your state and communication in React
-
-![Managing your state and communication in a React Chrome Extension](/images/blog/optimizing-chrome-extensions-state-and-communication-in-react-frontmatter.jpeg)
-
 In the previous article, we discussed the limitations of using Redux and the need to adapt our approach to Chrome extension development due to the changes introduced by Manifest v3.
 
 However, it’s essential to understand the role that Redux played in our extensions and how to replace it with the new architectural strategy using only React. In this article, we’ll focus on managing the state in your Chrome extension using React in content scripts, briefly caching data in the background script, and facilitating effective communication between these components to ensure data synchronisation.

@@ -7,10 +7,6 @@ tags: ["DevOps", "AWS", "CloudFront", "Frontend"]
 image: "/images/blog/moving-from-nginx-to-aws-cloudfront-frontmatter.jpg"
 ---
 
-### Frontend Optimization: Nginx to AWS CloudFront
-
-![Frontend Optimization: Nginx to AWS CloudFront](/images/blog/moving-from-nginx-to-aws-cloudfront-frontmatter.jpg)
-
 One of my first initiatives within Moneyfarm was migrating to AWS CloudFront to reduce the operational costs on our Frontend ecosystem, allowing us to scale efficiently with a fraction of the cost.
 
 In this article, I will cover the reasons why this initiative was successful, including:

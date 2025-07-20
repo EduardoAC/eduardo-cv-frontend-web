@@ -7,8 +7,6 @@ tags: ["Web Development", "UI Design", "Forms", "Best Practices"]
 image: "/images/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing-frontmatter.jpg"
 ---
 
-### Form fields the never-ending debate inner vs outer spacing
-
 When discussing creating a great user experience, we must address forms
 
 —the standard method for collecting user information in our applications.

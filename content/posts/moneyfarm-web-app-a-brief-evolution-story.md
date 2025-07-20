@@ -7,10 +7,6 @@ tags: ["Frontend Architecture", "Technical Debt", "Web Development", "React"]
 image: "/images/blog/moneyfarm-web-app-a-brief-evolution-story-frontmatter.jpg"
 ---
 
-### Transforming Moneyfarm’s Frontend: A Journey Through Technical Debt
-
-![Moneyfarm frontend evolution](/images/blog/moneyfarm-web-app-a-brief-evolution-story-frontmatter.jpg)
-
 I joined Moneyfarm at the end of 2018. I soon realized that a company with talented people faced the challenge of delivering new products and services while paying back the technical debt it had incurred in its start-up phase. The task at hand is challenging, but we’ve made significant progress in the past 16 months and it’s this story that I want to share with you.
 
 When I look back, we have come a long way in the development and maturity of our frontend architecture but we still have a long way to go. We are moving forward with clear objectives in mind:

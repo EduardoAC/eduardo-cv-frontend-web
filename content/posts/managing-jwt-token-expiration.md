@@ -7,10 +7,6 @@ tags: ["JWT", "Authentication", "Security", "Web Development"]
 image: "/images/blog/managing-jwt-token-expiration-frontmatter.png"
 ---
 
-### Managing JWT token expiration
-
-![Managing JWT token expiration](/images/blog/managing-jwt-token-expiration-frontmatter.png)
-
 When you manage JWT tokens, there are some problems that you may experience when you are dealing with authentication. Particularly, when you need to handle token expiration.
 
 Consequently, I want to share with you the strategies I found useful when I have to manage them.

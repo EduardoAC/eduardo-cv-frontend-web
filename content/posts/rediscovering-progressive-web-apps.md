@@ -7,10 +7,6 @@ tags: ["Progressive Web Apps", "Web Development", "Performance", "UX"]
 image: "/images/blog/rediscovering-progressive-web-apps-frontmatter.jpg"
 ---
 
-### Rediscovering progressive web apps
-
-![Rediscovering progressive web apps](/images/blog/rediscovering-progressive-web-apps-frontmatter.jpg)
-
 Today, I’m writing you about progressive web apps. Since i went to Fullstack 2016 in London, I started to feel passion about this and spend some time researching on my own but it wasn’t until I attended “Google’s Building Progressive Web Apps (Beta)” course that i recognise that my understanding of this concept was focus mainly on bringing native capabilities from native apps to mobile including offline elements like service workers, push notifications, cache, etc.
 
 However, I discover through this course that PWA is much more than that it change the way we build in web, introduce new challenges from design point of view that contribute an evolution of UX interaction as well require an extra effort on performance to compete with native apps running on the devices.

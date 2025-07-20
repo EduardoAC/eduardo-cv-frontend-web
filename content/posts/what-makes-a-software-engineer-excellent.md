@@ -7,10 +7,6 @@ tags: ["Software Engineering", "Career", "Best Practices", "Productivity"]
 image: "/images/blog/what-makes-a-software-engineer-excellent-frontmatter.jpeg"
 ---
 
-### What makes a software engineer excellent?
-
-![What makes a software engineer excellent?](/images/blog/what-makes-a-software-engineer-excellent-frontmatter.jpeg)
-
 Recently, I face an interesting dilemma at work that made me question specific aspects of what makes a software engineer excel.
 
 When you are working for your own company, or as an employee, an engineer needs to keep an eye in what it’s essential, meaningful productivity. Every time that you come to work, you should be asking yourself how can we do things better, not only for ourselves but for our business objectives.
