@@ -64,3 +64,7 @@ phpunit.phar
 /phpunit.xml
 
 .scannerwork
+
+# Medium migration context and process files
+content/posts/.medium-migration-context.json
+content/posts/.medium-migration-process.md

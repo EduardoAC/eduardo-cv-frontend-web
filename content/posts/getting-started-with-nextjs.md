@@ -48,7 +48,7 @@ Would you like to customize the default import alias? No
 
 After installation, your project will have the following structure:
 
-```
+```text
 my-nextjs-app/
 ├── src/
 │   ├── app/

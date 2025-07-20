@@ -1,0 +1,213 @@
+{
+  "articles": [
+    {
+      "slug": "analysing-slowness-pre-commit-setup.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*9jdNU3Z-aJKHGU0Mca9SYg.jpeg",
+          "local": "/images/blog/analysing-slowness-pre-commit-setup-frontmatter.jpeg"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*aTH0nN8CXVR1GXPNKtKc8g.png",
+          "local": "/images/blog/analysing-slowness-pre-commit-setup-markdown.png"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*msI5UvU2jVBCyDdMk9eHaQ.png",
+          "local": "/images/blog/analysing-slowness-pre-commit-setup-markdown-1.png"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*smVZG7fOmPQ5MAvYBYx4CA.png",
+          "local": "/images/blog/analysing-slowness-pre-commit-setup-markdown-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "chrome-extensions-effective-unit-testing-with-jest-chrome.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*5pHlUO6cs1jhiWdc2F0WbA.png",
+          "local": "/images/blog/chrome-extensions-effective-unit-testing-with-jest-chrome-frontmatter.png"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*5ED-Geg2-Q9h5SdUvSRFcw.png",
+          "local": "/images/blog/chrome-extensions-effective-unit-testing-with-jest-chrome-markdown.png"
+        }
+      ]
+    },
+    {
+      "slug": "decoding-tdd-choices-scenarios-vs-components-unveiled.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*ksdpItuqJJshToI3D39RaQ.png",
+          "local": "/images/blog/decoding-tdd-choices-scenarios-vs-components-unveiled-frontmatter.png"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*hC3e6MURblwPpExzZwRjaw.jpeg",
+          "local": "/images/blog/decoding-tdd-choices-scenarios-vs-components-unveiled-markdown.jpeg"
+        }
+      ]
+    },
+    {
+      "slug": "form-fields-the-never-ending-debate-inner-vs-outer-spacing.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/0*-wmtIS6NW9ggVDw1",
+          "local": "/images/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing-frontmatter.jpg"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*hhpovbapsAB_XHaYCXhxwg.jpeg",
+          "local": "/images/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing-markdown.jpeg"
+        }
+      ]
+    },
+    {
+      "slug": "guide-for-url-query-vs-path-parameters-in-protected-web-apps.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*_lYgrsuvEetZRynWM4U5oA.png",
+          "local": "/images/blog/guide-for-url-query-vs-path-parameters-in-protected-web-apps-frontmatter.png"
+        }
+      ]
+    },
+    {
+      "slug": "leveraging-metrics-to-communicate-business-value.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*U_LF_KVrcEDtomyRiYLXBg.png",
+          "local": "/images/blog/leveraging-metrics-to-communicate-business-value-frontmatter.png"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*_gGYiJU1oiLQc0QjAfC-pw.png",
+          "local": "/images/blog/leveraging-metrics-to-communicate-business-value-markdown.png"
+        }
+      ]
+    },
+    {
+      "slug": "managing-concurrency-in-chrome-extensions.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*lVI2d8fr-uSoYyp6YEm0Vg.jpeg",
+          "local": "/images/blog/managing-concurrency-in-chrome-extensions-frontmatter.jpeg"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*hQkxMsvrwp8T23-GbyZTpg.jpeg",
+          "local": "/images/blog/managing-concurrency-in-chrome-extensions-markdown.jpeg"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*ThK0B2rRNJ5Tce0T6dTIpQ.jpeg",
+          "local": "/images/blog/managing-concurrency-in-chrome-extensions-markdown-1.jpeg"
+        }
+      ]
+    },
+    {
+      "slug": "managing-jwt-token-expiration.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*Pi2k-aqj81PoYHJMIZjO8Q.png",
+          "local": "/images/blog/managing-jwt-token-expiration-frontmatter.png"
+        }
+      ]
+    },
+    {
+      "slug": "moneyfarm-web-app-a-brief-evolution-story.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/0*JE-wZ7NGslu23DOs",
+          "local": "/images/blog/moneyfarm-web-app-a-brief-evolution-story-frontmatter.jpg"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*K1vwisrRnUkuW-SIdBaFGA.png",
+          "local": "/images/blog/moneyfarm-web-app-a-brief-evolution-story-markdown.png"
+        }
+      ]
+    },
+    {
+      "slug": "moving-from-nginx-to-aws-cloudfront.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/0*xn_6LqYpp_7x4hKN",
+          "local": "/images/blog/moving-from-nginx-to-aws-cloudfront-frontmatter.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "optimising-chrome-extensions-part-1-beyond-redux-post-manifest-v3.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*9dIux9GVQtPM_CjJaVppzA.png",
+          "local": "/images/blog/optimising-chrome-extensions-part-1-beyond-redux-post-manifest-v3-frontmatter.png"
+        }
+      ]
+    },
+    {
+      "slug": "optimizing-chrome-extensions-state-and-communication-in-react.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*LiHgtarKOmrMd1tMixJz7Q.jpeg",
+          "local": "/images/blog/optimizing-chrome-extensions-state-and-communication-in-react-frontmatter.jpeg"
+        }
+      ]
+    },
+    {
+      "slug": "react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*LypxaBmmCX6tbTYHKEEauA.png",
+          "local": "/images/blog/react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison-frontmatter.png"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*ti-8jF0LUvTS5GP6HU_zAg.png",
+          "local": "/images/blog/react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison-markdown.png"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*pI2GBC89ionNhtyLwofm6Q.png",
+          "local": "/images/blog/react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison-markdown-1.png"
+        }
+      ]
+    },
+    {
+      "slug": "real-time-language-sync-between-web-applications-and-browser-extensions.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/1200/1*gvSFrphUYek3QPjKyS8G6A.png",
+          "local": "/images/blog/real-time-language-sync-between-web-applications-and-browser-extensions-frontmatter.png"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*xWLSuBzTrIIjK7_iVaJyVA.png",
+          "local": "/images/blog/real-time-language-sync-between-web-applications-and-browser-extensions-markdown.png"
+        },
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/1*oPEZZ7V3w8jErg7PO2hqXw.png",
+          "local": "/images/blog/real-time-language-sync-between-web-applications-and-browser-extensions-markdown-1.png"
+        }
+      ]
+    },
+    {
+      "slug": "rediscovering-progressive-web-apps.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/0*zqP68zsgAcU6WmMe.",
+          "local": "/images/blog/rediscovering-progressive-web-apps-frontmatter.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "using-react-i18next-within-chrome-extension-manifest-v3.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/800/0*ajPHSWMUghQqO5U6",
+          "local": "/images/blog/using-react-i18next-within-chrome-extension-manifest-v3-frontmatter.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "what-makes-a-software-engineer-excellent.md",
+      "images": [
+        {
+          "original": "https://cdn-images-1.medium.com/max/1200/1*lqQy_JxaogqqEHXk7D7ADA.jpeg",
+          "local": "/images/blog/what-makes-a-software-engineer-excellent-frontmatter.jpeg"
+        }
+      ]
+    }
+  ]
+}

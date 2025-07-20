@@ -9,45 +9,17 @@
   line-height: 1.7;
 }
 
-/* .snap-markdown-content h1,
-.snap-markdown-content h2,
-.snap-markdown-content h3,
-.snap-markdown-content h4,
-.snap-markdown-content h5,
-.snap-markdown-content h6 {
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: var(--snap-markdown-heading, #23272b);
-} */
-
-/* .snap-markdown-content h1 {
-  border-bottom: 2px solid var(--snap-markdown-border, #e5e7eb);
-  padding-bottom: 0.5rem;
-}
-
-.snap-markdown-content h2 {
-  border-bottom: 1px solid var(--snap-markdown-border, #e5e7eb);
-  padding-bottom: 0.25rem;
-}
-
-.snap-markdown-content p {
-  margin-bottom: 1.25rem;
-} */
-
 .snap-anchor-link {
   text-decoration: none;
 }
 
-/* .snap-link {
-  color: var(--snap-link, #2563eb);
+.snap-link {
   text-decoration: none;
   transition: color 0.2s;
 }
 .snap-link:hover {
-  text-decoration: underline;
-  color: var(--snap-link-hover, #60a5fa);
-} */
+  text-decoration: none;
+}
 
 /* Custom code block container and header (Prism handles code/pre) */
 .snap-code-block {
@@ -58,6 +30,11 @@
   background: var(--snap-code-bg, #f5f7fa);
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
 }
+
+.snap-code-block pre {
+  padding: 0 16px;
+}
+
 .snap-code-header {
   display: flex;
   justify-content: space-between;
@@ -150,64 +127,6 @@
   margin: 1.5rem 0;
 }
 
-/* Table of Contents */
-/* .snap-toc {
-  background: var(--snap-toc-bg, #f3f4f6);
-  border: 1px solid var(--snap-markdown-border, #e5e7eb);
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-}
-.snap-toc-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--snap-toc-title, #23272b);
-  margin-bottom: 1rem;
-}
-.snap-toc-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.snap-toc-item {
-  margin-bottom: 0.5rem;
-}
-.snap-toc-link {
-  display: block;
-  padding: 0.25rem 0;
-  color: var(--snap-link, #2563eb);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.2s;
-}
-.snap-toc-link:hover {
-  color: var(--snap-link-hover, #60a5fa);
-}
-.snap-toc-active .snap-toc-link {
-  color: #10b981;
-  font-weight: 600;
-} */
-
-/* Blog Headings */
-/* .snap-heading-h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--snap-markdown-heading, #23272b);
-}
-.snap-heading-h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--snap-markdown-heading, #23272b);
-}
-.snap-heading-h4 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--snap-markdown-heading, #23272b);
-} */
-
 /* Blog Meta, Description, Tags, Read More */
 .snap-meta {
   color: var(--color-text-primary);
@@ -220,13 +139,7 @@
   transition: color 0.2s;
 }
 .blog-description {
-  color: #fff;
   margin-bottom: 1rem;
-}
-@media (prefers-color-scheme: dark) {
-  .blog-description {
-    color: #f3f4f6;
-  }
 }
 .blog-tags {
   margin-bottom: 1rem;
@@ -236,6 +149,7 @@
 }
 .blog-read-more {
   margin-top: 1rem;
+  text-align: right;
 }
 
 /* Dark mode variables (do not override Prism's theme) */
