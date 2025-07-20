@@ -3,10 +3,10 @@
 
 /* --- Components: Markdown --- */
 .snap-markdown {
-  color: var(--snap-markdown-color, #23272b);
+  color: var(--color-text-secondary);
   background: transparent;
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: var(--font-size-body1);
+  line-height: var(--line-height-body1);
 }
 
 .snap-anchor-link {
