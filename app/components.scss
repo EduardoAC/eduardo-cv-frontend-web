@@ -1,38 +1,3 @@
-/* Color Legend Projects styles */
-.color-legend-projects {
-  clear: both;
-  padding-bottom: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-
-  p {
-    font-size: 20px;
-    text-indent: initial;
-    text-align: center;
-    color: var(--color-text-secondary);
-  }
-
-  > ul {
-    padding-left: 0;
-  }
-
-  li {
-    text-align: center;
-    color: white;
-    padding: 10px;
-    margin: 10px;
-    list-style: none;
-  }
-
-  @media (min-width: 1024px) {
-    li {
-      width: 30%;
-      float: left;
-      margin: 0 10px;
-    }
-  }
-}
-
 /* Blog and Forum styles */
 .business-tech-blog,
 .brainstorming-forum {
@@ -45,22 +10,6 @@
   img {
     margin: 50px auto;
     display: block;
-  }
-}
-
-/* Error page styles */
-.site-error {
-  padding: 60px 0;
-  text-align: center;
-
-  h1 {
-    color: #d9534f;
-    margin-bottom: 30px;
-  }
-
-  p {
-    margin-bottom: 15px;
-    color: #666;
   }
 }
 

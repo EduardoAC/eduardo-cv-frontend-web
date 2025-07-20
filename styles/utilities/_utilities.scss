@@ -1,18 +1,5 @@
 @import './mixins';
 
-// Utility classes
-.gradient-pattern {
-  @include gradient-pattern;
-}
-
-.flex-center {
-  @include flex-center;
-}
-
-.responsive-image {
-  @include responsive-image;
-}
-
 // Text utilities
 .text-center {
   text-align: center;
