@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Diego Colina",
+    "title": "Senior Software Analyst, Paprika Software (ERP)",
+    "image": "https://adplist-bucket.s3.amazonaws.com/media/profile_photos/4c5945b9580240b79f11c2a0ae97c912FxTgB.webp",
+    "date": "July 14, 2025",
+    "text": "You can tell from session one that Eduardo knows what he is talking about and has years of experience in the field and he knows about more practical and job-related things.",
+    "badges": ["Amazing problem solver", "Technically competent", "+5"]
+  },
+  {
+    "name": "Jessica Manturano",
+    "title": "Frontend Developer, Freelancer",
+    "image": "https://adplist-bucket.s3.amazonaws.com/media/profile_photos/da0ad9d255704d1aa1d9d07507c5f2fd1Xd9z.webp",
+    "date": "May 26, 2025",
+    "text": "My session with Eduardo was highly valuable. He offered clear, personalized guidance and practical advice tailored to my goals, giving me a stronger sense of direction. I truly appreciated his strategic perspective and would definitely recommend him to anyone seeking career growth",
+    "badges": ["Technically competent", "Very motivational", "Amazing communicator", "Amazing problem solver", "+5"]
+  },
+  {
+    "name": "Raquel Lores",
+    "title": "Frontend Developer, Edison Next Spain",
+    "image": "https://adplist-bucket.s3.amazonaws.com/media/profile_photos/78d82a5f14ca4408a4226134843bc3d7OcSNn.webp",
+    "date": "May 26, 2025",
+    "text": "During our session, we reviewed my key expectations and explored strategies for professional growth. My mentor offered thoughtful, tailored recommendations that addressed my specific challenges and helped me define clear short- and mid-term objectives. He used practical examples that made his advice easier to understand and remember. His guidance also renewed my motivation to work on the areas I want to improve.",
+    "badges": ["Technically competent", "Very motivational", "Amazing communicator", "Amazing problem solver", "+3"]
+  },
+  {
+    "name": "alaa hamed",
+    "title": "Senior Frontend, Self",
+    "image": "https://adplist-bucket.s3.amazonaws.com/media/profile_photos/86bfe504b98242458d5c73b541a34ba89bg66.webp",
+    "date": "April 28, 2025",
+    "text": "I had a great session with Eduardo, where he provided valuable insights on how to effectively present my skills and experience during interviews, and emphasized the importance of dedication when introducing myself; his advice has been incredibly helpful.",
+    "badges": ["Technically competent", "Very motivational", "Amazing communicator", "Amazing problem solver", "+5"]
+  },
+  {
+    "name": "Dina Reda",
+    "title": "Frontend Lead, /",
+    "image": "https://adplist-bucket.s3.amazonaws.com/media/profile_photos/49699fce124a44b6933b2345524a4fc0N7fV5.webp",
+    "date": "April 09, 2025",
+    "text": "Eduardo helped me identify the next level I should focus on to strengthen my skill baseline. He also provided valuable insights that have been incredibly helpful in preparing for my interviews.",
+    "badges": ["Technically competent", "Very motivational", "Amazing communicator", "Amazing problem solver", "+5"]
+  },
+  {
+    "name": "Morco",
+    "title": "Design System / UX Engineer, -",
+    "image": "https://adplist-bucket.s3.amazonaws.com/media/profile_photos/142dfce9028c467182cb362afd4dbe39VR22H.webp",
+    "date": "February 17, 2025",
+    "text": "The meeting was very interesting and full of insights. It was very pleasant overall. Eduardo had a well organized and systematic approach for his mentorship session. Sadly, 45 min are not enough to discuss everything about the job search process, and time flies very fast when talking about the job market nowadays. 😂",
+    "badges": ["Technically competent", "Very motivational", "Amazing communicator", "Amazing problem solver", "+5"]
+  },
+  {
+    "name": "Olabayoji Oladepo",
+    "title": "Frontend Engineer, Waddle Insurance",
+    "image": "https://adplist-bucket.s3.amazonaws.com/media/profile_photos/0729c690d8054175a04f77e7c96059eeByGgr.webp",
+    "date": "February 03, 2025",
+    "text": "My session with Eduardo was insightful. He was able to give valuable answers to some of the questions I had. His wealth of knowledge in his field is evident in how he communicates.",
+    "badges": ["Technically competent", "Very motivational", "Amazing communicator", "Amazing problem solver", "+5"]
+  },
+  {
+    "name": "Leandro Oliveira",
+    "title": "Mid Software Engineer, .",
+    "image": "https://adplist-bucket.s3.amazonaws.com/media/profile_photos/40f9d6ad7cce4c6eae259c9466493becbgJ7r.webp",
+    "date": "January 24, 2025",
+    "text": "Eduardo helped me gain insights into career path possibilities. Based on his experience, he was honest about the benefits, trade-offs, and risks. I realized he is a real mentor and thoughtful person when he sent me a detailed note about everything we discussed, along with some extra materials. Furthermore he asked me if I wanted to continue to be a mentee.",
+    "badges": ["Technically competent", "Moderately motivational", "Amazing communicator", "Amazing problem solver", "+5"]
+  }
+] 

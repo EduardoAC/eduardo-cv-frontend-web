@@ -19,6 +19,14 @@
 .navbarBrand {
   text-decoration: none;
   font-size: var(--font-size-body2);
+
+  &:hover {
+    text-decoration: none;
+
+    & span {
+      color: var(--color-text-primary);
+    }
+  }
 }
 
 /*

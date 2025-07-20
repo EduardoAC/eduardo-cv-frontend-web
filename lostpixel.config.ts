@@ -11,6 +11,7 @@ export const config: CustomProjectConfig = {
       { path: '/my-experience', name: 'my-experience' },
       { path: '/frontend-profile', name: 'frontend-profile' },
       { path: '/backend-profile', name: 'backend-profile' },
+      { path: '/mentor-profile', name: 'mentor-profile' },
       { path: '/software-architect-profile', name: 'software-architect-profile' },
       { path: '/blog', name: 'blog' },
       { path: '/forum', name: 'forum' },

@@ -1,0 +1,50 @@
+.mentorProfile {
+}
+
+.platformSection {
+    background: #232526;
+    border-radius: 16px;
+    box-shadow: 0 4px 19px 0 rgba(0, 0, 0, 0.15);
+    padding: 2rem 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.platformHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.platformHeader img {
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.5rem;
+    height: auto;
+    margin-bottom: 0px;
+}
+
+.certificateSection {
+    background: #232526;
+    border-radius: 16px;
+    box-shadow: 0 4px 19px 0 rgba(0, 0, 0, 0.15);
+    padding: 2rem 1.5rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.bookSessionPlain {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+  transition: color 0.2s;
+}
+.bookSessionPlain:hover, .bookSessionPlain:focus {
+  text-decoration: underline;
+}
