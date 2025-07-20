@@ -94,7 +94,7 @@ const createCustomRenderer = () => {
 
   renderer.heading = ({ text, depth }) => {
     const slug = text.toLowerCase().replace(/[^\w]+/g, '-');
-    return `<h${depth} id="${slug}"><a href="#${slug}" class="snap-anchor-link">${text}</a></h${depth}>`;
+    return `<h${depth} id="${slug}">${text}</h${depth}>`;
   };
 
   renderer.image = ({ href, title, text }) => {
