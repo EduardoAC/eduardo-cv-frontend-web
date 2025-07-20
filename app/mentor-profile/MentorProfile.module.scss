@@ -1,0 +1,41 @@
+.mentorProfile {
+  padding: 2rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.platformCard {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 19px 0 rgba(142, 151, 158, 0.15);
+  padding: 1.5rem;
+  max-width: 350px;
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.platformCard img {
+  margin-bottom: 0.5rem;
+}
+
+.platformCard h3 {
+  margin: 0.5rem 0 0.25rem 0;
+}
+
+.platformCard p {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.mentorProfile section {
+  margin-bottom: 2.5rem;
+} 
