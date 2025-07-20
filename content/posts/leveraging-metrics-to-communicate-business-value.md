@@ -144,7 +144,7 @@ Furthermore, the calculation provided only covers pull requests (PRs). Continuou
 
 By gathering and presenting comprehensive metrics for cost, performance, or reliability, you create a clear, data-driven basis for decision-making. This allows for better prioritisation of efforts, such as optimising CI, addressing technical debt, or improving test reliability as discussed in earlier sections. Ultimately, complete and transparent information is essential for making informed, strategic decisions that drive long-term success.
 
-### **Final thoughts**
+### Final thoughts
 
 After discussing these three key areas for elevating your conversations to the next level using metrics to engage the business and improve systems, mitigate tech debt, and optimise resources, we provided practical examples of improving critical areas such as incident management, design systems, and prioritising technical debt. These real-life examples allow for clearer and more impactful conversations.
 
