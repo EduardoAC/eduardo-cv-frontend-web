@@ -4,12 +4,12 @@ description: "I joined Moneyfarm at the end of 2018. I soon realized that it was
 date: "2020-03-31"
 author: "eduardo aparicio cardenes"
 tags: ["Frontend Architecture", "Technical Debt", "Web Development", "React"]
-image: "https://cdn-images-1.medium.com/max/800/0*JE-wZ7NGslu23DOs"
+image: "/images/blog/moneyfarm-web-app-a-brief-evolution-story-frontmatter.jpg"
 ---
 
 ### Transforming Moneyfarm’s Frontend: A Journey Through Technical Debt
 
-![Moneyfarm frontend evolution](https://cdn-images-1.medium.com/max/800/0*JE-wZ7NGslu23DOs)
+![Moneyfarm frontend evolution](/images/blog/moneyfarm-web-app-a-brief-evolution-story-frontmatter.jpg)
 
 I joined Moneyfarm at the end of 2018. I soon realized that a company with talented people faced the challenge of delivering new products and services while paying back the technical debt it had incurred in its start-up phase. The task at hand is challenging, but we’ve made significant progress in the past 16 months and it’s this story that I want to share with you.
 
@@ -19,7 +19,7 @@ When I look back, we have come a long way in the development and maturity of our
 - create a dynamic and responsive web app;
 - Customer experience
 
-![Moneyfarm at the end of 2018](https://cdn-images-1.medium.com/max/800/1*K1vwisrRnUkuW-SIdBaFGA.png)
+![Moneyfarm at the end of 2018](/images/blog/moneyfarm-web-app-a-brief-evolution-story-markdown.png)
 
 In order to understand our journey let’s start explaining how things were back then. We were 5 frontend developers: 3 contractors, 1 permanent developer and 1 recently joined, spread across 3 squads; onboarding, investment management, and investment creation.
 

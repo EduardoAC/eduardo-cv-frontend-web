@@ -4,12 +4,12 @@ description: "Today, I’m writing you about progressive web apps. Since I went 
 date: "2016-09-15"
 author: "eduardo aparicio cardenes"
 tags: ["Progressive Web Apps", "Web Development", "Performance", "UX"]
-image: "https://cdn-images-1.medium.com/max/800/0*zqP68zsgAcU6WmMe."
+image: "/images/blog/rediscovering-progressive-web-apps-frontmatter.jpg"
 ---
 
 ### Rediscovering progressive web apps
 
-![Rediscovering progressive web apps](https://cdn-images-1.medium.com/max/800/0*zqP68zsgAcU6WmMe.)
+![Rediscovering progressive web apps](/images/blog/rediscovering-progressive-web-apps-frontmatter.jpg)
 
 Today, I’m writing you about progressive web apps. Since i went to Fullstack 2016 in London, I started to feel passion about this and spend some time researching on my own but it wasn’t until I attended “Google’s Building Progressive Web Apps (Beta)” course that i recognise that my understanding of this concept was focus mainly on bringing native capabilities from native apps to mobile including offline elements like service workers, push notifications, cache, etc.
 
@@ -17,7 +17,7 @@ However, I discover through this course that PWA is much more than that it chang
 
 Therefore, PWA pull together a several existing concepts and technologies that already exists and bring a new approach that define a new architectural approach for our application, elements like responsive design, fast animation, images compression, etc. combine with new technologies like service workers, push notifications, etc. expand our frontiers even further than ever before.
 
-![PWA concepts](https://cdn-images-1.medium.com/max/800/0*zqP68zsgAcU6WmMe.)
+![PWA concepts](/images/blog/rediscovering-progressive-web-apps-frontmatter.jpg)
 
 How I understand a progressive web app can be summary in three parts (as we can see above), design, connectivity and performance.
 

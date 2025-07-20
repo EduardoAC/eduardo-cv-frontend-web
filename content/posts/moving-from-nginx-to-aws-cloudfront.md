@@ -4,12 +4,12 @@ description: "One of my first initiatives within Moneyfarm was migrating to AWS 
 date: "2020-04-22"
 author: "eduardo aparicio cardenes"
 tags: ["DevOps", "AWS", "CloudFront", "Frontend"]
-image: "https://cdn-images-1.medium.com/max/800/0*xn_6LqYpp_7x4hKN"
+image: "/images/blog/moving-from-nginx-to-aws-cloudfront-frontmatter.jpg"
 ---
 
 ### Frontend Optimization: Nginx to AWS CloudFront
 
-![Frontend Optimization: Nginx to AWS CloudFront](https://cdn-images-1.medium.com/max/800/0*xn_6LqYpp_7x4hKN)
+![Frontend Optimization: Nginx to AWS CloudFront](/images/blog/moving-from-nginx-to-aws-cloudfront-frontmatter.jpg)
 
 One of my first initiatives within Moneyfarm was migrating to AWS CloudFront to reduce the operational costs on our Frontend ecosystem, allowing us to scale efficiently with a fraction of the cost.
 
@@ -25,7 +25,7 @@ During this article, I will focus on the React ecosystem within Moneyfarm. For m
 
 When I joined, the React Frontend ecosystem in Moneyfarm was heading into Micro-frontend architecture to have a set of more manageable applications capable of being deployed independently, allowing developers to release their features without affecting others.
 
-![Micro-frontend architecture](https://cdn-images-1.medium.com/max/800/0*xn_6LqYpp_7x4hKN)
+![Micro-frontend architecture](/images/blog/moving-from-nginx-to-aws-cloudfront-frontmatter.jpg)
 
 As you can see in the image above, each application ran independently of the others, being the “FE router” orchestrating each app by static routing. Each app was built into a docker image with the Nginx web server responsible for serving the index.html and static assets required.
 

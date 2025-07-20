@@ -4,7 +4,7 @@ description: "Explore the key trade-offs between inner and outer spacing in form
 date: "2024-08-24"
 author: "eduardo aparicio cardenes"
 tags: ["Web Development", "UI Design", "Forms", "Best Practices"]
-image: "https://cdn-images-1.medium.com/max/800/0*-wmtIS6NW9ggVDw1"
+image: "/images/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing-frontmatter.jpg"
 ---
 
 ### Form fields the never-ending debate inner vs outer spacing
@@ -17,7 +17,7 @@ For many years, the ongoing debate about the best way to design form fields and 
 
 Let’s begin by defining a form text field as a component comprising a label, an input, and a crucial element- the state/subtext. This element plays a pivotal role in providing feedback to the user based on their input, thereby enhancing their interaction with the form.
 
-![](https://cdn-images-1.medium.com/max/800/0*-wmtIS6NW9ggVDw1)
+![](/images/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing-frontmatter.jpg)
 
 Form field component alternatives, inner or outer spacing
 
@@ -29,23 +29,23 @@ Now that we have the overall context of how the component was initially composed
 
 Depending on your choice, this will have implications for how you build your experience; applying some analytical thinking, we can see the ramifications of this choice. Let’s consider the following contact form as an example.
 
-![](https://cdn-images-1.medium.com/max/800/0*SuGUjE8DB8r5xTLl)
+![](/images/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing-markdown.jpeg)
 
 Outer spacing contact form example for different devices
 
 In the examples above, both the image and the [form](https://demo.mobiscroll.com/forms/responsive) from Mobiscroll.com treat spacing as external to the Text Field. This approach offers the advantage of separating concerns between the component and the layout, which results in a cleaner design. However, it comes with a trade-off. Subtext and feedback elements, such as error messages, can disrupt the visual spacing within the form. These changes in height can be more expensive for the browser to render and visually jarring for the user. Since the component itself does not directly manage the layout, the parent form component must handle these scenarios, adding complexity and requiring additional consideration.
 
-![](https://cdn-images-1.medium.com/max/800/1*hhpovbapsAB_XHaYCXhxwg.jpeg)
+![](/images/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing-markdown.jpeg)
 
 Alternatively, consider incorporating the spacing directly within the component itself using inner spacing. This approach allows the component to manage the spacing internally, freeing the layout from handling this responsibility. It also enables the component to seamlessly transition between different subtext/feedback states, such as error and success. The benefit here is that the component maintains control over the additional real estate it occupies, ensuring smooth adjustments in various scenarios.
 
-![](https://cdn-images-1.medium.com/max/800/0*OTSIHEQBhbtokRXB)
+![](/images/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing-markdown.jpeg)
 
 Inner spacing contact form example for different devices
 
 However, this approach introduces new considerations. For instance, what happens when no text is displayed or when an error message requires two lines instead of one? These situations may still impact the overall layout. If the error text expands, will the component push other content down, reintroducing layout shifts that we aimed to avoid?
 
-![](https://cdn-images-1.medium.com/max/800/0*18Mi_cw8ZDg2DgME)
+![](/images/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing-markdown.jpeg)
 
 ### Inner vs. Outer Spacing Trade-offs
 

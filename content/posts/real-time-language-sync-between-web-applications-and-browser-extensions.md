@@ -4,7 +4,7 @@ description: "Sync language preferences instantly: a guide to real-time language
 date: "2024-02-11"
 author: "eduardo aparicio cardenes"
 tags: ["Web Development", "Internationalization", "Browser Extensions", "React"]
-image: "https://cdn-images-1.medium.com/max/1200/1*gvSFrphUYek3QPjKyS8G6A.png"
+image: "/images/blog/real-time-language-sync-between-web-applications-and-browser-extensions-frontmatter.png"
 ---
 
 **Real-time Language Sync Between Web Applications and Browser Extensions**
@@ -17,7 +17,7 @@ This article explores the implementation of real-time language synchronisation b
 
 To illustrate these concepts, we’ll examine a web application built with React using client-side rendering, accompanied by a browser extension. The extension implementation relies on an event-driven model built using React and Manifest v3, which will consider aspects like service workers and their lifecycle to support our real-time synchronisation.
 
-![](https://cdn-images-1.medium.com/max/800/1*xWLSuBzTrIIjK7_iVaJyVA.png)
+![](/images/blog/real-time-language-sync-between-web-applications-and-browser-extensions-markdown.png)
 
 **One-way real-time language synchronisation (Web App -> Browser extension)**
 
@@ -77,7 +77,7 @@ We’ve successfully bridged the gap between the web application and extension i
 
 While this article primarily focuses on real-time language synchronisation between a web application and a browser extension using client-side cookies, it’s worth contemplating scenarios where the extension updates the client cookie, prompting language synchronisation within the web application.
 
-![](https://cdn-images-1.medium.com/max/800/1*oPEZZ7V3w8jErg7PO2hqXw.png)
+![](/images/blog/real-time-language-sync-between-web-applications-and-browser-extensions-markdown-1.png)
 
 **Two-way real-time language synchronisation (Web App <-> Browser extension)**
 

@@ -4,12 +4,12 @@ description: "JWT token management strategies can be challenging. Here are some 
 date: "2020-09-26"
 author: "eduardo aparicio cardenes"
 tags: ["JWT", "Authentication", "Security", "Web Development"]
-image: "https://cdn-images-1.medium.com/max/800/1*Pi2k-aqj81PoYHJMIZjO8Q.png"
+image: "/images/blog/managing-jwt-token-expiration-frontmatter.png"
 ---
 
 ### Managing JWT token expiration
 
-![Managing JWT token expiration](https://cdn-images-1.medium.com/max/800/1*Pi2k-aqj81PoYHJMIZjO8Q.png)
+![Managing JWT token expiration](/images/blog/managing-jwt-token-expiration-frontmatter.png)
 
 When you manage JWT tokens, there are some problems that you may experience when you are dealing with authentication. Particularly, when you need to handle token expiration.
 

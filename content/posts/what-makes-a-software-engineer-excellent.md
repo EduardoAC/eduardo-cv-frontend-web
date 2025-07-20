@@ -4,12 +4,12 @@ description: "My five traits that define an excellent software engineer"
 date: "2020-09-10"
 author: "eduardo aparicio cardenes"
 tags: ["Software Engineering", "Career", "Best Practices", "Productivity"]
-image: "https://cdn-images-1.medium.com/max/1200/1*lqQy_JxaogqqEHXk7D7ADA.jpeg"
+image: "/images/blog/what-makes-a-software-engineer-excellent-frontmatter.jpeg"
 ---
 
 ### What makes a software engineer excellent?
 
-![What makes a software engineer excellent?](https://cdn-images-1.medium.com/max/1200/1*lqQy_JxaogqqEHXk7D7ADA.jpeg)
+![What makes a software engineer excellent?](/images/blog/what-makes-a-software-engineer-excellent-frontmatter.jpeg)
 
 Recently, I face an interesting dilemma at work that made me question specific aspects of what makes a software engineer excel.
 

@@ -4,12 +4,12 @@ description: "A guide how to efficiently support internationalisation using reac
 date: "2023-02-09"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "Internationalization", "React", "i18next"]
-image: "https://cdn-images-1.medium.com/max/800/0*ajPHSWMUghQqO5U6"
+image: "/images/blog/using-react-i18next-within-chrome-extension-manifest-v3-frontmatter.jpg"
 ---
 
 ### Using react-i18next within Chrome extension (manifest v3)
 
-![Architecture diagram](https://cdn-images-1.medium.com/max/800/0*ajPHSWMUghQqO5U6)
+![Architecture diagram](/images/blog/using-react-i18next-within-chrome-extension-manifest-v3-frontmatter.jpg)
 
 A few years ago, I found myself driving the creation of Chrome extensions, where I work on displaying large data sets to provide relevant content to its users. Mainly focused on scaling and improving extension resilience.
 
@@ -45,7 +45,7 @@ In order to tackle the drawbacks described in the previous section, our final ar
 
 For this purpose, we need to understand how the [chrome extension architecture](https://developer.chrome.com/docs/extensions/mv3/architecture-overview/#arch) works, which I will explain along with our setup for supporting `react-i18next` efficiently within our extension.
 
-![Architecture diagram](https://cdn-images-1.medium.com/max/800/0*ajPHSWMUghQqO5U6)
+![Architecture diagram](/images/blog/using-react-i18next-within-chrome-extension-manifest-v3-frontmatter.jpg)
 
 Firstly, we have the extension content script responsible for rendering our user interface whenever a user opens a new tab or window. Then, as we are using React to build our application, it makes sense for us to create a custom hook that will encapsulate the initialisation of our internationalisation.
 

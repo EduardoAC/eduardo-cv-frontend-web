@@ -4,10 +4,10 @@ description: "Mastering Concurrency in Chrome Extensions: Unlocking Seamless Use
 date: "2023-09-14"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "Concurrency", "Web Development", "Service Workers"]
-image: "https://cdn-images-1.medium.com/max/800/1*lVI2d8fr-uSoYyp6YEm0Vg.jpeg"
+image: "/images/blog/managing-concurrency-in-chrome-extensions-frontmatter.jpeg"
 ---
 
-![Managing Concurrency in Chrome Extensions](https://cdn-images-1.medium.com/max/800/1*lVI2d8fr-uSoYyp6YEm0Vg.jpeg)
+![Managing Concurrency in Chrome Extensions](/images/blog/managing-concurrency-in-chrome-extensions-frontmatter.jpeg)
 
 ### Managing Concurrency in Chrome Extensions
 
@@ -23,7 +23,7 @@ So, fasten your seatbelts, and let’s explore how to make your Chrome extension
 
 Within the realm of Chrome extensions, a persistent challenge revolves around managing concurrency. Picture this: You have a suite of content scripts, often sharing the same codebase. This shared code can lead to a situation where these scripts simultaneously demand access to a singular resource.
 
-![Illustration of concurrent access to the same API resource](https://cdn-images-1.medium.com/max/800/1*hQkxMsvrwp8T23-GbyZTpg.jpeg)
+![Illustration of concurrent access to the same API resource](/images/blog/managing-concurrency-in-chrome-extensions-markdown.jpeg)
 
 This challenge becomes especially pronounced when users restore multiple tabs from a previous session or engage in actions that trigger resource requests across all active tabs. The result? A potential chaos of resource requests, if not handled effectively, can lead to race conditions, sluggish performance, or even crashes, all detrimental to the user experience.
 
@@ -31,7 +31,7 @@ This challenge becomes especially pronounced when users restore multiple tabs fr
 
 When it comes to addressing the challenge of concurrent resource requests within Chrome extensions, there are various approaches at our disposal. However, they all share a common requirement: the need for a lock mechanism that ensures requests from the same resource are queued until the first request is completed.
 
-![Illustration managing concurrency with locks](https://cdn-images-1.medium.com/max/800/1*ThK0B2rRNJ5Tce0T6dTIpQ.jpeg)
+![Illustration managing concurrency with locks](/images/blog/managing-concurrency-in-chrome-extensions-markdown-1.jpeg)
 
 ##### Why a Lock Mechanism is Essential
 

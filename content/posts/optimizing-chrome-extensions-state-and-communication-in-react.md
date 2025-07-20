@@ -4,12 +4,12 @@ description: "Master Chrome Extension State Management and Communication with Re
 date: "2023-11-05"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "React", "State Management", "Web Development"]
-image: "https://cdn-images-1.medium.com/max/800/1*LiHgtarKOmrMd1tMixJz7Q.jpeg"
+image: "/images/blog/optimizing-chrome-extensions-state-and-communication-in-react-frontmatter.jpeg"
 ---
 
 ### Optimising Chrome Extensions: Part 2- Managing your state and communication in React
 
-![Managing your state and communication in a React Chrome Extension](https://cdn-images-1.medium.com/max/800/1*LiHgtarKOmrMd1tMixJz7Q.jpeg)
+![Managing your state and communication in a React Chrome Extension](/images/blog/optimizing-chrome-extensions-state-and-communication-in-react-frontmatter.jpeg)
 
 In the previous article, we discussed the limitations of using Redux and the need to adapt our approach to Chrome extension development due to the changes introduced by Manifest v3.
 

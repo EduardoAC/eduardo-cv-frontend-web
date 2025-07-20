@@ -4,7 +4,7 @@ description: "Recently, I faced the interesting challenge of customising the exp
 date: "2025-03-29"
 author: "eduardo aparicio cardenes"
 tags: ["React", "Vue.js", "Component Design", "Web Development"]
-image: "https://cdn-images-1.medium.com/max/800/1*LypxaBmmCX6tbTYHKEEauA.png"
+image: "/images/blog/react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison-frontmatter.png"
 ---
 
 Recently, I faced the interesting challenge of customising the experience of a button group component on VueJS as part of my job at Happenning. As someone deeply experienced in React but a newcomer to VueJS, I approached the problem as I would on React by turning the value property from a string into a ReactNode (component) and attempting to pass it down to be evaluated within the loop but quickly realise that it wasn’t as simple as I thought so I decided to bring today my learnings on how to achieve such a things on VueJS but more interestingly how React compares to VueJS to achieve such a thing.
@@ -13,11 +13,11 @@ So please fasten your seatbelts and put your tray table in the upright position.
 
 ### The challenge
 
-![Example: deposit amount quick select large devices](https://cdn-images-1.medium.com/max/800/1*ti-8jF0LUvTS5GP6HU_zAg.png)
+![Example: deposit amount quick select large devices](/images/blog/react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison-markdown.png)
 
 Imagine we have a RadioButtonGroup component responsible for showing multiple buttons arranged uniformly, behaving like a radio button, and allowing one choice. However, on smaller devices, the currency text in the buttons breaks onto the following line due to insufficient horizontal spacing.
 
-![example: deposit amount quick select in smaller devices](https://cdn-images-1.medium.com/max/800/1*pI2GBC89ionNhtyLwofm6Q.png)
+![example: deposit amount quick select in smaller devices](/images/blog/react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison-markdown-1.png)
 
 In addition, this particular component is expected to receive a list of objects containing various properties such as icons, badges, and key-value pairs.
 
