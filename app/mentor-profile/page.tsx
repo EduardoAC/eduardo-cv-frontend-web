@@ -1,5 +1,9 @@
 import styles from './MentorProfile.module.scss';
 import { mentorPlatforms, certificate, intro } from './data';
+import ReviewsGrid from './ReviewsGrid';
+import adplistReviews from './adplist-reviews.json';
+import mentoringClubReviews from './mentoring-club-reviews.json';
+import Container from '@/components/layout/Container';
 
 export const metadata = {
   title: 'Mentor Profile | Eduardo Aparicio Cárdenes',
@@ -8,27 +12,32 @@ export const metadata = {
 
 export default function MentorProfilePage() {
   return (
-    <div className={`${styles.mentorProfile}`}>
+    <Container className={styles.mentorProfile} variant="default" padding="medium">
       <h1 className='text-align-center'>Mentor Profile</h1>
       <p>{intro}</p>
 
-      {mentorPlatforms.map(platform => (
-        <section key={platform.name} className={styles.platformSection}>
-          <div className={styles.platformHeader}>
-            <img src={platform.logo} alt={platform.name} style={{ width: 80, height: 'auto', marginBottom: 8 }} />
-            <h2>
-              <a href={platform.url} target="_blank" rel="noopener noreferrer">{platform.name}</a>
-            </h2>
-          </div>
-          <p>{platform.description}</p>
-          {platform.reviewsEmbed && (
-            <div dangerouslySetInnerHTML={{ __html: platform.reviewsEmbed }} />
-          )}
-          {platform.reviewsUrl && (
-            <a href={platform.reviewsUrl} target="_blank" rel="noopener noreferrer">See Reviews</a>
-          )}
-        </section>
-      ))}
+      {mentorPlatforms.map(platform => {
+        let reviews = null;
+        if (platform.name === 'ADPList') reviews = adplistReviews;
+        if (platform.name === 'Mentoring Club') reviews = mentoringClubReviews;
+        return (
+          <section key={platform.name} className={styles.platformSection}>
+            <div className={styles.platformHeader}>
+              <img src={platform.logo} alt={platform.name} width={platform.logoWidth}/>
+              <h2>
+                <a href={platform.url} target="_blank" rel="noopener noreferrer" className={styles.bookSession}>Book a session</a>
+              </h2>
+            </div>
+            <p>{platform.description}</p>
+            {reviews && (
+              <div className={styles.reviewsSection}>
+                <h3>Reviews</h3>
+                <ReviewsGrid reviews={reviews} />
+              </div>
+            )}
+          </section>
+        );
+      })}
 
       <section className={styles.certificateSection}>
         <h2>Certificate</h2>
@@ -38,6 +47,6 @@ export default function MentorProfilePage() {
           <span>{certificate.description}</span>
         </a>
       </section>
-    </div>
+    </Container>
   );
 } 
