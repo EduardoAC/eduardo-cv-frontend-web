@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { BlogPostMeta } from '@/lib/blog/markdown';
-import Container from '../content/Container';
+import Container from '@/components/layout/Container';
 import Card from '../content/Card';
 import Tag from '../content/Tag';
 import styles from './BlogList.module.scss';
@@ -14,20 +14,18 @@ interface BlogListProps {
 
 export function BlogList({ posts }: BlogListProps) {
   return (
-    <Container>
-      <section aria-label="Blog posts list">
-        {posts.length === 0 ? (
-          <p>No posts found.</p>
-        ) : (
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {posts.map((post) => (
-              <li key={post.slug} style={{ marginBottom: '2rem' }}>
-                <BlogListItem post={post} />
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
+    <Container as="section" variant="default" padding="small" aria-label="Blog posts list">
+      {posts.length === 0 ? (
+        <p>No posts found.</p>
+      ) : (
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          {posts.map((post) => (
+            <li key={post.slug} style={{ marginBottom: '2rem' }}>
+              <BlogListItem post={post} />
+            </li>
+          ))}
+        </ul>
+      )}
     </Container>
   );
 };

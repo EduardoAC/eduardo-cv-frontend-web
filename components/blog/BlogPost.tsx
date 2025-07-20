@@ -31,20 +31,12 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
 
   return (
     <Container as="article" padding="small">
-      <header className='mb-xl'>
+      <header className='mb-sm'>
         <nav className='mb-sm'>
           <Link className="snap-link snap-read-more" href="/blog">
             ← Back to all posts
           </Link>
         </nav>
-        {post.image && (
-          <img
-            src={post.image}
-            alt={post.title}
-            className={styles['blog-post-image']}
-            loading="lazy"
-          />
-        )}
         <h1 className="snap-heading-h1">{post.title}</h1>
         <div className="snap-meta">
           <time dateTime={post.date} style={{ marginRight: '1rem' }}>
@@ -64,6 +56,14 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
         </div>
         <p>{post.description}</p>
       </header>
+      {post.image && (
+          <img
+            src={post.image}
+            alt={post.title}
+            className={styles['blog-post-image']}
+            loading="lazy"
+          />
+        )}
       <section className='mb-xl'>
         <MarkdownRenderer content={post.content} showTableOfContents={true} />
       </section>
