@@ -17,7 +17,7 @@ In this article, I’ll share insights on using slugs, path parameters, and quer
 
 #### Understanding the Basics: URL Paths, Slugs, and Query Parameters
 
-![](/images/blog/guide-for-url-query-vs-path-parameters-in-protected-web-apps-frontmatter.png)
+![](/images/blog/url-structure-breakdown.webp)
 
 URL path vs query parameter
 
