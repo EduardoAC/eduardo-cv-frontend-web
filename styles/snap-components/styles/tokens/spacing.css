@@ -1,0 +1,74 @@
+@import "./spacing/index.css";
+
+.m-xxs {
+    margin: var(--spacing-xxs);
+}
+.mb-xxs {
+    margin-bottom: var(--spacing-xxs);
+}
+.mt-xxs {
+    margin-top: var(--spacing-xxs);
+}
+.mr-xxs {
+    margin-right: var(--spacing-xxs);
+}
+.ml-xxs {
+    margin-left: var(--spacing-xxs);
+}
+.mh-xxs {
+    margin-left: var(--spacing-xxs);
+    margin-right: var(--spacing-xxs);
+}
+.mv-xxs {
+    margin-top: var(--spacing-xxs);
+    margin-bottom: var(--spacing-xxs);
+}
+
+.p-xxs {
+    padding: var(--spacing-xxs);
+}
+.pb-xxs {
+    padding-bottom: var(--spacing-xxs);
+}
+.pt-xxs {
+    padding-top: var(--spacing-xxs);
+}
+.pr-xxs {
+    padding-right: var(--spacing-xxs);
+}
+.pl-xxs {
+    padding-left: var(--spacing-xxs);
+}
+.ph-xxs {
+    padding-left: var(--spacing-xxs);
+    padding-right: var(--spacing-xxs);
+}
+.pv-xxs {
+    padding-top: var(--spacing-xxs);
+    padding-bottom: var(--spacing-xxs);
+}
+
+.mb-sm {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mb-xl {
+    margin-bottom: var(--spacing-xl);
+}
+.mt-xl {
+    margin-top: var(--spacing-xl);
+}
+.mr-xl {
+    margin-right: var(--spacing-xl);
+}
+.ml-xl {
+    margin-left: var(--spacing-xl);
+}
+.mh-xl {
+    margin-left: var(--spacing-xl);
+    margin-right: var(--spacing-xl);
+}
+.mv-xl {
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}

@@ -15,6 +15,10 @@
   float: right !important;
 }
 
+.text-align-left {
+  text-align: left;
+}
+
 .snap-img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;

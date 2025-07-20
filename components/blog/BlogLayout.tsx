@@ -24,7 +24,7 @@ export function BlogLayout({
   const popularTags = tags.slice(0, 10);
 
   return (
-    <Container as="section" variant="default" padding="medium" className={styles['blog-layout']}>
+    <Container as="section" variant="default" padding="small" className={styles['blog-layout']}>
       <header className={`${styles['blog-header']}`}>
         <h1>
           Business And Technology Blog

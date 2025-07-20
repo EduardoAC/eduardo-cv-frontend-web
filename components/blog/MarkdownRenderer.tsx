@@ -27,13 +27,60 @@ interface TableOfContentsItem {
   level: number;
 }
 
+// Utility: Strip YAML frontmatter if present
+function stripFrontmatter(content: string): string {
+  if (content.startsWith('---')) {
+    const end = content.indexOf('---', 3);
+    if (end !== -1) {
+      return content.slice(end + 3).replace(/^\s+/, '');
+    }
+  }
+  return content;
+}
+
+// Utility: Normalize horizontal rules (e.g., '* * *' to '---')
+function normalizeHorizontalRules(content: string): string {
+  // Replace lines that are only '* * *' (with optional spaces) with '---'
+  return content.replace(/^([ \t]*\*[ \t]*){3,}$/gm, '---');
+}
+
+// Utility: Convert indented code blocks (4 spaces) to fenced code blocks
+function convertIndentedCodeBlocks(content: string): string {
+  // This is a simple heuristic: lines of 4+ spaces not inside a list
+  // We'll wrap consecutive indented lines with ```\n ... \n```
+  const lines = content.split('\n');
+  let inCode = false;
+  let result: string[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^ {4,}/.test(line)) {
+      if (!inCode) {
+        result.push('```');
+        inCode = true;
+      }
+      result.push(line.slice(4));
+    } else {
+      if (inCode) {
+        result.push('```');
+        inCode = false;
+      }
+      result.push(line);
+    }
+  }
+  if (inCode) result.push('```');
+  return result.join('\n');
+}
+
 const createCustomRenderer = () => {
   const renderer = new marked.Renderer();
 
+  // Support horizontal rules with spaces (e.g., '* * *')
+  renderer.hr = () => '<hr class="snap-hr" />';
+
   renderer.code = ({ text, lang }) => {
+    // Fallback for unknown languages
     const validLanguage = lang && Prism.languages[lang] ? lang : 'text';
     const highlighted = Prism.highlight(text, Prism.languages[validLanguage] || Prism.languages.text, validLanguage);
-
     return `
       <div class="snap-code-block">
         <div class="snap-code-header">
@@ -51,13 +98,13 @@ const createCustomRenderer = () => {
   };
 
   renderer.image = ({ href, title, text }) => {
-    return `<img src="${href}" alt="${text}" title="${title || ''}" loading="lazy" class="snap-blog-image" />`;
+    return `<img src="${href}" alt="${text}" title="${title ?? ''}" loading="lazy" class="snap-blog-image" />`;
   };
 
   renderer.link = ({ href, title, text }) => {
     const isExternal = href.startsWith('http');
     const target = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
-    return `<a href="${href}" title="${title || ''}"${target} class="snap-link">${text}</a>`;
+    return `<a href="${href}" title="${title ?? ''}"${target} class="snap-link">${text}</a>`;
   };
 
   renderer.blockquote = ({ text }) => {
@@ -162,16 +209,22 @@ const renderMarkdownContent = async ({
   showTableOfContents: boolean;
   setTableOfContents: React.Dispatch<React.SetStateAction<TableOfContentsItem[]>>;
 }) => {
+  // Preprocess: strip frontmatter, normalize horizontal rules, convert indented code blocks
+  let processedContent = stripFrontmatter(rawContent);
+  processedContent = normalizeHorizontalRules(processedContent);
+  processedContent = convertIndentedCodeBlocks(processedContent);
+
+  // Existing: handle gists
+  processedContent = processedContent.replace(
+    /```gist:([a-zA-Z0-9]+\/[a-zA-Z0-9]+)```/g,
+    (_, gistId) => `<div class="snap-gist-placeholder" data-gist-id="${gistId}"></div>`
+  );
+
   marked.setOptions({
     renderer: createCustomRenderer(),
     breaks: true,
     gfm: true,
   });
-
-  const processedContent = rawContent.replace(
-    /```gist:([a-zA-Z0-9]+\/[a-zA-Z0-9]+)```/g,
-    (_, gistId) => `<div class="snap-gist-placeholder" data-gist-id="${gistId}"></div>`
-  );
 
   const htmlContent = await marked(processedContent);
   if (!contentRef.current) return;

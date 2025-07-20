@@ -3,9 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { BlogPost as BlogPostType, BlogPostMeta } from '@/lib/blog/markdown';
+import Container from '@/components/layout/Container';
 import MarkdownRenderer from './MarkdownRenderer';
 import Card from '../content/Card';
 import Tag from '../content/Tag';
+import styles from './BlogPost.module.scss';
 
 interface BlogPostProps {
   post: BlogPostType;
@@ -28,13 +30,13 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
   ];
 
   return (
-    <article style={{ maxWidth: 800, margin: '0 auto', padding: '2rem 1rem' }}>
-      <header style={{ marginBottom: '2rem' }}>
-        <div style={{ marginBottom: '1rem' }}>
+    <Container as="article" padding="small" variant="wide">
+      <header className='mb-sm'>
+        <nav className='mb-sm'>
           <Link className="snap-link snap-read-more" href="/blog">
             ← Back to all posts
           </Link>
-        </div>
+        </nav>
         <h1 className="snap-heading-h1">{post.title}</h1>
         <div className="snap-meta">
           <time dateTime={post.date} style={{ marginRight: '1rem' }}>
@@ -44,25 +46,25 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
               day: 'numeric',
             })}
           </time>
-          <span>• {post.readingTime} min read</span>
+          <span >• {post.readingTime} min read</span>
           <span style={{ marginLeft: '1rem' }}>By {post.author}</span>
         </div>
-        {post.image && (
-          <img
-            src={post.image}
-            alt={post.title}
-            style={{ width: '100%', height: '320px', objectFit: 'cover', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
-            loading="lazy"
-          />
-        )}
         <div style={{ marginBottom: '1rem' }}>
           {post.tags.map((tag) => (
             <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
-        <p style={{ color: '#fff', fontSize: '1.125rem', marginBottom: 0 }}>{post.description}</p>
+        <p>{post.description}</p>
       </header>
-      <section style={{ marginBottom: '2rem' }}>
+      {post.image && (
+          <img
+            src={post.image}
+            alt={post.title}
+            className={styles['blog-post-image']}
+            loading="lazy"
+          />
+        )}
+      <section className='mb-xl'>
         <MarkdownRenderer content={post.content} showTableOfContents={true} />
       </section>
       <footer style={{ borderTop: '1px solid #e5e7eb', paddingTop: '2rem', marginTop: '2rem' }}>
@@ -122,7 +124,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
           </section>
         )}
       </footer>
-    </article>
+    </Container>
   );
 };
 

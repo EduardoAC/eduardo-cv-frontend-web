@@ -30,18 +30,18 @@ export default function AboutPageClient() {
           </p>
           <p>
             Currently, I'm co-founder of{" "}
-            <a href="http://www.innervirtuoso.com">Inner Virtuoso</a>. Inner
+            <a href="https://www.innervirtuoso.com">Inner Virtuoso</a>. Inner
             Virtuoso uses Global Incubator technology to create tailor made
             solutions that boost the development of human capital.
           </p>
           <p>
             And founder of{" "}
-            <a href="http://www.dreammakerfactory.com">Dream Maker Factory</a>,
+            <a href="https://www.dreammakerfactory.com">Dream Maker Factory</a>,
             takes ideas with potential and implement in successful products
             where I have three projects in my pipeline,{" "}
-            <a href="http://www.tuocio.org">TuOcio</a>,{" "}
-            <a href="http://www.trainerswod.com/">Trainer's WOD</a> and{" "}
-            <a href="http://www.proyectoadoptame.es">Proyecto Adoptame</a>.
+            <a href="https://www.tuocio.org">TuOcio</a>,{" "}
+            <a href="https://www.trainerswod.com/">Trainer's WOD</a> and{" "}
+            <a href="https://www.proyectoadoptame.es">Proyecto Adoptame</a>.
           </p>
           <p>
             When I'm not doing those things, I'm working for companies as a web
