@@ -34,8 +34,17 @@
     text-align: center;
 }
 
-.mentorProfile {
-    section {
-        margin-bottom: 2.5rem;
-    }
+.bookSessionPlain {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+  transition: color 0.2s;
+}
+.bookSessionPlain:hover, .bookSessionPlain:focus {
+  text-decoration: underline;
 }

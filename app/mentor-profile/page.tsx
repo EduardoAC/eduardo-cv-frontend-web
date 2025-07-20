@@ -1,9 +1,13 @@
+import React from 'react';
+import dynamic from 'next/dynamic';
 import styles from './MentorProfile.module.scss';
 import { mentorPlatforms, certificate, intro } from './data';
 import ReviewsGrid from './ReviewsGrid';
 import adplistReviews from './adplist-reviews.json';
 import mentoringClubReviews from './mentoring-club-reviews.json';
 import Container from '@/components/layout/Container';
+
+const BookingModalClient = dynamic(() => import('./BookingModalClient'), { ssr: false });
 
 export const metadata = {
   title: 'Mentor Profile | Eduardo Aparicio Cárdenes',
@@ -25,13 +29,10 @@ export default function MentorProfilePage() {
             <div className={styles.platformHeader}>
               <img src={platform.logo} alt={platform.name} width={platform.logoWidth}/>
               <h2>
-                <a href={platform.url} target="_blank" rel="noopener noreferrer" className={styles.bookSession}>Book a session</a>
+                <BookingModalClient platform={platform} />
               </h2>
             </div>
             <p>{platform.description}</p>
-            {platform.bookingWidget && (
-              <div style={{ margin: '2rem 0' }} dangerouslySetInnerHTML={{ __html: platform.bookingWidget }} />
-            )}
             {reviews && (
               <div className={styles.reviewsSection}>
                 <h3>Reviews</h3>
