@@ -7,6 +7,7 @@ import Container from '@/components/layout/Container';
 import MarkdownRenderer from './MarkdownRenderer';
 import Card from '../content/Card';
 import Tag from '../content/Tag';
+import styles from './BlogPost.module.scss';
 
 interface BlogPostProps {
   post: BlogPostType;
@@ -30,8 +31,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
 
   return (
     <Container as="article" padding="small">
-      <header style={{ marginBottom: '2rem' }}>
-        <nav style={{ marginBottom: '1rem' }}>
+      <header className='mb-xl'>
+        <nav className='mb-sm'>
           <Link className="snap-link snap-read-more" href="/blog">
             ← Back to all posts
           </Link>
@@ -40,7 +41,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
           <img
             src={post.image}
             alt={post.title}
-            style={{ width: '100%', objectFit: 'cover', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
+            className={styles['blog-post-image']}
             loading="lazy"
           />
         )}
@@ -61,9 +62,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
             <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
-        <p style={{ color: '#fff', fontSize: '1.125rem', marginBottom: 0 }}>{post.description}</p>
+        <p>{post.description}</p>
       </header>
-      <section style={{ marginBottom: '2rem' }}>
+      <section className='mb-xl'>
         <MarkdownRenderer content={post.content} showTableOfContents={true} />
       </section>
       <footer style={{ borderTop: '1px solid #e5e7eb', paddingTop: '2rem', marginTop: '2rem' }}>
