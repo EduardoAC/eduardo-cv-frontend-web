@@ -58,16 +58,6 @@
     margin-bottom: 30px;
   }
 
-  .alert-danger {
-    background-color: #f2dede;
-    border-color: #ebccd1;
-    color: #a94442;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-  }
-
   p {
     margin-bottom: 15px;
     color: #666;
@@ -93,23 +83,7 @@ html {
 
 /* Print styles - hide navbar when printing */
 @media print {
-  .navbar,
-  .navbar-collapse {
+  .navbar {
     display: none !important;
   }
-
-  .container-fluid {
-    padding-top: 0 !important;
-  }
-}
-
-.timeline {
-  list-style: none;
-  padding: 20px 0 20px;
-  position: relative;
-}
-
-.timeline > li > .timeline-panel {
-  width: 50%;
-  float: left;
 }
