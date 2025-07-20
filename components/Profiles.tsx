@@ -21,7 +21,7 @@ const profiles: ProfileItem[] = [
   },
   {
     title: 'Mentor',
-    imgUrl: '/images/backend-developer.png',
+    imgUrl: '/images/mentor-profile.webp',
     link: '/mentor-profile',
   },
   {
