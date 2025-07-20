@@ -19,6 +19,10 @@
   text-align: left;
 }
 
+.text-align-center {
+  text-align: center;
+}
+
 .snap-img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
