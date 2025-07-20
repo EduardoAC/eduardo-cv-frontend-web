@@ -13,6 +13,7 @@ export interface Review {
 
 interface ReviewsGridProps {
   reviews: Review[];
+  initialCount?: number;
 }
 
 function Stars({ rating }: { rating: number }) {
@@ -38,35 +39,52 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-export default function ReviewsGrid({ reviews }: ReviewsGridProps) {
+export default function ReviewsGrid({ reviews, initialCount = 3 }: ReviewsGridProps) {
+  const hasMore = reviews.length > initialCount;
+  const toggleId = `toggle-reviews-${Math.random().toString(36).slice(2)}`;
   return (
-    <div className={`snap-grid ${styles.grid}`}> 
-      {reviews.map((review, idx) => (
-        <div
-          className={`snap-col snap-col-sm-6 snap-col-md-4 snap-col-lg-3 ${styles.card}`}
-          key={idx}
-        >
-          <div className={styles.avatarRow}>
-            <img src={review.image} alt={review.name} className={styles.avatar} />
-            <div>
-              <div className={styles.name}>{review.name}</div>
-              <div className={styles.title}>{review.title}</div>
-              <div className={styles.date}>{review.date}</div>
+    <div className={styles.reviewsGridWrapper}>
+      <input type="checkbox" id={toggleId} className={styles.toggleCheckbox} />
+      <div className={styles.gridWrapper}>
+        <div className={`snap-grid ${styles.grid}`}> 
+          {reviews.map((review, idx) => (
+            <div
+              className={
+                idx < initialCount
+                  ? `snap-col snap-col-sm-6 snap-col-md-4 snap-col-lg-3 ${styles.card}`
+                  : `snap-col snap-col-sm-6 snap-col-md-4 snap-col-lg-3 ${styles.card} ${styles.hiddenReview}`
+              }
+              key={idx}
+            >
+              <div className={styles.avatarRow}>
+                <img src={review.image} alt={review.name} className={styles.avatar} />
+                <div>
+                  <div className={styles.name}>{review.name}</div>
+                  <div className={styles.title}>{review.title}</div>
+                  <div className={styles.date}>{review.date}</div>
+                </div>
+              </div>
+              <div className={styles.text}>{review.text}</div>
+              {typeof review.rating === 'number' && (
+                <Stars rating={review.rating} />
+              )}
+              {review.badges && review.badges.length > 0 && (
+                <div className={styles.badges}>
+                  {review.badges.map((badge, i) => (
+                    <span className={styles.badge} key={i}>{badge}</span>
+                  ))}
+                </div>
+              )}
             </div>
-          </div>
-          <div className={styles.text}>{review.text}</div>
-          {typeof review.rating === 'number' && (
-            <Stars rating={review.rating} />
-          )}
-          {review.badges && review.badges.length > 0 && (
-            <div className={styles.badges}>
-              {review.badges.map((badge, i) => (
-                <span className={styles.badge} key={i}>{badge}</span>
-              ))}
-            </div>
-          )}
+          ))}
         </div>
-      ))}
+      </div>
+      {hasMore && (
+        <label htmlFor={toggleId} className={styles.seeMoreBtn}>
+          <span className={styles.showMoreText}>See more</span>
+          <span className={styles.showLessText}>See less</span>
+        </label>
+      )}
     </div>
   );
 } 

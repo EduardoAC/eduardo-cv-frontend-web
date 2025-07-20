@@ -63,4 +63,48 @@
   font-size: 0.85rem;
   font-weight: 500;
   white-space: nowrap;
+}
+
+.seeMoreBtn {
+  margin: 1.5rem auto 0 auto;
+  display: block;
+  background: #1e90ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.seeMoreBtn:hover, .seeMoreBtn:focus {
+  background: #0074cc;
+} 
+
+.reviewsGridWrapper {
+  position: relative;
+}
+
+.toggleCheckbox {
+  display: none;
+}
+
+.hiddenReview {
+  display: none;
+}
+
+.toggleCheckbox:checked ~ .gridWrapper .grid .hiddenReview {
+  display: block;
+}
+
+.showLessText {
+  display: none;
+}
+
+.toggleCheckbox:checked ~ .seeMoreBtn .showMoreText {
+  display: none;
+}
+.toggleCheckbox:checked ~ .seeMoreBtn .showLessText {
+  display: inline;
 } 
