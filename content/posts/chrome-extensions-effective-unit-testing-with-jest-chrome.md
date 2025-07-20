@@ -7,10 +7,6 @@ tags: ["Testing", "Chrome Extensions", "JavaScript", "Web Development"]
 image: "https://cdn-images-1.medium.com/max/800/1*5pHlUO6cs1jhiWdc2F0WbA.png"
 ---
 
-### Chrome Extensions: Effective Unit Testing with jest-chrome
-
-![Chrome extensions: Effective unit testing mocking Chrome API using jest-chrome](https://cdn-images-1.medium.com/max/800/1*5pHlUO6cs1jhiWdc2F0WbA.png)
-
 When we develop software, we cannot do it without talking about testing. Testing provides a reliable way to validate our changes, provide context on how the code is expected to work and document the projects to a certain extent. We need to understand that the value of the software we deliver is directly proportional to the trust and reliability of our system. Therefore, we need to start our journey by making our extension robust and reliable, which can only be done by understanding the principles behind testing our product.
 
 As there aren’t many articles regarding browser extension testing, I have decided to write about how I do testing, which tools I use at different levels, and what testing strategies I follow for such a technology. Hopefully, by the end of these articles, you will have the basics and required knowledge to apply testing to your extensions.

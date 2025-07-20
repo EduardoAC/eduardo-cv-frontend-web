@@ -7,11 +7,7 @@ tags: ["TDD", "Web Development", "JavaScript"]
 image: "https://cdn-images-1.medium.com/max/800/1*ksdpItuqJJshToI3D39RaQ.png"
 ---
 
-### Decoding TDD Choices: Scenarios vs. Components Unveiled
-
 Today I started as any other day, but I came across an interesting challenge, **what kind of test should we put in our suit** (describe - jasmine) **scenarios or components** and **how do we need to express the specs** (it - jasmine) **by cases or features**?
-
-![](https://cdn-images-1.medium.com/max/800/1*ksdpItuqJJshToI3D39RaQ.png)
 
 One of my colleges hold that the right thing to do it’s use our suit to describe each scenario where each one contain a set of cases (edge cases, must have, etc). Meanwhile another argue that our suit should reference our component where inside we test each feature to make sure, it does what you expect from it. What is the right approach you may ask? Let’s first put some context behind each approach
 

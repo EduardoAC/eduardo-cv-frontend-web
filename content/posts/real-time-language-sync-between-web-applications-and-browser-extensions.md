@@ -7,10 +7,6 @@ tags: ["Web Development", "Internationalization", "Browser Extensions", "React"]
 image: "https://cdn-images-1.medium.com/max/1200/1*gvSFrphUYek3QPjKyS8G6A.png"
 ---
 
-### Real-time Language Sync Between Web Applications and Browser Extensions
-
-![](https://cdn-images-1.medium.com/max/1200/1*gvSFrphUYek3QPjKyS8G6A.png)
-
 **Real-time Language Sync Between Web Applications and Browser Extensions**
 
 In previous articles, I went into an efficient implementation of internationalisation using [react-i18next](https://medium.com/@byeduardoac/using-react-i18next-within-chrome-extension-manifest-v3-1d6f16a43556) for browser extensions and discussed the usage of [event-driven models using messages](https://medium.com/@byeduardoac/optimizing-chrome-extensions-state-and-communication-in-react-c8dadfd32a45), so I assumed you were already familiar with them. If you still need to read those, I encourage you to do so, as they set the groundwork for the content in this article.

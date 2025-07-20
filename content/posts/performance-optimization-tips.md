@@ -7,8 +7,6 @@ tags: ["Performance", "Web Development", "Core Web Vitals", "Optimization", "Jav
 image: "/images/blog/performance-optimization.png"
 ---
 
-# Performance Optimization Tips for Modern Web Applications
-
 Performance is crucial for user experience and SEO success. In today's fast-paced digital world, users expect websites to load quickly and respond instantly. This guide covers essential performance optimization techniques that every web developer should know.
 
 ## Understanding Core Web Vitals

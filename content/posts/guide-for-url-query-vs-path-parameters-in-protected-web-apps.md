@@ -7,10 +7,6 @@ tags: ["Web Development", "URL Design", "Best Practices", "Frontend"]
 image: "https://cdn-images-1.medium.com/max/800/1*_lYgrsuvEetZRynWM4U5oA.png"
 ---
 
-### Guide for URL Query vs Path Parameters in Protected Web Apps
-
-![Using standardised REST API practices to Web Application URLs](https://cdn-images-1.medium.com/max/800/1*_lYgrsuvEetZRynWM4U5oA.png)
-
 Using standardised REST API practices to Web Application URLs
 
 Recently, I had an engaging discussion about the best way to structure parameters within a website’s URL. It reminded me of my earlier work on eCommerce platforms between 2016 and 2018, where optimising URL structures was crucial. Since then, I’ve been focused on Fintech and credential-protected products, where URL structuring became less critical.
