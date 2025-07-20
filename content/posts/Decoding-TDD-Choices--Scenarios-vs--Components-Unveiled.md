@@ -5,6 +5,7 @@ date: "2016-08-23"
 author: "Eduardo Aparicio Cárdenes"
 tags: ["TDD", "Web Development", "JavaScript"]
 image: "https://cdn-images-1.medium.com/max/800/1*ksdpItuqJJshToI3D39RaQ.png"
+---
 
 ### Decoding TDD Choices: Scenarios vs. Components Unveiled
 
@@ -18,7 +19,7 @@ One of my colleges hold that the right thing to do it’s use our suit to descri
 
 ### Scenario and case
 
-This approach consider each of our suit as an scenario, a _hypothetical story to help the tester work through a complex problem or test system,_ where we build for test a specific piece of functionality in our code like a function, feature, component (React component), etc. _from now on i will use feature even can apply to multiples elements._
+This approach consider each of our suit as an scenario, a _hypothetical story to help the tester work through a complex problem or test system,_ where we build for test a specific piece of functionality in our code like a function, feature, component (React component), etc. _from now on i will use feature even can apply to multiples elements.
 
 This help us to understand what it does our new feature before we implement it that process require knowledge to define the most relevant set of potential scenarios that we want to test for that particular feature really useful when we try to build functionally that we fully understand and what cases should pass in order to have the expected behaviour.
 

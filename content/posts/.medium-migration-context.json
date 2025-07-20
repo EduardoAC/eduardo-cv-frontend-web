@@ -1,0 +1,31 @@
+{
+  "migration_notes": "This file tracks the migration status and gist restoration for all Medium-imported articles.",
+  "articles": [
+    {
+      "slug": "real-time-language-sync-between-web-applications-and-browser-extensions",
+      "gists": [
+        "EduardoAC/29065b731cd7bddd4cc1694b013049c9",
+        "EduardoAC/703da1fe9ed2cfe3e5f019f70db28b7b",
+        "EduardoAC/9bef28da89d3a1144d98a312acd6164d",
+        "EduardoAC/330d198a146d3d8df9691c47b27866d1",
+        "EduardoAC/35ba733a64854993483ab543de066aa4",
+        "EduardoAC/1261f807ee1889c9c3625155fda08ade",
+        "EduardoAC/3e959b65d287528487bf33c20d698433",
+        "EduardoAC/402c06165f11646a70e3a354e5838d12"
+      ],
+      "status": "gists-restored"
+    },
+    {
+      "slug": "chrome-extensions-effective-unit-testing-with-jest-chrome",
+      "gists": [
+        "EduardoAC/88194dda3d1e107b05c7d56e857835b3",
+        "EduardoAC/000b1e39a6ec10a892e7c6cd93730a53",
+        "EduardoAC/a93bb566ebdbbb1e67ca02e1dbe39ee8",
+        "EduardoAC/a56f190b99302fde8b6f7e1650b499ab",
+        "EduardoAC/cc58b1fe8d922ab990a79942853d0cb6",
+        "EduardoAC/eeb457de36941e2e4bc04e807b766a20"
+      ],
+      "status": "gists-restored"
+    }
+  ]
+} 
