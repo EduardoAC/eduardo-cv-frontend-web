@@ -14,7 +14,7 @@ interface BlogListProps {
 
 export function BlogList({ posts }: BlogListProps) {
   return (
-    <Container as="section" variant="default" padding="small" aria-label="Blog posts list">
+    <section aria-label="Blog posts list">
       {posts.length === 0 ? (
         <p>No posts found.</p>
       ) : (
@@ -26,7 +26,7 @@ export function BlogList({ posts }: BlogListProps) {
           ))}
         </ul>
       )}
-    </Container>
+    </section>
   );
 };
 

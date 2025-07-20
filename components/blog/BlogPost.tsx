@@ -30,7 +30,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
   ];
 
   return (
-    <Container as="article" padding="small">
+    <Container as="article" padding="small" variant="wide">
       <header className='mb-sm'>
         <nav className='mb-sm'>
           <Link className="snap-link snap-read-more" href="/blog">
