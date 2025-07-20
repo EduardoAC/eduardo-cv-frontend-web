@@ -37,7 +37,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
             ← Back to all posts
           </Link>
         </nav>
-        <h1 className="snap-heading-h1">{post.title}</h1>
+        <h1 className="text-align-left">{post.title}</h1>
         <div className="snap-meta">
           <time dateTime={post.date} style={{ marginRight: '1rem' }}>
             {new Date(post.date).toLocaleDateString('en-GB', {
