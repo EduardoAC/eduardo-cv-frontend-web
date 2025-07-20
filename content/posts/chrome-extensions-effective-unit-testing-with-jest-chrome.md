@@ -4,7 +4,7 @@ description: "Learn how to effectively perform unit testing for Chrome extension
 date: "2024-06-07"
 author: "eduardo aparicio cardenes"
 tags: ["Testing", "Chrome Extensions", "JavaScript", "Web Development"]
-image: "https://cdn-images-1.medium.com/max/800/1*5pHlUO6cs1jhiWdc2F0WbA.png"
+image: "/images/blog/chrome-extensions-effective-unit-testing-with-jest-chrome-frontmatter.png"
 ---
 
 When we develop software, we cannot do it without talking about testing. Testing provides a reliable way to validate our changes, provide context on how the code is expected to work and document the projects to a certain extent. We need to understand that the value of the software we deliver is directly proportional to the trust and reliability of our system. Therefore, we need to start our journey by making our extension robust and reliable, which can only be done by understanding the principles behind testing our product.
@@ -51,7 +51,7 @@ Following the message trace, we find ourselves in the background script, which p
 
 To centralise all the different messages, we have created a “messageHandler” that delegates each message to the relevant handler type. For example, a message with the rating type will be sent to our “ratingMessageHandler”, responsible for everything related to ratings. In our project example, the rating can have two subtypes: **get** to retrieve a rating for a specific page or **update** to create or update the rating for the page as indicated by the content script message. Any other message will be treated as an error, and an error response will be sent immediately.
 
-![](https://cdn-images-1.medium.com/max/800/1*5ED-Geg2-Q9h5SdUvSRFcw.png)
+![](/images/blog/chrome-extensions-effective-unit-testing-with-jest-chrome-markdown.png)
 
 Message Handler Delegation Architecture
 

@@ -4,12 +4,12 @@ description: "Recently one of my colleagues flagged the fact that our pre-commit
 date: "2020-08-15"
 author: "eduardo aparicio cardenes"
 tags: ["Developer Experience", "Git", "Pre-commit", "Productivity"]
-image: "https://cdn-images-1.medium.com/max/800/1*9jdNU3Z-aJKHGU0Mca9SYg.jpeg"
+image: "/images/blog/analysing-slowness-pre-commit-setup-frontmatter.jpeg"
 ---
 
 ### Analysing slowness pre-commit setup
 
-![Analysing slowness pre-commit setup—husky](https://cdn-images-1.medium.com/max/800/1*9jdNU3Z-aJKHGU0Mca9SYg.jpeg)
+![Analysing slowness pre-commit setup—husky](/images/blog/analysing-slowness-pre-commit-setup-frontmatter.jpeg)
 
 Recently one of my colleagues flagged the fact that our pre-commit validation was taking a long execution time, causing a bad developer experience. This slowness concern kept me thinking why we spend over 3 minutes in this particular repository to validate a low number of changes made in comparison with our existing setups in other repositories.
 
@@ -26,7 +26,7 @@ When we looked into our repository to analyse the root cause of the slowness pro
  …
  “scrips”: {
   …
-  “format”:“prettier — write \”**/*.+(js|ts|jsx|tsx|json|css|md)\””,
+  “format”:“prettier — write \\"**/*.+(js|ts|jsx|tsx|json|css|md)\\"””,
   “lint”:“eslint — fix — ext .js,.jsx,.ts,.tsx, src”
   “test”:“jest”,
  },
@@ -92,7 +92,7 @@ We have defined a simple sample case:
 
 - Add one line to a single file “src/constants/booking.js”
 
-![Test case addition](https://cdn-images-1.medium.com/max/800/0*84J_e_ToulIEUs88)
+![Test case addition](/images/blog/analysing-slowness-pre-commit-setup-markdown.png)
 
 Currently, we are using the object “locationTypes” to allow us to pick which location to display for a particular data point on our shipment timeline. This specific change will bubble up over two levels affecting our experience for one of our pages, so it’s an excellent example to illustrate the impact on overall execution time by how the addition of a constant.
 
@@ -102,7 +102,7 @@ Currently, we are using the object “locationTypes” to allow us to pick which
 
 The average execution time for the current “pre-commit” for ten executions is 2 minutes on average. However, we have seen up to 3.5 minutes in worst-case scenarios.
 
-![Pre-commit execution time](https://cdn-images-1.medium.com/max/800/1*aTH0nN8CXVR1GXPNKtKc8g.png)
+![Pre-commit execution time](/images/blog/analysing-slowness-pre-commit-setup-markdown-1.png)
 
 The picture above illustrates the worst-case scenario where we have a considerable execution time due mainly to ESLint.
 
@@ -152,7 +152,7 @@ Be aware that the test will keep executing over the whole repository to keep our
 
 As a result, we can see a reduction of time by ⅔ of the previous evaluation even we keep running all the test in the repository.
 
-![Lint-staged improvement](https://cdn-images-1.medium.com/max/800/1*msI5UvU2jVBCyDdMk9eHaQ.png)
+![Lint-staged improvement](/images/blog/analysing-slowness-pre-commit-setup-markdown-2.png)
 
 Although the test suites have run faster on the image above they only contribute 9% of the overall improvement so we can conclude that the new approach is improving our experience significantly.
 
@@ -194,7 +194,7 @@ Therefore, let’s define our final experiment by
 
 ##### Conclusions
 
-![Related test improvement](https://cdn-images-1.medium.com/max/800/1*smVZG7fOmPQ5MAvYBYx4CA.png)
+![Related test improvement](/images/blog/analysing-slowness-pre-commit-setup-markdown-2.png)
 
 We can see a slight reduction in execution time which may not be as significant as previous change. However, we need to account for the extra time to find the related times and the small number of tests currently in our repository which have 45 test suites.
 
