@@ -7,10 +7,6 @@ tags: ["Chrome Extensions", "Internationalization", "React", "i18next"]
 image: "/images/blog/using-react-i18next-within-chrome-extension-manifest-v3-frontmatter.jpg"
 ---
 
-### Using react-i18next within Chrome extension (manifest v3)
-
-![Architecture diagram](/images/blog/using-react-i18next-within-chrome-extension-manifest-v3-frontmatter.jpg)
-
 A few years ago, I found myself driving the creation of Chrome extensions, where I work on displaying large data sets to provide relevant content to its users. Mainly focused on scaling and improving extension resilience.
 
 For context, the extension stack uses mainly **React and Redux** for the time being.
