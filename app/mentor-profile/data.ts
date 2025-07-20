@@ -22,6 +22,17 @@ export const certificate = {
   preview: "/images/mentor-profile/certified-mentor-light.png"
 };
 
-export const intro = `
-  Over the past 2+ years, I've mentored dozens of professionals and students through platforms like ADPList and Mentoring Club. My focus is on career growth, technical excellence, and personal development in software engineering and leadership.
-`; 
+export const intro = [
+  `<p>I'm Eduardo, and I'm thrilled to be your mentor on this exciting journey in frontend development. With a passion for creating seamless user experiences, I bring 15 years of experience in mastering HTML, CSS, and JavaScript, with expertise in React, Webpack, chrome extensions and much more.</p>`,
+  `<p>As your mentor, my goal is to guide you through the essentials of frontend development, helping you excel in core skills, frameworks, responsive design, collaboration using version control, and optimizing website performance. Let's work together to elevate your skills and create impactful, user-centric solutions.</p>`,
+  `<p>Looking forward to a collaborative and enriching mentoring experience!</p>`,
+  `<strong>My Mentoring Topics</strong>`,
+  `<ul>
+    <li><strong>Core Skills:</strong> Master HTML, CSS, and modern JavaScript.</li>
+    <li><strong>Technology Library Proficiency:</strong> React, Webpack, NextJS</li>
+    <li><strong>Responsive Design:</strong> Build adaptable layouts for diverse devices.</li>
+    <li><strong>Version Control and Collaboration:</strong> Efficient use of Git and collaborative workflows.</li>
+    <li><strong>Performance and Optimization:</strong> Enhance website performance through optimization.</li>
+    <li><strong>Testing:</strong> Unit tests and end-to-end testing. Cypress, Enzyme, Jest</li>
+  </ul>`
+]; 
