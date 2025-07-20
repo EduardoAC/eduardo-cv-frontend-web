@@ -17,7 +17,7 @@ export const strengths: Strength[] = [
   },
   {
     title: 'Responsive Web Design & SEO',
-    description: `<p>These elements are key in the current developments to be a good frontend developer. I understood the importance from my experience in <a href='http://www.timeincuk.com' rel='nofollow' target='_blank'>Time Inc UK</a> where we tested every change impact in pages views, sales and ad-clicks basing our measures in tools like CrazyEgg, Google Analitycs and Optimizely.</p><p>All these knowledges I acquired in this company, it allows me to put in place changes for this website to render it properly in any screen size device. In addition to use SEO elemets that improves positioning.</p>`,
+    description: `<p>These elements are key in the current developments to be a good frontend developer. I understood the importance from my experience in <a href='https://www.timeincuk.com' rel='nofollow' target='_blank'>Time Inc UK</a> where we tested every change impact in pages views, sales and ad-clicks basing our measures in tools like CrazyEgg, Google Analitycs and Optimizely.</p><p>All these knowledges I acquired in this company, it allows me to put in place changes for this website to render it properly in any screen size device. In addition to use SEO elemets that improves positioning.</p>`,
     imgUrl: '/images/frontend/responsive-web-design.jpg',
   },
   {

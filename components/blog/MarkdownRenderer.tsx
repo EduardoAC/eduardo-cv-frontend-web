@@ -51,13 +51,13 @@ const createCustomRenderer = () => {
   };
 
   renderer.image = ({ href, title, text }) => {
-    return `<img src="${href}" alt="${text}" title="${title || ''}" loading="lazy" class="snap-blog-image" />`;
+    return `<img src="${href}" alt="${text}" title="${title ?? ''}" loading="lazy" class="snap-blog-image" />`;
   };
 
   renderer.link = ({ href, title, text }) => {
     const isExternal = href.startsWith('http');
     const target = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
-    return `<a href="${href}" title="${title || ''}"${target} class="snap-link">${text}</a>`;
+    return `<a href="${href}" title="${title ?? ''}"${target} class="snap-link">${text}</a>`;
   };
 
   renderer.blockquote = ({ text }) => {
