@@ -1,6 +1,7 @@
 /* --- Components: Card --- */
 .snap-card {
   display: block;
+  width: 100%;
   background: var(--snap-card-bg, #fff);
   border: 1px solid var(--snap-card-border, #e5e7eb);
   border-radius: 0.5rem;
