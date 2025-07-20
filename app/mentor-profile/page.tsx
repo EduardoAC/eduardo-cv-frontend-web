@@ -29,6 +29,9 @@ export default function MentorProfilePage() {
               </h2>
             </div>
             <p>{platform.description}</p>
+            {platform.bookingWidget && (
+              <div style={{ margin: '2rem 0' }} dangerouslySetInnerHTML={{ __html: platform.bookingWidget }} />
+            )}
             {reviews && (
               <div className={styles.reviewsSection}>
                 <h3>Reviews</h3>
