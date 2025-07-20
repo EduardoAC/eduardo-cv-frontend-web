@@ -1,50 +1,6 @@
 @import './mixins';
 
-// Utility classes
-.gradient-pattern {
-  @include gradient-pattern;
-}
-
-.flex-center {
-  @include flex-center;
-}
-
-.responsive-image {
-  @include responsive-image;
-}
-
 // Text utilities
-.text-white {
-  color: white;
-}
-
 .text-center {
   text-align: center;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-// Spacing utilities
-.mb-30 {
-  margin-bottom: 30px;
-}
-
-.mb-40 {
-  margin-bottom: 40px;
-}
-
-.p-60 {
-  padding: 60px 0;
-}
-
-// Link utilities
-.link-primary {
-  color: #007bff;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 } 

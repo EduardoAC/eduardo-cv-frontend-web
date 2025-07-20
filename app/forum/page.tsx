@@ -34,7 +34,7 @@ export default function ForumPage() {
         />
       </div>
       <h1>Coming soon</h1>
-      <p>I'm working on this section. Please come back later.</p>
+      <p className='text-center'>I'm working on this section. Please come back later.</p>
     </section>
   )
 } 
