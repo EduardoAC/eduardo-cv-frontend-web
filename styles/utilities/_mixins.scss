@@ -89,13 +89,6 @@
   }
 }
 
-// Content container mixin for constrained content
-@mixin content-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
 // Flex center mixin
 @mixin flex-center {
   display: flex;
@@ -109,20 +102,4 @@
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-// Transition hover mixin
-@mixin transition-hover {
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
-}
-
-// Component base mixin for common component patterns
-@mixin component-base {
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
 }
