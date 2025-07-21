@@ -23,6 +23,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_URL: https://eduardo-aparicio-cardenes.website
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
