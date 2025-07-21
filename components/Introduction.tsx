@@ -10,7 +10,7 @@ export default function Introduction() {
           type="image/webp"
         />
         <Image
-          src="/images/introduction-image-1280-optimized.jpg"
+          src="/images/introduction-image-1280-optimized-1280.webp"
           alt="Eduardo Aparicio Cardenes Introduction"
           width={1280}
           height={853}
