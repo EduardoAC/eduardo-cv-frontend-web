@@ -11,7 +11,7 @@ interface ProfileItem {
 const profiles: ProfileItem[] = [
   {
     title: 'frontend developer',
-    imgUrl: '/images/frontend-developer.png',
+    imgUrl: '/images/frontend/frontend-development-profile.webp',
     link: '/frontend-profile',
   },
   {
@@ -26,7 +26,7 @@ const profiles: ProfileItem[] = [
   },
   {
     title: 'backend developer',
-    imgUrl: '/images/backend-developer.png',
+    imgUrl: '/images/backend/backend-development-profile.webp',
     link: '/backend-profile',
   },
 ]

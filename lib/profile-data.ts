@@ -19,7 +19,7 @@ export const profileData: ProfileData = {
   frontend: {
     title: 'Frontend Developer',
     description: 'Frontend Developer Profile',
-    openGraphImage: '/images/frontend-developer-optimized-1280.webp',
+    openGraphImage: '/images/frontend/frontend-development-profile.webp',
     linkedInUrl: 'https://www.linkedin.com/in/eacardenes',
     introduction: [
       'I have been working as a frontend developer for the last five years, more specifically I swapped from HTML4 & CSS2 to HTML5 & CSS3 three years ago. I got strong experience developing complex JS systems using OOP, prototyping and design patterns to maximize performance and user experience.',
@@ -57,7 +57,7 @@ export const profileData: ProfileData = {
   backend: {
     title: 'Backend Developer',
     description: 'Backend Developer Profile',
-    openGraphImage: '/images/backend-developer-optimized-1280.webp',
+    openGraphImage: '/images/backend/backend-development-profile.webp',
     linkedInUrl: 'https://www.linkedin.com/in/eacardenes',
     introduction: [
       'I did backend developments as web developer for many years and I\'m still doing sometimes when it\'s required. It\'s a part of myself to try to achieve the best result possible doing when need to be done. I\'ve involved in this area for the last five years sometimes as a contractor, a employee and others in my personal projects. I understand well how the back end works and how to build it from scratch.',
