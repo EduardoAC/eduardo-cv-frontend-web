@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import styles from './Introduction.module.scss'
 
 export default function Introduction() {
@@ -7,16 +6,17 @@ export default function Introduction() {
       <picture>
         <source
           srcSet="/images/introduction-image-1280-optimized-640.webp 640w, /images/introduction-image-1280-optimized-1280.webp 1280w, /images/introduction-image-1280-optimized-1920.webp 1920w"
+          sizes="(max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px"
           type="image/webp"
         />
-        <Image
+        <img
           src="/images/introduction-image-1280-optimized-1280.webp"
           alt="Eduardo Aparicio Cardenes Introduction"
           width={1280}
           height={853}
           className="snap-img-fluid"
-          priority
           sizes="(max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px"
+          srcSet="/images/introduction-image-1280-optimized-640.webp 640w, /images/introduction-image-1280-optimized-1280.webp 1280w, /images/introduction-image-1280-optimized-1920.webp 1920w"
         />
       </picture>
       <div className={styles['title-block']}>
