@@ -56,8 +56,8 @@
 }
 
 .badge {
-  background: #1e90ff;
-  color: #fff;
+  background: var(--snap-tag-bg, #f3f4f6);
+  color: var(--snap-tag-color, #374151);
   border-radius: 12px;
   padding: 0.25rem 0.75rem;
   font-size: 0.85rem;

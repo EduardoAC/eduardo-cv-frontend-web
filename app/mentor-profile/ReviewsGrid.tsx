@@ -80,7 +80,7 @@ export default function ReviewsGrid({ reviews, initialCount = 3 }: ReviewsGridPr
         </div>
       </div>
       {hasMore && (
-        <label htmlFor={toggleId} className={styles.seeMoreBtn}>
+        <label htmlFor={toggleId} className={`${styles.seeMoreBtn} text-align-center`}>
           <span className={styles.showMoreText}>See more</span>
           <span className={styles.showLessText}>See less</span>
         </label>
