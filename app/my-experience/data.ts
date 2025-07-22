@@ -106,7 +106,7 @@ export const experienceList: Experience[] = [
         position: 'Senior Frontend Engineer',
         logo: '/images/companies/moneyfarm-logo.png',
         description: `<ul>
-<li>Led Frontend Architecture with a team of seven engineers</li>
+<li>Led Frontend Architecture within a team of seven engineers</li>
 <li>Migrated legacy Groovy pages into React</li>
 <li>Moved from Nginx to AWS CloudFront</li>
 <li>Optimised developer experience through improving tooling and processes</li>
@@ -141,11 +141,16 @@ export const experienceList: Experience[] = [
         startDate: 'March 2016',
         endDate: 'October 2016',
         company: 'Ocado',
-        position: 'Senior Web Developer',
+        position: 'Frontend Developer',
         logo: '/images/companies/ocado-technology-logo.webp',
-        description: '',
+        description: `<ul>
+<li>Support the development of a Whitelabel B2C platform for grocery retail called OSP, with Morrisons as our first customer.</li>
+<li>Successfully delivered the Minimum Viable Product (MVP) for customers.</li>
+<li>Collaborated with designers to build a design system, facilitating fast integration and customizable UI.</li>
+<li>Mentored the team on unit testing and acceptance testing using Jasmine and SinonJS.</li>
+</ul>`,
         articles: [],
-        technologies: [],
+        technologies: ['BackboneJS', 'React', 'Redux', 'Jasmine', 'SinonJS', 'Tailor Design system'],
     },
     {
         startDate: 'December 2015',

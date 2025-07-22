@@ -51,6 +51,10 @@
 .mb-sm {
     margin-bottom: var(--spacing-sm);
 }
+.mv-sm {
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
 
 .mb-xl {
     margin-bottom: var(--spacing-xl);

@@ -46,8 +46,8 @@ export default function ExperienceBlock({
           <div dangerouslySetInnerHTML={{ __html: description }}></div>
           {technologies.length > 0 && (
             <div className={styles.technologies}>
-              <strong className='mb-sm'>Technologies:</strong>
-              <div className={styles.tech_icons}>
+              <strong>Technologies:</strong>
+              <div className={`${styles.tech_icons} mv-sm`}>
                 {technologies.map((tech) => (
                   <Tag key={tech}>{tech}</Tag>
                 ))}
