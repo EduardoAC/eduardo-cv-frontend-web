@@ -22,8 +22,8 @@ export default function ExperienceBlock({
     <div className={styles.experience_block}>
       <div className={styles.timeline_dot}></div>
       <div className={styles.date_range}>
-        <span>{startDate}</span>
         <span>{endDate}</span>
+        <span>{startDate}</span>
       </div>
       <div className={styles.content}>
         <div className={styles.logo_container}>
