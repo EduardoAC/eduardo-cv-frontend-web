@@ -144,6 +144,8 @@ export const experienceList: Experience[] = [
         position: 'Senior Web Developer',
         logo: '/images/companies/ocado-technology-logo.webp',
         description: '',
+        articles: [],
+        technologies: [],
     },
     {
         startDate: 'December 2015',
@@ -152,6 +154,8 @@ export const experienceList: Experience[] = [
         position: 'Freelance Web Developer',
         logo: '',
         description: '',
+        articles: [],
+        technologies: [],
     },
     {
         startDate: 'August, 2014',
