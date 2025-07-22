@@ -403,7 +403,7 @@ Use environment variables for configuration:
 ```typescript
 // Environment configuration
 const config = {
-  apiUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000',
+  apiUrl: process.env.NEXT_PUBLIC_API_URL || 'http://eduardo-aparicio-cardenes.website',
   environment: process.env.NODE_ENV || 'development',
   sentryDsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
   analyticsId: process.env.NEXT_PUBLIC_GA_ID,
