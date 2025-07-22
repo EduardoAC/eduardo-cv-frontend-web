@@ -55,7 +55,7 @@ export default function ExperienceBlock({
             </div>
           )}
           {articles.length > 0 && (
-            <div className={styles.articles}>
+            <div className={`${styles.articles} text-align-left`}>
               <strong>Articles:</strong>
               <ul>
                 {articles.map((article) => (
