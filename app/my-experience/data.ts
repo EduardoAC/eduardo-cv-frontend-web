@@ -5,9 +5,154 @@ interface Experience {
   position: string;
   description: string;
   logo?: string;
+  articles?: { title: string; slug: string }[];
+  technologies?: string[];
 }
 
 export const experienceList: Experience[] = [
+    {
+        startDate: 'March 2025',
+        endDate: 'Present',
+        company: 'Happening',
+        position: 'Senior Frontend Engineer',
+        logo: '',
+        description: `<ul>
+<li>Engineering excellence with initiatives in continuous deployment, testing strategy, web performance, and contract-driven development.</li>
+<li>Upskilled the team and provided technical direction.</li>
+<li>Mentored and sponsored technical initiatives.</li>
+</ul>`,
+        articles: [
+            { title: 'React Higher-Order Components vs Vue.js Slots: A Dynamic Components Comparison', slug: 'react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison' },
+        ],
+        technologies: ['VueJS', 'TypeScript', 'Pinia', 'Vite'],
+    },
+    {
+        startDate: 'Oct 2023',
+        endDate: 'Present',
+        company: 'The Mentoring Club & ADPList.org',
+        position: 'Certified Mentor',
+        logo: '/images/companies/adplist-logo-light.png',
+        description: `<ul>
+<li>Fostered collaboration and knowledge-sharing among team members.</li>
+<li>Leveraged technical expertise to assist in problem-solving.</li>
+<li>Contributed to the overall success and growth of each team member in a motivating career environment.</li>
+</ul>`,
+        articles: [
+            { title: 'Strategic Mentorship: Maximising Impact with New Joiners', slug: 'strategic-mentorship-maximising-impact-with-new-joiners' },
+        ],
+        technologies: [],
+    },
+    {
+        startDate: 'June 2024',
+        endDate: 'December 2024',
+        company: 'OakNorth',
+        position: 'Staff Frontend Engineer',
+        logo: '',
+        description: `<ul>
+<li>Led the Design System transformation to increase adoption and time to market.</li>
+<li>Provided specialised expertise to solve unsolvable problems from the existing engineering team.</li>
+<li>Mentored and sponsored technical initiatives.</li>
+</ul>`,
+        articles: [
+            { title: 'Form Fields the Never-ending Debate Inner vs Outer Spacing', slug: 'form-fields-the-never-ending-debate-inner-vs-outer-spacing' },
+            { title: 'Guide for URL Query vs Path Parameters in Protected Web Apps', slug: 'guide-for-url-query-vs-path-parameters-in-protected-web-apps' },
+            { title: 'Leveraging Metrics to Communicate Business Value', slug: 'leveraging-metrics-to-communicate-business-value' },
+        ],
+        technologies: ['React', 'React Native', 'TypeScript', 'TanStack', 'Vite', 'Cypress', 'TanStack Query', 'NextJS'],
+    },
+    {
+        startDate: 'November 2020',
+        endDate: 'June 2024',
+        company: 'Skimlinks',
+        position: 'Principal Software Engineer',
+        logo: '',
+        description: `<ul>
+<li>Led the frontend team through a transition period, providing guidance, support, and mentorship to ensure continuity and efficiency in project delivery.</li>
+<li>Collaborated closely with cross-functional teams, including product management and stakeholders, to define and prioritise the quarterly roadmap, aligning technical efforts with business objectives.</li>
+<li>Championed continuous improvement initiatives in Frontend development processes, tools, and technologies, driving innovation and efficiency across the team.</li>
+<li>Delegated tasks and responsibilities effectively, empowering team members to take ownership of specific work areas while fostering a collaborative and supportive work environment.</li>
+<li>Re-architected a critical Chrome extension, transitioning from Redux to an event-driven model to enhance performance and scalability, and implemented a bloom filter to reduce payload size and requests, improving user experience.</li>
+<li>Supported the company's geographical expansion by introducing internationalisation, timezone, and currency support across all platforms.</li>
+<li>Led the successful incorporation of TypeScript across five projects, impacting hundreds of components.</li>
+<li>Developed and maintained an affiliation script with over 100 million monthly clicks, ensuring cross-browser compatibility, including legacy support for IE8 across multiple regions.</li>
+</ul>`,
+        articles: [
+            { title: 'Managing Concurrency in Chrome Extensions', slug: 'managing-concurrency-in-chrome-extensions' },
+            { title: 'Optimising Chrome Extensions: Beyond Redux, Post-Manifest v3', slug: 'optimising-chrome-extensions-part-1-beyond-redux-post-manifest-v3' },
+            { title: 'Optimising Chrome Extensions: Part 2- Managing your state and communication in React', slug: 'optimizing-chrome-extensions-state-and-communication-in-react' },
+            { title: 'Using React-i18next within Chrome extension', slug: 'using-react-i18next-within-chrome-extension-manifest-v3' },
+            { title: 'Real-time Language Sync Between Web Applications and Browser Extensions', slug: 'real-time-language-sync-between-web-applications-and-browser-extensions' },
+        ],
+        technologies: ['Vanilla JS', 'React', 'Redux', 'Chrome extension', 'TypeScript', 'Jest', 'Cypress', 'TanStack Query', 'NextJS'],
+    },
+    {
+        startDate: 'May 2020',
+        endDate: 'Oct 2020',
+        company: 'Beacon',
+        position: 'Senior Software Engineer',
+        logo: '',
+        description: `<ul>
+<li>Developed Beacon's payment solution, overseeing frontend implementation and managing a remote team in India.</li>
+<li>Collaborated with stakeholders to align technical efforts with business objectives.</li>
+<li>Achieved successful delivery, driving revenue growth and user satisfaction.</li>
+</ul>`,
+        articles: [],
+        technologies: ['React', 'Redux', 'TypeScript', 'React Testing Library', 'Cypress'],
+    },
+    {
+        startDate: 'Nov 2018',
+        endDate: 'Apr 2020',
+        company: 'Moneyfarm',
+        position: 'Senior Frontend Engineer',
+        logo: '',
+        description: `<ul>
+<li>Led Frontend Architecture with a team of seven engineers</li>
+<li>Migrated legacy Groovy pages into React</li>
+<li>Moved from Nginx to AWS CloudFront</li>
+<li>Optimised developer experience through improving tooling and processes</li>
+<li>Moved from Microfrontend into Monorepositories</li>
+<li>Board member and contributor of API gateway to enable third-party integrations.</li>
+<li>Implemented effective JWT token expiration management</li>
+<li>Delivered best practices for API design</li>
+<li>Built and mentored in contract testing through swagger contracts</li>
+</ul>`,
+        articles: [
+            { title: 'Moving from Nginx to AWS CloudFront', slug: 'moving-from-nginx-to-aws-cloudfront' },
+            { title: 'Managing JWT Token Expiration', slug: 'managing-jwt-token-expiration' },
+        ],
+        technologies: ['React', 'Redux', 'TypeScript', 'Angular 1', 'Angular 2', 'Jest', 'Cypress'],
+    },
+    {
+        startDate: 'Nov 2016',
+        endDate: 'Nov 2018',
+        company: 'Zalando',
+        position: 'Frontend Developer',
+        logo: '',
+        description: `<ul>
+<li>Responsible for a team of five engineers for the career.zalando.com</li>
+<li>Zonar - Led Frontend project to support internal 30K evaluations every cycle, creating a platform with end-to-end responsibility from feedback collection cycles to outcome memo decisions from the PRC committee, including development tools that will help towards personal and professional growth</li>
+<li>CEP - Led the development of the first UI platform for CEP (Courier, Express and Parcel Services) to enable straightforward setup of warehouses, carriers and management of steering cases</li>
+<li>Built CI/CD on Jenkins using Groovy, equivalent today to Jenkins X</li>
+</ul>`,
+        articles: [],
+        technologies: ['React', 'Redux', 'TypeScript', 'Ant Design', 'Material UI', 'Groovy'],
+    },
+    {
+        startDate: 'Mar 2016',
+        endDate: 'Oct 2016',
+        company: 'Ocado',
+        position: 'Senior Web Developer',
+        logo: '',
+        description: '',
+    },
+    {
+        startDate: 'Oct 2014',
+        endDate: 'Mar 2016',
+        company: 'Ocado',
+        position: 'Contractor',
+        logo: '',
+        description: '',
+    },
     {
         'startDate':   'August, 2014',
         'endDate':     'October, 2015',
