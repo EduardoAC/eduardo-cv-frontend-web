@@ -3,14 +3,17 @@ import ContactForm from "./ContactForm";
 import styles from "./Contact.module.scss";
 import Image from "next/image";
 
-export const metadata: Metadata = {
-  title: "Contact - Eduardo Aparicio Cardenes",
-  description:
-    "Get in touch with Eduardo Aparicio Cardenes for business inquiries, collaborations, or any questions.",
-  openGraph: {
-    images: ["/images/world-wide-map-optimized.svg"],
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://eduardo-aparicio-cardenes.website';
+  return {
+    title: "Contact - Eduardo Aparicio Cardenes",
+    description:
+      "Get in touch with Eduardo Aparicio Cardenes for business inquiries, collaborations, or any questions.",
+    openGraph: {
+      images: [`${baseUrl}/images/world-wide-map-optimized.svg`],
+    },
+  };
+}
 
 export default function ContactPage() {
   return (
