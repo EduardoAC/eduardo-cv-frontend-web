@@ -5,18 +5,18 @@ import BlogPageClient from './BlogPageClient';
 
 export const metadata: Metadata = {
   title: 'Business And Technology blog | Eduardo Aparicio Cardenes',
-  description: 'Explore my latest thoughts on web development, performance optimization, and modern technologies.',
-  keywords: 'blog, web development, performance, Next.js, React, TypeScript',
+  description: 'Discover expert insights on web performance, Chrome extension mastery, frontend innovation, and software leadership from Eduardo Aparicio Cardenes.',
+  keywords: 'performance, Chrome extensions, frontend, mentorship, React, JavaScript',
   openGraph: {
     title: 'Business And Technology blog | Eduardo Aparicio Cardenes',
-    description: 'Explore my latest thoughts on web development, performance optimization, and modern technologies.',
+    description: 'Unlock expert insights on web performance, Software Architecture, Chrome extension mastery, frontend innovation, and software leadership from Eduardo Aparicio Cardenes.',
     type: 'website',
     url: 'https://eduardo-aparicio-cardenes.website/blog',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Business And Technology blog | Eduardo Aparicio Cardenes',
-    description: 'Explore my latest thoughts on web development, performance optimization, and modern technologies.',
+    description: 'Unlock expert insights on web performance, Software Architecture, Chrome extension mastery, frontend innovation, and software leadership from Eduardo Aparicio Cardenes.',
   },
 };
 

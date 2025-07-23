@@ -26,10 +26,16 @@ export function BlogLayout({
   return (
     <Container as="section" variant="default" padding="small" className={styles['blog-layout']}>
       <header className={`${styles['blog-header']}`}>
-        <h1>
+        <h1 className="text-align-left">
           Business And Technology Blog
         </h1>
-        <p>Explore my latest thoughts on web development, performance optimization, and modern technologies.</p>
+        <p>
+          Unlock advanced strategies in web performance, Software Architecture, Chrome extensions, and software leadership.
+        </p>
+        <p>
+          Learn directly from hands-on experience in real-world projects. Whether you're a developer, 
+          software architect, or tech lead, this blog offers practical insights, best practices, and advanced solutions to elevate your engineering journey.
+        </p>
       </header>
       <nav className={styles['blog-navigation']} aria-label="Main navigation">
         {onSearch && (
