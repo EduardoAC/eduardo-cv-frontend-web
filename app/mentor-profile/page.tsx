@@ -11,7 +11,9 @@ const BookingModalClient = dynamic(() => import('./BookingModalClient'), { ssr: 
 
 export const metadata = {
   title: 'Mentor Profile | Eduardo Aparicio Cárdenes',
-  description: 'Mentoring experience, platforms, and testimonials for Eduardo Aparicio Cárdenes. See where I mentor, read reviews, and view my mentoring certificate.'
+  description: 'Mentoring experience, platforms, and testimonials for Eduardo Aparicio Cárdenes. See where I mentor, read reviews, and view my mentoring certificate.',
+  openGraphImage: '/images/mentor-profile.webp',
+  linkedInUrl: 'https://www.linkedin.com/in/eacardenes',
 };
 
 export default function MentorProfilePage() {

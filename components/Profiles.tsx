@@ -16,7 +16,7 @@ const profiles: ProfileItem[] = [
   },
   {
     title: 'software architect',
-    imgUrl: '/images/software-architect.png',
+    imgUrl: '/images/software-architect/software-architect-profile-490.webp',
     link: '/software-architect-profile',
   },
   {

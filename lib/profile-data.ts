@@ -95,7 +95,7 @@ export const profileData: ProfileData = {
   'software-architect': {
     title: 'Software Architect',
     description: 'Software Architect Profile',
-    openGraphImage: '/images/software-architect-optimized-1280.webp',
+    openGraphImage: '/images/software-architect/software-architect-profile-490.webp',
     linkedInUrl: 'https://www.linkedin.com/in/eacardenes',
     introduction: [
       'I have been working on software architecture for the last five years, more specifically I focused on scalable architectures and microservices three years ago. I got strong experience designing complex systems using design patterns, SOLID principles and clean architecture to maximize maintainability and scalability.',
