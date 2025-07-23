@@ -21,9 +21,9 @@ export default function Introduction() {
       </picture>
       <div className={styles['title-block']}>
         <h1>
-          Welcome to my interactive curriculum
+          Eduardo Aparicio Cardenes
           <br />
-          My name is Eduardo Aparicio Cardenes
+          Software Architect, Frontend Engineer, Mentor and speaker
         </h1>
         <p className={`hidden-sm heading3`}>One place that define my worker soul and share with you</p>
       </div>
