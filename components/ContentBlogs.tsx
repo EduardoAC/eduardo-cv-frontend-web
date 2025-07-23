@@ -8,7 +8,7 @@ export default function ContentBlogs() {
     <section className={styles['content-blogs']}>
       <Container variant="default" padding="medium">
         <h2>Business and Technology Addiction</h2>
-        <div className="snap-grid">
+        <div className="snap-grid align-items-center">
           <div className="snap-col snap-col-md-5">
             <Image
               src="/images/ideas-content-blog-optimized-1280.webp"

@@ -8,7 +8,7 @@ export default function JobsTimeline() {
     <section className={styles['jobs-timeline']}>
       <Container variant="default" padding="medium">
         <h2 className={styles.title}>My Career Timeline</h2>
-        <div className="snap-grid">
+        <div className="snap-grid align-items-center">
           <div className="snap-col snap-col-md-7">
             <p>
               Finally I created to have a deeper idea what it's{' '}

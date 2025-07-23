@@ -8,7 +8,7 @@ export default function Greetings() {
     <section className={styles['greetings-contact']}>
       <Container variant="default" padding="medium">
         <h2>Thanks for reading my interactive curriculum</h2>
-        <div className="snap-grid">
+        <div className="snap-grid align-items-center">
           <div className="snap-col snap-col-md-5">
             <Image
               src="/images/finding-the-secrets-optimized-1280.webp"

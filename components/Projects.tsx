@@ -8,7 +8,7 @@ export default function Projects() {
     <section className={styles.projects}>
       <Container variant="default" padding="medium">
         <h2>Some of my projects</h2>
-        <div className="snap-grid">
+        <div className="snap-grid align-items-center">
           <div className="snap-col snap-col-md-7 snap-col-lg-8">
             <p>
               As part of this project that try to catch new employers and clients attention to open the door to new work opportunities.
