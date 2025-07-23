@@ -25,7 +25,7 @@ export default function Introduction() {
           <br />
           Software Architect, Frontend Engineer, Mentor and speaker
         </h1>
-        <p className={`hidden-sm heading3`}>One place that define my worker soul and share with you</p>
+        <p className={`hidden-sm heading3 color-text-primary`}>One place that define my worker soul and share it with you</p>
       </div>
     </section>
   )
