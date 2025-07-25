@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { GoogleAnalytics } from '../components/layout/GoogleAnalytics'
 import { Navbar } from '../components/layout/navbar'
@@ -32,6 +33,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/profiles/apple-touch-icon-180x180.png" />
+      </Head>
       <body className={`${inter.className} snap-components-theme dark-theme`}>
         <Navbar />
         <div className="wrap">{children}</div>
