@@ -65,9 +65,9 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
           ))}
         </div>
         <div className="blog-read-more">
-          <Link className="snap-link snap-read-more" href={`/blog/${post.slug}`}>
+          <span className="snap-link snap-read-more">
             Read more →
-          </Link>
+          </span>
         </div>
       </Link>
     </Card>
