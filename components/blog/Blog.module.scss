@@ -28,7 +28,7 @@
   .search-icon {
     position: absolute;
     left: 0.75rem;
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
     pointer-events: none;
     z-index: 10;
@@ -113,7 +113,7 @@
 .blog-search {
   .search-input {
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 2rem;
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;
     font-size: 0.875rem;

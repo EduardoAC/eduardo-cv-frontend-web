@@ -22,6 +22,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
         <svg
           className={styles['search-svg']}
           fill="none"
+          width="24"
+          height="24"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
