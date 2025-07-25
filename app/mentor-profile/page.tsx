@@ -12,7 +12,7 @@ const BookingModalClient = dynamic(() => import('./BookingModalClient'), { ssr: 
 export const metadata = {
   title: 'Mentor Profile | Eduardo Aparicio Cárdenes',
   description: 'Mentoring experience, platforms, and testimonials for Eduardo Aparicio Cárdenes. See where I mentor, read reviews, and view my mentoring certificate.',
-  openGraphImage: '/images/mentor-profile.webp',
+  openGraphImage: '/images/profiles/mentor-profile-490px.png',
   linkedInUrl: 'https://www.linkedin.com/in/eacardenes',
 };
 
@@ -23,8 +23,8 @@ export default function MentorProfilePage() {
       <section className={styles.introduction}>
         <p>
           Excited to share my knowledge and experience with you on your frontend development journey.
-          With over 15 years in the field. With deep expertise in HTML, CSS, JavaScript, and modern 
-          technologies like React, Webpack, and Chrome Extensions. I’m here to guide you through the 
+          With over 15 years in the field. With deep expertise in HTML, CSS, JavaScript, and modern
+          technologies like React, Webpack, and Chrome Extensions. I’m here to guide you through the
           essential (and advanced!) tools of frontend development.
         </p>
         <p>
@@ -93,4 +93,4 @@ export default function MentorProfilePage() {
       </section>
     </Container>
   );
-} 
+}

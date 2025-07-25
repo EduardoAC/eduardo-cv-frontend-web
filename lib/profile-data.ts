@@ -19,7 +19,7 @@ export const profileData: ProfileData = {
   frontend: {
     title: 'Frontend Developer',
     description: 'Frontend Developer Profile',
-    openGraphImage: '/images/frontend/frontend-development-profile.webp',
+    openGraphImage: '/images/profiles/frontend-profile-490px.webp',
     linkedInUrl: 'https://www.linkedin.com/in/eacardenes',
     introduction: [
       'I have been working as a frontend developer for the last five years, more specifically I swapped from HTML4 & CSS2 to HTML5 & CSS3 three years ago. I got strong experience developing complex JS systems using OOP, prototyping and design patterns to maximize performance and user experience.',
@@ -57,7 +57,7 @@ export const profileData: ProfileData = {
   backend: {
     title: 'Backend Developer',
     description: 'Backend Developer Profile',
-    openGraphImage: '/images/backend/backend-development-profile.webp',
+    openGraphImage: '/images/profiles/backend-profile-490px.webp',
     linkedInUrl: 'https://www.linkedin.com/in/eacardenes',
     introduction: [
       'I did backend developments as web developer for many years and I\'m still doing sometimes when it\'s required. It\'s a part of myself to try to achieve the best result possible doing when need to be done. I\'ve involved in this area for the last five years sometimes as a contractor, a employee and others in my personal projects. I understand well how the back end works and how to build it from scratch.',
@@ -95,7 +95,7 @@ export const profileData: ProfileData = {
   'software-architect': {
     title: 'Software Architect',
     description: 'Software Architect Profile',
-    openGraphImage: '/images/software-architect/software-architect-profile-490.webp',
+    openGraphImage: '/images/profiles/software-architect-profile-490px.webp',
     linkedInUrl: 'https://www.linkedin.com/in/eacardenes',
     introduction: [
       'I have been working on software architecture for the last five years, more specifically I focused on scalable architectures and microservices three years ago. I got strong experience designing complex systems using design patterns, SOLID principles and clean architecture to maximize maintainability and scalability.',
@@ -138,4 +138,4 @@ export function getProfileData(role: keyof ProfileData): ProfileConfig {
 
 export function getAllProfileRoles(): (keyof ProfileData)[] {
   return Object.keys(profileData) as (keyof ProfileData)[];
-} 
+}

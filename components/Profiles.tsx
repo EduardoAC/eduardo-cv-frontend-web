@@ -11,22 +11,22 @@ interface ProfileItem {
 const profiles: ProfileItem[] = [
   {
     title: 'frontend developer',
-    imgUrl: '/images/frontend/frontend-development-profile.webp',
+    imgUrl: '/images/profiles/frontend-profile-490px.webp',
     link: '/frontend-profile',
   },
   {
     title: 'software architect',
-    imgUrl: '/images/software-architect/software-architect-profile-490.webp',
+    imgUrl: '/images/profiles/software-architect-profile-490px.webp',
     link: '/software-architect-profile',
   },
   {
     title: 'Mentor',
-    imgUrl: '/images/mentor-profile.webp',
+    imgUrl: '/images/profiles/mentor-profile-490px.webp',
     link: '/mentor-profile',
   },
   {
     title: 'backend developer',
-    imgUrl: '/images/backend/backend-development-profile.webp',
+    imgUrl: '/images/profiles/backend-profile-490px.webp',
     link: '/backend-profile',
   },
 ]
