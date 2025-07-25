@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       title: 'Worker for hire',
       description: "I am passionate software architect that loves create new products and see how they become successful. I did this site to collect my career.",
-      images: [`${baseUrl}/images/introduction-image-1280.jpg`],
+      images: [`${baseUrl}/images/profiles/eduardo-aparicio-cardenes-homepage-490px.ong`],
     },
   };
 }
