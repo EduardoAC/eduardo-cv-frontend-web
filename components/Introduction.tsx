@@ -22,8 +22,9 @@ export default function Introduction() {
       <div className={styles['title-block']}>
         <h1>
           Eduardo Aparicio Cardenes
-          <br />
-          Software Architect, Frontend Engineer, Mentor and speaker
+          <div className={`${styles.subtitle}`}>
+            Software Architect, Frontend Engineer, Mentor and speaker
+          </div>
         </h1>
         <p className={`hidden-sm heading3 color-text-primary`}>One place that define my worker soul and share it with you</p>
       </div>

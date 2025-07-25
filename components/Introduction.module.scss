@@ -23,6 +23,14 @@
     margin: auto;
   }
 
+  .subtitle {
+    font-size: var(--font-size-heading3);
+    line-height: var(--line-height-heading3);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-normal);
+    font-family: var(--font-heading);
+    color: var(--color-text-primary);
+  }
   @media (max-width: 480px) {
     .title-block h1 {
       font-size: var(--font-size-heading4);
@@ -46,8 +54,8 @@
     .title-block {
       @include flex-center;
       flex-direction: column;
-      width: 90%;
-      height: 60%;
+      width: 95%;
+      height: 50%;
     }
   }
 
@@ -55,7 +63,12 @@
     .title-block {
       padding: 10px 0;
       width: 90%;
-      height: 45%;
+      height: 55%;
+    }
+
+    .subtitle {
+      font-size: var(--font-size-heading1);
+      line-height: var(--line-height-heading1);
     }
   }
 
@@ -78,5 +91,11 @@
       margin: 0 auto;
       width: auto;
     }
+  }
+}
+
+.mobileHide {
+  @media (max-width: 600px) {
+    display: none !important;
   }
 }
