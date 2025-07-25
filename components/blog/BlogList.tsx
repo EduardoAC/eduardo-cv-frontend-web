@@ -32,7 +32,7 @@ export function BlogList({ posts }: BlogListProps) {
 function BlogListItem({ post }: { post: BlogPostMeta }) {
   return (
     <Card>
-      <Link className="snap-link" href={`/blog/${post.slug}`}>
+      <Link className="snap-link" href={`/blog/${post.slug}`} aria-label={`Read blog post: ${post.title}`}>
         {post.image && (
           <Link href={`/blog/${post.slug}`}>
             <img
