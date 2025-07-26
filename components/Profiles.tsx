@@ -20,6 +20,11 @@ const profiles: ProfileItem[] = [
     link: '/software-architect-profile',
   },
   {
+    title: 'My interactive CV',
+    imgUrl: '/images/profiles/eduardo-aparicio-cardenes-homepage-490px.webp',
+    link: '/software-engineer-profile',
+  },
+  {
     title: 'Mentor',
     imgUrl: '/images/profiles/mentor-profile-490px.webp',
     link: '/mentor-profile',
@@ -51,6 +56,8 @@ export default function Profiles() {
           in a four pages CV as usual is required.
         </p>
         <p>I decided to group it in these three main categories</p>
+      </Container>
+      <Container variant="fluid" padding="medium">
         {/* Old circle layout - commented out for comparison */}
         {/**
         <div className={styles.circle}>
