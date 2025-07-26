@@ -6,17 +6,18 @@
 
 .gridAnimated {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 0;
-  align-items: end;
-  transition: grid-template-columns 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, auto);
+  gap: 1rem;
+  align-items: start;
+  transition: none;
   margin-bottom: 2rem;
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: repeat(5, auto);
-    gap: 1rem;
-    align-items: start;
-    transition: none;
+  @media (min-width: 991px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0rem;
+    align-items: end;
+    transition: grid-template-columns 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 }
 
@@ -25,44 +26,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   outline: none;
   align-self: stretch;
+  height: auto;
   
-  @media (max-width: 600px) {
-    height: auto;
-    justify-content: flex-start;
+  @media (min-width: 991px) {
+    justify-content: flex-end;
   }
 }
 
-// Hover/focus logic for expanding panels
-.gridAnimated:has(.profileItemGrid:nth-child(1):hover),
-.gridAnimated:has(.profileItemGrid:nth-child(1):focus-within) {
-  grid-template-columns: 490px 1fr 1fr 1fr 1fr;
-}
-.gridAnimated:has(.profileItemGrid:nth-child(2):hover),
-.gridAnimated:has(.profileItemGrid:nth-child(2):focus-within) {
-  grid-template-columns: 1fr 490px 1fr 1fr 1fr;
-}
-.gridAnimated:has(.profileItemGrid:nth-child(3)),
-.gridAnimated:has(.profileItemGrid:nth-child(3):hover),
-.gridAnimated:has(.profileItemGrid:nth-child(3):focus-within) {
-  grid-template-columns: 1fr 1fr 490px 1fr 1fr;
-}
-.gridAnimated:has(.profileItemGrid:nth-child(4):hover),
-.gridAnimated:has(.profileItemGrid:nth-child(4):focus-within) {
-  grid-template-columns: 1fr 1fr 1fr 490px 1fr;
-}
-.gridAnimated:has(.profileItemGrid:nth-child(5):hover),
-.gridAnimated:has(.profileItemGrid:nth-child(5):focus-within) {
-  grid-template-columns: 1fr 1fr 1fr 1fr 490px;
-}
-
-// Mobile: stack vertically, no animation
-@media (max-width: 600px) {
-  .gridAnimated {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: repeat(5, auto);
-    transition: none;
+@media (min-width: 991px) {
+  // Hover/focus logic for expanding panels
+  .gridAnimated:has(.profileItemGrid:nth-child(1):hover),
+  .gridAnimated:has(.profileItemGrid:nth-child(1):focus-within) {
+    grid-template-columns: 490px 1fr 1fr 1fr 1fr;
   }
+  .gridAnimated:has(.profileItemGrid:nth-child(2):hover),
+  .gridAnimated:has(.profileItemGrid:nth-child(2):focus-within) {
+    grid-template-columns: 1fr 490px 1fr 1fr 1fr;
+  }
+  .gridAnimated:has(.profileItemGrid:nth-child(3)),
+  .gridAnimated:has(.profileItemGrid:nth-child(3):hover),
+  .gridAnimated:has(.profileItemGrid:nth-child(3):focus-within) {
+    grid-template-columns: 1fr 1fr 490px 1fr 1fr;
+  }
+  .gridAnimated:has(.profileItemGrid:nth-child(4):hover),
+  .gridAnimated:has(.profileItemGrid:nth-child(4):focus-within) {
+    grid-template-columns: 1fr 1fr 1fr 490px 1fr;
+  }
+  .gridAnimated:has(.profileItemGrid:nth-child(5):hover),
+  .gridAnimated:has(.profileItemGrid:nth-child(5):focus-within) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 490px;
+  }
+
 }
