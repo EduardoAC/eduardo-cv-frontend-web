@@ -20,21 +20,23 @@ const profiles: ProfileItem[] = [
     link: '/software-architect-profile',
   },
   {
+    title: 'My interactive CV',
+    imgUrl: '/images/profiles/eduardo-aparicio-cardenes-homepage-490px.webp',
+    link: '/about',
+  },
+  {
     title: 'Mentor',
     imgUrl: '/images/profiles/mentor-profile-490px.webp',
     link: '/mentor-profile',
   },
   {
     title: 'backend developer',
-    imgUrl: '/images/profiles/backend-profile-490px.webp',
+    imgUrl: '/images/profiles/backend-profile-490px-mirror.webp',
     link: '/backend-profile',
   },
 ]
 
 export default function Profiles() {
-  const radius = 140
-  const centerX = 0
-  const centerY = 0
   return (
     <section className={styles.profiles}>
       <Container variant="default" padding="medium">
@@ -51,12 +53,14 @@ export default function Profiles() {
           in a four pages CV as usual is required.
         </p>
         <p>I decided to group it in these three main categories</p>
-        <div className={styles.circle}>
+      </Container>
+      <Container variant="fluid" padding="none">
+        <div className={styles.gridAnimated}>
           {profiles.map((profile, index) => (
             <div
               key={profile.title}
-              className={styles.profileItem}
-              style={{ ['--nth-child' as any]: index + 1 }}
+              className={styles.profileItemGrid}
+              tabIndex={0}
             >
               <ContentBlock
                 title={profile.title}
@@ -67,40 +71,6 @@ export default function Profiles() {
             </div>
           ))}
         </div>
-        {/* <div className="snap-grid">
-          <div className="snap-col snap-col-sm-3">
-            <ContentBlock
-              title="frontend developer"
-              imgUrl="/images/frontend-developer.png"
-              variant="profile"
-              link="/frontend-profile"
-            />
-          </div>
-          <div className="snap-col snap-col-sm-3">
-            <ContentBlock
-              title="software architect"
-              imgUrl="/images/software-architect.png"
-              variant="profile"
-              link="/software-architect-profile"
-            />
-          </div>
-          <div className="snap-col snap-col-sm-3">
-            <ContentBlock
-              title="backend developer"
-              imgUrl="/images/backend-developer.png"
-              variant="profile"
-              link="/backend-profile"
-            />
-          </div>
-          <div className="snap-col snap-col-sm-3">
-            <ContentBlock
-              title="Mentor"
-              imgUrl="/images/backend-developer.png"
-              variant="profile"
-              link="/mentor-profile"
-            />
-          </div>
-        </div> */}
       </Container>
     </section>
   );
