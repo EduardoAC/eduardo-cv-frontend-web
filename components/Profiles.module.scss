@@ -80,7 +80,7 @@
   margin-bottom: 2rem;
   @media (max-width: 600px) {
     grid-template-columns: 1fr !important;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, auto);
     gap: 1rem;
     transition: none;
   }
@@ -90,11 +90,16 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
   outline: none;
   height: 100%;
   align-self: stretch;
+  
+  @media (max-width: 600px) {
+    height: auto;
+    justify-content: flex-start;
+  }
 }
 
 // Hover/focus logic for expanding panels
@@ -106,6 +111,7 @@
 .gridAnimated:has(.profileItemGrid:nth-child(2):focus-within) {
   grid-template-columns: 1fr 490px 1fr 1fr 1fr;
 }
+.gridAnimated:has(.profileItemGrid:nth-child(3)),
 .gridAnimated:has(.profileItemGrid:nth-child(3):hover),
 .gridAnimated:has(.profileItemGrid:nth-child(3):focus-within) {
   grid-template-columns: 1fr 1fr 490px 1fr 1fr;
@@ -123,7 +129,7 @@
 @media (max-width: 600px) {
   .gridAnimated {
     grid-template-columns: 1fr !important;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, auto);
     transition: none;
   }
 }

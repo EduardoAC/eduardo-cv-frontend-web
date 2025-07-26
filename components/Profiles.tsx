@@ -22,7 +22,7 @@ const profiles: ProfileItem[] = [
   {
     title: 'My interactive CV',
     imgUrl: '/images/profiles/eduardo-aparicio-cardenes-homepage-490px.webp',
-    link: '/software-engineer-profile',
+    link: '/about',
   },
   {
     title: 'Mentor',
