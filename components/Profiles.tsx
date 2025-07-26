@@ -1,5 +1,6 @@
 import Container from "./layout/Container";
 import ContentBlock from "./ContentBlock";
+import MobileCarousel from "./MobileCarousel";
 import styles from "./Profiles.module.scss";
 
 interface ProfileItem {
@@ -36,6 +37,16 @@ const profiles: ProfileItem[] = [
   },
 ]
 
+// Render function for profile items in the carousel
+const renderProfileItem = (profile: ProfileItem) => (
+  <ContentBlock
+    title={profile.title}
+    imgUrl={profile.imgUrl}
+    variant="profile"
+    link={profile.link}
+  />
+);
+
 export default function Profiles() {
   return (
     <section className={styles.profiles}>
@@ -54,6 +65,21 @@ export default function Profiles() {
         </p>
         <p>I decided to group it in these three main categories</p>
       </Container>
+      
+      {/* Mobile Carousel */}
+      <Container variant="fluid" padding="none">
+        <div className={styles.mobileCarouselContainer}>
+          <MobileCarousel 
+            items={profiles.map((profile, index) => ({
+              id: `profile-${index}`,
+              ...profile
+            }))}
+            renderItem={renderProfileItem}
+          />
+        </div>
+      </Container>
+
+      {/* Desktop Grid */}
       <Container variant="fluid" padding="none">
         <div className={styles.gridAnimated}>
           {profiles.map((profile, index) => (
