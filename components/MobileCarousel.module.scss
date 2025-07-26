@@ -24,6 +24,55 @@
   }
 }
 
+// Navigation Dots
+.navigationDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  
+  @media (min-width: 991px) {
+    display: none;
+  }
+}
+
+.navDot {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  background: var(--snap-card-bg, #181a1b);
+  color: var(--color-text-primary, #fff);
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 0.25rem;
+  position: relative;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  
+  &:hover {
+    background:#007bff;
+  }
+  
+  &:active {
+    background:#007bff;
+  }
+
+  &:focus {
+    outline: none;
+  }
+  
+  // Active state when target is focused
+  &:target,
+  &:focus-within {
+    background:#007bff;
+    color: white;
+  }
+}
+
 .slides {
   display: flex;
   overflow-x: auto;
