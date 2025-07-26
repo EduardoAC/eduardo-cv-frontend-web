@@ -9,12 +9,12 @@ import Greetings from '@/components/Greetings'
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://eduardo-aparicio-cardenes.website';
   return {
-    title: 'Worker for hire - Eduardo Aparicio Cardenes',
-    description: "I am passionate software architect that loves create new products and see how they become successful. I did this site to collect my career.",
+    title: 'Eduardo Aparicio Cardenes - Frontend Engineer, Software Architect,Mentor and speaker',
+    description: "Explore my interactive CV, projects, blog posts, and tech talks. A space where software engineering meets storytelling.",
     openGraph: {
       type: 'website',
-      title: 'Worker for hire',
-      description: "I am passionate software architect that loves create new products and see how they become successful. I did this site to collect my career.",
+      title: 'Eduardo Aparicio Cardenes – Tech Leader, Mentor & Speaker - My interactive CV',
+      description: "Explore the work, talks, blog, and projects of Eduardo Aparicio Cardenes – Principal Software Engineer, Architect, and Mentor. A hub for code, content, and career.",
       images: [`${baseUrl}/images/profiles/eduardo-aparicio-cardenes-homepage-490px.png`],
     },
   };
