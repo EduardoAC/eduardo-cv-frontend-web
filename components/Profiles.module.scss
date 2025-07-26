@@ -4,74 +4,6 @@
   @include section-base-enhanced;
 }
 
-.circle {
-  /* Mobile: stack vertically by default */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.profileItem {
-  /* Mobile: natural flow */
-  position: static;
-  width: 90%;
-  transform: none;
-  transition: all 0.3s ease-in;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Tablet and up: apply circular layout */
-@media (min-width: 768px) {
-  .circle {
-    position: relative;
-    flex-direction: unset;
-    gap: unset;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    margin: 4rem auto;
-    border-radius: 50%;
-  }
-
-  .profileItem {
-    --total: 4;
-    --angle: calc(360deg / var(--total));
-    --index: calc(var(--nth-child) - 1);
-
-    position: absolute;
-    top: 30%;
-    left: 40%;
-    width: 200px;
-
-    transform:
-      rotateZ(calc(var(--angle) * var(--index)))
-      translateY(-260px)
-      rotateZ(calc(var(--angle) * var(--index) * -1));
-  }
-}
-
-@media (min-width: 992px) {
-  .profileItem {
-    width: 250px;
-    transform:
-      rotateZ(calc(var(--angle) * var(--index)))
-      translateY(-330px)
-      rotateZ(calc(var(--angle) * var(--index) * -1));
-  }
-}
-
-@media (min-width: 1200px) {
-  .profileItem {
-    width: 275px;
-    transform:
-      rotateZ(calc(var(--angle) * var(--index)))
-      translateY(-369px)
-      rotateZ(calc(var(--angle) * var(--index) * -1));
-  }
-}
-
 .gridAnimated {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -95,7 +27,6 @@
   align-items: center;
   justify-content: flex-end;
   outline: none;
-  // height: 100%;
   align-self: stretch;
   
   @media (max-width: 600px) {
