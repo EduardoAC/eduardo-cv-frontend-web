@@ -54,21 +54,22 @@
   border: 2px solid transparent;
   
   &:hover {
-    background:#007bff;
-  }
-  
-  &:active {
-    background:#007bff;
+    background: #007bff;
   }
 
-  &:focus {
-    outline: none;
+  &:active {
+    background: #007bff;
   }
   
-  // Active state when target is focused
-  &:target,
-  &:focus-within {
-    background:#007bff;
+  &:focus {
+    outline: none;
+    background: #007bff;
+    color: white;
+  }
+  
+  // Active state when this dot's target slide is in view
+  &:focus-visible {
+    background: #007bff;
     color: white;
   }
 }
