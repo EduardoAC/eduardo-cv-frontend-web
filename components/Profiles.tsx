@@ -51,12 +51,33 @@ export default function Profiles() {
           in a four pages CV as usual is required.
         </p>
         <p>I decided to group it in these three main categories</p>
+        {/* Old circle layout - commented out for comparison */}
+        {/**
         <div className={styles.circle}>
           {profiles.map((profile, index) => (
             <div
               key={profile.title}
               className={styles.profileItem}
               style={{ ['--nth-child' as any]: index + 1 }}
+            >
+              <ContentBlock
+                title={profile.title}
+                imgUrl={profile.imgUrl}
+                variant="profile"
+                link={profile.link}
+              />
+            </div>
+          ))}
+        </div>
+        */}
+        {/* New experimental grid-animated layout */}
+        <h3>Experimental: Animated CSS Grid Profiles</h3>
+        <div className={styles.gridAnimated}>
+          {profiles.map((profile, index) => (
+            <div
+              key={profile.title}
+              className={styles.profileItemGrid}
+              tabIndex={0}
             >
               <ContentBlock
                 title={profile.title}

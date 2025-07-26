@@ -71,3 +71,53 @@
       rotateZ(calc(var(--angle) * var(--index) * -1));
   }
 }
+
+.gridAnimated {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  transition: grid-template-columns 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 2rem;
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: repeat(4, 1fr);
+    transition: none;
+  }
+}
+
+.profileItemGrid {
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+// Hover/focus logic for expanding panels
+.gridAnimated:has(.profileItemGrid:nth-child(1):hover),
+.gridAnimated:has(.profileItemGrid:nth-child(1):focus-within) {
+  grid-template-columns: 490px 1fr 1fr 1fr;
+}
+.gridAnimated:has(.profileItemGrid:nth-child(2):hover),
+.gridAnimated:has(.profileItemGrid:nth-child(2):focus-within) {
+  grid-template-columns: 1fr 490px 1fr 1fr;
+}
+.gridAnimated:has(.profileItemGrid:nth-child(3):hover),
+.gridAnimated:has(.profileItemGrid:nth-child(3):focus-within) {
+  grid-template-columns: 1fr 1fr 490px 1fr;
+}
+.gridAnimated:has(.profileItemGrid:nth-child(4):hover),
+.gridAnimated:has(.profileItemGrid:nth-child(4):focus-within) {
+  grid-template-columns: 1fr 1fr 1fr 490px;
+}
+
+// Mobile: stack vertically, no animation
+@media (max-width: 600px) {
+  .gridAnimated {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: repeat(4, 1fr);
+    transition: none;
+  }
+}
