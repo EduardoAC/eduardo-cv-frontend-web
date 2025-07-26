@@ -31,7 +31,7 @@ const profiles: ProfileItem[] = [
   },
   {
     title: 'backend developer',
-    imgUrl: '/images/profiles/backend-profile-490px.webp',
+    imgUrl: '/images/profiles/backend-profile-490px-mirror.webp',
     link: '/backend-profile',
   },
 ]
@@ -57,7 +57,7 @@ export default function Profiles() {
         </p>
         <p>I decided to group it in these three main categories</p>
       </Container>
-      <Container variant="fluid" padding="medium">
+      <Container variant="fluid" padding="none">
         {/* Old circle layout - commented out for comparison */}
         {/**
         <div className={styles.circle}>
@@ -78,7 +78,6 @@ export default function Profiles() {
         </div>
         */}
         {/* New experimental grid-animated layout */}
-        <h3>Experimental: Animated CSS Grid Profiles</h3>
         <div className={styles.gridAnimated}>
           {profiles.map((profile, index) => (
             <div
