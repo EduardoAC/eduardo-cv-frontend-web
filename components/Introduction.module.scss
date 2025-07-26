@@ -65,10 +65,10 @@
       width: 90%;
       height: 55%;
     }
-
-    .subtitle {
-      font-size: var(--font-size-heading1);
-      line-height: var(--line-height-heading1);
+  }
+  @media (min-width: 991px) {
+    .title-block {
+      height: 50%;
     }
   }
 
