@@ -20,6 +20,7 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.stopPropagation();
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -99,7 +100,7 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
             />
             <button
               type="submit"
-              disabled={loading || !email?.trim()}
+              disabled={loading || !email.trim()}
               className={styles.subscribeButton}
             >
               {loading ? 'Subscribing...' : 'Subscribe'}
