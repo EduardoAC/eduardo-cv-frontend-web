@@ -99,7 +99,7 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
             />
             <button
               type="submit"
-              disabled={loading || email.trim().length === 0}
+              disabled={loading || !email?.trim()}
               className={styles.subscribeButton}
             >
               {loading ? 'Subscribing...' : 'Subscribe'}
