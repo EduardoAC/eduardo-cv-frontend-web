@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import SearchBar from './SearchBar';
 import Container from '@/components/layout/Container';
 import styles from './Blog.module.scss';
@@ -40,7 +38,7 @@ export function BlogLayout({
       <nav className={styles['blog-navigation']} aria-label="Main navigation">
         {onSearch && (
           <div className={styles['blog-search']}>
-            <SearchBar value="" onChange={onSearch} placeholder="Search blog posts..." />
+            <SearchBar onChange={onSearch} placeholder="Search blog posts..." />
           </div>
         )}
         <TagFilter
