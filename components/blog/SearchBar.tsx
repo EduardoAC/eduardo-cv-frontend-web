@@ -1,21 +1,26 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Blog.module.scss';
 
 interface SearchBarProps {
-  value: string;
   onChange: (value: string) => void;
   placeholder?: string;
   className?: string;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ 
-  value, 
   onChange, 
   placeholder = 'Search...',
   className = ''
 }) => {
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearchChange = (value: string) => {
+    setSearchValue(value);
+    onChange?.(value);
+  };
+
   return (
     <div className={`${styles['search-container']} ${className}`} role="search">
       <div className={styles['search-icon']}>
@@ -38,13 +43,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
       
       <input
         type="text"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+        value={searchValue}
+        onChange={(e) => handleSearchChange(e.target.value)}
         placeholder={placeholder}
         className={styles['search-input']}
       />
       
-      {value && (
+      {searchValue && (
         <button
           onClick={() => onChange('')}
           className={styles['clear-button']}

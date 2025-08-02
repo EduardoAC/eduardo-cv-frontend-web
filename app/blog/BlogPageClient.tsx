@@ -18,9 +18,9 @@ export default function BlogPageClient({ allPosts, tags }: BlogPageClientProps) 
   const filteredPosts = useMemo(() => {
     return allPosts.filter((post) => {
       const matchesSearch = searchQuery === '' || 
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+        (post.title ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (post.description ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (post.tags ?? []).some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
 
       const matchesTag = selectedTag === '' || post.tags.includes(selectedTag);
 
