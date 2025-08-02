@@ -17,7 +17,9 @@
     "performance:all": "npm run build && npm run lighthouse && npm run lighthouse:html",
     "bundle-size": "npm run build && npx next-bundle-analyzer",
     "lost-pixel": "lost-pixel",
-    "lost-pixel:update": "lost-pixel update"
+    "lost-pixel:update": "lost-pixel update",
+    "worker:dev": "wrangler dev --config ./workers/subscription-handler/wrangler.toml",
+    "worker:deploy": "wrangler deploy --config ./workers/subscription-handler/wrangler.toml"
   },
   "dependencies": {
     "@types/marked": "^5.0.2",
@@ -31,6 +33,7 @@
     "sass": "^1.69.5"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241108.0",
     "@playwright/test": "1.47.2",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -38,9 +41,9 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "lost-pixel": "^3.22.0",
-
     "serve": "^14.2.4",
     "sharp": "^0.34.2",
-    "typescript": "^5"
+    "typescript": "^5.9.2",
+    "wrangler": "^4.27.0"
   }
 }

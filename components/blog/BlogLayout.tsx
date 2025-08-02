@@ -3,6 +3,7 @@ import SearchBar from './SearchBar';
 import Container from '@/components/layout/Container';
 import styles from './Blog.module.scss';
 import TagFilter from './TagFilter';
+import SubscribeForm from './SubscribeForm';
 
 interface BlogLayoutProps {
   children: React.ReactNode;
@@ -35,6 +36,9 @@ export function BlogLayout({
           software architect, or tech lead, this blog offers practical insights, best practices, and advanced solutions to elevate your engineering journey.
         </p>
       </header>
+
+      <SubscribeForm />
+
       <nav className={styles['blog-navigation']} aria-label="Main navigation">
         {onSearch && (
           <div className={styles['blog-search']}>
