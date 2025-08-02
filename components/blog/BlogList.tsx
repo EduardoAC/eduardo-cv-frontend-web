@@ -34,14 +34,12 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
     <Card>
       <Link className="snap-link" href={`/blog/${post.slug}`} aria-label={`Read blog post: ${post.title}`}>
         {post.image && (
-          <Link href={`/blog/${post.slug}`}>
-            <img
-              src={post.image}
-              alt={post.title}
-              className={styles['blog-image']}
-              loading="lazy"
-            />
-          </Link>
+          <img
+            src={post.image}
+            alt={post.title}
+            className={styles['blog-image']}
+            loading="lazy"
+          />
         )}
         <header>
           <h2 className="heading3 text-align-left">
