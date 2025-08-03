@@ -16,6 +16,9 @@ binding = "EMAIL_KV"
 id = "0c3bb7d68a3b4959a2b3482a92cb766c"
 preview_id = "015cde3a803a40a78cd525d6a7ed0d27"
 
+[observability.logs]
+enabled = true
+
 # Environment variables (these will be set via wrangler secret)
 # RESEND_API_KEY
 # FROM_EMAIL
