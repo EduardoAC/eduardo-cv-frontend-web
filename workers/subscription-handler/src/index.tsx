@@ -1,8 +1,9 @@
 import { ExecutionContext } from '@cloudflare/workers-types';
-import { Env } from './types';
+import { EmailData, Env } from './types';
 import { validateEnvironment, validateRequest, validateRequestBody } from './validators';
 import { checkRateLimiting, updateRateLimitAfterSuccess, createEmailContent, sendEmail } from './services';
 import { createErrorResponse, createSuccessResponse } from './utils/response';
+import { CreateEmailOptions } from 'resend';
 
 export default {
   async fetch(
@@ -38,15 +39,14 @@ export default {
       }
 
       // Create email content
-      const { subject, html, isSubscriber } = createEmailContent(body);
+      const { subject, react, html, isSubscriber } = createEmailContent(body);
 
       // Prepare email data
-      const emailData = {
+      const emailData: CreateEmailOptions = {
         from: env.FROM_EMAIL,
         to: env.TO_EMAIL,
         subject,
-        html,
-        reply_to: body.email,
+        react,
       };
 
       // Send email

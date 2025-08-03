@@ -1,4 +1,5 @@
 import { KVNamespace } from '@cloudflare/workers-types';
+import { ReactNode } from 'react';
 
 // Email request and response types
 export interface EmailRequest {
@@ -15,6 +16,14 @@ export interface EmailResponse {
 }
 
 // Cloudflare Workers types are already provided by @cloudflare/workers-types
+export interface EmailData {
+  from: string;
+  to: string;
+  subject: string;
+  react?: ReactNode;
+  html?: string;
+  reply_to: string;
+}
 
 // Environment interface
 export interface Env {

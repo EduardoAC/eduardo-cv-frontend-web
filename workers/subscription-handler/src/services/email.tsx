@@ -1,39 +1,32 @@
 import React, { ReactNode } from 'react';
-import { Resend } from 'resend';
-import { EmailRequest, EmailResponse, Env } from '../types';
+import { CreateEmailOptions, Resend } from 'resend';
+import { EmailData, EmailRequest, EmailResponse, Env } from '../types';
 import { escapeHtml } from '../utils';
 import { SubscriberEmail } from '../emails/subscriber-template';
 import { ContactEmail } from '../emails/contact-template';
 import { createErrorResponse } from '../utils/response';
 
 // Create email content
-export function createEmailContent(body: EmailRequest): { subject: string; html: ReactNode; isSubscriber: boolean } {
+export function createEmailContent(body: EmailRequest): { subject: string; react?: ReactNode; html?: string; isSubscriber: boolean } {
   const isSubscriber = body.subject?.toLowerCase().includes('subscriber') ||
     body.name.toLowerCase().includes('subscriber');
 
   let emailSubject: string;
-  let emailHtml: ReactNode;
+  let emailReact: ReactNode;
 
   if (isSubscriber) {
     emailSubject = 'New Blog Subscriber Signup';
-    emailHtml = React.createElement(SubscriberEmail, {
-      email: escapeHtml(body.email),
-      signupTime: new Date().toLocaleString()
-    });
+    emailReact = <SubscriberEmail email={escapeHtml(body.email)} signupTime={new Date().toLocaleString()} />;
   } else {
     emailSubject = body.subject || `New Contact Form Submission from ${body.name}`;
-    emailHtml = React.createElement(ContactEmail, {
-      name: escapeHtml(body.name),
-      email: escapeHtml(body.email),
-      message: escapeHtml(body.message)
-    });
+    emailReact = <ContactEmail name={escapeHtml(body.name)} email={escapeHtml(body.email)} message={escapeHtml(body.message)} />;
   }
 
-  return { subject: emailSubject, html: emailHtml, isSubscriber };
+  return { subject: emailSubject, react: emailReact, isSubscriber };
 }
 
 // Send email via Resend
-export async function sendEmail(emailData: any, env: Env, origin: string, isAllowedOrigin: boolean): Promise<{ success: boolean; response?: Response; result?: EmailResponse }> {
+export async function sendEmail(emailData: CreateEmailOptions, env: Env, origin: string, isAllowedOrigin: boolean): Promise<{ success: boolean; response?: Response; result?: EmailResponse }> {
   const resend = new Resend(env.RESEND_API_KEY);
   const resendResponse = await resend.emails.send(emailData);
 
