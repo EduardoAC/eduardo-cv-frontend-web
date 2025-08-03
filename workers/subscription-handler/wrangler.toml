@@ -25,6 +25,7 @@ enabled = true
 # FROM_EMAIL
 # TO_EMAIL
 # ALLOWED_ORIGIN
+# AUDIENCE_ID
 
 # [vars]
 # RESEND_API_KEY = "example.com"

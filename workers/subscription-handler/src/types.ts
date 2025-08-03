@@ -33,4 +33,5 @@ export interface Env {
   ALLOWED_ORIGIN: string;
   ENVIRONMENT?: string;
   EMAIL_KV: KVNamespace;
+  AUDIENCE_ID: string;
 } 

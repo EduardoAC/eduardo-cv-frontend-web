@@ -1,7 +1,7 @@
 import { ExecutionContext } from '@cloudflare/workers-types';
 import { EmailData, Env } from './types';
 import { validateEnvironment, validateRequest, validateRequestBody } from './validators';
-import { checkRateLimiting, updateRateLimitAfterSuccess, createEmailContent, sendEmail } from './services';
+import { checkRateLimiting, updateRateLimitAfterSuccess, createEmailContent, sendEmail, addContactToAudience } from './services';
 import { createErrorResponse, createSuccessResponse } from './utils/response';
 import { CreateEmailOptions } from 'resend';
 
@@ -53,6 +53,25 @@ export default {
       const emailResult = await sendEmail(emailData, env, origin, isAllowedOrigin);
       if (!emailResult.success) {
         return emailResult.response!;
+      }
+
+      // Add contact to audience if it's a subscriber
+      if (isSubscriber) {
+        const subscriptionResult = await addContactToAudience(
+          {
+            email: body.email,
+            firstName: body.name.split(' ')[0] || '',
+            lastName: body.name.split(' ').slice(1).join(' ') || '',
+          },
+          env,
+          origin,
+          isAllowedOrigin
+        );
+
+        if (!subscriptionResult.success) {
+          console.error('Failed to add contact to audience:', subscriptionResult.response);
+          // Continue with email success but log the subscription failure
+        }
       }
 
       // Update rate limit

@@ -26,5 +26,10 @@ export function validateEnvironment(env: Env): Response | null {
     return new Response('Internal server error: Email configuration missing', { status: 500 });
   }
 
+  if (!env.AUDIENCE_ID) {
+    console.error('AUDIENCE_ID environment variable is not set');
+    return new Response('Internal server error: Audience configuration missing', { status: 500 });
+  }
+
   return null;
 } 
