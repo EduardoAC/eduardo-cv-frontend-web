@@ -23,14 +23,26 @@ export async function checkRateLimit(
   kv: KVNamespace, 
   maxRequests: number = 5
 ): Promise<{ allowed: boolean; currentCount: number }> {
-  const rateLimitKey = `rate_limit:${clientIP}`;
-  const currentRequests = await kv.get(rateLimitKey);
-  const requestCount = currentRequests ? parseInt(currentRequests) : 0;
-  
-  return {
-    allowed: requestCount < maxRequests,
-    currentCount: requestCount
-  };
+  try {
+    if (!kv) {
+      console.error('KV namespace is undefined in checkRateLimit');
+      // If KV is not available, allow the request but log the issue
+      return { allowed: true, currentCount: 0 };
+    }
+
+    const rateLimitKey = `rate_limit:${clientIP}`;
+    const currentRequests = await kv.get(rateLimitKey);
+    const requestCount = currentRequests ? parseInt(currentRequests) : 0;
+
+    return {
+      allowed: requestCount < maxRequests,
+      currentCount: requestCount
+    };
+  } catch (error) {
+    console.error('Error in checkRateLimit:', error);
+    // If there's an error with KV, allow the request but log the issue
+    return { allowed: true, currentCount: 0 };
+  }
 }
 
 // Update rate limit
@@ -39,8 +51,18 @@ export async function updateRateLimit(
   kv: KVNamespace, 
   currentCount: number
 ): Promise<void> {
-  const rateLimitKey = `rate_limit:${clientIP}`;
-  await kv.put(rateLimitKey, (currentCount + 1).toString(), {
-    expirationTtl: 3600, // 1 hour
-  });
+  try {
+    if (!kv) {
+      console.error('KV namespace is undefined in updateRateLimit');
+      return;
+    }
+
+    const rateLimitKey = `rate_limit:${clientIP}`;
+    await kv.put(rateLimitKey, (currentCount + 1).toString(), {
+      expirationTtl: 3600, // 1 hour
+    });
+  } catch (error) {
+    console.error('Error in updateRateLimit:', error);
+    // Don't throw the error, just log it
+  }
 } 
