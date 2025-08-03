@@ -9,10 +9,14 @@ export function createCorsHeaders(origin: string, isAllowedOrigin: boolean) {
 
 // Helper function to create error response
 export function createErrorResponse(message: string, status: number, origin: string, isAllowedOrigin: boolean) {
-  return new Response(message, {
+  return new Response(JSON.stringify({
+    success: false,
+    error: message,
+    status,
+  }), {
     status,
     headers: {
-      'Content-Type': 'text/plain',
+      'Content-Type': 'application/json',
       ...createCorsHeaders(origin, isAllowedOrigin),
     },
   });
