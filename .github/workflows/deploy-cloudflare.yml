@@ -29,7 +29,7 @@ jobs:
 
       - name: Generate CSP Hashes
         run: |
-          node scripts/generate-csp-hashes.js
+          npm run generate-csp-hashes
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3

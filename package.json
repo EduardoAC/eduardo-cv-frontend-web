@@ -19,7 +19,8 @@
     "lost-pixel": "lost-pixel",
     "lost-pixel:update": "lost-pixel update",
     "worker:dev": "wrangler dev --config ./workers/subscription-handler/wrangler.toml",
-    "worker:deploy": "wrangler deploy --config ./workers/subscription-handler/wrangler.toml"
+    "worker:deploy": "wrangler deploy --config ./workers/subscription-handler/wrangler.toml",
+    "generate-csp-hashes": "node scripts/generate-csp-hashes.ts"
   },
   "dependencies": {
     "@types/marked": "^5.0.2",
