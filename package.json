@@ -18,8 +18,8 @@
     "bundle-size": "npm run build && npx next-bundle-analyzer",
     "lost-pixel": "lost-pixel",
     "lost-pixel:update": "lost-pixel update",
-    "worker:dev": "wrangler dev --config ./workers/subscription-handler/wrangler.toml",
-    "worker:deploy": "wrangler deploy --config ./workers/subscription-handler/wrangler.toml",
+    "worker:dev": "wrangler dev --config ./workers/subscription-handler/wrangler.toml --env stagee",
+    "worker:deploy": "wrangler deploy --config ./workers/subscription-handler/wrangler.toml --env production",
     "generate-csp-hashes": "node scripts/generate-csp-hashes.ts"
   },
   "dependencies": {
