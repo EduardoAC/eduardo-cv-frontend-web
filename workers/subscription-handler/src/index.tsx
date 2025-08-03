@@ -41,10 +41,18 @@ export default {
     const origin = request.headers.get('Origin') || '';
     const allowedOrigin = env.ALLOWED_ORIGIN;
     
+    if (request.method === 'GET') {
+      return new Response('GET requests are not allowed', {
+        status: 403,
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+      });
+    }
+
     // Check if the origin is allowed
     const isAllowedOrigin = origin === allowedOrigin || 
-                           origin === 'https://www.eduardo-aparicio-cardenes.website' ||
-                           (env.ENVIRONMENT === 'development' && origin?.includes('localhost'));
+                           origin === 'https://eduardo-aparicio-cardenes.website';
 
     // Handle CORS preflight requests
     if (request.method === 'OPTIONS') {
