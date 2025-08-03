@@ -13,7 +13,11 @@ export const GoogleAnalytics = ({
         src="https://www.googletagmanager.com/gtag/js?id=G-YRHBYKPJHZ"
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        nonce="google-analytics-nonce"
+      >
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

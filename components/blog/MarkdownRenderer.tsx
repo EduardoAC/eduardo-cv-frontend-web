@@ -168,6 +168,7 @@ const handleGists = (container: HTMLElement) => {
       gistContainer.className = 'snap-gist-container';
       const script = document.createElement('script');
       script.src = `https://gist.github.com/${gistId}.js`;
+      script.setAttribute('nonce', 'gist-script-nonce');
       gistContainer.appendChild(script);
       placeholder.replaceWith(gistContainer);
     }

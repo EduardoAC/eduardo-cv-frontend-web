@@ -65,6 +65,7 @@ export default function BlogPostPage({ params }: Readonly<BlogPostPageProps>) {
     <>
       <script
         type="application/ld+json"
+        nonce="structured-data-nonce"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData),
         }}
