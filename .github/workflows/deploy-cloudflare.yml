@@ -27,6 +27,10 @@ jobs:
           NEXT_PUBLIC_BASE_URL: https://eduardo-aparicio-cardenes.website
           NEXT_PUBLIC_EMAIL_WORKER_URL: ${{ secrets.NEXT_PUBLIC_EMAIL_WORKER_URL }}
 
+      - name: Generate CSP Hashes
+        run: |
+          node scripts/generate-csp-hashes.js
+
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
