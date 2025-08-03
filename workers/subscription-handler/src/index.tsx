@@ -44,7 +44,7 @@ export default {
       // Prepare email data
       const emailData: CreateEmailOptions = {
         from: env.FROM_EMAIL,
-        to: env.TO_EMAIL,
+        to: body.email,
         subject,
         react,
       };
