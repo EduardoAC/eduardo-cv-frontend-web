@@ -2,14 +2,6 @@ name = "subscription-handler"
 main = "src/index.tsx"
 compatibility_date = "2024-01-01"
 
-[env.production]
-name = "email-handler-prod"
-vars = { ENVIRONMENT = "production" }
-
-[env.staging]
-name = "email-handler-staging"
-vars = { ENVIRONMENT = "staging" }
-
 # KV namespace for rate limiting
 [[kv_namespaces]]
 binding = "EMAIL_KV"

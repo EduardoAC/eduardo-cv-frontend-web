@@ -11,14 +11,23 @@ export default {
     env: Env,
     ctx: ExecutionContext,
   ): Promise<Response> {
-    // Handle CORS
+    // Get the origin from the request
+    const origin = request.headers.get('Origin') || '';
+    const allowedOrigin = env.ALLOWED_ORIGIN || 'https://eduardo-aparicio-cardenes.website';
+    
+    // Check if the origin is allowed
+    const isAllowedOrigin = origin === allowedOrigin || 
+                           origin === 'https://www.eduardo-aparicio-cardenes.website' ||
+                           (env.ENVIRONMENT === 'development' && origin?.includes('localhost'));
+
+    // Handle CORS preflight requests
     if (request.method === 'OPTIONS') {
       return new Response(null, {
         status: 200,
         headers: {
-          'Access-Control-Allow-Origin': env.ALLOWED_ORIGIN || 'https://eduardo-aparicio-cardenes.website/',
+          'Access-Control-Allow-Origin': isAllowedOrigin ? origin : '',
           'Access-Control-Allow-Methods': 'POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
           'Access-Control-Max-Age': '86400',
         },
       });
@@ -26,14 +35,40 @@ export default {
 
     // Only allow POST requests
     if (request.method !== 'POST') {
-      return new Response('Method not allowed', { status: 405 });
+      return new Response('Method not allowed', { 
+        status: 405,
+        headers: {
+          'Access-Control-Allow-Origin': isAllowedOrigin ? origin : '',
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+        }
+      });
+    }
+
+    // Reject requests from unauthorized origins
+    if (!isAllowedOrigin) {
+      return new Response('Unauthorized origin', { 
+        status: 403,
+        headers: {
+          'Access-Control-Allow-Origin': '',
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+        }
+      });
     }
 
     try {
       // Validate request
       const contentType = request.headers.get('content-type');
       if (!contentType || !contentType.includes('application/json')) {
-        return new Response('Content-Type must be application/json', { status: 400 });
+        return new Response('Content-Type must be application/json', { 
+          status: 400,
+          headers: {
+            'Access-Control-Allow-Origin': origin,
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+          }
+        });
       }
 
       // Parse request body
@@ -41,12 +76,26 @@ export default {
       
       // Validate required fields
       if (!body.name || !body.email || !body.message) {
-        return new Response('Missing required fields: name, email, message', { status: 400 });
+        return new Response('Missing required fields: name, email, message', { 
+          status: 400,
+          headers: {
+            'Access-Control-Allow-Origin': origin,
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+          }
+        });
       }
 
       // Basic email validation
       if (!isValidEmail(body.email)) {
-        return new Response('Invalid email format', { status: 400 });
+        return new Response('Invalid email format', { 
+          status: 400,
+          headers: {
+            'Access-Control-Allow-Origin': origin,
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+          }
+        });
       }
 
       // Rate limiting check
@@ -54,7 +103,14 @@ export default {
       const rateLimitResult = await checkRateLimit(clientIP, env.EMAIL_KV);
       
       if (!rateLimitResult.allowed) {
-        return new Response('Rate limit exceeded. Please try again later.', { status: 429 });
+        return new Response('Rate limit exceeded. Please try again later.', { 
+          status: 429,
+          headers: {
+            'Access-Control-Allow-Origin': origin,
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+          }
+        });
       }
 
       // Determine if this is a subscriber signup
@@ -94,7 +150,14 @@ export default {
       if (!resendResponse.ok) {
         const errorData = await resendResponse.text();
         console.error('Resend API error:', errorData);
-        return new Response('Failed to send email', { status: 500 });
+        return new Response('Failed to send email', { 
+          status: 500,
+          headers: {
+            'Access-Control-Allow-Origin': origin,
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+          }
+        });
       }
 
       const result: EmailResponse = await resendResponse.json();
@@ -111,15 +174,22 @@ export default {
         status: 200,
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': env.ALLOWED_ORIGIN || '*',
+          'Access-Control-Allow-Origin': origin,
           'Access-Control-Allow-Methods': 'POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
         },
       });
 
     } catch (error) {
       console.error('Worker error:', error);
-      return new Response('Internal server error', { status: 500 });
+      return new Response('Internal server error', { 
+        status: 500,
+        headers: {
+          'Access-Control-Allow-Origin': origin,
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+        }
+      });
     }
   },
 };

@@ -22,5 +22,6 @@ export interface Env {
   FROM_EMAIL: string;
   TO_EMAIL: string;
   ALLOWED_ORIGIN: string;
+  ENVIRONMENT?: string;
   EMAIL_KV: KVNamespace;
 } 
