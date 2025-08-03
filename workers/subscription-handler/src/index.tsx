@@ -39,7 +39,7 @@ export default {
       }
 
       // Create email content
-      const { subject, react, html, isSubscriber } = createEmailContent(body);
+      const { subject, react, isSubscriber } = createEmailContent(body);
 
       // Prepare email data
       const emailData: CreateEmailOptions = {
