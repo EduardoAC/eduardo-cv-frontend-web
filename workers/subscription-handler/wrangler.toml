@@ -13,7 +13,7 @@ vars = { ENVIRONMENT = "staging" }
 # KV namespace for rate limiting
 [[kv_namespaces]]
 binding = "EMAIL_KV"
-id = "email_kv_namespace"
+id = "0c3bb7d68a3b4959a2b3482a92cb766c"
 preview_id = "015cde3a803a40a78cd525d6a7ed0d27"
 
 # Environment variables (these will be set via wrangler secret)
