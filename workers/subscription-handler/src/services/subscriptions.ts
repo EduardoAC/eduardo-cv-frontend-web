@@ -6,7 +6,6 @@ export interface SubscriptionData {
   email: string;
   firstName?: string;
   lastName?: string;
-  audienceId?: string;
 }
 
 export interface SubscriptionResponse {
@@ -30,7 +29,7 @@ export async function addContactToAudience(
       firstName: subscriptionData.firstName || '',
       lastName: subscriptionData.lastName || '',
       unsubscribed: false,
-      audienceId: subscriptionData.audienceId || env.AUDIENCE_ID,
+      audienceId: env.AUDIENCE_ID,
     };
 
     const response = await resend.contacts.create(contactData);

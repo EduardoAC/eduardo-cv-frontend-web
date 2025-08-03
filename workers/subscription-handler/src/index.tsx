@@ -69,7 +69,7 @@ export default {
         );
 
         if (!subscriptionResult.success) {
-          console.error('Failed to add contact to audience:', subscriptionResult.response);
+          console.error('Failed to add contact to audience:', JSON.stringify(subscriptionResult.response));
           // Continue with email success but log the subscription failure
         }
       }
