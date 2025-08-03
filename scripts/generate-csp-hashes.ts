@@ -2,7 +2,7 @@ import { createHash } from 'crypto';
 import { readdir, readFile, stat } from 'fs/promises';
 import { join, resolve } from 'path';
 
-const exportDir = resolve(__dirname, '../out');
+const exportDir = resolve(process.cwd(), 'dist');
 const hashes = new Set<string>();
 
 async function extractHashesFromFile(filePath: string): Promise<void> {
