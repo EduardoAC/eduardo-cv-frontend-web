@@ -262,7 +262,7 @@ const TableOfContents: React.FC<{ items: TableOfContentsItem[] }> = ({ items }) 
   return (
     <nav className="snap-toc">
       <h4 className="snap-toc-title">Table of Contents</h4>
-      <ul className="snap-toc-list">
+      <ul className="snap-toc-list text-align-left">
         {items.map((item) => (
           <li
             key={item.id}
