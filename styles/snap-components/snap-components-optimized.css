@@ -23,6 +23,32 @@
   margin-bottom: var(--spacing-lg);
 }
 
+/* Generic image alignment classes */
+.snap-blog-image-center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.snap-blog-image-left {
+  margin-right: auto;
+  display: block;
+}
+
+.snap-blog-image-right {
+  margin-left: auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .snap-blog-image-small {
+    max-width: 300px;
+  }
+  .snap-blog-image-medium {
+    max-width: 540px;
+  }
+}
+
 /* --- Optimized Grid System --- */
 .snap-grid {
   display: flex;

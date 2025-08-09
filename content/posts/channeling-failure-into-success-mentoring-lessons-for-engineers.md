@@ -7,7 +7,7 @@ tags: ["Mentoring", "Engineering", "Leadership", "Career Development", "Life Les
 image: "/images/blog/channeling-failure-into-success-mentoring-lessong-for-engineers.webp"
 ---
 
-Yesterday, I had the pleasure of recording my first-ever podcast at [The Señor Developer](https://www.youtube.com/@NeciuDan) with [Dan Neciu](https://neciudan.dev/), where we talked about many exciting things—especially a topic very close to my heart: engineering mentoring. The video will be released soon, so make sure to subscribe to his channel so you don't miss it.
+Yesterday, I had the pleasure of recording my first-ever podcast at [The Señor Developer](https://www.youtube.com/@NeciuDan) with [Dan Neciu](https://neciudan.dev/), where we talked about many exciting things, especially a topic very close to my heart: engineering mentoring. The video will be released soon, so make sure to subscribe to his channel so you don't miss it.
 
 Despite my excitement to be there, I left with a familiar but awful internal feeling: **"I could have done better."** Have you ever felt this way? If so, then you can relate. I keep thinking... Eduardo, you have done meetups, conference speaking, and presenting for years, and on top of all that, mentored dozens of engineers both inside and outside of your job for years. How could you have missed saying this? Why didn't I say that instead? Why couldn't I have articulated that idea more clearly? Why did I miss the perfect opportunity to make a point?
 
@@ -31,7 +31,7 @@ After more than 23 years of working on myself, this habit hasn't completely gone
 
 The same thing happens when you're frustrated by a phone call to a company, a colleague, a manager, a job, or even a friend.
 
-It's on us to take action. That frustration was the very driver for this article—an attempt to perfect what I couldn't express on the podcast, to show that we're all on this journey together. Even the richest and most successful people in the world face moments like this every single day.
+It's on us to take action. That frustration was the very driver for this article, an attempt to perfect what I couldn't express on the podcast, to show that we're all on this journey together. Even the richest and most successful people in the world face moments like this every single day.
 
 ## Turning These Frustrations Into Rocket Fuel
 
@@ -51,7 +51,7 @@ From my experience, my mentoring approach is simple: we create a white canvas to
 
 ## Mentoring for Engineers: Turning Frustration Into Growth
 
-![Eduardo Aparicio Cardenes mentoring session profile photo](/images/profiles/mentor-profile-490px.png)
+![Eduardo Aparicio Cardenes mentoring session profile photo image-medium image-center](/images/profiles/mentor-profile-490px.png)
 
 If you want a human mentor who faces these challenges too and chooses to make a difference, this is for you. I look forward to meeting you so we can create some magical alchemy together.
 

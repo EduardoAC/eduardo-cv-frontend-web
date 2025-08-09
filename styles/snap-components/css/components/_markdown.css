@@ -131,6 +131,33 @@
   margin: 1.5rem 0;
 }
 
+/* Generic image alignment classes */
+.snap-blog-image-center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.snap-blog-image-left {
+  margin-right: auto;
+  display: block;
+}
+
+.snap-blog-image-right {
+  margin-left: auto;
+  display: block;
+}
+
+/* Responsive adjustments for medium and small images */
+@media (min-width: 1024px) {
+  .snap-blog-image-small {
+    max-width: 180px;
+  }
+  .snap-blog-image-medium {
+    max-width: 540px;
+  }
+}
+
 /* Blog Meta, Description, Tags, Read More */
 .snap-meta {
   color: var(--color-text-primary);
