@@ -98,7 +98,19 @@ const createCustomRenderer = () => {
   };
 
   renderer.image = ({ href, title, text }) => {
-    return `<img src="${href}" alt="${text}" title="${title ?? ''}" loading="lazy" class="snap-blog-image" />`;
+    // Check for CSS class hints in the alt text or title
+    let imageClass = 'snap-blog-image';
+    let cleanAltText = text;
+
+    // Look for class hints in alt text like "image-small", "image-medium", "image-center"
+    const classMatches = text.match(/\b(image-(?:small|medium|large|center|left|right))\b/g);
+    if (classMatches) {
+      imageClass = `snap-blog-image ${classMatches.map(cls => `snap-blog-${cls}`).join(' ')}`;
+      // Remove class hints from alt text for cleaner display
+      cleanAltText = text.replace(/\b(image-(?:small|medium|large|center|left|right))\b/g, '').trim();
+    }
+
+    return `<img src="${href}" alt="${cleanAltText}" title="${title ?? ''}" loading="lazy" class="${imageClass}" />`;
   };
 
   renderer.link = ({ href, title, text }) => {
@@ -262,7 +274,7 @@ const TableOfContents: React.FC<{ items: TableOfContentsItem[] }> = ({ items }) 
   return (
     <nav className="snap-toc">
       <h4 className="snap-toc-title">Table of Contents</h4>
-      <ul className="snap-toc-list">
+      <ul className="snap-toc-list text-align-left">
         {items.map((item) => (
           <li
             key={item.id}
