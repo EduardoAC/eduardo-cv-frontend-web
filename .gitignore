@@ -72,3 +72,5 @@ content/posts/.medium-migration-process.md
 
 # workers
 workers/subscription-handler/.wrangler
+# Sentry Config File
+.env.sentry-build-plugin
