@@ -23,6 +23,7 @@
     "generate-csp-hashes": "node scripts/generate-csp-hashes.ts"
   },
   "dependencies": {
+    "@sentry/nextjs": "^10.3.0",
     "@types/marked": "^5.0.2",
     "@types/prismjs": "^1.26.5",
     "gray-matter": "^4.0.3",
