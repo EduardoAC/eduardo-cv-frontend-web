@@ -20,6 +20,8 @@ export default function VersionedFrontendProfile({
   activeVersion,
   versions,
 }: VersionedFrontendProfileProps) {
+  const orderedVersions = [...versions].sort((a, b) => Number(b.version) - Number(a.version));
+
   return (
     <div className={styles.page} data-version={activeVersion.id}>
       <section className={styles.hero}>
@@ -55,7 +57,7 @@ export default function VersionedFrontendProfile({
           <div className={styles.version_panel_inner}>
             <span className={styles.version_panel_label}>Profile releases</span>
             <nav className={styles.version_switcher} aria-label="Frontend profile versions">
-              {versions.map((version) => {
+              {orderedVersions.map((version) => {
                 const isActive = version.id === activeVersion.id;
 
                 return (
@@ -100,11 +102,22 @@ export default function VersionedFrontendProfile({
                 ))}
               </div>
             ) : null}
+            <div className={styles.release_cta}>
+              <Link
+                href={`/profile/${activeVersion.id}/frontend/release-notes`}
+                className={styles.release_notes_link}
+              >
+                View detailed release notes
+              </Link>
+              {activeVersion.easterEgg ? (
+                <span className={styles.easter_hint}>{activeVersion.easterEgg}</span>
+              ) : null}
+            </div>
           </section>
 
           <section className={styles.tech_diff}>
             <div className={styles.tech_diff_header}>
-              <h2>Tech Stack Diff</h2>
+              <h2>Tech Stack</h2>
               <p>Compare the focus, new additions, and sunset tools for this release.</p>
             </div>
             <div className={styles.tech_diff_columns}>
@@ -112,7 +125,15 @@ export default function VersionedFrontendProfile({
                 <h3>Core Focus</h3>
                 <ul>
                   {activeVersion.techHighlights.focus.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item.label}>
+                      {item.url ? (
+                        <a href={item.url} rel={item.rel ?? 'nofollow noopener noreferrer'} target="_blank">
+                          {item.label}
+                        </a>
+                      ) : (
+                        <span>{item.label}</span>
+                      )}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -121,7 +142,15 @@ export default function VersionedFrontendProfile({
                   <h3>Added</h3>
                   <ul>
                     {activeVersion.techHighlights.added.map((item) => (
-                      <li key={item}>{item}</li>
+                      <li key={item.label}>
+                        {item.url ? (
+                          <a href={item.url} rel={item.rel ?? 'nofollow noopener noreferrer'} target="_blank">
+                            {item.label}
+                          </a>
+                        ) : (
+                          <span>{item.label}</span>
+                        )}
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -131,7 +160,7 @@ export default function VersionedFrontendProfile({
                   <h3>Sunset</h3>
                   <ul>
                     {activeVersion.techHighlights.sunset.map((item) => (
-                      <li key={item}>{item}</li>
+                      <li key={item.label}>{item.label}</li>
                     ))}
                   </ul>
                 </div>
@@ -139,20 +168,36 @@ export default function VersionedFrontendProfile({
             </div>
           </section>
 
-          <section className={styles.changelog}>
-            <div className={styles.changelog_header}>
-              <h2>Release Notes</h2>
-              <p>Your favourite part of every launch: the changelog.</p>
-            </div>
-            <ul className={styles.changelog_list}>
-              {activeVersion.changelog.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            {activeVersion.easterEgg ? (
-              <p className={styles.easter_egg}>{activeVersion.easterEgg}</p>
-            ) : null}
-          </section>
+          {activeVersion.experienceLink ? (
+            <section className={styles.experience_bridge}>
+              <h2>Experience in Action</h2>
+              <p>{activeVersion.experienceLink.description}</p>
+              <Link
+                href={activeVersion.experienceLink.url}
+                className={styles.experience_link}
+              >
+                {activeVersion.experienceLink.label}
+              </Link>
+            </section>
+          ) : null}
+
+          {activeVersion.relatedArticles.length > 0 ? (
+            <section className={styles.related_articles}>
+              <h2>Keep Exploring</h2>
+              <p className={styles.related_articles_intro}>
+                Curated reads from my blog that extend the themes in this release.
+              </p>
+              <ul>
+                {activeVersion.relatedArticles.map((article) => (
+                  <li key={article.url}>
+                    <Link href={article.url}>
+                      {article.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </div>
       </Container>
     </div>

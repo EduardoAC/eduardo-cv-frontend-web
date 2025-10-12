@@ -61,7 +61,7 @@ export default function ProfilePage({
         <hr />
         <a
           href={linkedInUrl}
-          rel="nofollow"
+          rel="nofollow noopener noreferrer"
           target="_blank"
         >
           <p className={styles.conclusion}>Would you like to know more?</p>

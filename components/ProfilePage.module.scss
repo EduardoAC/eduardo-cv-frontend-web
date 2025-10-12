@@ -12,9 +12,10 @@
   p {
     margin-bottom: 20px;
     font-size: 18px;
-    text-align: justify;
-    text-indent: 40px;
+    text-align: left;
+    text-indent: 0;
     color: var(--profile-text-color);
+    line-height: 1.65;
   }
 
   h1 {

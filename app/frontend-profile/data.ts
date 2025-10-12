@@ -7,6 +7,18 @@ export interface FrontendProfileMetric {
   value: string;
 }
 
+export interface HighlightItem {
+  label: string;
+  url?: string;
+  rel?: string;
+}
+
+export interface RelatedArticle {
+  title: string;
+  url: string;
+  rel?: string;
+}
+
 export interface FrontendProfileVersion {
   id: FrontendProfileVersionId;
   version: string;
@@ -23,11 +35,17 @@ export interface FrontendProfileVersion {
   changelog: string[];
   metrics: FrontendProfileMetric[];
   techHighlights: {
-    focus: string[];
-    added?: string[];
-    sunset?: string[];
+    focus: HighlightItem[];
+    added?: HighlightItem[];
+    sunset?: HighlightItem[];
   };
   easterEgg?: string;
+  relatedArticles: RelatedArticle[];
+  experienceLink?: {
+    label: string;
+    url: string;
+    description?: string;
+  };
 }
 
 export interface FrontendProfileVersionMap {
@@ -92,9 +110,26 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
       { label: 'Experiment Velocity', value: 'Weekly Optimizely iterations across core flows' },
     ],
     techHighlights: {
-      focus: ['HTML5 & CSS3', 'SASS/LESS', 'Bootstrap', 'jQuery', 'Grunt', 'RequireJS'],
+      focus: [
+        { label: 'HTML5 & CSS3', url: 'https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5', rel: 'nofollow noopener' },
+        { label: 'SASS/LESS', url: 'https://sass-lang.com/', rel: 'nofollow noopener' },
+        { label: 'Bootstrap', url: 'https://getbootstrap.com/', rel: 'nofollow noopener' },
+        { label: 'jQuery', url: 'https://jquery.com/', rel: 'nofollow noopener' },
+        { label: 'Grunt', url: 'https://gruntjs.com/', rel: 'nofollow noopener' },
+        { label: 'RequireJS', url: 'https://requirejs.org/', rel: 'nofollow noopener' },
+      ],
     },
     easterEgg: 'The OG terminal typewriter sound is hiding in the audio toggle.',
+    relatedArticles: [
+      { title: 'Web Development Best Practices', url: '/blog/web-development-best-practices' },
+      { title: 'Performance Optimization Tips', url: '/blog/performance-optimization-tips' },
+      { title: 'Form Fields: The Never Ending Debate', url: '/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing' },
+    ],
+    experienceLink: {
+      label: 'Explore the early career timeline',
+      url: '/my-experience',
+      description: 'Deep dive into the responsive retrofits and editorial transformations I led between 2012 and 2016.',
+    },
   },
   {
     id: 'v2',
@@ -152,11 +187,39 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
       { label: 'Team Growth', value: 'Mentored 10+ engineers into senior roles' },
     ],
     techHighlights: {
-      focus: ['React 18 and Server Components', 'Next.js App Router', 'TypeScript', 'Design Tokens', 'Storybook', 'Playwright', 'Turborepo', 'Edge and Serverless Platforms'],
-      added: ['Tailwind and utility-first patterns', 'GraphQL Federation', 'RUM and observability stacks (Datadog, Sentry)', 'Design linting automation'],
-      sunset: ['Grunt build pipelines', 'RequireJS modules', 'Legacy jQuery widgets'],
+      focus: [
+        { label: 'React 18 & Server Components', url: 'https://beta.reactjs.org/', rel: 'nofollow noopener' },
+        { label: 'Next.js App Router', url: 'https://nextjs.org/docs/app/building-your-application', rel: 'nofollow noopener' },
+        { label: 'TypeScript', url: 'https://www.typescriptlang.org/', rel: 'nofollow noopener' },
+        { label: 'Design Tokens', url: 'https://design-tokens.github.io/community-group/', rel: 'nofollow noopener' },
+        { label: 'Storybook', url: 'https://storybook.js.org/', rel: 'nofollow noopener' },
+        { label: 'Playwright', url: 'https://playwright.dev/', rel: 'nofollow noopener' },
+        { label: 'Turborepo', url: 'https://turbo.build/repo', rel: 'nofollow noopener' },
+        { label: 'Edge & Serverless Platforms', url: 'https://vercel.com/docs/concepts/edge-network/edge-functions', rel: 'nofollow noopener' },
+      ],
+      added: [
+        { label: 'Tailwind CSS', url: 'https://tailwindcss.com/', rel: 'nofollow noopener' },
+        { label: 'GraphQL Federation', url: 'https://www.apollographql.com/docs/federation/', rel: 'nofollow noopener' },
+        { label: 'RUM & Observability (Datadog)', url: 'https://www.datadoghq.com/', rel: 'nofollow noopener' },
+        { label: 'Design Linting Automation', url: 'https://www.figma.com/community/plugin/785619431629077634/design-lint', rel: 'nofollow noopener' },
+      ],
+      sunset: [
+        { label: 'Grunt Build Pipelines' },
+        { label: 'RequireJS Modules' },
+        { label: 'Legacy jQuery Widgets' },
+      ],
     },
     easterEgg: 'Unlock the v0.5 apprentice era by spotting the Konami code hidden in the timeline.',
+    relatedArticles: [
+      { title: 'Leveraging Metrics to Communicate Business Value', url: '/blog/leveraging-metrics-to-communicate-business-value' },
+      { title: 'Analysing Slowness: Pre-commit Setup', url: '/blog/analysing-slowness-pre-commit-setup' },
+      { title: 'Channeling Failure into Success: Mentoring Lessons', url: '/blog/channeling-failure-into-success-mentoring-lessons-for-engineers' },
+    ],
+    experienceLink: {
+      label: 'See the modern platform highlights',
+      url: '/my-experience',
+      description: 'Read how design systems, developer experience and performance initiatives matured across recent roles.',
+    },
   },
 ];
 
