@@ -89,81 +89,110 @@ export default function VersionedFrontendProfile({
             wrapperClassName={styles.profile_page}
           />
 
-          <section className={styles.release_overview}>
-            <h2>Release Highlights</h2>
-            <p className={styles.release_overview_summary}>{activeVersion.summary}</p>
-            {activeVersion.metrics.length > 0 ? (
-              <div className={styles.metrics_grid}>
-                {activeVersion.metrics.map((metric) => (
-                  <div className={styles.metric_card} key={metric.label}>
-                    <span className={styles.metric_value}>{metric.value}</span>
-                    <span className={styles.metric_label}>{metric.label}</span>
-                  </div>
-                ))}
-              </div>
-            ) : null}
-            <div className={styles.release_cta}>
+          <section
+            className={styles.tech_showcase}
+            aria-label="Technologies that shaped this release"
+          >
+            <header className={styles.tech_showcase_header}>
+              <h2>Toolkit &amp; Platforms</h2>
+              <p>
+                A snapshot of the frameworks, practices, and tools that enabled this release.
+                Discover deeper implementation notes inside the release log.
+              </p>
               <Link
                 href={`/profile/${activeVersion.id}/frontend/release-notes`}
                 className={styles.release_notes_link}
               >
                 View detailed release notes
               </Link>
-              {activeVersion.easterEgg ? (
-                <span className={styles.easter_hint}>{activeVersion.easterEgg}</span>
-              ) : null}
-            </div>
-          </section>
-
-          <section className={styles.tech_diff}>
-            <div className={styles.tech_diff_header}>
-              <h2>Tech Stack</h2>
-              <p>Compare the focus, new additions, and sunset tools for this release.</p>
-            </div>
-            <div className={styles.tech_diff_columns}>
-              <div className={styles.tech_column}>
-                <h3>Core Focus</h3>
-                <ul>
+            </header>
+            <div className={styles.tech_groups}>
+              <article className={styles.tech_group}>
+                <h3>
+                  <span aria-hidden="true" className={styles.tech_group_icon}>🎯</span>
+                  Core Focus
+                </h3>
+                <p className={styles.tech_group_intro}>
+                  Everyday foundations that anchor this version.
+                </p>
+                <ul className={styles.tech_badge_grid}>
                   {activeVersion.techHighlights.focus.map((item) => (
                     <li key={item.label}>
                       {item.url ? (
-                        <a href={item.url} rel={item.rel ?? 'nofollow noopener noreferrer'} target="_blank">
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel={item.rel ?? 'nofollow noopener noreferrer'}
+                          className={styles.tech_badge}
+                        >
+                          <span aria-hidden="true">•</span>
                           {item.label}
                         </a>
                       ) : (
-                        <span>{item.label}</span>
+                        <span className={styles.tech_badge}>
+                          <span aria-hidden="true">•</span>
+                          {item.label}
+                        </span>
                       )}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </article>
+
               {activeVersion.techHighlights.added ? (
-                <div className={styles.tech_column}>
-                  <h3>Added</h3>
-                  <ul>
+                <article className={styles.tech_group}>
+                  <h3>
+                    <span aria-hidden="true" className={styles.tech_group_icon}>✨</span>
+                    Added This Release
+                  </h3>
+                  <p className={styles.tech_group_intro}>
+                    New ingredients that expanded capability or velocity.
+                  </p>
+                  <ul className={styles.tech_badge_grid}>
                     {activeVersion.techHighlights.added.map((item) => (
                       <li key={item.label}>
                         {item.url ? (
-                          <a href={item.url} rel={item.rel ?? 'nofollow noopener noreferrer'} target="_blank">
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel={item.rel ?? 'nofollow noopener noreferrer'}
+                            className={styles.tech_badge}
+                          >
+                            <span aria-hidden="true">•</span>
                             {item.label}
                           </a>
                         ) : (
-                          <span>{item.label}</span>
+                          <span className={styles.tech_badge}>
+                            <span aria-hidden="true">•</span>
+                            {item.label}
+                          </span>
                         )}
                       </li>
                     ))}
                   </ul>
-                </div>
+                </article>
               ) : null}
+
               {activeVersion.techHighlights.sunset ? (
-                <div className={styles.tech_column}>
-                  <h3>Sunset</h3>
-                  <ul>
+                <article className={styles.tech_group}>
+                  <h3>
+                    <span aria-hidden="true" className={styles.tech_group_icon}>🧹</span>
+                    Sunset &amp; Refined
+                  </h3>
+                  <p className={styles.tech_group_intro}>
+                    Tools gracefully retired as the stack evolved.
+                  </p>
+                  <ul className={styles.tech_badge_grid}>
                     {activeVersion.techHighlights.sunset.map((item) => (
-                      <li key={item.label}>{item.label}</li>
+                      <li key={item.label}>
+                        <span className={styles.tech_badge}>
+                          <span aria-hidden="true">•</span>
+                          {item.label}
+                        </span>
+                      </li>
                     ))}
                   </ul>
-                </div>
+                </article>
               ) : null}
             </div>
           </section>

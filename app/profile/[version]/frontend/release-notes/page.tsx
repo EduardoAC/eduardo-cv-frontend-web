@@ -83,12 +83,44 @@ export default function FrontendReleaseNotesPage({ params }: PageProps) {
         </ul>
       </section>
 
-      <section style={{ marginBottom: '2rem' }}>
-        <h2>Highlights</h2>
-        <p style={{ maxWidth: '760px', color: 'var(--color-text-secondary)' }}>
-          {activeVersion.summary}
-        </p>
-      </section>
+  <section style={{ marginBottom: '2rem' }}>
+    <h2>Highlights</h2>
+    <p style={{ maxWidth: '760px', color: 'var(--color-text-secondary)' }}>
+      {activeVersion.summary}
+    </p>
+  </section>
+
+  {activeVersion.metrics.length > 0 ? (
+    <section style={{ marginBottom: '2.5rem' }}>
+      <h2>Release Metrics</h2>
+      <div
+        style={{
+          display: 'grid',
+          gap: '16px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        }}
+      >
+        {activeVersion.metrics.map((metric) => (
+          <div
+            key={metric.label}
+            style={{
+              borderRadius: '16px',
+              border: '1px solid rgba(255,255,255,0.1)',
+              padding: '16px',
+              background: 'rgba(255,255,255,0.04)',
+            }}
+          >
+            <div style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-text-primary)' }}>
+              {metric.value}
+            </div>
+            <div style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginTop: '6px' }}>
+              {metric.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  ) : null}
 
       <footer>
         <Link
