@@ -53,7 +53,7 @@ export default function Profiles() {
       <Container variant="default" padding="medium">
         <h2>My Background</h2>
         <p>
-          Since I started with my engineer in computer science. I'm always been
+          Since I started with my engineer in computer science. I&apos;m always been
           curious about many subjects in specific all of things related as
           Artificial Intelligence until I discovered the web technologies that
           allow you to become real any ideas or business.
@@ -82,7 +82,7 @@ export default function Profiles() {
       {/* Desktop Grid */}
       <Container variant="fluid" padding="none">
         <div className={styles.gridAnimated}>
-          {profiles.map((profile, index) => (
+          {profiles.map((profile) => (
             <div
               key={profile.title}
               className={styles.profileItemGrid}

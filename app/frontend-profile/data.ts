@@ -16,6 +16,7 @@ export interface FrontendProfileVersion {
   title: string;
   description: string;
   openGraphImage: string;
+  brandCardImage: string;
   introduction: string[];
   summary: string;
   strengths: Strength[];
@@ -44,7 +45,8 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
     heroTagline: 'Pixel-perfect interfaces, handcrafted CSS, and OOP JavaScript.',
     title: 'Frontend Developer 1.0',
     description: 'Legacy frontend profile focused on handcrafted interfaces and emerging responsive design.',
-    openGraphImage: '/images/profiles/frontend-profile-490px.webp',
+    openGraphImage: '/images/frontend/frontend-profile-v1-card.png',
+    brandCardImage: '/images/frontend/frontend-profile-v1-card.webp',
     introduction: [
       'Version 1.0 was all about mastering the classics: HTML5, CSS3, and vanilla JavaScript with an artisan mindset. I migrated large editorial experiences from table-based layouts into responsive, semantic markup.',
       'Preprocessors like SASS and LESS became my bread and butter. I used them to keep sprawling stylesheets maintainable while experimenting with OOP patterns in JavaScript to keep interactions snappy.',
@@ -102,7 +104,8 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
     heroTagline: 'Design systems, performance budgets, and DX that scales teams.',
     title: 'Frontend Developer 2.0',
     description: 'Modern frontend lead profile focused on design systems, developer experience, and measurable impact.',
-    openGraphImage: '/images/profiles/frontend-profile-490px.webp',
+    openGraphImage: '/images/frontend/frontend-profile-v2-card.png',
+    brandCardImage: '/images/frontend/frontend-profile-v2-card.webp',
     introduction: [
       'A decade in, I sit at the intersection of product, design, and engineering. I lead teams that ship resilient design systems, obsess over Core Web Vitals, and build developer journeys that make shipping joyful.',
       'My toolkit is centered around React, Next.js, TypeScript, and modern styling approaches such as design tokens and utility-first patterns. I pair that with data-driven experimentation, observability, and accessibility as default expectations.',

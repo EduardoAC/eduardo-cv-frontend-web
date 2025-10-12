@@ -25,11 +25,11 @@ export default function AboutPageClient() {
         <div className={`${styles.heading_block} snap-container`}>
           <h1 className='heading2'>The Story of Eduardo Aparicio Cardenes</h1>
           <p>
-            Hi! I'm Eduardo Aparicio Cardenes. I'm a Web Developer, Software
+            Hi! I&apos;m Eduardo Aparicio Cardenes. I&apos;m a Web Developer, Software
             architect and Entrepreneur.
           </p>
           <p>
-            Currently, I'm co-founder of{" "}
+            Currently, I&apos;m co-founder of{" "}
             <a href="https://www.innervirtuoso.com">Inner Virtuoso</a>. Inner
             Virtuoso uses Global Incubator technology to create tailor made
             solutions that boost the development of human capital.
@@ -40,12 +40,12 @@ export default function AboutPageClient() {
             takes ideas with potential and implement in successful products
             where I have three projects in my pipeline,{" "}
             <a href="https://www.tuocio.org">TuOcio</a>,{" "}
-            <a href="https://www.trainerswod.com/">Trainer's WOD</a> and{" "}
+            <a href="https://www.trainerswod.com/">Trainer&apos;s WOD</a> and{" "}
             <a href="https://www.proyectoadoptame.es">Proyecto Adoptame</a>.
           </p>
           <p>
-            When I'm not doing those things, I'm working for companies as a web
-            developer or software architect. I'm always happy to join to your
+            When I&apos;m not doing those things, I&apos;m working for companies as a web
+            developer or software architect. I&apos;m always happy to join to your
             projects and make it happens.
           </p>
           <div className={`${styles.centered_image_container} hidden-bigger-lg`}>
@@ -68,7 +68,7 @@ export default function AboutPageClient() {
               I grew with computers, coding and internet. My mom was
               informatic teacher and my first experience with computers, it
               was when my mom took me to her informatic class when I was 8
-              years old. After that I've been with computers at home all my
+              years old. After that I&apos;ve been with computers at home all my
               life, starting for Amstrad CPC to My current Intel Core i5, (I
               used most of the IBM and INTEL as 186, 286, 486, Pentium I, II,
               III, IV, etc.)
@@ -98,7 +98,7 @@ export default function AboutPageClient() {
           </blockquote>
           <p>
             My colleges used to have opposite opinion than me, I usually
-            proposed out of box thinking that they weren't capable to
+            proposed out of box thinking that they weren&apos;t capable to
             understand. Examaple, if we clone a dinnosaour we can provide more
             food to each person because we have plenty of plant to feed them.{" "}
             <strong>
@@ -107,10 +107,10 @@ export default function AboutPageClient() {
             or you are wrong when the time confirmed that I was right
           </p>
           <p>
-            I don't know why but I found these things as a challenge every time
+            I don&apos;t know why but I found these things as a challenge every time
             they told me that encourage me to show them that they were wrong.
             Probably this is one of the reasons because. I never give up during
-            my studies and achieve every single thing that's comes to my life
+            my studies and achieve every single thing that&apos;s comes to my life
           </p>
           <p className={`${styles.final_thought} heading2`}>
             I am deeply thanks all the persons in my life that tried to
@@ -133,21 +133,21 @@ export default function AboutPageClient() {
           <h3>About this site</h3>
           <p>
             This site is a personal project created by Eduardo Aparicio Cardenes.
-            It's a place where he shares his thoughts, experiences, and projects
+            It&apos;s a place where he shares his thoughts, experiences, and projects
             related to his career and interests.
           </p>
           <p>
-            The site is built using Next.js and is hosted on Vercel. It's designed
+            The site is built using Next.js and is hosted on Vercel. It&apos;s designed
             to be responsive and accessible, ensuring that it works well on
             different devices and browsers.
           </p>
           <p>
             Eduardo is passionate about web development and enjoys creating
             interactive and visually appealing websites. He believes in the power
-            of technology to solve problems and improve people's lives.
+            of technology to solve problems and improve people&apos;s lives.
           </p>
           <p>
-            If you're interested in learning more about Eduardo's work or
+            If you&apos;re interested in learning more about Eduardo&apos;s work or
             collaborating on a project, you can contact him through the contact
             page on this site.
           </p>

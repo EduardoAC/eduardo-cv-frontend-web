@@ -20,7 +20,7 @@ export default function ContentBlogs() {
           </div>
           <div className="snap-col snap-col-md-7">
             <p>
-              I'm passionate about technology, business and personal growing so I wanted to contribute to internet sharing
+              I&apos;m passionate about technology, business and personal growing so I wanted to contribute to internet sharing
             </p>
             <p>
               Therefore I added two areas in that will contribute with my own posts and ideas about it

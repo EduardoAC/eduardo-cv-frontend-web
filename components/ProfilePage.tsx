@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Container from './layout/Container';
 import ContentBlock from '@/components/ContentBlock';
 import styles from './ProfilePage.module.scss';
@@ -18,6 +17,7 @@ export interface ProfilePageProps {
   introduction: string[];
   strengths: Strength[];
   linkedInUrl?: string;
+  wrapperClassName?: string;
 }
 
 export function generateMetadata(props: ProfilePageProps): Metadata {
@@ -33,14 +33,15 @@ export function generateMetadata(props: ProfilePageProps): Metadata {
 export default function ProfilePage({
   role,
   title,
-  description,
-  openGraphImage,
   introduction,
   strengths,
   linkedInUrl = 'https://www.linkedin.com/in/eacardenes',
+  wrapperClassName = '',
 }: ProfilePageProps) {
+  const containerClassName = [styles.profile_page, wrapperClassName].filter(Boolean).join(' ');
+
   return (
-    <Container variant="default" padding="medium" className={styles.profile_page} data-role={role}>
+    <Container variant="default" padding="medium" className={containerClassName} data-role={role}>
       <h1>{title}</h1>
       <section className={styles.introduction}>
         {introduction.map((paragraph, index) => (

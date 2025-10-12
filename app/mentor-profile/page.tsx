@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import dynamic from 'next/dynamic';
 import styles from './MentorProfile.module.scss';

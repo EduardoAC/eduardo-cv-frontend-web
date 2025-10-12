@@ -70,7 +70,7 @@ export const Footer = ({
     <footer className="footer">
       <Container variant="default" padding="medium">
         <div className="snap-grid">
-          {sections.map((section, index) => (
+          {sections.map((section) => (
             <div
               key={section.title}
               className={'snap-col snap-col-md-6 snap-col-lg-4'}

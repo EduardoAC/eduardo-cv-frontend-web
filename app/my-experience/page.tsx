@@ -37,9 +37,9 @@ export default function MyExperiencePage() {
         </Container>
       </section>
       <Container variant="default" padding="large" className="conclusion">
-        <h2>What's Next?</h2>
+        <h2>What&apos;s Next?</h2>
         <p>
-          I'm always looking for new challenges and opportunities to grow. If you
+          I&apos;m always looking for new challenges and opportunities to grow. If you
           think I could be a good fit for your team or project, please{' '}
           <Link href="/contact">get in touch</Link>.
         </p>

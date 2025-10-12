@@ -99,9 +99,22 @@ export default function ContentBlock({
     );
   }
 
+  const dataAttributes: Record<string, string | undefined> = {};
+  if (typeof odd === 'boolean') {
+    dataAttributes['data-odd'] = odd ? 'true' : 'false';
+  }
+  if (imageSize) {
+    dataAttributes['data-image-size'] = imageSize;
+  }
+
   // Default variant (original ContentBlock)
   return (
-    <div className={styles.content_block} data-variant="default" data-role={role}>
+    <div
+      className={styles.content_block}
+      data-variant="default"
+      data-role={role}
+      {...dataAttributes}
+    >
       <div className="snap-grid">
         <div className={`logo snap-col snap-col-sm-6 snap-col-md-4 ${leftClass}`}>
           <div className={styles.thumbnail_mid_container}>

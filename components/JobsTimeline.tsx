@@ -11,13 +11,13 @@ export default function JobsTimeline() {
         <div className="snap-grid align-items-center">
           <div className="snap-col snap-col-md-7">
             <p>
-              Finally I created to have a deeper idea what it's{' '}
+              Finally I created to have a deeper idea what it&apos;s{' '}
               <Link href="/my-experience">my work experience</Link>, I collected
               all job timeline.
             </p>
             <p>
               where you can see my career evolution since I was a child to what
-              I'm currently doing.
+              I&apos;m currently doing.
             </p>
             <p>
               It will include personal projects, jobs, hackathons so you will

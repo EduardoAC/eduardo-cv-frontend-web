@@ -32,7 +32,7 @@ export function BlogLayout({
           Unlock advanced strategies in web performance, Software Architecture, Chrome extensions, and software leadership.
         </p>
         <p>
-          Learn directly from hands-on experience in real-world projects. Whether you're a developer, 
+          Learn directly from hands-on experience in real-world projects. Whether you&apos;re a developer, 
           software architect, or tech lead, this blog offers practical insights, best practices, and advanced solutions to elevate your engineering journey.
         </p>
       </header>
