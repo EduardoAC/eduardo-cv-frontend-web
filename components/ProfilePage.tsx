@@ -11,7 +11,7 @@ export interface Strength {
 
 export interface ProfilePageProps {
   role: 'frontend' | 'backend' | 'software-architect';
-  title: string;
+  title?: string;
   description: string;
   openGraphImage: string;
   introduction: string[];
@@ -42,7 +42,7 @@ export default function ProfilePage({
 
   return (
     <Container variant="default" padding="medium" className={containerClassName} data-role={role}>
-      <h1>{title}</h1>
+      {title && (<h1>{title}</h1>)}
       <section className={styles.introduction}>
         {introduction.map((paragraph, index) => (
           <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
@@ -51,9 +51,9 @@ export default function ProfilePage({
       <section className={styles.skills}>
         <hr />
         {strengths.map((data, index) => (
-          <ContentBlock 
-            {...data} 
-            odd={index % 2 === 0} 
+          <ContentBlock
+            {...data}
+            odd={index % 2 === 0}
             key={data.title}
             role={role}
           />
@@ -69,4 +69,4 @@ export default function ProfilePage({
       </section>
     </Container>
   );
-} 
+}

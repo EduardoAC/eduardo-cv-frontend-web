@@ -30,7 +30,7 @@ export default function VersionedFrontendProfile({
             <div className={styles.hero_text}>
               <div className={styles.hero_copy}>
                 <span className={styles.version_badge}>Version {activeVersion.version}</span>
-                <h1>{activeVersion.title}</h1>
+                <h2 className={styles.hero_title}>{activeVersion.title}</h2>
                 <p className={styles.hero_tagline}>{activeVersion.heroTagline}</p>
               </div>
               <div className={styles.hero_meta}>
@@ -52,7 +52,7 @@ export default function VersionedFrontendProfile({
         </Container>
       </section>
 
-      <Container variant="wide" padding="medium" className={styles.layout}>
+      <Container variant="wide" padding="none" className={styles.layout}>
         <aside className={styles.version_panel}>
           <div className={styles.version_panel_inner}>
             <span className={styles.version_panel_label}>Profile releases</span>
@@ -74,13 +74,18 @@ export default function VersionedFrontendProfile({
                 );
               })}
             </nav>
+            <Link
+              href={`/profile/${activeVersion.id}/frontend/release-notes`}
+              className={styles.sidebar_release_link}
+            >
+              View detailed release notes
+            </Link>
           </div>
         </aside>
 
         <div className={styles.main}>
           <ProfilePage
             role="frontend"
-            title={activeVersion.title}
             description={activeVersion.description}
             openGraphImage={activeVersion.openGraphImage}
             introduction={activeVersion.introduction}
@@ -99,12 +104,6 @@ export default function VersionedFrontendProfile({
                 A snapshot of the frameworks, practices, and tools that enabled this release.
                 Discover deeper implementation notes inside the release log.
               </p>
-              <Link
-                href={`/profile/${activeVersion.id}/frontend/release-notes`}
-                className={styles.release_notes_link}
-              >
-                View detailed release notes
-              </Link>
             </header>
             <div className={styles.tech_groups}>
               <article className={styles.tech_group}>
