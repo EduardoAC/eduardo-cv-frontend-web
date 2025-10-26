@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241108.0",
-    "@playwright/test": "1.47.2",
+    "@playwright/test": "1.56.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
