@@ -139,8 +139,8 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
     heroTagline: 'Design systems, performance budgets, and DX that scales teams.',
     title: 'Frontend Developer 2.0',
     description: 'Modern frontend lead profile focused on design systems, developer experience, and measurable impact.',
-    openGraphImage: '/images/frontend/frontend-profile-v2-card.png',
-    brandCardImage: '/images/frontend/frontend-profile-v2-card.webp',
+    openGraphImage: '/images/frontend/frontend-profile-v2.png',
+    brandCardImage: '/images/frontend/frontend-profile-v2.webp',
     introduction: [
       'A decade in, I sit at the intersection of product, design, and engineering. I lead teams that ship resilient design systems, obsess over Core Web Vitals, and build developer journeys that make shipping joyful.',
       'My toolkit is centered around React, Next.js, TypeScript, and modern styling approaches such as design tokens and utility-first patterns. I pair that with data-driven experimentation, observability, and accessibility as default expectations.',
@@ -188,19 +188,18 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
     ],
     techHighlights: {
       focus: [
-        { label: 'React 18 & Server Components', url: 'https://beta.reactjs.org/', rel: 'nofollow noopener' },
+        { label: 'React.js', url: 'https://beta.reactjs.org/', rel: 'nofollow noopener' },
         { label: 'Next.js App Router', url: 'https://nextjs.org/docs/app/building-your-application', rel: 'nofollow noopener' },
         { label: 'TypeScript', url: 'https://www.typescriptlang.org/', rel: 'nofollow noopener' },
         { label: 'Design Tokens', url: 'https://design-tokens.github.io/community-group/', rel: 'nofollow noopener' },
         { label: 'Storybook', url: 'https://storybook.js.org/', rel: 'nofollow noopener' },
         { label: 'Playwright', url: 'https://playwright.dev/', rel: 'nofollow noopener' },
-        { label: 'Turborepo', url: 'https://turbo.build/repo', rel: 'nofollow noopener' },
-        { label: 'Edge & Serverless Platforms', url: 'https://vercel.com/docs/concepts/edge-network/edge-functions', rel: 'nofollow noopener' },
+        { label: 'Nx monorepos', url: 'https://nx.dev/', rel: 'nofollow noopener' },
+        { label: 'Edge & Serverless Platforms', url: 'https://aws.amazon.com/serverless/', rel: 'nofollow noopener' },
       ],
       added: [
         { label: 'Tailwind CSS', url: 'https://tailwindcss.com/', rel: 'nofollow noopener' },
-        { label: 'GraphQL Federation', url: 'https://www.apollographql.com/docs/federation/', rel: 'nofollow noopener' },
-        { label: 'RUM & Observability (Datadog)', url: 'https://www.datadoghq.com/', rel: 'nofollow noopener' },
+        { label: 'RUM & Observability (Sentry)', url: 'https://sentry.io/', rel: 'nofollow noopener' },
         { label: 'Design Linting Automation', url: 'https://www.figma.com/community/plugin/785619431629077634/design-lint', rel: 'nofollow noopener' },
       ],
       sunset: [
