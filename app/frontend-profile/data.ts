@@ -169,13 +169,13 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
       },
       {
         title: 'Testing & Confidence',
-        description: `<p>Testing tells the story for future teammates: Vitest or Jest for unit layers, React Testing Library for behavioural coverage, Playwright for customer paths, and contract tests for APIs.</p><p>Automated visual baselines and synthetic monitoring close the loop so we know instantly if we broke what matters.</p>`,
-        imgUrl: '/images/testing-optimized-640.webp',
+        description: `<p>Testing is not about coverage percentages; it’s about clarity and trust. Each layer in the stack tells a story about stability, and every test reduces cognitive load for future engineers.</p><p>I implement <strong>multi-layered testing strategies</strong> that include <strong>Vitest or Jest</strong> for unit validation, <strong>React Testing Library</strong> and <strong>Vue Test Utils</strong> for behaviour, and <strong>Playwright</strong> for end-to-end customer journeys.</p><p><strong>Contract testing</strong> ensures frontends and APIs evolve safely, while <strong>visual regression baselines</strong> and <strong>synthetic monitoring</strong> instantly surface regressions before users notice.</p><p>All of this is automated within CI pipelines, where each push runs validation gates for <strong>type checks, snapshots, performance budgets, and accessibility rules</strong>.</p><p>This test architecture has enabled faster feedback loops, reduced incidents, and created a shared culture of confidence across teams at Skimlinks, OakNorth, and Happening.</p>`,
+        imgUrl: '/images/frontend/testing-confidence-optimized.webp',
       },
       {
         title: 'Leadership & Collaboration',
-        description: `<p>Beyond code, I mentor engineers through ADPList, The Mentoring Club, and internal pairing circles while facilitating design system critiques that keep every voice represented.</p><p>I craft roadmaps and TypeScript standards that balance tech debt burn-down with discovery, using public RFCs, decision logs, and async rituals to align distributed squads.</p>`,
-        imgUrl: '/images/frontend/responsive-web-design.jpg',
+        description: `<p>Leadership to me means amplifying others. I create environments where engineers feel ownership, psychological safety, and the curiosity to explore new ideas.</p><p>I mentor engineers through <strong>pairing, feedback, and growth frameworks</strong> that connect business impact to personal development. Public RFCs, async rituals, and transparent design reviews ensure every voice contributes to the outcome.</p><p>Collaboration scales when communication scales - that’s why I promote <strong>shared documentation systems</strong>, open metrics dashboards, and cross-team demos that bring visibility to progress and learning.</p><p>Across teams at OakNorth, Skimlinks, and Happening, I’ve helped build a culture of continuous feedback, career sponsorship, and technical clarity - turning teams into learning systems rather than delivery factories.</p><p>My mentoring work with ADPList and The Mentoring Club reinforces this belief: great teams are built on generosity and shared understanding.</p>`,
+        imgUrl: '/images/frontend/leadership-collaboration-optimized.webp',
       },
     ],
     changelog: [
