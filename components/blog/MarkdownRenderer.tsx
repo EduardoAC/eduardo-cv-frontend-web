@@ -50,7 +50,7 @@ function convertIndentedCodeBlocks(content: string): string {
   // We'll wrap consecutive indented lines with ```\n ... \n```
   const lines = content.split('\n');
   let inCode = false;
-  let result: string[] = [];
+  const result: string[] = [];
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (/^ {4,}/.test(line)) {

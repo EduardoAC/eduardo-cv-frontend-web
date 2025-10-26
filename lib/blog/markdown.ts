@@ -154,5 +154,8 @@ export const getRelatedPosts = (currentSlug: string, limit: number = 3): BlogPos
     .sort((a, b) => b.relevanceScore - a.relevanceScore)
     .slice(0, limit);
 
-  return relatedPosts.map(({ relevanceScore, ...post }) => post);
-}; 
+  return relatedPosts.map(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    ({ relevanceScore, ...post }) => post,
+  );
+};

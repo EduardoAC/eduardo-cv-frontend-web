@@ -7,7 +7,7 @@ export const initializeAboutMe = () => {
   const childrenPages = universityExpedient.children;
   const childrenCount = childrenPages.length;
 
-  const openFullSizePicture = function(this: HTMLElement, evt: Event) {
+  const openFullSizePicture = function(this: HTMLElement) {
     const container = document.createElement("DIV");
     container.className = "modal";
     container.style.display = 'block';

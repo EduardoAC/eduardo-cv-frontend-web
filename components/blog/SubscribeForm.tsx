@@ -66,7 +66,7 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
       <div className={`${styles.subscribeForm} ${className || ''}`}>
         <div className={styles.successMessage}>
           <h3>🎉 Successfully Subscribed!</h3>
-          <p>Thank you for subscribing to my blog. You'll receive updates about new articles and insights.</p>
+          <p>Thank you for subscribing to my blog. You&apos;ll receive updates about new articles and insights.</p>
         </div>
       </div>
     );

@@ -4,13 +4,13 @@ interface GoogleAnalyticsProps {
   trackingId?: string
 }
 
-export const GoogleAnalytics = ({ 
-  trackingId = 'UA-72558130-1' 
+export const GoogleAnalytics = ({
+  trackingId = 'G-YRHBYKPJHZ'
 }: GoogleAnalyticsProps) => {
   return (
     <>
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-YRHBYKPJHZ"
+        src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}
         strategy="afterInteractive"
       />
       <Script
@@ -23,7 +23,7 @@ export const GoogleAnalytics = ({
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-YRHBYKPJHZ');
+          gtag('config', '${trackingId}');
         `}
       </Script>
     </>

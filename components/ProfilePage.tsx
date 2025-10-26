@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Container from './layout/Container';
 import ContentBlock from '@/components/ContentBlock';
 import styles from './ProfilePage.module.scss';
@@ -12,12 +11,13 @@ export interface Strength {
 
 export interface ProfilePageProps {
   role: 'frontend' | 'backend' | 'software-architect';
-  title: string;
+  title?: string;
   description: string;
   openGraphImage: string;
   introduction: string[];
   strengths: Strength[];
   linkedInUrl?: string;
+  wrapperClassName?: string;
 }
 
 export function generateMetadata(props: ProfilePageProps): Metadata {
@@ -33,15 +33,16 @@ export function generateMetadata(props: ProfilePageProps): Metadata {
 export default function ProfilePage({
   role,
   title,
-  description,
-  openGraphImage,
   introduction,
   strengths,
   linkedInUrl = 'https://www.linkedin.com/in/eacardenes',
+  wrapperClassName = '',
 }: ProfilePageProps) {
+  const containerClassName = [styles.profile_page, wrapperClassName].filter(Boolean).join(' ');
+
   return (
-    <Container variant="default" padding="medium" className={styles.profile_page} data-role={role}>
-      <h1>{title}</h1>
+    <Container variant="default" padding="medium" className={containerClassName} data-role={role}>
+      {title && (<h1>{title}</h1>)}
       <section className={styles.introduction}>
         {introduction.map((paragraph, index) => (
           <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
@@ -50,9 +51,9 @@ export default function ProfilePage({
       <section className={styles.skills}>
         <hr />
         {strengths.map((data, index) => (
-          <ContentBlock 
-            {...data} 
-            odd={index % 2 === 0} 
+          <ContentBlock
+            {...data}
+            odd={index % 2 === 0}
             key={data.title}
             role={role}
           />
@@ -60,12 +61,13 @@ export default function ProfilePage({
         <hr />
         <a
           href={linkedInUrl}
-          rel="nofollow"
+          rel="nofollow noopener noreferrer"
           target="_blank"
+          className={styles.conclusion_link}
         >
           <p className={styles.conclusion}>Would you like to know more?</p>
         </a>
       </section>
     </Container>
   );
-} 
+}
