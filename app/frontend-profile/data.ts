@@ -66,11 +66,11 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
     openGraphImage: '/images/frontend/frontend-profile-v1-card.png',
     brandCardImage: '/images/frontend/frontend-profile-v1-card.webp',
     introduction: [
-      'Version 1.0 was all about mastering the classics: HTML5, CSS3, and vanilla JavaScript with an artisan mindset. I migrated large editorial experiences from table-based layouts into responsive, semantic markup.',
-      'Preprocessors like SASS and LESS became my bread and butter. I used them to keep sprawling stylesheets maintainable while experimenting with OOP patterns in JavaScript to keep interactions snappy.',
-      'It was also the era where I embraced analytics and A/B testing, understanding how design tweaks affected page views, sales, and ad-clicks for publishers such as Time Inc UK.',
+      'Version 1.0 captured the Web Artisan years across Time Inc UK, the Global Incubator, and Ocado labs, hand-coding responsive editorial and retail prototypes from Photoshop comps into semantic markup.',
+      'Bootstrap, Compass, and SASS/LESS sat alongside jQuery and RequireJS bundles, letting me craft bespoke widgets before frameworks were mainstream while keeping CSS architecture predictable.',
+      'Daily pairing with editors, merchandisers, and data analysts turned CrazyEgg, Google Analytics, and Optimizely signals into experiments that protected revenue and readership.',
     ],
-    summary: 'The foundation years that trained my eye for performance, responsive design, and collaboration with editorial stakeholders.',
+    summary: 'Web Artisan years (2012-2016) with Time Inc UK, Global Incubator, and Ocado where responsive retrofits, Bootstrap/jQuery craft, and editorial partnerships forged my performance-first instincts.',
     strengths: [
       {
         title: 'Languages',
@@ -103,11 +103,14 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
       'Introduced SASS-driven architecture to large editorial properties.',
       'Implemented analytics-driven A/B testing with Optimizely.',
       'Rolled out sprite automation and modular RequireJS bundles.',
+      'Packaged Bootstrap/jQuery starter kits for Global Incubator experiments and Ocado seasonal campaigns.',
+      'Piloted cross-office QA rituals with Time Inc UK art directors to align responsive breakpoints.',
     ],
     metrics: [
       { label: 'Responsiveness Rollout', value: '5+ editorial brands moved to responsive in under 6 months' },
       { label: 'Page Speed Wins', value: 'Average page weight reduced by 35%' },
       { label: 'Experiment Velocity', value: 'Weekly Optimizely iterations across core flows' },
+      { label: 'Prototype Velocity', value: 'Global Incubator and Ocado shipped 7+ concept sites within 4-week sprints' },
     ],
     techHighlights: {
       focus: [
@@ -138,20 +141,21 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
     releaseWindow: '2021 - Today',
     heroTagline: 'Design systems, performance budgets, and DX that scales teams.',
     title: 'Frontend Developer 2.0',
-    description: 'Modern frontend lead profile focused on design systems, developer experience, and measurable impact.',
-    openGraphImage: '/images/frontend/frontend-profile-v2.png',
-    brandCardImage: '/images/frontend/frontend-profile-v2.webp',
+    description: 'Platform Builder profile showcasing Happening, OakNorth, and Skimlinks - design systems, extensions, and DX transformations backed by measurable impact.',
+    openGraphImage: '/images/frontend/frontend-profile-v2.png', // Platform Builder dashboards, Core Web Vitals, and design ops storytelling.
+    brandCardImage: '/images/frontend/frontend-profile-v2.webp', // Card art for the Eduardo Avatar Platform Builder era.
     introduction: [
-      'A decade in, I sit at the intersection of product, design, and engineering. I lead teams that ship resilient design systems, obsess over Core Web Vitals, and build developer journeys that make shipping joyful.',
-      'My toolkit is centered around React, Next.js, TypeScript, and modern styling approaches such as design tokens and utility-first patterns. I pair that with data-driven experimentation, observability, and accessibility as default expectations.',
-      'I collaborate with product and design partners to turn fuzzy business goals into measurable bets, then iterate fast through strong CI/CD, automated testing, and tight feedback loops with customers.',
+      'Platform Builder means orchestrating product, design, and engineering so Happening, OakNorth, and Skimlinks squads share guardrails around experience, developer productivity, and measurable outcomes.',
+      'At Happening I wired performance budgets, Core Web Vitals telemetry, and automated CD pipelines that cut LCP by 42 percent while moving teams to daily deploys.',
+      'At OakNorth I led the design system transformation: federated design tokens, MDX docs, and Storybook sandboxes powering onboarding, lending, and operations surfaces with governance baked in.',
+      'At Skimlinks I re-architected the publisher Chrome extension (React, Manifest V3, Vite) and tightened shared TypeScript packages adopted by extensions and revenue analytics dashboards.',
     ],
-    summary: 'The current iteration focuses on component platforms, measurable outcomes, and developer ergonomics so ideas move from Figma to production with confidence.',
+    summary: 'Platform Builder era (2021-today) delivering Happening performance gains, OakNorth design system transformation, and Skimlinks Chrome extension re-architecture through TypeScript-first, mentor-led teams.',
     strengths: [
       {
         title: 'Modern Frontend Architecture',
-        description: `<p>I build strongly typed frontends with React, Next.js, and TypeScript, choosing server actions, static generation, or edge runtimes based on the problem. Component contracts are enforced through Storybook, visual regression tests, and automated accessibility checks.</p><p>I lead the creation of design tokens and generative UI kits that keep complex products consistent while still allowing product teams to move quickly.</p>`,
-        imgUrl: '/images/frontend/languages.jpg',
+        description: `<p>I design and evolve frontend architectures that unify scale, performance, and flexibility across products. My approach merges component contracts, edge rendering, and multi-client consistency.</p><p>Architectures I lead integrate <strong>monorepos</strong> (Nx, Turborepo) and <strong>modular design systems</strong> that serve multiple brands, while supporting <strong>micro frontends</strong> for independent team delivery.</p><p>I balance <strong>server-side rendering</strong>, <strong>pre-rendering</strong>, and <strong>edge caching</strong> to keep experiences fast globally. Whether serving React or Vue 3, the choice of rendering mode - client, hybrid, or edge - is always driven by measurable data from Core Web Vitals and RUM.</p><p>Performance is baked into architecture, from <strong>Web Vitals budgets</strong> and <strong>asset splitting</strong> to <strong>contract-driven API clients</strong> and <strong>browser extensions</strong> that meet sub-second load targets. These patterns enable measurable user experience gains while maintaining strong developer velocity.</p><p>All systems are built with resilience and reuse in mind: <strong>shared configuration layers</strong>, <strong>type-safe interfaces</strong>, and <strong>continuous testing</strong> pipelines ensure confidence from prototype to production.</p>`,
+        imgUrl: '/images/frontend/modern-frontend-archtiecture.webp',
       },
       {
         title: 'Tooling & Developer Experience',
@@ -170,21 +174,27 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
       },
       {
         title: 'Leadership & Collaboration',
-        description: `<p>Beyond code, I mentor engineers, facilitate design critiques, and make sure voices are heard. I create roadmaps that balance tech debt burn-down with feature discovery.</p><p>Teams I coach adopt public RFCs, transparent decision logs, and async rituals that keep distributed squads aligned.</p>`,
+        description: `<p>Beyond code, I mentor engineers through ADPList, The Mentoring Club, and internal pairing circles while facilitating design system critiques that keep every voice represented.</p><p>I craft roadmaps and TypeScript standards that balance tech debt burn-down with discovery, using public RFCs, decision logs, and async rituals to align distributed squads.</p>`,
         imgUrl: '/images/frontend/responsive-web-design.jpg',
       },
     ],
     changelog: [
+      'Re-architected the Skimlinks publisher Chrome extension for Manifest V3 with offline-safe onboarding and streaming analytics surfaces.',
+      'Led OakNorth design system transformation with federated tokens, MDX docs, and Storybook governance.',
+      'Operationalized Happening performance budgets, Core Web Vitals alerting, and daily release health gates in CI/CD.',
       'Adopted Next.js App Router with edge rendering defaults.',
-      'Launched a design token pipeline powering multiple brands.',
-      'Integrated performance budgets into CI/CD gates.',
-      'Scaled component library documentation with MDX and embedded sandboxes.',
+      'Launched type-safe shared packages and strict TypeScript configs across Happening, OakNorth, and Skimlinks repositories.',
+      'Formalized mentoring programs via ADPList, The Mentoring Club, and internal pairing guilds that guided 10+ engineers into senior roles.',
     ],
     metrics: [
-      { label: 'Design System Adoption', value: '80% of product surfaces' },
-      { label: 'Core Web Vitals', value: 'LCP <= 2.0s p75 across key journeys' },
-      { label: 'Deployment Cadence', value: 'Daily mainline releases with CI quality gates' },
-      { label: 'Team Growth', value: 'Mentored 10+ engineers into senior roles' },
+      { label: 'OakNorth Design System', value: 'Multi-brand experience surfaces reached 80%+ adoption within 6 months' },
+      { label: 'Skimlinks Chrome Extension', value: 'Manifest V3 rewrite reduced cold-start to sub-second and stabilized 200k+ MAU' },
+      {
+        label: 'Happening Performance & Delivery',
+        value: 'Core Web Vitals LCP improved 42% while moving squads to daily deploy cadence',
+      },
+      { label: 'TypeScript Adoption', value: '4 product repositories migrated to strict configs with shared type packages' },
+      { label: 'Mentorship Outcomes', value: 'Mentored 10+ engineers into senior/staff roles since 2021' },
     ],
     techHighlights: {
       focus: [
@@ -198,9 +208,19 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
         { label: 'Edge & Serverless Platforms', url: 'https://aws.amazon.com/serverless/', rel: 'nofollow noopener' },
       ],
       added: [
+        { label: 'Vue 3', url: 'https://vuejs.org/', rel: 'nofollow noopener' },
+        { label: 'Pinia', url: 'https://pinia.vuejs.org/', rel: 'nofollow noopener' },
+        { label: 'Vite', url: 'https://vitejs.dev/', rel: 'nofollow noopener' },
+        { label: 'Vitest', url: 'https://vitest.dev/', rel: 'nofollow noopener' },
+        { label: 'Chrome Extensions', url: 'https://developer.chrome.com/docs/extensions/', rel: 'nofollow noopener' },
+        { label: 'Performance Budgets', url: 'https://web.dev/performance-budgets/', rel: 'nofollow noopener' },
         { label: 'Tailwind CSS', url: 'https://tailwindcss.com/', rel: 'nofollow noopener' },
         { label: 'RUM & Observability (Sentry)', url: 'https://sentry.io/', rel: 'nofollow noopener' },
-        { label: 'Design Linting Automation', url: 'https://www.figma.com/community/plugin/785619431629077634/design-lint', rel: 'nofollow noopener' },
+        {
+          label: 'Design Linting Automation',
+          url: 'https://www.figma.com/community/plugin/785619431629077634/design-lint',
+          rel: 'nofollow noopener',
+        },
       ],
       sunset: [
         { label: 'Grunt Build Pipelines' },
