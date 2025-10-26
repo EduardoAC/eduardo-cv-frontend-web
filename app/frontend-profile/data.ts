@@ -159,8 +159,8 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
       },
       {
         title: 'Tooling & Developer Experience',
-        description: `<p>Developer experience is an accelerant. I shape pipelines with Turborepo, Vite, and workspace tooling; instrument linting, formatting, and type checking gates; and design golden paths so teams can scaffold new experiences in minutes.</p><p>Shared documentation hubs, Playwright smoke suites, and GitHub Actions keep quality high without slowing experimentation.</p>`,
-        imgUrl: '/images/frontend/frameworks-libraries-plugins.jpg',
+        description: `<p>I treat developer experience as a force multiplier. Every cycle saved in local setup or CI validation compounds into faster delivery and stronger team morale.</p><p>I craft pipelines that accelerate iteration: <strong>Vite</strong> and <strong>Nx monorepos</strong> for unified builds, <strong>Turborepo</strong> for caching, and <strong>GitHub Actions</strong> for CI quality gates. All with visible metrics that link performance to productivity.</p><p>Code quality flows through enforced <strong>linting, formatting, and type-check gates</strong>, while pre-commit hooks keep baselines green. <strong>Vitest</strong> and <strong>Playwright</strong> run in parallel layers, and visual baselines in <strong>Chromatic</strong> or <strong>Storybook</strong> help catch regressions early.</p><p>I use tooling to make context accessible - docs live beside the code, scaffolding commands spin up new services in seconds, and observability dashboards close the loop between development and real-user outcomes.</p><p>These optimisations transformed developer velocity across platforms at Happening, OakNorth, and Skimlinks - shifting teams from weekly to daily deployments with confidence.</p>`,
+        imgUrl: '/images/frontend/tooling-dx-optimized.webp',
       },
       {
         title: 'User-Centered Performance',

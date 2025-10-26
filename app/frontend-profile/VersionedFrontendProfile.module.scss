@@ -476,13 +476,10 @@
 .related_articles ul {
   margin: 0;
   padding-left: 18px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
   list-style: disc;
-
-  @media (min-width: 760px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 
   a {
     color: var(--color-text-secondary);
