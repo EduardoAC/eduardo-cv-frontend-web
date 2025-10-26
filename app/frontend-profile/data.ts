@@ -164,8 +164,8 @@ const frontendProfileVersionsList: FrontendProfileVersion[] = [
       },
       {
         title: 'User-Centered Performance',
-        description: `<p>Performance is treated as a product feature. Real-user monitoring, Core Web Vitals budgets, and progressive enhancement strategies guide decisions.</p><p>Recent wins include cutting LCP by 42 percent by refactoring image delivery and moving heavy computation to workers - an uplift that translated directly into higher conversion funnels.</p>`,
-        imgUrl: '/images/frontend/performance.jpg',
+        description: `<p>Performance is a feature, not an afterthought. Every architectural decision I make ties directly to user outcomes - from conversion uplift to engagement retention.</p><p>I build and maintain <strong>performance budgets</strong> tied to business KPIs and enforce them through CI gates. <strong>Real-user monitoring (RUM)</strong> via Sentry and custom dashboards keeps us accountable to live metrics like LCP, INP, and CLS.</p><p>Edge-first rendering, <strong>image optimisation pipelines</strong>, and <strong>code-splitting strategies</strong> ensure sub-3-second interactions across devices and geographies. Synthetic and field data guide each iteration until regressions disappear from dashboards.</p><p>From refactoring Chrome extensions to achieve <strong>sub-1-second load times</strong> to cutting LCP by 40 percent through smarter caching and pre-connects, these initiatives prove that design and speed are inseparable.</p><p>Modern performance engineering is about empathy: optimising not just what users see, but how quickly they can act.</p>`,
+        imgUrl: '/images/frontend/performance-optimized.webp',
       },
       {
         title: 'Testing & Confidence',
