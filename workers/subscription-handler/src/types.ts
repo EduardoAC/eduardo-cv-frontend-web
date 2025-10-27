@@ -1,4 +1,3 @@
-import { KVNamespace } from '@cloudflare/workers-types';
 import { ReactNode } from 'react';
 
 // Email request and response types
@@ -32,6 +31,5 @@ export interface Env {
   TO_EMAIL: string;
   ALLOWED_ORIGIN: string;
   ENVIRONMENT?: string;
-  EMAIL_KV: KVNamespace;
   AUDIENCE_ID: string;
 } 

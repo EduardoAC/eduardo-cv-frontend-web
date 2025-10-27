@@ -48,6 +48,5 @@ jobs:
           FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
           ALLOWED_ORIGIN: ${{ secrets.ALLOWED_ORIGIN }}
-          EMAIL_KV: ${{ secrets.EMAIL_KV }}
 
 

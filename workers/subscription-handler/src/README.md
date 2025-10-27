@@ -31,7 +31,7 @@ src/
 - **request.ts**: Validates HTTP method, origin, and request body
 
 ### Services (`/services`)
-- **rate-limiting.ts**: Handles rate limiting logic using Cloudflare KV
+- **rate-limiting.ts**: Handles rate limiting logic with an in-memory window
 - **email.ts**: Manages email content creation and sending via Resend API
 
 ### Utils (`/utils`)
@@ -50,7 +50,7 @@ The main handler orchestrates the flow:
 - **Modular Design**: Each concern is separated into its own module
 - **Type Safety**: Full TypeScript support with proper type definitions
 - **Error Handling**: Consistent error responses with proper CORS headers
-- **Rate Limiting**: Prevents abuse using Cloudflare KV storage
+- **Rate Limiting**: Prevents abuse with an ephemeral in-memory window
 - **CORS Support**: Proper CORS handling for cross-origin requests
 - **Email Templates**: React-based email templates for different use cases
 
@@ -58,7 +58,6 @@ The main handler orchestrates the flow:
 
 Required environment variables:
 - `ALLOWED_ORIGIN`: Allowed origin for CORS
-- `EMAIL_KV`: Cloudflare KV namespace for rate limiting
 - `RESEND_API_KEY`: Resend API key for sending emails
 - `FROM_EMAIL`: Sender email address
 - `TO_EMAIL`: Recipient email address

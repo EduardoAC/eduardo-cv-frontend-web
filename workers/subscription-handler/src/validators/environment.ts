@@ -11,11 +11,6 @@ export function validateEnvironment(env: Env): Response | null {
     return new Response('Internal server error: Configuration missing', { status: 500 });
   }
 
-  if (!env.EMAIL_KV) {
-    console.error('EMAIL_KV namespace is not configured');
-    return new Response('Internal server error: KV namespace not configured', { status: 500 });
-  }
-
   if (!env.RESEND_API_KEY) {
     console.error('RESEND_API_KEY environment variable is not set');
     return new Response('Internal server error: Email service not configured', { status: 500 });

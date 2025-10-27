@@ -1,5 +1,3 @@
-import { KVNamespace } from '@cloudflare/workers-types';
-
 // Helper function to escape HTML
 export function escapeHtml(text: string): string {
   return text
@@ -19,50 +17,73 @@ export function isValidEmail(email: string): boolean {
 
 // Rate limiting utility
 export async function checkRateLimit(
-  clientIP: string, 
-  kv: KVNamespace, 
+  clientIP: string,
   maxRequests: number = 5
 ): Promise<{ allowed: boolean; currentCount: number }> {
-  try {
-    if (!kv) {
-      console.error('KV namespace is undefined in checkRateLimit');
-      // If KV is not available, allow the request but log the issue
-      return { allowed: true, currentCount: 0 };
-    }
-
-    const rateLimitKey = `rate_limit:${clientIP}`;
-    const currentRequests = await kv.get(rateLimitKey);
-    const requestCount = currentRequests ? parseInt(currentRequests) : 0;
-
-    return {
-      allowed: requestCount < maxRequests,
-      currentCount: requestCount
-    };
-  } catch (error) {
-    console.error('Error in checkRateLimit:', error);
-    // If there's an error with KV, allow the request but log the issue
-    return { allowed: true, currentCount: 0 };
-  }
+  return getRateLimiter().status(clientIP, maxRequests);
 }
 
 // Update rate limit
 export async function updateRateLimit(
-  clientIP: string, 
-  kv: KVNamespace, 
+  clientIP: string,
   currentCount: number
 ): Promise<void> {
-  try {
-    if (!kv) {
-      console.error('KV namespace is undefined in updateRateLimit');
+  getRateLimiter().increment(clientIP, currentCount);
+}
+
+type RateLimitEntry = {
+  count: number;
+  resetAt: number;
+};
+
+class InMemoryRateLimiter {
+  private readonly store = new Map<string, RateLimitEntry>();
+  private readonly windowMs = 60 * 60 * 1000; // 1 hour
+
+  status(clientIP: string, maxRequests: number) {
+    const now = Date.now();
+    const entry = this.store.get(clientIP);
+
+    if (!entry || now >= entry.resetAt) {
+      const freshEntry: RateLimitEntry = {
+        count: 0,
+        resetAt: now + this.windowMs,
+      };
+      this.store.set(clientIP, freshEntry);
+      return { allowed: true, currentCount: 0 };
+    }
+
+    return {
+      allowed: entry.count < maxRequests,
+      currentCount: entry.count,
+    };
+  }
+
+  increment(clientIP: string, currentCount: number) {
+    const now = Date.now();
+    const entry = this.store.get(clientIP);
+
+    if (!entry || now >= entry.resetAt) {
+      this.store.set(clientIP, {
+        count: 1,
+        resetAt: now + this.windowMs,
+      });
       return;
     }
 
-    const rateLimitKey = `rate_limit:${clientIP}`;
-    await kv.put(rateLimitKey, (currentCount + 1).toString(), {
-      expirationTtl: 3600, // 1 hour
+    this.store.set(clientIP, {
+      count: currentCount + 1,
+      resetAt: entry.resetAt,
     });
-  } catch (error) {
-    console.error('Error in updateRateLimit:', error);
-    // Don't throw the error, just log it
   }
-} 
+}
+
+let rateLimiter: InMemoryRateLimiter | undefined;
+
+const getRateLimiter = () => {
+  if (!rateLimiter) {
+    rateLimiter = new InMemoryRateLimiter();
+  }
+
+  return rateLimiter;
+};
