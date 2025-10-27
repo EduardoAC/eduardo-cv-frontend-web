@@ -14,7 +14,7 @@ This wasn't a random outage, it was a cache poisoning attack.
 An attacker had found a way to manipulate request headers so that AWS CloudFront cached an error response, and then served that poisoned error back to all subsequent users.
 
 As frontend engineers, we're often focused on build pipelines, performance budgets, and bundle optimisation.
-But when your CDN cache turns against you, the whole frontend collapses — fast.
+But when your CDN cache turns against you, the whole frontend collapses, fast.
 
 
 
@@ -30,16 +30,16 @@ What you'll learn:
 - Why we ultimately chose CloudFront Functions
 - Practical code and patterns you can reuse
 
-## 🧨 What Is Cache Poisoning?
+## What Is Cache Poisoning?
 
 Cache poisoning happens when a malicious request tricks your CDN into storing the wrong content under a valid cache key.
 The next user who comes along gets the poisoned content instead of the real one.
 
-It's like someone sneaking into a library and swapping the label on a box of JavaScript code — every reader who checks it out gets junk instead of the book they needed.
+It's like someone sneaking into a library and swapping the label on a box of JavaScript code, every reader who checks it out gets junk instead of the book they needed.
 
 
 
-## 📉 Why This Matters for Frontend Engineers
+## Why This Matters for Frontend Engineers
 
 From a business perspective, even a single poisoned entry can be catastrophic:
 
@@ -51,19 +51,17 @@ And debugging? Painful. Cache poisoning often occurs at specific **edge nodes**,
 
 
 
-## 🛡️ Alternative Solutions
+## Alternative Solutions
 
 We explored three AWS-native approaches to defend against poisoning.
 
 ![Alternative solutions available on AWS](/images/blog/mitigating-cache-poisoning/alternative-solutions-waf-functions-policies-overview.webp)
 
-
-
 ### 1. AWS WAF (Web Application Firewall)
 
 ![The First Line of Defense – AWS WAF](/images/blog/mitigating-cache-poisoning/the-first-line-of-defense-aws-waf.webp)
 
-WAF acts as a shield in front of CloudFront — filtering malicious headers and blocking suspicious requests.
+> WAF acts as a shield in front of CloudFront, filtering malicious headers and blocking suspicious requests.
 
 **Pros:**
 - Managed rulesets
@@ -72,8 +70,6 @@ WAF acts as a shield in front of CloudFront — filtering malicious headers and 
 **Cons:**
 - Adds latency and cost
 - Doesn't normalise the cache key
-
-
 
 ### 2. CloudFront Functions
 
@@ -91,13 +87,11 @@ They let you strip unwanted headers and normalise requests before caching.
 - Limited runtime
 - Requires careful rollout
 
-
-
 ### 3. Origin Request & Response Policies
 
 ![Guarding the Origin – Origin and Response Policies](/images/blog/mitigating-cache-poisoning/guarding-the-origin-origin-and-response-policies.webp)
 
-These AWS-managed policies control what gets forwarded and cached.
+> These AWS-managed policies control what gets forwarded and cached.
 
 - **Origin Request Policy:** defines which headers/cookies/query strings reach S3.
 - **Response Headers Policy:** enforces `Cache-Control: no-store` on error responses.
@@ -109,9 +103,7 @@ These AWS-managed policies control what gets forwarded and cached.
 **Cons:**
 - Too late for the initial cache decision
 
-
-
-## ⚖️ Trade-offs and Decision
+## Trade-offs and Decision
 
 ![Choosing the Right Tool – WAF vs CloudFront Functions vs Policies](/images/blog/mitigating-cache-poisoning/waf-vs-cloudfront-functions-comparison.webp)
 
@@ -125,11 +117,10 @@ We compared them across key dimensions:
 | Cache Safety | Indirect | Direct | Indirect |
 | Ops Ergonomics | Complex | Simple | Configurable |
 
-💡 **Conclusion:** WAF is a shield, Policies are hygiene, but Functions provide surgical control.
 
+**Conclusion:** WAF is a shield, Policies are hygiene, but Functions provide surgical control.
 
-
-## 🧱 Our Final Architecture
+## Our Final Architecture
 
 ![Our Winning Setup – Layered Defense](/images/blog/mitigating-cache-poisoning/our-winning-setup-final-architecture.webp)
 
@@ -156,9 +147,9 @@ function handler(event) {
 
 
 
-## 🔄 Quick Reference Flow
+## Quick Reference Flow
 
-![CloudFront Cache Safety Flow](cloudfront-cache-safety-flow.png)
+![CloudFront Cache Safety Flow](/images/blog/mitigating-cache-poisoning/cloud-safety-diagram-flow.webp)
 
 This compact infographic summarises the entire defense pipeline at a glance.
 
@@ -166,20 +157,20 @@ This compact infographic summarises the entire defense pipeline at a glance.
 
 
 
-## 🌤️ From Chaos to Control
+## From Chaos to Control
 
-![From Chaos to Control](from-chaos-to-control.png)
+![From Chaos to Control](/images/blog/mitigating-cache-poisoning/from-chaos-to-control-closing-scene.webp)
 
 Cache poisoning was a wake-up call.
 Even the most optimised frontend can crumble if the CDN layer gets compromised.
 
 By layering CloudFront Functions, WAF, and policies, we built a defence that's fast, reliable, and developer-friendly.
 
-> “Don't just cache your assets — cache your confidence.”
+> “Don't just cache your assets, cache your confidence.”
 
 
 
-## ✅ Summary
+## Summary
 
 **Key Takeaways for Frontend Engineers:**
 
@@ -188,9 +179,7 @@ By layering CloudFront Functions, WAF, and policies, we built a defence that's f
 * Prioritise observability: you can't debug what you can't see.
 * Protect user trust: one poisoned response can break your product's credibility.
 
-
-
-## 📚 Next Steps
+## Next Steps
 
 If you're building on AWS CloudFront today, audit your cache keys and error handling policies.
-Start with a Function to drop untrusted headers — it's a small step with huge impact.
+Start with a Function to drop untrusted headers, it's a small step with huge impact.

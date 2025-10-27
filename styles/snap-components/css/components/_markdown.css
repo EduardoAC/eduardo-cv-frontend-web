@@ -88,6 +88,68 @@
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.03);
 }
 
+.snap-toc {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.snap-toc-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-primary);
+}
+
+.snap-toc-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.snap-toc-item {
+  margin: 0.3rem 0;
+}
+
+.snap-toc-link {
+  display: block;
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.snap-toc-link:hover {
+  color: var(--color-text-primary);
+}
+
+.snap-toc-active > .snap-toc-link {
+  color: var(--snap-link, #2563eb);
+}
+
+.snap-toc-level-2 {
+  padding-left: 2rem;
+}
+
+.snap-toc-level-3 {
+  padding-left: 3rem;
+}
+
+.snap-toc-level-4 {
+  padding-left: 4rem;
+}
+
+.snap-toc-level-5 {
+  padding-left: 5rem;
+}
+
+.snap-toc-level-6 {
+  padding-left: 6rem;
+}
+
 /* Callouts (custom blockquotes) */
 .snap-callout {
   margin: 1.5rem 0;
