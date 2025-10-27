@@ -50,9 +50,27 @@ function convertIndentedCodeBlocks(content: string): string {
   // We'll wrap consecutive indented lines with ```\n ... \n```
   const lines = content.split('\n');
   let inCode = false;
+  let inFencedBlock = false; // track fenced ``` ``` or ~~~ blocks so we don't double-wrap them
   const result: string[] = [];
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
+
+    const fenceMatch = line.match(/^(`{3,}|~{3,})/);
+    if (fenceMatch) {
+      if (inCode) {
+        result.push('```');
+        inCode = false;
+      }
+      inFencedBlock = !inFencedBlock;
+      result.push(line);
+      continue;
+    }
+
+    if (inFencedBlock) {
+      result.push(line);
+      continue;
+    }
+
     if (/^ {4,}/.test(line)) {
       if (!inCode) {
         result.push('```');

@@ -139,9 +139,7 @@ function handler(event) {
   var allowed = ["accept", "accept-encoding", "if-none-match", "if-modified-since", "user-agent", "range"];
   var sanitized = {};
   for (var h in request.headers) {
-    if (allowed.indexOf(h) !== -1) {
-      sanitized[h] = request.headers[h];
-    }
+    if (allowed.indexOf(h) !== -1) sanitized[h] = request.headers[h];
   }
   request.headers = sanitized;
   request.uri = request.uri.replace(/\/+/g, "/");
