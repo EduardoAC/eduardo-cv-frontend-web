@@ -75,7 +75,8 @@ We explored three AWS-native approaches to defend against poisoning.
 
 ![Normalize at the Edge – CloudFront Functions](/images/blog/mitigating-cache-poisoning/waf-vs-cloudfront-functions-comparison.webp)
 
-These micro-JavaScript functions run at the edge in microseconds.
+> These micro-JavaScript functions run at the edge in microseconds.
+
 They let you strip unwanted headers and normalise requests before caching.
 
 **Pros:**
@@ -131,19 +132,22 @@ We combined all three for layered edge security:
 3. Policies set cache boundaries.
 
 ### Example function:
+
 ```js
 function handler(event) {
   var request = event.request;
   var allowed = ["accept", "accept-encoding", "if-none-match", "if-modified-since", "user-agent", "range"];
   var sanitized = {};
   for (var h in request.headers) {
-    if (allowed.indexOf(h) !== -1) sanitized[h] = request.headers[h];
+    if (allowed.indexOf(h) !== -1) {
+      sanitized[h] = request.headers[h];
+    }
   }
   request.headers = sanitized;
   request.uri = request.uri.replace(/\/+/g, "/");
   return request;
 }
-````
+```
 
 
 
