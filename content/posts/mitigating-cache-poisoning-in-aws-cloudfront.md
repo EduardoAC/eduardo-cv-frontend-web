@@ -123,6 +123,12 @@ We compared them across key dimensions:
 
 ## Our Final Architecture
 
+We chose CloudFront Functions for their precision and speed. Our implementation included:
+- Whitelisting allowed request headers (dropping all others).
+- Normalising cache keys by stripping unnecessary query params.
+- Preventing error responses from being cached (Cache-Control: no-store).
+- Adding observability markers for debugging.
+
 ![Our Winning Setup – Layered Defense](/images/blog/mitigating-cache-poisoning/our-winning-setup-final-architecture.webp)
 
 We combined all three for layered edge security:
@@ -147,8 +153,6 @@ function handler(event) {
 }
 ```
 
-
-
 ## Quick Reference Flow
 
 ![CloudFront Cache Safety Flow](/images/blog/mitigating-cache-poisoning/cloud-safety-diagram-flow.webp)
@@ -156,7 +160,6 @@ function handler(event) {
 This compact infographic summarises the entire defense pipeline at a glance.
 
 > **Layered defense ensures every cached response is safe and predictable.**
-
 
 
 ## From Chaos to Control
@@ -170,10 +173,6 @@ By layering CloudFront Functions, WAF, and policies, we built a defence that's f
 
 > “Don't just cache your assets, cache your confidence.”
 
-
-
-## Summary
-
 **Key Takeaways for Frontend Engineers:**
 
 * Normalise aggressively: your CDN cache key isn't safe by default.
@@ -181,7 +180,16 @@ By layering CloudFront Functions, WAF, and policies, we built a defence that's f
 * Prioritise observability: you can't debug what you can't see.
 * Protect user trust: one poisoned response can break your product's credibility.
 
+## Conclusion
+
+Cache poisoning in CloudFront was a wake-up call: our beautifully optimised frontend bundles were useless if the CDN itself served poisoned errors.
+
+By adopting CloudFront Functions, with WAF and policies as supporting layers, we built a defence-in-depth strategy that was lightweight, fast, and reliable.
+
+If you're a frontend engineer working with AWS, even if CDN details feel far from your daily bundle size battles, I encourage you to audit your cache key setup. You might be surprised how much trust you're placing in uncontrolled request headers.
+
 ## Next Steps
 
 If you're building on AWS CloudFront today, audit your cache keys and error handling policies.
+
 Start with a Function to drop untrusted headers, it's a small step with huge impact.
