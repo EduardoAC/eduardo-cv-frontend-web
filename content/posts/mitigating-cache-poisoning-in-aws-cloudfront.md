@@ -7,49 +7,53 @@ tags: ["AWS", "CloudFront", "Security", "Web Security", "Cache Poisoning", "Web 
 image: "/images/blog/mitigating-cache-poisoning/hero-banner-mitigating-cache-poisoning-in-aws-cloudfront.png"
 ---
 
-A few months ago, we hit a problem that seemed almost unbelievable at first: customers opening our cashier application suddenly saw error pages instead of the app itself.
+Not long ago, we hit a problem that seemed almost unbelievable at first: customers opening our cashier application suddenly saw error pages instead of the app itself.
+
 No JavaScript bundles. No CSS. No index.html. Just a 501 error cached at the edge.
 
-This wasn't a random outage, it was a cache poisoning attack.
-An attacker had found a way to manipulate request headers so that AWS CloudFront cached an error response, and then served that poisoned error back to all subsequent users.
+This wasn't a random outage. It was a cache poisoning attack. An attacker found a way to manipulate request headers so that AWS CloudFront cached an error response and then served it back to all subsequent users.
 
-As frontend engineers, we're often focused on build pipelines, performance budgets, and bundle optimisation.
-But when your CDN cache turns against you, the whole frontend collapses, fast.
+Obviously, our initial thought was that AWS infrastructure would, by default, prevent anything that might lead to this sort of scenario, but we were naive :sweatsmie.
 
+As frontend engineers, we're often focused on building pipelines, performance budgets, and optimising bundles. But when your CDN cache turns against you, the whole frontend collapses fast. In this article, I'll walk you through:
 
+- What cache poisoning is and how it impacted our users
+- The business consequences of poisoned caches
+- The alternatives we considered (WAF, CloudFront Functions, Origin/Response Policies)
+- Why we ultimately chose CloudFront Functions
+
+Practical code and patterns you can reuse in your own setup
+
+Along the way, I'll include diagrams to illustrate the flow, since it's often easier to see how these attacks propagate visually.
+
+## What Is Cache Poisoning?
+
+Cache poisoning is when a malicious request tricks your CDN into storing the wrong content under a valid cache key. The next user who comes along gets the poisoned content instead of the real one.
+
+Think of it like a library: someone sneaks in and replaces the label on a box of JavaScript code with a fake one. Now, every reader who checks out that box gets garbage instead of the book they needed.
+
+In our case, here's how it played out:
+
+1. Attacker sends a request with a custom, unexpected header.
+2. S3 (our origin) doesn't know what to do with it → returns a 501 Not Implemented.
+3. CloudFront caches that 501 response under the normal cache key.
+4. Subsequent users request the same JS bundle and instead get the cached error.
 
 ![When Cache Turns Against You](/images/blog/mitigating-cache-poisoning/when-cache-turns-against-you.webp)
 
 > This diagram shows how a single poisoned request can cascade into a region-wide failure.
 
-
-What you'll learn:
-- What cache poisoning is and how it impacted our users
-- The business consequences of poisoned caches
-- The alternatives we considered (WAF, CloudFront Functions, Origin/Response Policies)
-- Why we ultimately chose CloudFront Functions
-- Practical code and patterns you can reuse
-
-## What Is Cache Poisoning?
-
-Cache poisoning happens when a malicious request tricks your CDN into storing the wrong content under a valid cache key.
-The next user who comes along gets the poisoned content instead of the real one.
-
-It's like someone sneaking into a library and swapping the label on a box of JavaScript code, every reader who checks it out gets junk instead of the book they needed.
-
-
-
 ## Why This Matters for Frontend Engineers
 
 From a business perspective, even a single poisoned entry can be catastrophic:
 
-- **Functional impact:** users can't deposit or withdraw.
-- **Commercial impact:** lost revenue from abandoned sessions.
-- **Trust impact:** customers lose confidence when money is involved.
+- **Functional impact:** users couldn't deposit or withdraw because the cashier app failed to load.
+- **Commercial impact:** failed transactions → lost revenue → abandoned sessions.
+- **Trust impact:** customers hit support in frustration, and trust erodes fast when money is involved.
 
 And debugging? Painful. Cache poisoning often occurs at specific **edge nodes**, not in local or staging setups.
 
-
+It manifests in specific edge nodes, which makes debugging painful. For the on-call engineer, this meant hours of trying to piece together logs that didn't look the same in staging.
 
 ## Alternative Solutions
 
@@ -124,6 +128,7 @@ We compared them across key dimensions:
 ## Our Final Architecture
 
 We chose CloudFront Functions for their precision and speed. Our implementation included:
+
 - Whitelisting allowed request headers (dropping all others).
 - Normalising cache keys by stripping unnecessary query params.
 - Preventing error responses from being cached (Cache-Control: no-store).
@@ -137,7 +142,7 @@ We combined all three for layered edge security:
 2. CloudFront Function sanitises requests.
 3. Policies set cache boundaries.
 
-### Example function:
+Here's a simplified snippet:
 
 ```js
 function handler(event) {
