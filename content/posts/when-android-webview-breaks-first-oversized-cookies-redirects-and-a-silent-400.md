@@ -23,7 +23,7 @@ Well, the first step in any root cause analysis is gathering evidence, context, 
 
 ## A bit of context first
 
-![Payment flow overview (deposit → Nuvei → Paysafe → failure)](images/blog/when-android-webview-breaks-first/payment-flow-deposit-nuvei-paysafe-silent-400.webp)
+![Payment flow overview (deposit → Nuvei → Paysafe → failure)](/images/blog/when-android-webview-breaks-first/payment-flow-deposit-nuvei-paysafe-silent-400.webp)
 
 Before going any further, some context is important. Let me set the scene, because without it, the rest of the story does not really make sense.
 
@@ -207,7 +207,7 @@ Collectively, they pushed the request into a **fragile zone**, where **Android W
 
 So yes, the cookie size was tangible and measurable.
 
-But it still didn’t fully explain the 400\.
+But it still didn’t fully explain the 400.
 
 ### The missing piece: the redirect hop that has a 2048-byte ceiling
 
@@ -517,31 +517,31 @@ This issue looked, at first glance, like a redirect problem or a payment provide
 
 There are a few lessons from this that are worth carrying forward.
 
-### 1\. Payload size is a real budget, not an abstract limit
+### 1. Payload size is a real budget, not an abstract limit
 
 Cookies, headers, and URLs are not just implementation details. They are part of your network contract.
 
 You can be well within what desktop Chrome tolerates and still be **beyond what Android WebView can handle reliably**. When you operate close to these limits, small, reasonable changes can suddenly tip the system over.
 
-### 2\. Analytics and observability can break production flows
+### 2. Analytics and observability can break production flows
 
 Analytics tooling is invaluable, but it often captures **more context than you realise**, sometimes duplicating URLs or metadata in ways that are hard to spot until something fails.
 
 In our case, analytics cookies were carrying multiple full redirect URLs, multiplying the impact of otherwise reasonable query parameters. That does not make analytics “bad”, but it does mean they need to be considered part of the critical path.
 
-### 3\. WebView is the canary in the coal mine
+### 3. WebView is the canary in the coal mine
 
 If something works everywhere except Android WebView, that is usually a signal, not an anomaly.
 
 WebView tends to be the most constrained environment, and it will surface issues around size, timing, and protocol edge cases earlier than full browsers. Treat those failures as early warnings, not platform-specific quirks.
 
-### 4\. Validation is not the same as a solution
+### 4. Validation is not the same as a solution
 
 Temporarily removing the `back` redirect validated our hypothesis, but it was never the fix.
 
 Treating validation steps as experiments, with controlled rollouts and clear success criteria, enabled proving causality without introducing regressions. Only once we had that confidence did it make sense to invest in a proper solution.
 
-### 5\. Prefer solutions you own, especially under pressure
+### 5. Prefer solutions you own, especially under pressure
 
 Shortening query parameter keys was not the most elegant or theoretically perfect solution, but it was **fast, low risk, fully owned**, and **measurable**.
 
