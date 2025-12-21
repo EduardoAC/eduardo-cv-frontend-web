@@ -7,6 +7,13 @@
   background: transparent;
   font-size: var(--font-size-body1);
   line-height: var(--line-height-body1);
+  --snap-table-surface: var(--charcoal-1);
+  --snap-table-header-bg: var(--charcoal-3);
+  --snap-table-header-text: var(--color-text-primary);
+  --snap-table-row-alt: var(--charcoal-2);
+  --snap-table-row-hover: rgba(17, 17, 17, 0.05);
+  --snap-table-border: rgba(17, 17, 17, 0.08);
+  --snap-table-shadow: 0 10px 30px -18px rgba(17, 17, 17, 0.28);
 }
 
 .snap-anchor-link {
@@ -19,6 +26,68 @@
 }
 .snap-link:hover {
   text-decoration: none;
+}
+
+/* Tables */
+.snap-markdown-content table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--snap-table-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--snap-table-border);
+  border-radius: 14px;
+  box-shadow: var(--snap-table-shadow);
+  overflow: hidden;
+}
+
+.snap-markdown-content thead {
+  background: var(--snap-table-header-bg);
+  color: var(--snap-table-header-text);
+}
+
+.snap-markdown-content th,
+.snap-markdown-content td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  font-size: var(--font-size-body2);
+  line-height: var(--line-height-body2);
+  border-bottom: 1px solid var(--snap-table-border);
+}
+
+.snap-markdown-content th {
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.snap-markdown-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.snap-markdown-content tbody tr:nth-child(odd) {
+  background: var(--snap-table-row-alt);
+}
+
+.snap-markdown-content tbody tr:hover {
+  background: var(--snap-table-row-hover);
+  transition: background-color 0.2s ease;
+}
+
+.snap-markdown-content th:first-child {
+  border-top-left-radius: 14px;
+}
+
+.snap-markdown-content th:last-child {
+  border-top-right-radius: 14px;
+}
+
+.snap-markdown-content tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 14px;
+}
+
+.snap-markdown-content tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 14px;
 }
 
 /* Custom code block container and header (Prism handles code/pre) */
@@ -246,6 +315,16 @@
 }
 
 /* Dark mode variables (do not override Prism's theme) */
+:is(.dark, .dark-theme) .snap-markdown {
+  --snap-table-surface: var(--charcoal-4);
+  --snap-table-header-bg: var(--charcoal-3);
+  --snap-table-header-text: var(--charcoal-13);
+  --snap-table-row-alt: rgba(255, 255, 255, 0.02);
+  --snap-table-row-hover: rgba(255, 255, 255, 0.06);
+  --snap-table-border: rgba(255, 255, 255, 0.12);
+  --snap-table-shadow: 0 10px 28px -16px rgba(0, 0, 0, 0.55);
+}
+
 @media (prefers-color-scheme: dark) {
   .snap-markdown {
     --snap-markdown-color: #f3f4f6;
@@ -259,6 +338,13 @@
     --snap-toc-bg: #23272b;
     --snap-inline-code-bg: #282c34;
     --snap-inline-code-color: #fbbf24;
+    --snap-table-surface: var(--charcoal-4);
+    --snap-table-header-bg: var(--charcoal-3);
+    --snap-table-header-text: var(--charcoal-13);
+    --snap-table-row-alt: rgba(255, 255, 255, 0.02);
+    --snap-table-row-hover: rgba(255, 255, 255, 0.06);
+    --snap-table-border: rgba(255, 255, 255, 0.12);
+    --snap-table-shadow: 0 10px 28px -16px rgba(0, 0, 0, 0.55);
   }
   .snap-toc-title {
     color: #fff;
