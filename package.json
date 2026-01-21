@@ -47,6 +47,6 @@
     "serve": "^14.2.4",
     "sharp": "^0.34.2",
     "typescript": "^5.9.2",
-    "wrangler": "^4.27.0"
+    "wrangler": "^4.59.1"
   }
 }
