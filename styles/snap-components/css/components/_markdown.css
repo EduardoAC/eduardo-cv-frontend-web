@@ -100,6 +100,20 @@
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
 }
 
+.snap-code-block pre,
+.snap-code-block code,
+.snap-code-block .token {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+/* Harmonise spacing: same font-weight for all tokens so space after reserved words is even */
+.snap-code-block .token {
+  font-weight: normal;
+}
+
 .snap-code-block pre {
   padding: 0 16px;
 }
