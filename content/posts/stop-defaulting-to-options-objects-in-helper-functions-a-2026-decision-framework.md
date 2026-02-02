@@ -107,7 +107,7 @@ Helper functions often play a different role from configuration APIs or componen
 
 In many helper functions:
 
-* Every value is required  
+- Every value is required  
 - Every value is used every time  
 - The call sites are few and come from a clear execution flow
 
