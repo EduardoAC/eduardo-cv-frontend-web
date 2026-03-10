@@ -114,6 +114,8 @@ It asks:
 
 > Does the system behave correctly from the user’s point of view?
 
+![Comparison of inside-out and outside-in testing approaches showing code-first testing versus user-journey-driven testing.](/images/blog/inside-in-vs-outside-in-testing-strategy-compact.png)
+
 That shift changes the centre of gravity of the testing strategy. The journey comes first. The boundaries come next. The implementation details support both.
 
 This does not mean unit tests stop mattering. They still have value, especially for deterministic logic, calculations, and highly isolated transformations. But they stop being the primary source of confidence. The more useful question becomes: “What must be true for the journey to succeed?”
