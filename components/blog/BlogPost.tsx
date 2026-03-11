@@ -43,6 +43,13 @@ const getFallbackImageContext = (post: Pick<BlogPostType, 'image' | 'imageWidth'
   };
 };
 
+const formatAuthorName = (author: string) =>
+  author
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+
 export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>) {
   const shareUrl = `${baseUrl}/blog/${post.slug}`;
   const shareText = encodeURIComponent(`${post.title} - ${post.description}`);
@@ -52,6 +59,8 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
   }));
   const heroImage = getImageContext(post, 'hero');
   const fallbackHeroImage = getFallbackImageContext(post);
+  const displayAuthor = formatAuthorName(post.author);
+  const shouldShowTableOfContents = post.toc.length > 0;
 
   const shareLinks = [
     {
@@ -65,92 +74,104 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
   ];
 
   return (
-    <Container as="article" padding="small" variant="wide">
-      <header className="mb-sm">
-        <nav className="mb-sm">
+    <Container as="article" padding="small" variant="wide" className={styles['blog-post-page']}>
+      <header className={styles['blog-post-header']}>
+        <nav className={styles['blog-post-back-link']}>
           <Link className="snap-link snap-read-more" href="/blog">
             ← Back to all posts
           </Link>
         </nav>
-        <h1 className="text-align-left">{post.title}</h1>
-        <div className="snap-meta">
-          <time dateTime={post.date} style={{ marginRight: '1rem' }}>
-            {new Date(post.date).toLocaleDateString('en-GB', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </time>
-          <span>• {post.readingTime} min read</span>
-          <span style={{ marginLeft: '1rem' }}>By {post.author}</span>
+        <div className={styles['blog-post-header-content']}>
+          <h1 className={`text-align-left ${styles['blog-post-title']}`}>{post.title}</h1>
+          <p className={styles['blog-post-dek']}>{post.description}</p>
+          <div className={styles['blog-post-meta']}>
+            <time dateTime={post.date}>
+              {new Date(post.date).toLocaleDateString('en-GB', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+            <span>• {post.readingTime} min read</span>
+            <span>By {displayAuthor}</span>
+          </div>
+          <div className={styles['blog-post-tags']}>
+            {tagLinks.map(({ tag, href }) => (
+              <Tag
+                key={tag}
+                href={href}
+                ariaLabel={href ? `Browse articles tagged ${tag}` : undefined}
+              >
+                {tag}
+              </Tag>
+            ))}
+          </div>
         </div>
-        <div style={{ marginBottom: '1rem' }}>
-          {tagLinks.map(({ tag, href }) => (
-            <Tag
-              key={tag}
-              href={href}
-              ariaLabel={href ? `Browse articles tagged ${tag}` : undefined}
-            >
-              {tag}
-            </Tag>
-          ))}
-        </div>
-        <p>{post.description}</p>
       </header>
       {(heroImage || fallbackHeroImage) && (
-        <div
-          className={styles['blog-post-image-frame']}
-          style={getImageFrameStyle(heroImage?.width ?? fallbackHeroImage?.width, heroImage?.height ?? fallbackHeroImage?.height)}
-        >
-          <img
-            src={heroImage?.src ?? fallbackHeroImage?.src}
-            alt={post.title}
-            className={styles['blog-post-image']}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            width={heroImage?.width ?? fallbackHeroImage?.width}
-            height={heroImage?.height ?? fallbackHeroImage?.height}
-            srcSet={heroImage?.srcSet}
-            sizes={heroImage?.sizes}
-          />
+        <div className={styles['blog-post-hero']}>
+          <div
+            className={styles['blog-post-image-frame']}
+            style={getImageFrameStyle(heroImage?.width ?? fallbackHeroImage?.width, heroImage?.height ?? fallbackHeroImage?.height)}
+          >
+            <img
+              src={heroImage?.src ?? fallbackHeroImage?.src}
+              alt={post.title}
+              className={styles['blog-post-image']}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              width={heroImage?.width ?? fallbackHeroImage?.width}
+              height={heroImage?.height ?? fallbackHeroImage?.height}
+              srcSet={heroImage?.srcSet}
+              sizes={heroImage?.sizes}
+            />
+          </div>
         </div>
       )}
-      <section className="mb-xl">
-        <MarkdownRenderer html={post.html} toc={post.toc} showTableOfContents />
+      <section className={styles['blog-post-body']}>
+        <MarkdownRenderer
+          html={post.html}
+          toc={post.toc}
+          showTableOfContents={shouldShowTableOfContents}
+          tocCollapsible={shouldShowTableOfContents}
+          className={`snap-markdown-article ${styles['blog-post-content']}`}
+        />
       </section>
-      <footer style={{ borderTop: '1px solid #e5e7eb', paddingTop: '2rem', marginTop: '2rem' }}>
-        <div style={{ marginBottom: '1.5rem' }}>
-          <strong>Share this post:</strong>
-          <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
+      <footer className={styles['blog-post-footer']}>
+        <section className={styles['blog-post-share']} aria-label="Share this post">
+          <h2 className={styles['blog-post-share-title']}>Share this post</h2>
+          <div className={styles['blog-post-share-links']}>
             {shareLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: '#2563eb', textDecoration: 'none', fontWeight: 500 }}
+                className={styles['blog-post-share-link']}
               >
                 {link.name}
               </a>
             ))}
           </div>
-        </div>
+        </section>
         {relatedPosts.length > 0 && (
-          <section>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '1rem' }}>Related Posts</h3>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+          <section className={styles['related-posts']}>
+            <div className={styles['related-posts-header']}>
+              <h2 className={styles['related-posts-title']}>Related posts</h2>
+            </div>
+            <div className={styles['related-posts-grid']}>
               {relatedPosts.map((relatedPost) => {
                 const relatedImage = getImageContext(relatedPost, 'card');
                 const relatedFallbackImage = getFallbackImageContext(relatedPost);
 
                 return (
-                  <Card key={relatedPost.slug}>
+                  <Card key={relatedPost.slug} className={styles['related-post-card']}>
                     {(relatedImage || relatedFallbackImage) && (
                       <img
                         src={relatedImage?.src ?? relatedFallbackImage?.src}
                         alt={relatedPost.title}
-                        style={{ width: '100%', height: '120px', objectFit: 'cover', borderRadius: '0.5rem', marginBottom: '0.75rem' }}
+                        className={styles['related-post-image']}
                         loading="lazy"
                         decoding="async"
                         width={relatedImage?.width ?? relatedFallbackImage?.width}
@@ -159,12 +180,12 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
                         sizes={relatedImage?.sizes}
                       />
                     )}
-                    <h4 className="snap-heading-h4">
-                      <Link className="snap-link snap-read-more" href={`/blog/${relatedPost.slug}`}>
+                    <h3 className={styles['related-post-card-title']}>
+                      <Link className={`snap-link snap-read-more ${styles['related-post-link']}`} href={`/blog/${relatedPost.slug}`}>
                         {relatedPost.title}
                       </Link>
-                    </h4>
-                    <div style={{ color: '#6b7280', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+                    </h3>
+                    <div className={styles['related-post-meta']}>
                       <time dateTime={relatedPost.date}>
                         {new Date(relatedPost.date).toLocaleDateString('en-GB', {
                           year: 'numeric',
@@ -173,7 +194,7 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
                         })}
                       </time>
                     </div>
-                    <div>
+                    <div className={styles['related-post-tags']}>
                       {relatedPost.tags.slice(0, 2).map((tag) => {
                         const href = getMeaningfulTagHref(tag) ?? undefined;
 
@@ -188,7 +209,7 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
                         );
                       })}
                     </div>
-                    <p style={{ color: '#fff', fontSize: '0.95rem', margin: '0.5rem 0 0 0' }}>{relatedPost.description}</p>
+                    <p className={styles['related-post-description']}>{relatedPost.description}</p>
                   </Card>
                 );
               })}

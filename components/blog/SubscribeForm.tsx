@@ -105,8 +105,9 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
     return (
       <section className={`${styles.subscribeForm} ${className || ''}`.trim()} aria-live="polite" aria-labelledby={headingId}>
         <div className={styles.successMessage} role="status">
-          <h3 id={headingId}>🎉 Successfully Subscribed!</h3>
-          <p>Thank you for subscribing to my blog. You&apos;ll receive updates about new articles and insights.</p>
+          <p className={styles.eyebrow}>Newsletter</p>
+          <h3 id={headingId}>Subscription confirmed</h3>
+          <p>New articles will land in your inbox when there is something worth sending.</p>
         </div>
       </section>
     );
@@ -115,10 +116,11 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
   return (
     <section className={`${styles.subscribeForm} ${className || ''}`.trim()} aria-labelledby={headingId}>
       <div className={styles.subscribeContent}>
-        <h3 id={headingId}>📧 Stay Updated</h3>
+        <p className={styles.eyebrow}>Newsletter</p>
+        <h3 id={headingId}>Get new articles in your inbox</h3>
         <p>
-          Get notified when I publish new articles about web performance,
-          Chrome extensions, frontend development, and software leadership.
+          Occasional writing on web performance, frontend architecture, testing strategy,
+          and technical leadership. No filler, no daily cadence.
         </p>
 
         {error && (
@@ -138,7 +140,7 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
+              placeholder="Your email address"
               required
               disabled={loading}
               className={styles.emailInput}
@@ -153,13 +155,13 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
               disabled={loading || !email.trim()}
               className={styles.subscribeButton}
             >
-              {loading ? 'Subscribing...' : 'Subscribe'}
+              {loading ? 'Joining...' : 'Join the list'}
             </button>
           </div>
         </form>
 
         <p id={trustLineId} className={styles.privacyNote}>
-          🔒 No spam, unsubscribe anytime. Your email is protected.
+          Occasional updates, unsubscribe anytime. Your email stays private.
         </p>
       </div>
     </section>

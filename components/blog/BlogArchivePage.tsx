@@ -36,7 +36,7 @@ export function BlogArchivePage({
   backLink,
   emptyMessage,
 }: BlogArchivePageProps) {
-  const subscribeCta = posts.length > 0 ? <SubscribeForm /> : undefined;
+  const showSubscribeCta = posts.length > 0 && !currentTag && pagination.currentPage === 1;
 
   return (
     <>
@@ -57,12 +57,12 @@ export function BlogArchivePage({
         pagination={pagination}
         backLink={backLink}
       >
-        <BlogList
-          posts={posts}
-          emptyMessage={emptyMessage}
-          interstitial={subscribeCta}
-          interstitialAfter={4}
-        />
+        <BlogList posts={posts} emptyMessage={emptyMessage} />
+        {showSubscribeCta && (
+          <section className={styles['archive-subscribe']} aria-label="Newsletter subscription">
+            <SubscribeForm className={styles['archive-subscribe-form']} />
+          </section>
+        )}
         <div className={styles['archive-bottom-pagination']}>
           <ArchivePagination pagination={pagination} />
         </div>

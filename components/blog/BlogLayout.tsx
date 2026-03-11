@@ -32,12 +32,31 @@ export function BlogLayout({
   tags,
   backLink,
 }: BlogLayoutProps) {
+  const topTags = tags.slice(0, 3);
+  const currentTagEntry = currentTag ? tags.find((tag) => tag.tag === currentTag) : undefined;
+  const visibleTagEntries = currentTagEntry && !topTags.some((tag) => tag.slug === currentTagEntry.slug)
+    ? [...topTags, currentTagEntry]
+    : topTags;
+  const visibleTagSlugs = new Set(visibleTagEntries.map((tag) => tag.slug));
+  const overflowTags = tags.filter((tag) => !visibleTagSlugs.has(tag.slug));
+
+  const renderTag = (tag: MeaningfulTagArchiveSummary) => (
+    <Tag
+      key={tag.slug}
+      href={`/blog/tag/${tag.slug}`}
+      ariaLabel={`Browse ${tag.count} articles tagged ${tag.tag}`}
+      className={currentTag === tag.tag ? styles['archive-tag-active'] : ''}
+    >
+      {`${tag.tag} (${tag.count})`}
+    </Tag>
+  );
+
   return (
     <Container as="section" variant="default" padding="small" className={styles['blog-layout']}>
       <header className={`${styles['blog-header']}`}>
         {backLink && (
           <nav className={styles['archive-back-link']} aria-label="Archive breadcrumb">
-            <Link className="snap-link snap-read-more" href={backLink.href}>
+            <Link className={`snap-link snap-read-more ${styles['archive-inline-link']}`} href={backLink.href}>
               {backLink.label}
             </Link>
           </nav>
@@ -59,23 +78,27 @@ export function BlogLayout({
             <div className={styles['archive-tags-header']}>
               <h2 className="heading4">Browse by topic</h2>
               {currentTag && (
-                <Link className="snap-link snap-read-more" href="/blog">
+                <Link className={`snap-link snap-read-more ${styles['archive-inline-link']}`} href="/blog">
                   View all posts
                 </Link>
               )}
             </div>
-            <div className={styles['archive-tag-list']}>
-              {tags.map((tag) => (
-                <Tag
-                  key={tag.slug}
-                  href={`/blog/tag/${tag.slug}`}
-                  ariaLabel={`Browse ${tag.count} articles tagged ${tag.tag}`}
-                  className={currentTag === tag.tag ? styles['archive-tag-active'] : ''}
-                >
-                  {`${tag.tag} (${tag.count})`}
-                </Tag>
-              ))}
+            <div className={`${styles['archive-tag-list']} ${styles['archive-tag-list-desktop']}`}>
+              {tags.map(renderTag)}
             </div>
+            <div className={`${styles['archive-tag-list']} ${styles['archive-tag-list-mobile']}`}>
+              {visibleTagEntries.map(renderTag)}
+            </div>
+            {overflowTags.length > 0 && (
+              <details className={styles['archive-tag-disclosure']}>
+                <summary className={styles['archive-tag-summary']}>
+                  {`Show ${overflowTags.length} more topic${overflowTags.length === 1 ? '' : 's'}`}
+                </summary>
+                <div className={`${styles['archive-tag-list']} ${styles['archive-tag-list-overflow']}`}>
+                  {overflowTags.map(renderTag)}
+                </div>
+              </details>
+            )}
           </section>
         )}
 

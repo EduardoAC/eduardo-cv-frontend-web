@@ -37,7 +37,23 @@ export default function BlogPostEnhancer({ rootId }: Readonly<BlogPostEnhancerPr
       return undefined;
     }
 
+    let activeHeadingId = '';
+    const collapsibleToc = root.querySelector<HTMLDetailsElement>('[data-blog-toc-collapsible]');
+
+    const clearActiveTocItems = () => {
+      root.querySelectorAll('.snap-toc-item').forEach((item) => {
+        item.classList.remove('snap-toc-active');
+      });
+    };
+
     const setActiveTocItem = (activeId: string) => {
+      activeHeadingId = activeId;
+
+      if (collapsibleToc && !collapsibleToc.open) {
+        clearActiveTocItems();
+        return;
+      }
+
       root.querySelectorAll('.snap-toc-item').forEach((item) => {
         item.classList.toggle('snap-toc-active', item.getAttribute('data-heading-id') === activeId);
       });
@@ -118,11 +134,28 @@ export default function BlogPostEnhancer({ rootId }: Readonly<BlogPostEnhancerPr
       history.replaceState(null, '', `#${targetId}`);
     };
 
+    const onTocToggle = () => {
+      if (!collapsibleToc) {
+        return;
+      }
+
+      if (!collapsibleToc.open) {
+        clearActiveTocItems();
+        return;
+      }
+
+      if (activeHeadingId) {
+        setActiveTocItem(activeHeadingId);
+      }
+    };
+
     root.addEventListener('click', onClick);
+    collapsibleToc?.addEventListener('toggle', onTocToggle);
 
     return () => {
       tocObserver.disconnect();
       root.removeEventListener('click', onClick);
+      collapsibleToc?.removeEventListener('toggle', onTocToggle);
     };
   }, [rootId]);
 

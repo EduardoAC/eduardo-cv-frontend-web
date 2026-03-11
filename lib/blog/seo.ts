@@ -1,5 +1,12 @@
 import type { BlogPost, BlogPostMeta } from './markdown';
 
+const formatAuthorName = (author: string) =>
+  author
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+
 const getSeoImage = (post: BlogPost | BlogPostMeta) => {
   if (post.image) {
     return {
@@ -25,6 +32,7 @@ const getSeoImage = (post: BlogPost | BlogPostMeta) => {
 const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
   const url = `${baseUrl}/blog/${post.slug}`;
   const image = getSeoImage(post);
+  const authorName = formatAuthorName(post.author);
   
   return {
     title: post.title,
@@ -42,7 +50,7 @@ const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
     locale: 'en_GB',
     type: 'article',
     publishedTime: post.date,
-    author: post.author,
+    author: authorName,
     tags: post.tags,
   };
 };
@@ -65,6 +73,7 @@ const generateTwitterCard = (post: BlogPost | BlogPostMeta, baseUrl: string) => 
 const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
   const url = `${baseUrl}/blog/${post.slug}`;
   const image = getSeoImage(post);
+  const authorName = formatAuthorName(post.author);
   
   return {
     '@context': 'https://schema.org',
@@ -74,7 +83,7 @@ const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) 
     image: image ? (image.url.startsWith('http') ? image.url : `${baseUrl}${image.url}`) : undefined,
     author: {
       '@type': 'Person',
-      name: post.author,
+      name: authorName,
       url: baseUrl,
     },
     publisher: {
@@ -108,12 +117,13 @@ export const generateMetaTags = (post: BlogPost | BlogPostMeta, baseUrl: string)
   const openGraph = generateOpenGraph(post, baseUrl);
   const twitterCard = generateTwitterCard(post, baseUrl);
   const structuredData = generateStructuredData(post, baseUrl);
+  const authorName = formatAuthorName(post.author);
 
   return {
     title: `${post.title} | Eduardo Aparicio Cárdenes`,
     description: post.description,
     keywords: post.tags.join(', '),
-    author: post.author,
+    author: authorName,
     canonical: canonicalUrl,
     openGraph,
     twitter: twitterCard,
