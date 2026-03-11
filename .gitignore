@@ -66,6 +66,8 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
+docs
+
 .scannerwork
 
 # Medium migration context and process files
