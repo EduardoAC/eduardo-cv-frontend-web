@@ -1,22 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
-'use client';
-
 import React, { type CSSProperties } from 'react';
 import Link from 'next/link';
+import { getMeaningfulTagHref } from '@/lib/blog/archive';
 import type { BlogPostMeta } from '@/lib/blog/markdown';
 import Card from '../content/Card';
 import Tag from '../content/Tag';
 import styles from './BlogList.module.scss';
 
 interface BlogListProps {
-  posts: BlogPostMeta[];
+  posts: ReadonlyArray<BlogPostMeta>;
+  emptyMessage?: string;
 }
 
-export function BlogList({ posts }: BlogListProps) {
+export function BlogList({ posts, emptyMessage = 'No posts found.' }: BlogListProps) {
   return (
     <section aria-label="Blog posts list">
       {posts.length === 0 ? (
-        <p>No posts found.</p>
+        <p>{emptyMessage}</p>
       ) : (
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
           {posts.map((post) => (
@@ -41,9 +41,15 @@ const getImageFrameStyle = (post: BlogPostMeta): CSSProperties | undefined => {
 };
 
 function BlogListItem({ post }: { post: BlogPostMeta }) {
+  const articleHref = `/blog/${post.slug}`;
+  const tagLinks = post.tags.map((tag) => ({
+    tag,
+    href: getMeaningfulTagHref(tag) ?? undefined,
+  }));
+
   return (
     <Card>
-      <Link className="snap-link" href={`/blog/${post.slug}`} aria-label={`Read blog post: ${post.title}`}>
+      <Link className={`snap-link ${styles['blog-card-link']}`} href={articleHref} aria-label={`Read blog post: ${post.title}`}>
         {post.image && (
           <div className={styles['blog-image-frame']} style={getImageFrameStyle(post)}>
             <img
@@ -72,17 +78,23 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
           </div>
         </header>
         <p className="blog-description">{post.description}</p>
-        <div className="blog-tags">
-          {post.tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </div>
         <div className="blog-read-more">
           <span className="snap-link snap-read-more">
             Read more →
           </span>
         </div>
       </Link>
+      <div className={`${styles['blog-tags']} blog-tags`}>
+        {tagLinks.map(({ tag, href }) => (
+          <Tag
+            key={tag}
+            href={href}
+            ariaLabel={href ? `Browse articles tagged ${tag}` : undefined}
+          >
+            {tag}
+          </Tag>
+        ))}
+      </div>
     </Card>
   )
 }

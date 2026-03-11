@@ -1,57 +1,92 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+import Link from 'next/link';
 import Container from '@/components/layout/Container';
+import type { ArchivePaginationData, MeaningfulTagArchiveSummary } from '@/lib/blog/archive';
+import Tag from '../content/Tag';
+import { ArchivePagination } from './ArchivePagination';
 import styles from './Blog.module.scss';
-import TagFilter from './TagFilter';
 import SubscribeForm from './SubscribeForm';
 
 interface BlogLayoutProps {
   children: React.ReactNode;
+  title: string;
+  description: string;
+  supportingText?: string;
+  resultsSummary: string;
   currentTag?: string;
-  onSearch?: (query: string) => void;
-  onTagFilter?: (tag: string) => void;
-  tags: Readonly<string[]>;
+  tags: ReadonlyArray<MeaningfulTagArchiveSummary>;
+  pagination: ArchivePaginationData;
+  backLink?: {
+    href: string;
+    label: string;
+  };
 }
 
 export function BlogLayout({
   children,
+  title,
+  description,
+  supportingText,
+  resultsSummary,
   currentTag,
-  onSearch,
-  onTagFilter,
+  pagination,
   tags,
+  backLink,
 }: BlogLayoutProps) {
-  const popularTags = tags.slice(0, 10);
-
   return (
     <Container as="section" variant="default" padding="small" className={styles['blog-layout']}>
       <header className={`${styles['blog-header']}`}>
+        {backLink && (
+          <nav className={styles['archive-back-link']} aria-label="Archive breadcrumb">
+            <Link className="snap-link snap-read-more" href={backLink.href}>
+              {backLink.label}
+            </Link>
+          </nav>
+        )}
         <h1 className="text-align-left">
-          Business And Technology Blog
+          {title}
         </h1>
         <p>
-          Unlock advanced strategies in web performance, Software Architecture, Chrome extensions, and software leadership.
+          {description}
         </p>
-        <p>
-          Learn directly from hands-on experience in real-world projects. Whether you&apos;re a developer, 
-          software architect, or tech lead, this blog offers practical insights, best practices, and advanced solutions to elevate your engineering journey.
-        </p>
+        {supportingText && <p>{supportingText}</p>}
       </header>
 
       <SubscribeForm />
 
-      <nav className={styles['blog-navigation']} aria-label="Main navigation">
-        {onSearch && (
-          <div className={styles['blog-search']}>
-            <SearchBar onChange={onSearch} placeholder="Search blog posts..." />
-          </div>
+      <div className={styles['blog-navigation']}>
+        <p className={styles['archive-summary']}>{resultsSummary}</p>
+
+        {tags.length > 0 && (
+          <section className={styles['archive-tags-panel']} aria-label="Browse blog topics">
+            <div className={styles['archive-tags-header']}>
+              <h2 className="heading4">Browse by topic</h2>
+              {currentTag && (
+                <Link className="snap-link snap-read-more" href="/blog">
+                  View all posts
+                </Link>
+              )}
+            </div>
+            <div className={styles['archive-tag-list']}>
+              {tags.map((tag) => (
+                <Tag
+                  key={tag.slug}
+                  href={`/blog/tag/${tag.slug}`}
+                  ariaLabel={`Browse ${tag.count} articles tagged ${tag.tag}`}
+                  className={currentTag === tag.tag ? styles['archive-tag-active'] : ''}
+                >
+                  {`${tag.tag} (${tag.count})`}
+                </Tag>
+              ))}
+            </div>
+          </section>
         )}
-        <TagFilter
-          tags={popularTags}
-          selectedTags={currentTag ? [currentTag] : []}
-          onTagToggle={(tag) => onTagFilter?.(tag)}
-          onClearAll={() => onTagFilter?.('')}
-        />
-      </nav>
+
+        <div className={styles['archive-top-pagination']}>
+          <ArchivePagination pagination={pagination} />
+        </div>
+      </div>
+
       <main>{children}</main>
     </Container>
   );
