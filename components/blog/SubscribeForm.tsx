@@ -13,6 +13,30 @@ interface SubscribeResponse {
   id?: string;
 }
 
+const PUBLIC_SUBSCRIPTION_ERROR = 'Subscription is unavailable right now. Please try again in a moment.';
+const PUBLIC_RATE_LIMIT_ERROR = 'Too many attempts. Please try again later.';
+const PUBLIC_VALIDATION_ERROR = 'Please check your email address and try again.';
+const PUBLIC_ERROR_MESSAGES = new Set([
+  PUBLIC_SUBSCRIPTION_ERROR,
+  PUBLIC_RATE_LIMIT_ERROR,
+  PUBLIC_VALIDATION_ERROR,
+]);
+
+const getPublicErrorMessage = (
+  status?: number,
+  message?: string,
+): string => {
+  if (status === 429) {
+    return PUBLIC_RATE_LIMIT_ERROR;
+  }
+
+  if (status === 400 && message?.toLowerCase().includes('email')) {
+    return PUBLIC_VALIDATION_ERROR;
+  }
+
+  return PUBLIC_SUBSCRIPTION_ERROR;
+};
+
 export default function SubscribeForm({ className }: SubscribeFormProps) {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -53,20 +77,21 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
         }),
       });
 
-      const result: SubscribeResponse = await response.json();
+      const result = await response.json().catch(() => null) as SubscribeResponse | null;
 
       if (!response.ok) {
-        throw new Error(result.message || 'Failed to subscribe');
+        throw new Error(getPublicErrorMessage(response.status, result?.message));
       }
 
-      if (result.success) {
+      if (result?.success) {
         setSubmitted(true);
         setEmail('');
       } else {
-        throw new Error(result.message || 'Failed to subscribe');
+        throw new Error(PUBLIC_SUBSCRIPTION_ERROR);
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An unexpected error occurred');
+      const message = err instanceof Error ? err.message : '';
+      setError(PUBLIC_ERROR_MESSAGES.has(message) ? message : PUBLIC_SUBSCRIPTION_ERROR);
     } finally {
       setLoading(false);
     }
