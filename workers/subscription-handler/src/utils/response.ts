@@ -1,3 +1,8 @@
+import type {
+  SubscriptionErrorCode,
+  SubscriptionSuccessResponse,
+} from '../contracts';
+
 // Helper function to create CORS headers
 export function createCorsHeaders(origin: string, isAllowedOrigin: boolean) {
   return {
@@ -8,11 +13,17 @@ export function createCorsHeaders(origin: string, isAllowedOrigin: boolean) {
 }
 
 // Helper function to create error response
-export function createErrorResponse(message: string, status: number, origin: string, isAllowedOrigin: boolean) {
+export function createErrorResponse(
+  code: SubscriptionErrorCode,
+  message: string,
+  status: number,
+  origin: string,
+  isAllowedOrigin: boolean,
+) {
   return new Response(JSON.stringify({
     success: false,
-    error: message,
-    status,
+    code,
+    message,
   }), {
     status,
     headers: {
@@ -23,12 +34,18 @@ export function createErrorResponse(message: string, status: number, origin: str
 }
 
 // Create success response
-export function createSuccessResponse(result: any, isSubscriber: boolean, origin: string): Response {
-  return new Response(JSON.stringify({
+export function createSuccessResponse(
+  result: { id?: string },
+  isSubscriber: boolean,
+  origin: string,
+): Response {
+  const payload: SubscriptionSuccessResponse = {
     success: true,
     message: isSubscriber ? 'Successfully subscribed to blog newsletter' : 'Email sent successfully',
     id: result.id,
-  }), {
+  };
+
+  return new Response(JSON.stringify(payload), {
     status: 200,
     headers: {
       'Content-Type': 'application/json',

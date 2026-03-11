@@ -1,19 +1,28 @@
 import { EmailRequest } from '../types';
+import { SUBSCRIPTION_ERROR_CODES } from '../contracts';
 import { isValidEmail } from '../utils';
 import { createErrorResponse, createCorsHeaders } from '../utils/response';
 
+const DEFAULT_ALLOWED_ORIGIN = 'https://eduardo-aparicio-cardenes.website';
+
+export function isAllowedRequestOrigin(origin: string, allowedOrigin?: string): boolean {
+  return origin === allowedOrigin || origin === DEFAULT_ALLOWED_ORIGIN;
+}
+
 export function validateRequest(request: Request, allowedOrigin: string): { isValid: boolean; response?: Response; origin: string; isAllowedOrigin: boolean } {
   const origin = request.headers.get('Origin') || '';
-  const isAllowedOrigin = origin === allowedOrigin || 
-                         origin === 'https://eduardo-aparicio-cardenes.website';
+  const isAllowedOrigin = isAllowedRequestOrigin(origin, allowedOrigin);
 
   if (request.method === 'GET') {
     return {
       isValid: false,
-      response: new Response('GET requests are not allowed', {
-        status: 403,
-        headers: { 'Content-Type': 'text/plain' },
-      }),
+      response: createErrorResponse(
+        SUBSCRIPTION_ERROR_CODES.UNAUTHORIZED,
+        'This request is not allowed.',
+        403,
+        origin,
+        isAllowedOrigin,
+      ),
       origin,
       isAllowedOrigin,
     };
@@ -31,7 +40,13 @@ export function validateRequest(request: Request, allowedOrigin: string): { isVa
   if (request.method !== 'POST') {
     return {
       isValid: false,
-      response: createErrorResponse('Method not allowed', 405, origin, isAllowedOrigin),
+      response: createErrorResponse(
+        SUBSCRIPTION_ERROR_CODES.UNAUTHORIZED,
+        'This request is not allowed.',
+        405,
+        origin,
+        isAllowedOrigin,
+      ),
       origin,
       isAllowedOrigin,
     };
@@ -40,7 +55,13 @@ export function validateRequest(request: Request, allowedOrigin: string): { isVa
   if (!isAllowedOrigin) {
     return {
       isValid: false,
-      response: createErrorResponse('Unauthorized origin', 403, origin, isAllowedOrigin),
+      response: createErrorResponse(
+        SUBSCRIPTION_ERROR_CODES.UNAUTHORIZED,
+        'This request is not allowed.',
+        403,
+        origin,
+        isAllowedOrigin,
+      ),
       origin,
       isAllowedOrigin,
     };
@@ -54,7 +75,13 @@ export async function validateRequestBody(request: Request, origin: string, isAl
   if (!contentType || !contentType.includes('application/json')) {
     return {
       isValid: false,
-      response: createErrorResponse('Content-Type must be application/json', 400, origin, isAllowedOrigin),
+      response: createErrorResponse(
+        SUBSCRIPTION_ERROR_CODES.UNAVAILABLE,
+        'The request could not be completed right now. Please try again in a moment.',
+        400,
+        origin,
+        isAllowedOrigin,
+      ),
     };
   }
 
@@ -64,14 +91,26 @@ export async function validateRequestBody(request: Request, origin: string, isAl
     if (!body.name || !body.email || !body.message) {
       return {
         isValid: false,
-        response: createErrorResponse('Missing required fields: name, email, message', 400, origin, isAllowedOrigin),
+        response: createErrorResponse(
+          SUBSCRIPTION_ERROR_CODES.UNAVAILABLE,
+          'The request could not be completed right now. Please try again in a moment.',
+          400,
+          origin,
+          isAllowedOrigin,
+        ),
       };
     }
 
     if (!isValidEmail(body.email)) {
       return {
         isValid: false,
-        response: createErrorResponse('Invalid email format', 400, origin, isAllowedOrigin),
+        response: createErrorResponse(
+          SUBSCRIPTION_ERROR_CODES.INVALID_EMAIL,
+          'Please provide a valid email address.',
+          400,
+          origin,
+          isAllowedOrigin,
+        ),
       };
     }
 
@@ -79,7 +118,13 @@ export async function validateRequestBody(request: Request, origin: string, isAl
   } catch (error) {
     return {
       isValid: false,
-      response: createErrorResponse('Invalid JSON body', 400, origin, isAllowedOrigin),
+      response: createErrorResponse(
+        SUBSCRIPTION_ERROR_CODES.UNAVAILABLE,
+        'The request could not be completed right now. Please try again in a moment.',
+        400,
+        origin,
+        isAllowedOrigin,
+      ),
     };
   }
 }

@@ -5,7 +5,6 @@ import type { ArchivePaginationData, MeaningfulTagArchiveSummary } from '@/lib/b
 import Tag from '../content/Tag';
 import { ArchivePagination } from './ArchivePagination';
 import styles from './Blog.module.scss';
-import SubscribeForm from './SubscribeForm';
 
 interface BlogLayoutProps {
   children: React.ReactNode;
@@ -51,8 +50,6 @@ export function BlogLayout({
         </p>
         {supportingText && <p>{supportingText}</p>}
       </header>
-
-      <SubscribeForm />
 
       <div className={styles['blog-navigation']}>
         <p className={styles['archive-summary']}>{resultsSummary}</p>

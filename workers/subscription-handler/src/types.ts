@@ -1,5 +1,6 @@
 import { KVNamespace } from '@cloudflare/workers-types';
 import { ReactNode } from 'react';
+import type { SubscriptionSuccessResponse } from './contracts';
 
 // Email request and response types
 export interface EmailRequest {
@@ -9,11 +10,7 @@ export interface EmailRequest {
   subject?: string;
 }
 
-export interface EmailResponse {
-  success: boolean;
-  message: string;
-  id?: string;
-}
+export type EmailResponse = SubscriptionSuccessResponse;
 
 // Cloudflare Workers types are already provided by @cloudflare/workers-types
 export interface EmailData {

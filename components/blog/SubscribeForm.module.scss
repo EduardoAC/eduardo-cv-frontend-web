@@ -42,6 +42,18 @@
   }
 }
 
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .emailInput {
   flex: 1;
   padding: 0.75rem 1rem;
@@ -52,7 +64,7 @@
   color: #333;
   transition: all 0.2s ease;
 
-  &:focus {
+  &:focus-visible {
     outline: none;
     background: white;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
@@ -86,14 +98,16 @@
     box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
   }
 
-  &:active:not(:disabled) {
-    transform: translateY(0);
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
   }
 
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
+    box-shadow: none;
   }
 }
 
@@ -117,7 +131,8 @@
 .successMessage {
   text-align: center;
 
-  h3 {
+  h3,
+  h4 {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -129,4 +144,4 @@
     line-height: 1.6;
     margin-bottom: 0;
   }
-} 
+}

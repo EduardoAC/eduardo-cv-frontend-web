@@ -1,3 +1,4 @@
+import { SUBSCRIPTION_ERROR_CODES } from '../contracts';
 import { Env } from '../types';
 import { checkRateLimit, updateRateLimit } from '../utils';
 import { createErrorResponse } from '../utils/response';
@@ -9,7 +10,13 @@ export async function checkRateLimiting(request: Request, env: Env, origin: stri
   if (!rateLimitResult.allowed) {
     return {
       allowed: false,
-      response: createErrorResponse('Rate limit exceeded. Please try again later.', 429, origin, isAllowedOrigin),
+      response: createErrorResponse(
+        SUBSCRIPTION_ERROR_CODES.RATE_LIMITED,
+        'Too many attempts. Please try again later.',
+        429,
+        origin,
+        isAllowedOrigin,
+      ),
     };
   }
 

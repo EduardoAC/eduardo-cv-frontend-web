@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import type { CSSProperties } from 'react';
+import { Fragment, type CSSProperties, type ReactNode } from 'react';
 import Link from 'next/link';
 import { getMeaningfulTagHref } from '@/lib/blog/archive';
 import type { BlogPostMeta, BlogResponsiveImageContext } from '@/lib/blog/markdown';
@@ -10,6 +10,8 @@ import styles from './BlogList.module.scss';
 interface BlogListProps {
   posts: ReadonlyArray<BlogPostMeta>;
   emptyMessage?: string;
+  interstitial?: ReactNode;
+  interstitialAfter?: number;
 }
 
 const getImageContext = (post: BlogPostMeta): BlogResponsiveImageContext | null => post.coverImage?.contexts.card ?? null;
@@ -91,19 +93,39 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
   );
 }
 
-export function BlogList({ posts, emptyMessage = 'No posts found.' }: Readonly<BlogListProps>) {
+export function BlogList({
+  posts,
+  emptyMessage = 'No posts found.',
+  interstitial,
+  interstitialAfter = 4,
+}: Readonly<BlogListProps>) {
+  const showInlineInterstitial = Boolean(interstitial) && posts.length > interstitialAfter;
+  const showFallbackInterstitial = Boolean(interstitial) && posts.length > 0 && !showInlineInterstitial;
+
   return (
     <section aria-label="Blog posts list">
       {posts.length === 0 ? (
         <p>{emptyMessage}</p>
       ) : (
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          {posts.map((post) => (
-            <li key={post.slug} style={{ marginBottom: '2rem' }}>
-              <BlogListItem post={post} />
-            </li>
+        <ul className={styles.blogList}>
+          {posts.map((post, index) => (
+            <Fragment key={post.slug}>
+              <li className={styles.blogListItem}>
+                <BlogListItem post={post} />
+              </li>
+              {showInlineInterstitial && index === interstitialAfter - 1 && (
+                <li className={styles.blogListItem}>
+                  {interstitial}
+                </li>
+              )}
+            </Fragment>
           ))}
         </ul>
+      )}
+      {showFallbackInterstitial && (
+        <div className={styles.blogListSecondaryCta}>
+          {interstitial}
+        </div>
       )}
     </section>
   );

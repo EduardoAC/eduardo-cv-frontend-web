@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { SUBSCRIPTION_ERROR_CODES } from '../contracts';
 import { Env } from '../types';
 import { createErrorResponse } from '../utils/response';
 
@@ -38,7 +39,13 @@ export async function addContactToAudience(
       console.error('Resend contacts API error:', response.error.message);
       return {
         success: false,
-        response: createErrorResponse('Failed to add contact to audience', 500, origin, isAllowedOrigin),
+        response: createErrorResponse(
+          SUBSCRIPTION_ERROR_CODES.UNAVAILABLE,
+          'The request could not be completed right now. Please try again in a moment.',
+          500,
+          origin,
+          isAllowedOrigin,
+        ),
       };
     }
 
@@ -54,7 +61,13 @@ export async function addContactToAudience(
     console.error('Subscription service error:', error);
     return {
       success: false,
-      response: createErrorResponse('Internal server error', 500, origin, isAllowedOrigin),
+      response: createErrorResponse(
+        SUBSCRIPTION_ERROR_CODES.UNAVAILABLE,
+        'The request could not be completed right now. Please try again in a moment.',
+        500,
+        origin,
+        isAllowedOrigin,
+      ),
     };
   }
 }
@@ -78,7 +91,13 @@ export async function removeContactFromAudience(
       console.error('Resend contacts delete API error:', response.error.message);
       return {
         success: false,
-        response: createErrorResponse('Failed to remove contact from audience', 500, origin, isAllowedOrigin),
+        response: createErrorResponse(
+          SUBSCRIPTION_ERROR_CODES.UNAVAILABLE,
+          'The request could not be completed right now. Please try again in a moment.',
+          500,
+          origin,
+          isAllowedOrigin,
+        ),
       };
     }
 
@@ -93,7 +112,13 @@ export async function removeContactFromAudience(
     console.error('Subscription service error:', error);
     return {
       success: false,
-      response: createErrorResponse('Internal server error', 500, origin, isAllowedOrigin),
+      response: createErrorResponse(
+        SUBSCRIPTION_ERROR_CODES.UNAVAILABLE,
+        'The request could not be completed right now. Please try again in a moment.',
+        500,
+        origin,
+        isAllowedOrigin,
+      ),
     };
   }
 } 
