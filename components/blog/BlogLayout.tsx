@@ -37,7 +37,7 @@ export function BlogLayout({
       <header className={`${styles['blog-header']}`}>
         {backLink && (
           <nav className={styles['archive-back-link']} aria-label="Archive breadcrumb">
-            <Link className="snap-link snap-read-more" href={backLink.href}>
+            <Link className={`snap-link snap-read-more ${styles['archive-inline-link']}`} href={backLink.href}>
               {backLink.label}
             </Link>
           </nav>
@@ -59,7 +59,7 @@ export function BlogLayout({
             <div className={styles['archive-tags-header']}>
               <h2 className="heading4">Browse by topic</h2>
               {currentTag && (
-                <Link className="snap-link snap-read-more" href="/blog">
+                <Link className={`snap-link snap-read-more ${styles['archive-inline-link']}`} href="/blog">
                   View all posts
                 </Link>
               )}

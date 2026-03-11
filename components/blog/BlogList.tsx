@@ -39,7 +39,7 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
   const cardImage = getImageContext(post);
 
   return (
-    <Card>
+    <Card className={styles['blog-card']}>
       <Link className={`snap-link ${styles['blog-card-link']}`} href={articleHref} aria-label={`Read blog post: ${post.title}`}>
         {(cardImage || post.image) && (
           <div className={styles['blog-image-frame']} style={getImageFrameStyle(post)}>
@@ -56,12 +56,10 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
             />
           </div>
         )}
-        <header>
-          <h2 className="heading3 text-align-left">
-            {post.title}
-          </h2>
-          <div className="snap-meta">
-            <time dateTime={post.date} style={{ marginRight: '1rem' }}>
+        <header className={styles['blog-card-header']}>
+          <h2 className={styles['blog-card-title']}>{post.title}</h2>
+          <div className={styles['blog-card-meta']}>
+            <time dateTime={post.date}>
               {new Date(post.date).toLocaleDateString('en-GB', {
                 year: 'numeric',
                 month: 'long',
@@ -71,14 +69,10 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
             <span>• {post.readingTime} min read</span>
           </div>
         </header>
-        <p className="blog-description">{post.description}</p>
-        <div className="blog-read-more">
-          <span className="snap-link snap-read-more">
-            Read more →
-          </span>
-        </div>
+        <p className={styles['blog-card-description']}>{post.description}</p>
+        <span className={styles['blog-card-read-more']}>Read article →</span>
       </Link>
-      <div className={`${styles['blog-tags']} blog-tags`}>
+      <div className={styles['blog-tags']}>
         {tagLinks.map(({ tag, href }) => (
           <Tag
             key={tag}
