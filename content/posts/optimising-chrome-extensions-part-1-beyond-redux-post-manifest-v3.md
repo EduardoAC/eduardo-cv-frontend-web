@@ -4,7 +4,7 @@ description: "Explore Chrome extension evolution, moving beyond Redux in Post-Ma
 date: "2023-10-01"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "Redux", "Web Development", "Manifest V3"]
-image: "/images/blog/optimising-chrome-extensions-part-1-beyond-redux-post-manifest-v3-frontmatter.png"
+image: "/images/blog/optimising-chrome-extensions-part-1-beyond-redux-post-manifest-v3/hero-post-manifest-v3-redux.png"
 ---
 
 The landscape of Chrome extension development underwent a significant shift with the introduction of Manifest v3. In this article, we’ll explore the journey of why we decided to part ways with the Redux ecosystem in our Chrome extension after adopting Manifest v3. We aim to provide insights and guidance for fellow extension developers facing similar decisions in selecting their tech stack.
@@ -17,7 +17,7 @@ However, no architecture is without its challenges. One notable drawback was the
 
 Additionally, the changes introduced in manifest v3, where the background script no longer persisted in memory, presented a hurdle. Connections reset unless explicitly persisted in the cache, aligning with the new architecture’s goal of handling incoming messages efficiently.
 
-![Redux architecture and challenges](https://cdn-images-1.medium.com/max/800/0*NQTZEyuAXa-H54MC)
+![Redux architecture and challenges in a Chrome extension](/images/blog/optimising-chrome-extensions-part-1-beyond-redux-post-manifest-v3/redux-architecture-challenges.jpg)
 
 While Redux had served us well, its drawbacks in the context of Chrome extension development became apparent:
 
@@ -41,7 +41,7 @@ Remember, adaptability is key in the ever-evolving landscape of Chrome extension
 
 In our journey towards adapting to the changes brought by manifest v3, it became evident that the challenges posed by Redux in the Chrome extension context were becoming more pronounced. We recognised the need for a more efficient and streamlined approach to handle state management without the inherent complexities of Redux.
 
-![Message architecture and cache](https://cdn-images-1.medium.com/max/800/0*8OIq52AmAVXFNvn2)
+![Chrome extension message architecture with a cache-backed service worker](/images/blog/optimising-chrome-extensions-part-1-beyond-redux-post-manifest-v3/message-architecture-and-cache.jpg)
 
 The imperative to minimise the impact on the end-user experience was at the forefront of our considerations. The duplication of the store in memory across tabs, an inherent characteristic of Redux, emerged as a significant concern. Our quest for alternatives took shape, intending to reduce unnecessary redundancies, ensuring a smoother and more resource-efficient user journey.
 

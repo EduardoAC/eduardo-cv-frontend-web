@@ -4,7 +4,7 @@ description: "JWT token management strategies can be challenging. Here are some 
 date: "2020-09-26"
 author: "eduardo aparicio cardenes"
 tags: ["JWT", "Authentication", "Security", "Web Development"]
-image: "/images/blog/managing-jwt-token-expiration-frontmatter.png"
+image: "/images/blog/managing-jwt-token-expiration/hero-jwt-token-expiration.png"
 ---
 
 When you manage JWT tokens, there are some problems that you may experience when you are dealing with authentication. Particularly, when you need to handle token expiration.
@@ -39,7 +39,7 @@ Therefore, I invite you to talk to your product team to align what you is the ri
 
 Our application will play a passive role by monitoring our HTTP responses, looking for 401 error responses.
 
-![Reactive JWT expiration](https://cdn-images-1.medium.com/max/800/0*ASJCtW543wfjJ_1A)
+![Reactive JWT expiration handling flow](/images/blog/managing-jwt-token-expiration/reactive-jwt-expiration-flow.png)
 
 As the strategy name suggests, we assume our token is valid in every request and reactively take action when this is no longer valid.
 
@@ -51,7 +51,7 @@ As the strategy name suggests, we assume our token is valid in every request and
 
 As the name indicate we check in advance the expiration date in the token to determine if our token is valid before making the HTTP request to the resource server. Even you can define a periodic timer to check for the token expiration.
 
-![Proactive JWT expiration](https://cdn-images-1.medium.com/max/800/0*yUg8x4B6DxPrrjW-)
+![Proactive JWT expiration pre-check flow](/images/blog/managing-jwt-token-expiration/proactive-jwt-expiration-flow.png)
 
 In this case, we will be confident that our request should be successful since our token expiration date is in the future when we are making the request.
 
@@ -63,7 +63,7 @@ In this case, we will be confident that our request should be successful since o
 
 Hybrid combines the previous strategies allowing us to make sure that we handle cases when a valid token can expire during the request causing a 401 HTTP Response due token expiration during the request.
 
-![Hybrid JWT expiration](https://cdn-images-1.medium.com/max/800/0*3ONjLu_yE_ZDApqq)
+![Hybrid JWT expiration strategy combining pre-checks and 401 handling](/images/blog/managing-jwt-token-expiration/hybrid-jwt-expiration-flow.png)
 
 This becomes particularly useful on scenarios where request takes a long time to be fired, or system with high volume requests where you may have to queue the request before the server can handle with the possibility has expired during that time.
 

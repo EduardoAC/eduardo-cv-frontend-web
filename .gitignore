@@ -66,6 +66,11 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
+docs
+!docs/
+docs/*
+!docs/blog-image-validation-cleanup-summary.md
+
 .scannerwork
 
 # Medium migration context and process files

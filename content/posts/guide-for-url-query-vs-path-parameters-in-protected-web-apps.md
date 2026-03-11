@@ -4,7 +4,7 @@ description: "Crafting clean URLs: A Guide to Slugs, Path Parameters, and Query 
 date: "2024-09-15"
 author: "eduardo aparicio cardenes"
 tags: ["Web Development", "URL Design", "Best Practices", "Frontend"]
-image: "/images/blog/guide-for-url-query-vs-path-parameters-in-protected-web-apps-frontmatter.png"
+image: "/images/blog/guide-for-url-query-vs-path-parameters-in-protected-web-apps/hero-protected-web-app-url-design.png"
 ---
 
 Using standardised REST API practices to Web Application URLs
@@ -17,7 +17,7 @@ In this article, I’ll share insights on using slugs, path parameters, and quer
 
 #### Understanding the Basics: URL Paths, Slugs, and Query Parameters
 
-![](/images/blog/url-structure-breakdown.webp)
+![Comparison of URL path segments and query parameters in a protected web app](/images/blog/guide-for-url-query-vs-path-parameters-in-protected-web-apps/url-path-vs-query-parameter-breakdown.webp)
 
 URL path vs query parameter
 
