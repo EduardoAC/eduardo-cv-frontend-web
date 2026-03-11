@@ -1,0 +1,3 @@
+# Legacy route redirects
+/homepage / 301
+/blogBusiness /blog 301
