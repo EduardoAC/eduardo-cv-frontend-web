@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Container from '@/components/layout/Container';
 import styles from './ComingSoonLanding.module.scss';
 
+type ComingSoonLandingVariant = 'forum' | 'build-journal';
+
 type ComingSoonAction = {
   href: string;
   label: string;
@@ -21,6 +23,7 @@ type ComingSoonLink = {
 };
 
 interface ComingSoonLandingProps {
+  variant: ComingSoonLandingVariant;
   eyebrow: string;
   title: string;
   lead: string;
@@ -38,6 +41,7 @@ interface ComingSoonLandingProps {
 }
 
 export default function ComingSoonLanding({
+  variant,
   eyebrow,
   title,
   lead,
@@ -54,76 +58,83 @@ export default function ComingSoonLanding({
   imageAlt,
 }: ComingSoonLandingProps) {
   return (
-    <main className={styles.page}>
-      <Container variant="default" padding="large">
-        <section className={styles.hero} aria-labelledby="coming-soon-title">
-          <div className={styles.copy}>
-            <p className={styles.eyebrow}>{eyebrow}</p>
-            <h1 id="coming-soon-title" className={styles.title}>
-              {title}
-            </h1>
-            <p className={styles.lead}>{lead}</p>
-            <div className={styles.body}>
-              {paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+    <main className={styles.page} data-variant={variant}>
+      <section className={styles.heroSection} aria-labelledby="coming-soon-title">
+        <Container variant="default" padding="large">
+          <div className={styles.heroInner}>
+            <div className={styles.copy}>
+              <p className={styles.eyebrow}>{eyebrow}</p>
+              <h1 id="coming-soon-title" className={styles.title}>
+                {title}
+              </h1>
+              <p className={styles.lead}>{lead}</p>
+              <div className={styles.body}>
+                {paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              <div className={styles.actions}>
+                {actions.map(({ href, label, variant = 'secondary' }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={[
+                      'snap-btn',
+                      styles.action,
+                      variant === 'primary' ? styles.primaryAction : styles.secondaryAction,
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
             </div>
-            <div className={styles.actions}>
-              {actions.map(({ href, label, variant = 'secondary' }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className={[
-                    'snap-btn',
-                    variant === 'primary' ? 'snap-btn-primary' : '',
-                    styles.action,
-                    variant === 'secondary' ? styles.secondaryAction : '',
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                >
-                  {label}
-                </Link>
-              ))}
+            <div className={styles.media}>
+              <div className={styles.imageFrame}>
+                <Image
+                  src="/images/comingsoon-optimized-1280.webp"
+                  alt={imageAlt}
+                  width={1280}
+                  height={582}
+                  priority
+                  className={`snap-img-fluid ${styles.image}`}
+                />
+              </div>
+              <aside className={styles.statusPanel} aria-label={statusTitle}>
+                <p className={styles.statusEyebrow}>Current focus</p>
+                <h2>{statusTitle}</h2>
+                <p>{statusBody}</p>
+              </aside>
             </div>
           </div>
-          <div className={styles.media}>
-            <div className={styles.imageFrame}>
-              <Image
-                src="/images/comingsoon-optimized-1280.webp"
-                alt={imageAlt}
-                width={1280}
-                height={582}
-                priority
-                className={`snap-img-fluid ${styles.image}`}
-              />
-            </div>
-            <aside className={`snap-card ${styles.statusCard}`} aria-label={statusTitle}>
-              <p className={styles.statusEyebrow}>Current focus</p>
-              <h2>{statusTitle}</h2>
-              <p>{statusBody}</p>
-            </aside>
-          </div>
-        </section>
+        </Container>
+      </section>
 
-        <section className={styles.section} aria-labelledby="coming-soon-highlights-title">
+      <section className={styles.highlightsSection} aria-labelledby="coming-soon-highlights-title">
+        <Container variant="default" padding="large">
           <div className={styles.sectionHeader}>
             <h2 id="coming-soon-highlights-title">{highlightsTitle}</h2>
             <p>{highlightsDescription}</p>
           </div>
           <div className={styles.highlightGrid}>
             {highlights.map((highlight) => (
-              <article key={highlight.title} className={`snap-card ${styles.highlightCard}`}>
+              <article key={highlight.title} className={styles.highlightItem}>
                 <h3>{highlight.title}</h3>
                 <p>{highlight.description}</p>
               </article>
             ))}
           </div>
-        </section>
+        </Container>
+      </section>
 
-        <section className={`snap-card ${styles.helpfulCard}`} aria-labelledby="coming-soon-helpful-title">
-          <h2 id="coming-soon-helpful-title">{helpfulTitle}</h2>
-          <p className={styles.helpfulIntro}>{helpfulDescription}</p>
+      <section className={styles.linksSection} aria-labelledby="coming-soon-helpful-title">
+        <Container variant="default" padding="large">
+          <div className={styles.sectionHeader}>
+            <h2 id="coming-soon-helpful-title">{helpfulTitle}</h2>
+            <p>{helpfulDescription}</p>
+          </div>
           <div className={styles.helpfulGrid}>
             {helpfulLinks.map((link) => (
               <article key={link.href} className={styles.helpfulItem}>
@@ -134,8 +145,8 @@ export default function ComingSoonLanding({
               </article>
             ))}
           </div>
-        </section>
-      </Container>
+        </Container>
+      </section>
     </main>
   );
 }

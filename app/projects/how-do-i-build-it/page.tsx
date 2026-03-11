@@ -58,6 +58,7 @@ const helpfulLinks = [
 export default function HowDoIBuildItPage() {
   return (
     <ComingSoonLanding
+      variant="build-journal"
       eyebrow="Coming soon"
       title="How I build my interactive CV"
       lead="This page is being prepared as a proper build journal for the site, from architecture and content structure to performance and SEO decisions."

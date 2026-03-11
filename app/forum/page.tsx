@@ -58,6 +58,7 @@ const helpfulLinks = [
 export default function ForumPage() {
   return (
     <ComingSoonLanding
+      variant="forum"
       eyebrow="Coming soon"
       title="The brainstorming forum"
       lead="A future home for thoughtful engineering discussion, practical trade offs, and the questions that deserve more than a short comment thread."
