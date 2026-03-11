@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import styles from './SubscribeForm.module.scss';
 
 interface SubscribeFormProps {
@@ -18,6 +18,17 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const inputId = useId();
+  const headingId = useId();
+  const trustLineId = useId();
+  const errorId = useId();
+
+  const inputDescribedBy = [
+    trustLineId,
+    error ? errorId : null,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.stopPropagation();
@@ -63,33 +74,38 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
 
   if (submitted) {
     return (
-      <div className={`${styles.subscribeForm} ${className || ''}`}>
-        <div className={styles.successMessage}>
-          <h3>🎉 Successfully Subscribed!</h3>
+      <section className={`${styles.subscribeForm} ${className || ''}`.trim()} aria-live="polite" aria-labelledby={headingId}>
+        <div className={styles.successMessage} role="status">
+          <h3 id={headingId}>🎉 Successfully Subscribed!</h3>
           <p>Thank you for subscribing to my blog. You&apos;ll receive updates about new articles and insights.</p>
         </div>
-      </div>
+      </section>
     );
   }
 
   return (
-    <div className={`${styles.subscribeForm} ${className || ''}`}>
+    <section className={`${styles.subscribeForm} ${className || ''}`.trim()} aria-labelledby={headingId}>
       <div className={styles.subscribeContent}>
-        <h3>📧 Stay Updated</h3>
+        <h3 id={headingId}>📧 Stay Updated</h3>
         <p>
-          Get notified when I publish new articles about web performance, 
+          Get notified when I publish new articles about web performance,
           Chrome extensions, frontend development, and software leadership.
         </p>
-        
+
         {error && (
-          <div className={styles.errorMessage}>
+          <div id={errorId} className={styles.errorMessage} role="alert">
             {error}
           </div>
         )}
-        
+
         <form onSubmit={handleSubmit} className={styles.form}>
+          <label className={styles.visuallyHidden} htmlFor={inputId}>
+            Email address
+          </label>
           <div className={styles.inputGroup}>
             <input
+              id={inputId}
+              name="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -97,6 +113,11 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
               required
               disabled={loading}
               className={styles.emailInput}
+              autoComplete="email"
+              inputMode="email"
+              aria-invalid={Boolean(error)}
+              aria-describedby={inputDescribedBy}
+              aria-label="Email address"
             />
             <button
               type="submit"
@@ -107,11 +128,11 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
             </button>
           </div>
         </form>
-        
-        <p className={styles.privacyNote}>
+
+        <p id={trustLineId} className={styles.privacyNote}>
           🔒 No spam, unsubscribe anytime. Your email is protected.
         </p>
       </div>
-    </div>
+    </section>
   );
-} 
+}

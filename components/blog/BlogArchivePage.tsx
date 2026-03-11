@@ -3,6 +3,7 @@ import type { ArchivePaginationData, MeaningfulTagArchiveSummary } from '@/lib/b
 import { ArchivePagination } from './ArchivePagination';
 import { BlogLayout } from './BlogLayout';
 import { BlogList } from './BlogList';
+import SubscribeForm from './SubscribeForm';
 import styles from './Blog.module.scss';
 
 interface BlogArchivePageProps {
@@ -35,6 +36,8 @@ export function BlogArchivePage({
   backLink,
   emptyMessage,
 }: BlogArchivePageProps) {
+  const subscribeCta = posts.length > 0 ? <SubscribeForm /> : undefined;
+
   return (
     <>
       <script
@@ -54,7 +57,12 @@ export function BlogArchivePage({
         pagination={pagination}
         backLink={backLink}
       >
-        <BlogList posts={posts} emptyMessage={emptyMessage} />
+        <BlogList
+          posts={posts}
+          emptyMessage={emptyMessage}
+          interstitial={subscribeCta}
+          interstitialAfter={4}
+        />
         <div className={styles['archive-bottom-pagination']}>
           <ArchivePagination pagination={pagination} />
         </div>
