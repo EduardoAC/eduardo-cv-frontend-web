@@ -17,6 +17,12 @@
   --blog-prose-media-gap: 1.9rem;
   --blog-meta-size: 0.9375rem;
   --blog-dek-size: clamp(1.125rem, 1.8vw, 1.25rem);
+  --blog-post-title-size-mobile: clamp(2.2rem, 9vw, 3rem);
+  --blog-post-title-line-height-mobile: 1.05;
+  --blog-post-header-gap-mobile: 0.7rem;
+  --blog-post-header-margin-bottom-mobile: 1.3rem;
+  --blog-post-back-link-size-mobile: 0.875rem;
+  --blog-post-meta-size-mobile: 0.875rem;
   text-align: left;
 }
 
@@ -229,12 +235,41 @@
 }
 
 @media (max-width: 768px) {
+  .blog-post-header {
+    margin-bottom: var(--blog-post-header-margin-bottom-mobile);
+  }
+
+  .blog-post-back-link {
+    margin-bottom: 0.7rem;
+  }
+
+  .blog-post-back-link a {
+    font-size: var(--blog-post-back-link-size-mobile);
+    line-height: 1.35;
+  }
+
   .blog-post-title {
+    font-size: var(--blog-post-title-size-mobile);
+    line-height: var(--blog-post-title-line-height-mobile);
     text-wrap: pretty;
   }
 
   .blog-post-header-content {
-    gap: 0.8rem;
+    gap: var(--blog-post-header-gap-mobile);
+  }
+
+  .blog-post-dek {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .blog-post-meta {
+    font-size: var(--blog-post-meta-size-mobile);
+    gap: 0.25rem 0.75rem;
+  }
+
+  .blog-post-tags {
+    gap: 0.4rem;
   }
 
   .blog-post-image-frame {
