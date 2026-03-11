@@ -12,6 +12,7 @@
     "serve": "npx serve dist -p 3000",
     "blog:validate": "node scripts/generate-blog-manifest.js && node scripts/validate-blog-content.js",
     "blog:verify": "node scripts/verify-blog-output.js",
+    "blog:report": "node scripts/report-blog-benchmarks.js",
     "lint": "next lint",
     "analyze": "ANALYZE=true npm run build",
     "lighthouse": "lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-report.json",
