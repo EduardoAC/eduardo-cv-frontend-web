@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getPostBySlug, getRelatedPosts, getAllPosts } from '@/lib/blog/markdown';
+import { getPostBySlug, getRelatedPosts, getAllPosts, getPostMetaBySlug } from '@/lib/blog/markdown';
 import { generateMetaTags } from '@/lib/blog/seo';
 import BlogPost from '@/components/blog/BlogPost';
 
@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = getPostBySlug(params.slug);
+  const post = getPostMetaBySlug(params.slug);
   
   if (!post) {
     return {

@@ -1,10 +1,5 @@
-import { readFileSync, writeFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
-
-// ⬇️ Workaround for __dirname in ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const { readFileSync, writeFileSync } = require('fs');
+const path = require('path');
 
 const getBuildVersion = () => {
   const now = new Date();
@@ -19,14 +14,14 @@ const getBuildVersion = () => {
 
 const generateServiceWorker = () => {
   const version = getBuildVersion();
-  const templatePath = resolve(__dirname, '../service-worker/service-worker.template.js');
-  const outputPath = resolve(__dirname, '../dist/service-worker.js');
+  const templatePath = path.resolve(__dirname, '../service-worker/service-worker.template.js');
+  const outputPath = path.resolve(__dirname, '../dist/service-worker.js');
 
   const template = readFileSync(templatePath, 'utf8');
   const output = template.replace(/__BUILD_VERSION__/g, version);
 
   writeFileSync(outputPath, output);
-  console.log(`✅ Generated service-worker.js with version: ${version}`);
+  console.log(`Generated service-worker.js with version: ${version}`);
 };
 
 generateServiceWorker();

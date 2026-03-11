@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import React from 'react';
+import React, { type CSSProperties } from 'react';
 import Link from 'next/link';
-import { BlogPost as BlogPostType, BlogPostMeta } from '@/lib/blog/markdown';
+import type { BlogPost as BlogPostType, BlogPostMeta } from '@/lib/blog/markdown';
 import Container from '@/components/layout/Container';
 import MarkdownRenderer from './MarkdownRenderer';
 import Card from '../content/Card';
@@ -14,6 +14,16 @@ interface BlogPostProps {
   post: BlogPostType;
   relatedPosts: BlogPostMeta[];
 }
+
+const getImageFrameStyle = (imageWidth?: number, imageHeight?: number): CSSProperties | undefined => {
+  if (!imageWidth || !imageHeight) {
+    return undefined;
+  }
+
+  return {
+    '--blog-post-image-aspect': `${imageWidth} / ${imageHeight}`,
+  } as CSSProperties;
+};
 
 const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
@@ -58,13 +68,18 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, relatedPosts }) => {
         <p>{post.description}</p>
       </header>
       {post.image && (
+        <div className={styles['blog-post-image-frame']} style={getImageFrameStyle(post.imageWidth, post.imageHeight)}>
           <img
             src={post.image}
             alt={post.title}
             className={styles['blog-post-image']}
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
+            width={post.imageWidth}
+            height={post.imageHeight}
           />
-        )}
+        </div>
+      )}
       <section className='mb-xl'>
         <MarkdownRenderer content={post.content} showTableOfContents={true} />
       </section>

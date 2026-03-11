@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import React from 'react';
+import React, { type CSSProperties } from 'react';
 import Link from 'next/link';
-import { BlogPostMeta } from '@/lib/blog/markdown';
+import type { BlogPostMeta } from '@/lib/blog/markdown';
 import Card from '../content/Card';
 import Tag from '../content/Tag';
 import styles from './BlogList.module.scss';
@@ -30,17 +30,31 @@ export function BlogList({ posts }: BlogListProps) {
   );
 };
 
+const getImageFrameStyle = (post: BlogPostMeta): CSSProperties | undefined => {
+  if (!post.imageWidth || !post.imageHeight) {
+    return undefined;
+  }
+
+  return {
+    '--blog-image-aspect': `${post.imageWidth} / ${post.imageHeight}`,
+  } as CSSProperties;
+};
+
 function BlogListItem({ post }: { post: BlogPostMeta }) {
   return (
     <Card>
       <Link className="snap-link" href={`/blog/${post.slug}`} aria-label={`Read blog post: ${post.title}`}>
         {post.image && (
-          <img
-            src={post.image}
-            alt={post.title}
-            className={styles['blog-image']}
-            loading="lazy"
-          />
+          <div className={styles['blog-image-frame']} style={getImageFrameStyle(post)}>
+            <img
+              src={post.image}
+              alt={post.title}
+              className={styles['blog-image']}
+              loading="lazy"
+              width={post.imageWidth}
+              height={post.imageHeight}
+            />
+          </div>
         )}
         <header>
           <h2 className="heading3 text-align-left">

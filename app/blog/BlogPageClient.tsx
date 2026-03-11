@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { BlogPostMeta } from '@/lib/blog/markdown';
+import type { BlogPostMeta } from '@/lib/blog/markdown';
 import { BlogList } from '@/components/blog/BlogList';
 import { BlogLayout } from '@/components/blog/BlogLayout';
 

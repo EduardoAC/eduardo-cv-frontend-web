@@ -10,10 +10,12 @@ import '../styles/main.scss'
 import './components.scss'
 
 const inter = Inter({ subsets: ['latin'] })
+const siteUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website'
 
 export const metadata: Metadata = {
   title: 'Eduardo Aparicio Cardenes - Interactive CV',
   description: 'The personal website of Eduardo Aparicio Cardenes. A Software developer with experience in Frontend, Backend, and Software Architecture.',
+  metadataBase: new URL(siteUrl),
   icons: {
     icon: '/favicon.ico',
   },
