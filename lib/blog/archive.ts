@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { getAllPosts, type BlogPostMeta } from './markdown';
+import blogConfig from './config.json';
 
-export const BLOG_ARCHIVE_PAGE_SIZE = 8;
-export const MIN_TAG_ARCHIVE_POSTS = 2;
+export const BLOG_ARCHIVE_PAGE_SIZE = blogConfig.archivePageSize;
+export const MIN_TAG_ARCHIVE_POSTS = blogConfig.minTagArchivePosts;
 
 const SITE_NAME = 'Eduardo Aparicio Cardenes';
 const BLOG_ARCHIVE_NAME = 'Business And Technology Blog';

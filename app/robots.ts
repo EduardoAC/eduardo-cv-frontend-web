@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next'
 
+const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website').replace(/\/$/, '')
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -40,6 +42,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://eduardo-aparicio-cardenes.website/sitemap.xml',
+    sitemap: `${baseUrl}/sitemap.xml`,
   }
 }

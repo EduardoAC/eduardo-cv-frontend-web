@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next'
-import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { GoogleAnalytics } from '../components/layout/GoogleAnalytics'
 import { Navbar } from '../components/layout/navbar'
@@ -10,7 +9,7 @@ import '../styles/main.scss'
 import './components.scss'
 
 const inter = Inter({ subsets: ['latin'] })
-const siteUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website'
+const siteUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website').replace(/\/$/, '')
 
 export const metadata: Metadata = {
   title: 'Eduardo Aparicio Cardenes - Interactive CV',
@@ -18,6 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   icons: {
     icon: '/favicon.ico',
+    apple: '/images/profiles/apple-touch-icon-180x180.png',
   },
 }
 
@@ -35,9 +35,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/profiles/apple-touch-icon-180x180.png" />
-      </Head>
       <body className={`${inter.className} snap-components-theme dark-theme`}>
         <Navbar />
         <div className="wrap">{children}</div>

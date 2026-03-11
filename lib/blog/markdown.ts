@@ -69,7 +69,6 @@ const postsDirectory = path.join(process.cwd(), 'content/posts');
 const manifestPath = path.join(process.cwd(), 'generated', 'blog-manifest.json');
 const postsArtifactPath = path.join(process.cwd(), 'generated', 'blog-posts.json');
 let cachedManifest: BlogPostMeta[] | null = null;
-let cachedTags: string[] | null = null;
 let cachedPostArtifacts: Record<string, BlogPost> | null = null;
 
 const calculateReadingTime = (content: string): number => {
@@ -154,14 +153,6 @@ const loadPostArtifacts = (): Record<string, BlogPost> => {
   }
 };
 
-export const generateSlug = (title: string): string =>
-  title
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim();
-
 export const getAllPosts = (): BlogPostMeta[] => loadManifest();
 
 export const getPostMetaBySlug = (slug: string): BlogPostMeta | null =>
@@ -176,44 +167,6 @@ export const getPostBySlug = (slug: string): BlogPost | null => {
 
   console.error(`Generated post artifact is missing for slug "${slug}".`);
   return null;
-};
-
-export const getPostsByTag = (tag: string): BlogPostMeta[] =>
-  getAllPosts().filter((post) => post.tags.includes(tag));
-
-export const getAllTags = (): string[] => {
-  if (cachedTags) {
-    return cachedTags;
-  }
-
-  const tags = getAllPosts().flatMap((post) => post.tags);
-  cachedTags = Array.from(new Set(tags)).sort((a, b) => a.localeCompare(b));
-
-  return cachedTags;
-};
-
-export const validatePost = (post: BlogPost): { isValid: boolean; errors: string[] } => {
-  const errors: string[] = [];
-
-  if (!post.title) errors.push('Title is required');
-  if (!post.description) errors.push('Description is required');
-  if (!post.date) errors.push('Date is required');
-  if (!post.author) errors.push('Author is required');
-  if (!post.html) errors.push('Rendered HTML is required');
-  if (!post.tags || post.tags.length === 0) errors.push('At least one tag is required');
-
-  if (post.date && !Date.parse(post.date)) {
-    errors.push('Invalid date format');
-  }
-
-  if (post.slug && !/^[a-z0-9-]+$/.test(post.slug)) {
-    errors.push('Slug must contain only lowercase letters, numbers, and hyphens');
-  }
-
-  return {
-    isValid: errors.length === 0,
-    errors,
-  };
 };
 
 export const getRelatedPosts = (currentSlug: string, limit: number = 3): BlogPostMeta[] => {
