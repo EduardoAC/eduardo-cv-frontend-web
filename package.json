@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-static-routes.ts",
-    "postbuild": "node scripts/generate-sw.ts",
+    "predev": "node scripts/generate-blog-manifest.js",
+    "prebuild": "node scripts/generate-blog-manifest.js",
+    "postbuild": "node scripts/generate-sw.js",
     "build": "next build",
     "start": "next start",
     "serve": "npx serve dist -p 3000",

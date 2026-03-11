@@ -1,4 +1,4 @@
-import { BlogPost, BlogPostMeta } from './markdown';
+import type { BlogPost, BlogPostMeta } from './markdown';
 
 export interface BlogSEOData {
   title: string;
