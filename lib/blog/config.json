@@ -1,0 +1,10 @@
+{
+  "archivePageSize": 8,
+  "minTagArchivePosts": 2,
+  "performanceBudgets": {
+    "archiveHtmlWarningBytes": 100000,
+    "articleHtmlWarningBytes": 225000,
+    "pageAssetWarningBytes": 750000,
+    "sourceImageWarningBytes": 1100000
+  }
+}
