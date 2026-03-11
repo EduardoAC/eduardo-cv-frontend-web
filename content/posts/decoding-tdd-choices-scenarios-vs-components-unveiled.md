@@ -4,7 +4,7 @@ description: "Today I started as any other day, but I came across an interesting
 date: "2016-08-23"
 author: "Eduardo Aparicio Cárdenes"
 tags: ["TDD", "Web Development", "JavaScript"]
-image: "/images/blog/decoding-tdd-choices-scenarios-vs-components-unveiled-frontmatter.png"
+image: "/images/blog/decoding-tdd-choices-scenarios-vs-components-unveiled/hero-scenarios-vs-components-testing.png"
 ---
 
 Today I started as any other day, but I came across an interesting challenge, **what kind of test should we put in our suit** (describe - jasmine) **scenarios or components** and **how do we need to express the specs** (it - jasmine) **by cases or features**?
@@ -76,7 +76,7 @@ However this also contains some inconveniences like
 *   Rely in good name conventions to understand what the component does
 *   Risks of incomplete tests when same feature could have multiples scenarios of application.
 
-![](/images/blog/decoding-tdd-choices-scenarios-vs-components-unveiled-markdown.jpeg)
+![Comparison of scenario-based tests and component-based tests in TDD](/images/blog/decoding-tdd-choices-scenarios-vs-components-unveiled/scenario-vs-component-testing-comparison.jpeg)
 
 ### Conclusions
 

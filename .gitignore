@@ -67,6 +67,9 @@ phpunit.phar
 /phpunit.xml
 
 docs
+!docs/
+docs/*
+!docs/blog-image-validation-cleanup-summary.md
 
 .scannerwork
 

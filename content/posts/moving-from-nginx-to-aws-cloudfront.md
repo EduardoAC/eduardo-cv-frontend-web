@@ -4,7 +4,7 @@ description: "One of my first initiatives within Moneyfarm was migrating to AWS 
 date: "2020-04-22"
 author: "eduardo aparicio cardenes"
 tags: ["DevOps", "AWS", "CloudFront", "Frontend"]
-image: "/images/blog/moving-from-nginx-to-aws-cloudfront-frontmatter.jpg"
+image: "/images/blog/moving-from-nginx-to-aws-cloudfront/micro-frontend-nginx-architecture.jpg"
 ---
 
 One of my first initiatives within Moneyfarm was migrating to AWS CloudFront to reduce the operational costs on our Frontend ecosystem, allowing us to scale efficiently with a fraction of the cost.
@@ -21,7 +21,7 @@ During this article, I will focus on the React ecosystem within Moneyfarm. For m
 
 When I joined, the React Frontend ecosystem in Moneyfarm was heading into Micro-frontend architecture to have a set of more manageable applications capable of being deployed independently, allowing developers to release their features without affecting others.
 
-![Micro-frontend architecture](/images/blog/moving-from-nginx-to-aws-cloudfront-frontmatter.jpg)
+![Micro-frontend architecture with Nginx containers and an FE router](/images/blog/moving-from-nginx-to-aws-cloudfront/micro-frontend-nginx-architecture.jpg)
 
 As you can see in the image above, each application ran independently of the others, being the “FE router” orchestrating each app by static routing. Each app was built into a docker image with the Nginx web server responsible for serving the index.html and static assets required.
 
@@ -61,11 +61,11 @@ This change makes it more straightforward to manage our frontend ecosystem, allo
 
 The solution required us to make a progressive change in the right direction without radically changing our frontend architecture. Therefore, we continued using the FE router as the orchestrator of all the routes. Still, this time, we point to each application folder within the S3 bucket to fetch the “index.html”, configured to use our CDN network to retrieve all our static assets instead of going to the docker containers.
 
-![Transition to CDN](https://cdn-images-1.medium.com/max/800/0*MwCVH2P59HowaK8e)
+![CloudFront transition architecture](/images/blog/moving-from-nginx-to-aws-cloudfront/cloudfront-transition-architecture.png)
 
 As you can see in the image above, we have reduced a significant portion of the traffic to our FE router, considerably reducing the load needed in our orchestrator to sustain the growth of our customers.
 
-![Simplified frontend ecosystem](https://cdn-images-1.medium.com/max/800/0*kSdsCYQpdTsqxMyS)
+![Simplified frontend ecosystem after moving static assets to S3 and CloudFront](/images/blog/moving-from-nginx-to-aws-cloudfront/simplified-frontend-ecosystem.png)
 
 Through this change, we could observe that we simplified our frontend ecosystem by removing the multiple containers with folders in s3, bringing the benefits mentioned in the previous section and making it more maintainable with less effort and specialized knowledge required to support it.
 
@@ -82,7 +82,7 @@ I will skip the three first steps since Amazon provides excellent [documentation
 
 #### New pipeline structure
 
-![Pipeline structure](https://cdn-images-1.medium.com/max/800/0*mvf63O0Ohq-y6wlU)
+![Continuous delivery pipeline for CloudFront static asset deployments](/images/blog/moving-from-nginx-to-aws-cloudfront/cloudfront-deployment-pipeline.png)
 
 This pipeline follows the [continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline) principle; this means that on top of having automated testing, you also have automated your release process, and you can deploy your application at any point in time by clicking on a button.
 

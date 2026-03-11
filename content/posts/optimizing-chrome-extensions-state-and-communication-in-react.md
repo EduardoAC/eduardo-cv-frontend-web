@@ -4,7 +4,7 @@ description: "Master Chrome Extension State Management and Communication with Re
 date: "2023-11-05"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "React", "State Management", "Web Development"]
-image: "/images/blog/optimizing-chrome-extensions-state-and-communication-in-react-frontmatter.jpeg"
+image: "/images/blog/optimizing-chrome-extensions-state-and-communication-in-react/hero-chrome-extension-state-management.jpeg"
 ---
 
 In the previous article, we discussed the limitations of using Redux and the need to adapt our approach to Chrome extension development due to the changes introduced by Manifest v3.
@@ -22,7 +22,7 @@ Now, let’s dive into the concept of state, which remains a crucial part of our
 
 Let’s take as an example a multilanguage browser extension that displays a toolbar with the reviews for a site based on Google or Trustpilot reviews, illustrated by the image below.
 
-![Multi-language review browser extension example](https://cdn-images-1.medium.com/max/800/0*OE33XEge8oC8cwUZ)
+![Multi-language review browser extension example](/images/blog/optimizing-chrome-extensions-state-and-communication-in-react/browser-extension-language-review-example.png)
 
 In this scenario, the **selected language** is considered a shared/global state. The **review** itself and the **language options** for the dropdown can be classified as local/pseudo-global state, even if they are present in multiple tabs since their visualisation doesn’t directly affect other content scripts.
 
@@ -38,7 +38,7 @@ We’ve discussed the various natures of data in content scripts and touched on 
 
 #### Fetching Information with Messages
 
-![Retrieving review from background script](https://cdn-images-1.medium.com/max/800/0*82GfZ5QrTBUZWL3m)
+![Retrieving a review through the background script cache flow](/images/blog/optimizing-chrome-extensions-state-and-communication-in-react/retrieve-review-from-background-script.png)
 
 The most straightforward method of communication is through messages, allowing the content script to request data from the background script. For example, when the content script needs information to display a review, it sends a message to the background script, as illustrated in the image above.
 
@@ -48,7 +48,7 @@ Then, the review handler is responsible for handling the message and making an a
 
 Sometimes, there is a need to inform all content scripts about changes initiated externally, such as a user’s language change through a shared cookie with your main website. When such a scenario arises, it becomes essential for all content scripts to update their internal state accordingly. To achieve this, the background script broadcasts the change to all content scripts.
 
-![Broadcasting language cookie changes to relevant scripts](https://cdn-images-1.medium.com/max/800/0*clXFf_darib8qD8J)
+![Broadcasting language cookie changes to relevant content scripts](/images/blog/optimizing-chrome-extensions-state-and-communication-in-react/broadcast-language-cookie-changes.png)
 
 For example, as illustrated in the image above, we actively listen for language cookie changes. When the language cookie is updated, this triggers an update of the background script’s state, as well as all tabs that are running our content script. These tabs will require updating to align their language preferences in their internal state.
 
@@ -56,7 +56,7 @@ For example, as illustrated in the image above, we actively listen for language 
 
 In specific scenarios, you may encounter a situation where a change in the extension’s state requires sending a message. This message, in turn, initiates a broadcast to all content scripts. Let’s consider a practical example to illustrate this mixed flow.
 
-![Propagating language updates from tab to all relevant scripts](https://cdn-images-1.medium.com/max/800/0*KCnqLlueobCuKUOa)
+![Propagating language updates from one tab to all relevant scripts](/images/blog/optimizing-chrome-extensions-state-and-communication-in-react/propagate-language-updates-across-tabs.png)
 
 For instance, going back to our example about the language selection change, if one of the toolbar elements in a tab experiences a language change, it will be required to notify the background script, triggering internal updates within the background script and external systems like the language API and cookies, as well as ensuring alignment across all other content scripts, as shown in the image above. Notably, you can exclude the message sender from the broadcast, thanks to the tab ID available in “senderTab.”
 
