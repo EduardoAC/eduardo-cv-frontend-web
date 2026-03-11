@@ -1,21 +1,23 @@
 'use client';
 
 import { useId, useState } from 'react';
+import {
+  SUBSCRIPTION_ERROR_CODES,
+  type SubscriptionApiResponse,
+  type SubscriptionErrorCode,
+} from '@/workers/subscription-handler/src/contracts';
 import styles from './SubscribeForm.module.scss';
 
 interface SubscribeFormProps {
   className?: string;
 }
 
-interface SubscribeResponse {
-  success: boolean;
-  message: string;
-  id?: string;
-}
-
 const PUBLIC_SUBSCRIPTION_ERROR = 'Subscription is unavailable right now. Please try again in a moment.';
 const PUBLIC_RATE_LIMIT_ERROR = 'Too many attempts. Please try again later.';
 const PUBLIC_VALIDATION_ERROR = 'Please check your email address and try again.';
+const SUBSCRIPTION_ENDPOINT =
+  process.env.NEXT_PUBLIC_SUBSCRIPTION_ENDPOINT ??
+  process.env.NEXT_PUBLIC_EMAIL_WORKER_URL;
 const PUBLIC_ERROR_MESSAGES = new Set([
   PUBLIC_SUBSCRIPTION_ERROR,
   PUBLIC_RATE_LIMIT_ERROR,
@@ -24,13 +26,13 @@ const PUBLIC_ERROR_MESSAGES = new Set([
 
 const getPublicErrorMessage = (
   status?: number,
-  message?: string,
+  code?: SubscriptionErrorCode,
 ): string => {
-  if (status === 429) {
+  if (status === 429 || code === SUBSCRIPTION_ERROR_CODES.RATE_LIMITED) {
     return PUBLIC_RATE_LIMIT_ERROR;
   }
 
-  if (status === 400 && message?.toLowerCase().includes('email')) {
+  if (status === 400 && code === SUBSCRIPTION_ERROR_CODES.INVALID_EMAIL) {
     return PUBLIC_VALIDATION_ERROR;
   }
 
@@ -61,10 +63,11 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
     setError(null);
 
     try {
-      // Get the worker URL from environment or use a default
-      const workerUrl = process.env.NEXT_PUBLIC_EMAIL_WORKER_URL!;
+      if (!SUBSCRIPTION_ENDPOINT) {
+        throw new Error(PUBLIC_SUBSCRIPTION_ERROR);
+      }
 
-      const response = await fetch(workerUrl, {
+      const response = await fetch(SUBSCRIPTION_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,10 +80,11 @@ export default function SubscribeForm({ className }: SubscribeFormProps) {
         }),
       });
 
-      const result = await response.json().catch(() => null) as SubscribeResponse | null;
+      const result = await response.json().catch(() => null) as SubscriptionApiResponse | null;
 
       if (!response.ok) {
-        throw new Error(getPublicErrorMessage(response.status, result?.message));
+        const code = result && !result.success ? result.code : undefined;
+        throw new Error(getPublicErrorMessage(response.status, code));
       }
 
       if (result?.success) {

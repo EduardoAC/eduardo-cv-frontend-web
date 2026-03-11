@@ -7,6 +7,7 @@ This Cloudflare Worker handles email subscriptions and contact form submissions 
 ```
 src/
 ├── index.tsx                 # Main worker entry point
+├── contracts.ts              # Shared public API response contract
 ├── types.ts                  # TypeScript type definitions
 ├── utils.ts                  # Utility functions
 ├── validators/               # Validation logic
@@ -37,6 +38,9 @@ src/
 ### Utils (`/utils`)
 - **response.ts**: Provides standardized response creation functions
 
+### Public Contract
+- `contracts.ts`: Shared browser/worker response types and public error codes
+
 ### Main Handler (`index.tsx`)
 The main handler orchestrates the flow:
 1. Environment validation
@@ -63,6 +67,12 @@ Required environment variables:
 - `FROM_EMAIL`: Sender email address
 - `TO_EMAIL`: Recipient email address
 
+## Public Endpoint
+
+- Browser-facing production endpoint: `https://subscription-handler.eduardo-aparicio-cardenes.website/subscribe`
+- Frontend config should use `NEXT_PUBLIC_SUBSCRIPTION_ENDPOINT`
+- `NEXT_PUBLIC_EMAIL_WORKER_URL` can remain temporarily as a fallback during rollout only
+
 ## Usage
 
 The worker accepts POST requests with JSON body containing:
@@ -72,3 +82,5 @@ The worker accepts POST requests with JSON body containing:
 - `subject`: Optional subject line
 
 The worker automatically detects if it's a subscriber signup or contact form submission based on the content. 
+
+All worker-generated failures return a public-safe JSON response with a stable `code` and `message`, and must not expose provider, infrastructure, or configuration details.

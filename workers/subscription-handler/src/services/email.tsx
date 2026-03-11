@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { CreateEmailOptions, Resend } from 'resend';
-import { EmailData, EmailRequest, EmailResponse, Env } from '../types';
+import { SUBSCRIPTION_ERROR_CODES } from '../contracts';
+import { EmailRequest, EmailResponse, Env } from '../types';
 import { escapeHtml } from '../utils';
 import { SubscriberEmail } from '../emails/subscriber-template';
 import { ContactEmail } from '../emails/contact-template';
@@ -34,7 +35,13 @@ export async function sendEmail(emailData: CreateEmailOptions, env: Env, origin:
     console.error('Resend API error:', resendResponse.error.message);
     return {
       success: false,
-      response: createErrorResponse('Failed to send email', 500, origin, isAllowedOrigin),
+      response: createErrorResponse(
+        SUBSCRIPTION_ERROR_CODES.UNAVAILABLE,
+        'The request could not be completed right now. Please try again in a moment.',
+        500,
+        origin,
+        isAllowedOrigin,
+      ),
     };
   }
 

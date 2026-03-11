@@ -1,18 +1,23 @@
 import { ExecutionContext } from '@cloudflare/workers-types';
-import { EmailData, Env } from './types';
+import { SUBSCRIPTION_ERROR_CODES } from './contracts';
+import { Env } from './types';
 import { validateEnvironment, validateRequest, validateRequestBody } from './validators';
 import { checkRateLimiting, updateRateLimitAfterSuccess, createEmailContent, sendEmail, addContactToAudience } from './services';
 import { createErrorResponse, createSuccessResponse } from './utils/response';
 import { CreateEmailOptions } from 'resend';
+import { isAllowedRequestOrigin } from './validators/request';
 
 export default {
   async fetch(
     request: Request,
     env: Env,
-    ctx: ExecutionContext,
+    _ctx: ExecutionContext,
   ): Promise<Response> {
+    const origin = request.headers.get('Origin') || '';
+    const isAllowedOrigin = isAllowedRequestOrigin(origin, env.ALLOWED_ORIGIN);
+
     // Validate environment variables
-    const envError = validateEnvironment(env);
+    const envError = validateEnvironment(env, origin, isAllowedOrigin);
     if (envError) return envError;
 
     // Validate request method and origin
@@ -21,11 +26,14 @@ export default {
       return requestValidation.response!;
     }
 
-    const { origin, isAllowedOrigin } = requestValidation;
+    const {
+      origin: validatedOrigin,
+      isAllowedOrigin: isValidatedAllowedOrigin,
+    } = requestValidation;
 
     try {
       // Validate request body
-      const bodyValidation = await validateRequestBody(request, origin, isAllowedOrigin);
+      const bodyValidation = await validateRequestBody(request, validatedOrigin, isValidatedAllowedOrigin);
       if (!bodyValidation.isValid) {
         return bodyValidation.response!;
       }
@@ -33,7 +41,12 @@ export default {
       const body = bodyValidation.body!;
 
       // Check rate limiting
-      const rateLimitCheck = await checkRateLimiting(request, env, origin, isAllowedOrigin);
+      const rateLimitCheck = await checkRateLimiting(
+        request,
+        env,
+        validatedOrigin,
+        isValidatedAllowedOrigin,
+      );
       if (!rateLimitCheck.allowed) {
         return rateLimitCheck.response!;
       }
@@ -50,7 +63,12 @@ export default {
       };
 
       // Send email
-      const emailResult = await sendEmail(emailData, env, origin, isAllowedOrigin);
+      const emailResult = await sendEmail(
+        emailData,
+        env,
+        validatedOrigin,
+        isValidatedAllowedOrigin,
+      );
       if (!emailResult.success) {
         return emailResult.response!;
       }
@@ -64,8 +82,8 @@ export default {
             lastName: body.name.split(' ').slice(1).join(' ') || '',
           },
           env,
-          origin,
-          isAllowedOrigin
+          validatedOrigin,
+          isValidatedAllowedOrigin
         );
 
         if (!subscriptionResult.success) {
@@ -78,11 +96,17 @@ export default {
       await updateRateLimitAfterSuccess(request, env);
 
       // Return success response
-      return createSuccessResponse(emailResult.result!, isSubscriber, origin);
+      return createSuccessResponse(emailResult.result!, isSubscriber, validatedOrigin);
 
     } catch (error) {
       console.error('Worker error:', error);
-      return createErrorResponse('Internal server error', 500, origin, isAllowedOrigin);
+      return createErrorResponse(
+        SUBSCRIPTION_ERROR_CODES.UNAVAILABLE,
+        'The request could not be completed right now. Please try again in a moment.',
+        500,
+        validatedOrigin,
+        isValidatedAllowedOrigin,
+      );
     }
   },
 };
