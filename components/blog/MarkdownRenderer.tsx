@@ -7,8 +7,6 @@ interface MarkdownRendererProps {
   className?: string;
   showTableOfContents?: boolean;
   tocCollapsible?: boolean;
-  introHtml?: string;
-  introClassName?: string;
   rootId?: string;
 }
 
@@ -81,19 +79,11 @@ export default function MarkdownRenderer({
   className = '',
   showTableOfContents = false,
   tocCollapsible = false,
-  introHtml,
-  introClassName = '',
   rootId = 'blog-post-markdown',
 }: Readonly<MarkdownRendererProps>) {
   return (
     <div id={rootId} className={`snap-markdown ${className}`.trim()}>
       {showTableOfContents && toc.length > 0 && <TableOfContents items={toc} collapsible={tocCollapsible} />}
-      {introHtml && (
-        <div
-          className={`snap-markdown-content ${introClassName}`.trim()}
-          dangerouslySetInnerHTML={{ __html: introHtml }}
-        />
-      )}
       <div className="snap-markdown-content" dangerouslySetInnerHTML={{ __html: html }} />
       <BlogPostEnhancer rootId={rootId} />
     </div>

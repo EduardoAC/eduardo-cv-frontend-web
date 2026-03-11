@@ -43,43 +43,6 @@ const getFallbackImageContext = (post: Pick<BlogPostType, 'image' | 'imageWidth'
   };
 };
 
-const LEADING_PARAGRAPH_PATTERN = /^(\s*<p>[\s\S]*?<\/p>)/i;
-const MIN_INTRO_TEXT_LENGTH = 220;
-
-const stripHtml = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-
-const splitLeadParagraph = (html: string) => {
-  let remainingHtml = html.trim();
-  let leadHtml = '';
-
-  while (remainingHtml.length > 0) {
-    const match = remainingHtml.match(LEADING_PARAGRAPH_PATTERN);
-
-    if (!match) {
-      break;
-    }
-
-    leadHtml += match[1];
-    remainingHtml = remainingHtml.slice(match[1].length).trim();
-
-    if (stripHtml(leadHtml).length >= MIN_INTRO_TEXT_LENGTH) {
-      break;
-    }
-  }
-
-  if (!leadHtml) {
-    return {
-      leadHtml: '',
-      articleHtml: html,
-    };
-  }
-
-  return {
-    leadHtml,
-    articleHtml: remainingHtml,
-  };
-};
-
 const formatAuthorName = (author: string) =>
   author
     .split(/\s+/)
@@ -97,10 +60,7 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
   const heroImage = getImageContext(post, 'hero');
   const fallbackHeroImage = getFallbackImageContext(post);
   const displayAuthor = formatAuthorName(post.author);
-  const { leadHtml, articleHtml } = splitLeadParagraph(post.html);
   const shouldShowTableOfContents = post.toc.length > 0;
-  const renderedArticleHtml = articleHtml || post.html;
-  const introHtml = articleHtml ? leadHtml : undefined;
 
   const shareLinks = [
     {
@@ -171,12 +131,10 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
       )}
       <section className={styles['blog-post-body']}>
         <MarkdownRenderer
-          html={renderedArticleHtml}
+          html={post.html}
           toc={post.toc}
           showTableOfContents={shouldShowTableOfContents}
           tocCollapsible={shouldShowTableOfContents}
-          introHtml={introHtml}
-          introClassName={styles['blog-post-lead']}
           className={`snap-markdown-article ${styles['blog-post-content']}`}
         />
       </section>
