@@ -267,6 +267,18 @@
   padding: 1rem;
 }
 
+.snap-gist-placeholder {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px dashed var(--snap-markdown-border, #e5e7eb);
+  border-radius: 0.5rem;
+  background: var(--snap-code-bg, #f5f7fa);
+}
+
+.snap-gist-container {
+  margin-top: 1rem;
+}
+
 .snap-blog-image {
   width: 100%;
   background-color: #fff;

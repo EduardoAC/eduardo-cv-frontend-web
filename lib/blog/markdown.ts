@@ -2,18 +2,46 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export interface BlogPost {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  author: string;
-  tags: string[];
-  image?: string;
-  imageWidth?: number;
-  imageHeight?: number;
-  content: string;
-  readingTime: number;
+export interface BlogImageVariant {
+  src: string;
+  width: number;
+  height: number;
+  format: string;
+}
+
+export interface BlogResponsiveImageContext {
+  src: string;
+  width: number;
+  height: number;
+  format: string;
+  sizes: string;
+  srcSet: string;
+  variants: BlogImageVariant[];
+}
+
+export interface BlogImageAsset {
+  source: string;
+  width: number;
+  height: number;
+  format: string;
+  contexts: Partial<Record<'card' | 'hero' | 'inline', BlogResponsiveImageContext | null>>;
+}
+
+export interface TableOfContentsItem {
+  id: string;
+  text: string;
+  level: number;
+}
+
+export interface InlineImageMeta {
+  source: string;
+  alt: string;
+  title?: string;
+  className: string;
+  width?: number;
+  height?: number;
+  format?: string;
+  contexts?: BlogImageAsset['contexts'];
 }
 
 export interface BlogPostMeta {
@@ -26,16 +54,24 @@ export interface BlogPostMeta {
   image?: string;
   imageWidth?: number;
   imageHeight?: number;
+  coverImage?: BlogImageAsset;
   readingTime: number;
+  relatedSlugs: string[];
+}
+
+export interface BlogPost extends BlogPostMeta {
+  html: string;
+  toc: TableOfContentsItem[];
+  inlineImages: InlineImageMeta[];
 }
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 const manifestPath = path.join(process.cwd(), 'generated', 'blog-manifest.json');
+const postsArtifactPath = path.join(process.cwd(), 'generated', 'blog-posts.json');
 let cachedManifest: BlogPostMeta[] | null = null;
 let cachedTags: string[] | null = null;
-const cachedPostsBySlug = new Map<string, BlogPost>();
+let cachedPostArtifacts: Record<string, BlogPost> | null = null;
 
-// Calculate reading time (average 200 words per minute)
 const calculateReadingTime = (content: string): number => {
   const wordsPerMinute = 200;
   const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
@@ -67,16 +103,16 @@ const createPostMetaFromFile = (fileName: string): BlogPostMeta => {
     tags: Array.isArray(data.tags) ? data.tags : [],
     image: typeof data.image === 'string' ? data.image : undefined,
     readingTime: calculateReadingTime(content),
+    relatedSlugs: [],
   };
 };
 
-const buildManifestFromMarkdown = (): BlogPostMeta[] => {
-  return fs
+const buildManifestFromMarkdown = (): BlogPostMeta[] =>
+  fs
     .readdirSync(postsDirectory)
     .filter((fileName) => fileName.endsWith('.md') && !fileName.startsWith('.'))
     .map(createPostMetaFromFile)
     .sort(sortPostsByDate);
-};
 
 const loadManifest = (): BlogPostMeta[] => {
   if (cachedManifest) {
@@ -97,70 +133,54 @@ const loadManifest = (): BlogPostMeta[] => {
   return cachedManifest;
 };
 
-// Generate slug from title
-export const generateSlug = (title: string): string => {
-  return title
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // Remove special characters
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/-+/g, '-') // Replace multiple hyphens with single
-    .trim();
-};
+const loadPostArtifacts = (): Record<string, BlogPost> => {
+  if (cachedPostArtifacts) {
+    return cachedPostArtifacts;
+  }
 
-// Get all blog posts
-export const getAllPosts = (): BlogPostMeta[] => {
-  return loadManifest();
-};
-
-export const getPostMetaBySlug = (slug: string): BlogPostMeta | null => {
-  return loadManifest().find((post) => post.slug === slug) ?? null;
-};
-
-// Get post by slug
-export const getPostBySlug = (slug: string): BlogPost | null => {
-  const cachedPost = cachedPostsBySlug.get(slug);
-  if (cachedPost) {
-    return cachedPost;
+  if (!fs.existsSync(postsArtifactPath)) {
+    console.warn('Generated blog post artifacts are missing. Run the blog manifest generation step before rendering posts.');
+    cachedPostArtifacts = {};
+    return cachedPostArtifacts;
   }
 
   try {
-    const fullPath = path.join(postsDirectory, `${slug}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
-    const postMeta = getPostMetaBySlug(slug);
-
-    const fallbackTags = Array.isArray(data.tags) ? data.tags : [];
-
-    const post: BlogPost = {
-      slug,
-      title: postMeta?.title ?? (typeof data.title === 'string' ? data.title : ''),
-      description: postMeta?.description ?? (typeof data.description === 'string' ? data.description : ''),
-      date: postMeta?.date ?? normalizeDate(data.date),
-      author: postMeta?.author ?? (typeof data.author === 'string' ? data.author : ''),
-      tags: postMeta?.tags ?? fallbackTags,
-      image: postMeta?.image ?? (typeof data.image === 'string' ? data.image : undefined),
-      imageWidth: postMeta?.imageWidth,
-      imageHeight: postMeta?.imageHeight,
-      content,
-      readingTime: postMeta?.readingTime ?? calculateReadingTime(content),
-    };
-
-    cachedPostsBySlug.set(slug, post);
-
-    return post;
+    cachedPostArtifacts = JSON.parse(fs.readFileSync(postsArtifactPath, 'utf8')) as Record<string, BlogPost>;
+    return cachedPostArtifacts;
   } catch (error) {
-    console.error(`Error reading post ${slug}:`, error);
-    return null;
+    console.error('Failed to read generated blog post artifacts.', error);
+    cachedPostArtifacts = {};
+    return cachedPostArtifacts;
   }
 };
 
-// Get posts by tag
-export const getPostsByTag = (tag: string): BlogPostMeta[] => {
-  const allPosts = getAllPosts();
-  return allPosts.filter((post) => post.tags.includes(tag));
+export const generateSlug = (title: string): string =>
+  title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim();
+
+export const getAllPosts = (): BlogPostMeta[] => loadManifest();
+
+export const getPostMetaBySlug = (slug: string): BlogPostMeta | null =>
+  loadManifest().find((post) => post.slug === slug) ?? null;
+
+export const getPostBySlug = (slug: string): BlogPost | null => {
+  const post = loadPostArtifacts()[slug];
+
+  if (post) {
+    return post;
+  }
+
+  console.error(`Generated post artifact is missing for slug "${slug}".`);
+  return null;
 };
 
-// Get all unique tags
+export const getPostsByTag = (tag: string): BlogPostMeta[] =>
+  getAllPosts().filter((post) => post.tags.includes(tag));
+
 export const getAllTags = (): string[] => {
   if (cachedTags) {
     return cachedTags;
@@ -172,7 +192,6 @@ export const getAllTags = (): string[] => {
   return cachedTags;
 };
 
-// Validate post frontmatter
 export const validatePost = (post: BlogPost): { isValid: boolean; errors: string[] } => {
   const errors: string[] = [];
 
@@ -180,15 +199,13 @@ export const validatePost = (post: BlogPost): { isValid: boolean; errors: string
   if (!post.description) errors.push('Description is required');
   if (!post.date) errors.push('Date is required');
   if (!post.author) errors.push('Author is required');
-  if (!post.content) errors.push('Content is required');
+  if (!post.html) errors.push('Rendered HTML is required');
   if (!post.tags || post.tags.length === 0) errors.push('At least one tag is required');
 
-  // Validate date format
   if (post.date && !Date.parse(post.date)) {
     errors.push('Invalid date format');
   }
 
-  // Validate slug format
   if (post.slug && !/^[a-z0-9-]+$/.test(post.slug)) {
     errors.push('Slug must contain only lowercase letters, numbers, and hyphens');
   }
@@ -199,27 +216,22 @@ export const validatePost = (post: BlogPost): { isValid: boolean; errors: string
   };
 };
 
-// Get related posts based on tags
 export const getRelatedPosts = (currentSlug: string, limit: number = 3): BlogPostMeta[] => {
   const currentPost = getPostMetaBySlug(currentSlug);
-  if (!currentPost) return [];
 
-  const allPosts = getAllPosts();
-  const relatedPosts = allPosts
-    .filter((post) => post.slug !== currentSlug)
-    .map((post) => {
-      const commonTags = post.tags.filter((tag) => currentPost.tags.includes(tag));
-      return {
-        ...post,
-        relevanceScore: commonTags.length,
-      };
-    })
-    .filter((post) => post.relevanceScore > 0)
-    .sort((a, b) => b.relevanceScore - a.relevanceScore)
-    .slice(0, limit);
+  if (!currentPost) {
+    return [];
+  }
 
-  return relatedPosts.map(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    ({ relevanceScore, ...post }) => post,
-  );
+  const relatedSlugs = currentPost.relatedSlugs.slice(0, limit);
+
+  if (relatedSlugs.length === 0) {
+    return [];
+  }
+
+  const postsBySlug = new Map(getAllPosts().map((post) => [post.slug, post]));
+
+  return relatedSlugs
+    .map((slug) => postsBySlug.get(slug) ?? null)
+    .filter((post): post is BlogPostMeta => Boolean(post));
 };
