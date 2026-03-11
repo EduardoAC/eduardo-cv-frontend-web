@@ -10,20 +10,43 @@ export interface BlogSEOData {
   url: string;
 }
 
+const getSeoImage = (post: BlogPost | BlogPostMeta) => {
+  if (post.image) {
+    return {
+      url: post.image,
+      width: post.imageWidth,
+      height: post.imageHeight,
+    };
+  }
+
+  const heroImage = post.coverImage?.contexts.hero;
+
+  if (heroImage) {
+    return {
+      url: heroImage.src,
+      width: heroImage.width,
+      height: heroImage.height,
+    };
+  }
+
+  return null;
+};
+
 // Generate Open Graph metadata
 export const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
   const url = `${baseUrl}/blog/${post.slug}`;
+  const image = getSeoImage(post);
   
   return {
     title: post.title,
     description: post.description,
     url,
     siteName: 'Eduardo Aparicio Cárdenes',
-    images: post.image ? [
+    images: image ? [
       {
-        url: post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`,
-        width: 1200,
-        height: 630,
+        url: image.url.startsWith('http') ? image.url : `${baseUrl}${image.url}`,
+        width: image.width ?? 1200,
+        height: image.height ?? 630,
         alt: post.title,
       }
     ] : [],
@@ -37,12 +60,14 @@ export const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string
 
 // Generate Twitter Card metadata
 export const generateTwitterCard = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
+  const image = getSeoImage(post);
+
   return {
     card: 'summary_large_image',
     title: post.title,
     description: post.description,
-    images: post.image ? [
-      post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`
+    images: image ? [
+      image.url.startsWith('http') ? image.url : `${baseUrl}${image.url}`
     ] : [],
     creator: '@eduardoac',
     site: '@eduardoac',
@@ -52,13 +77,14 @@ export const generateTwitterCard = (post: BlogPost | BlogPostMeta, baseUrl: stri
 // Generate structured data (JSON-LD)
 export const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
   const url = `${baseUrl}/blog/${post.slug}`;
+  const image = getSeoImage(post);
   
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
-    image: post.image ? (post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`) : undefined,
+    image: image ? (image.url.startsWith('http') ? image.url : `${baseUrl}${image.url}`) : undefined,
     author: {
       '@type': 'Person',
       name: post.author,

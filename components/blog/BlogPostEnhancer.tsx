@@ -1,0 +1,130 @@
+'use client';
+
+import { useEffect } from 'react';
+
+interface BlogPostEnhancerProps {
+  rootId: string;
+}
+
+const copyCodeToClipboard = async (button: HTMLButtonElement) => {
+  const codeElement = button.closest('.snap-code-block')?.querySelector('pre code');
+  const code = codeElement?.textContent ?? '';
+
+  if (!code) {
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(code);
+    const originalLabel = button.textContent;
+    button.textContent = 'Copied!';
+    button.classList.add('copied');
+
+    window.setTimeout(() => {
+      button.textContent = originalLabel;
+      button.classList.remove('copied');
+    }, 2000);
+  } catch (error) {
+    console.error('Failed to copy code block contents.', error);
+  }
+};
+
+export default function BlogPostEnhancer({ rootId }: Readonly<BlogPostEnhancerProps>) {
+  useEffect(() => {
+    const root = document.getElementById(rootId);
+
+    if (!root) {
+      return undefined;
+    }
+
+    const setActiveTocItem = (activeId: string) => {
+      root.querySelectorAll('.snap-toc-item').forEach((item) => {
+        item.classList.toggle('snap-toc-active', item.getAttribute('data-heading-id') === activeId);
+      });
+    };
+
+    const tocObserver = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+
+        if (visibleEntries.length === 0) {
+          return;
+        }
+
+        visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        setActiveTocItem(visibleEntries[0].target.id);
+      },
+      { rootMargin: '-20% 0px -35% 0px', threshold: [0.1, 0.5, 1] },
+    );
+
+    root.querySelectorAll<HTMLElement>('[data-blog-toc] a[href^="#"]').forEach((anchor) => {
+      const targetId = anchor.getAttribute('href')?.slice(1);
+      const heading = targetId ? root.querySelector<HTMLElement>(`#${targetId}`) : null;
+
+      if (heading) {
+        tocObserver.observe(heading);
+      }
+    });
+
+    root.querySelectorAll<HTMLElement>('.snap-gist-placeholder[data-gist-id]').forEach((placeholder) => {
+      const gistId = placeholder.getAttribute('data-gist-id');
+
+      if (!gistId || placeholder.getAttribute('data-gist-enhanced') === 'true') {
+        return;
+      }
+
+      placeholder.setAttribute('data-gist-enhanced', 'true');
+      const container = document.createElement('div');
+      container.className = 'snap-gist-container';
+
+      const script = document.createElement('script');
+      script.src = `https://gist.github.com/${gistId}.js`;
+      script.async = true;
+
+      container.appendChild(script);
+      placeholder.appendChild(container);
+    });
+
+    const onClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+
+      if (!target) {
+        return;
+      }
+
+      const copyButton = target.closest<HTMLButtonElement>('.snap-code-copy');
+
+      if (copyButton) {
+        event.preventDefault();
+        void copyCodeToClipboard(copyButton);
+        return;
+      }
+
+      const anchor = target.closest<HTMLAnchorElement>('[data-blog-toc] a[href^="#"]');
+
+      if (!anchor) {
+        return;
+      }
+
+      const targetId = anchor.getAttribute('href')?.slice(1);
+      const heading = targetId ? root.querySelector<HTMLElement>(`#${targetId}`) : null;
+
+      if (!heading) {
+        return;
+      }
+
+      event.preventDefault();
+      heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', `#${targetId}`);
+    };
+
+    root.addEventListener('click', onClick);
+
+    return () => {
+      tocObserver.disconnect();
+      root.removeEventListener('click', onClick);
+    };
+  }, [rootId]);
+
+  return null;
+}

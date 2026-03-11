@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { type CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import { getMeaningfulTagHref } from '@/lib/blog/archive';
-import type { BlogPostMeta } from '@/lib/blog/markdown';
+import type { BlogPostMeta, BlogResponsiveImageContext } from '@/lib/blog/markdown';
 import Card from '../content/Card';
 import Tag from '../content/Tag';
 import styles from './BlogList.module.scss';
@@ -12,31 +12,19 @@ interface BlogListProps {
   emptyMessage?: string;
 }
 
-export function BlogList({ posts, emptyMessage = 'No posts found.' }: BlogListProps) {
-  return (
-    <section aria-label="Blog posts list">
-      {posts.length === 0 ? (
-        <p>{emptyMessage}</p>
-      ) : (
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          {posts.map((post) => (
-            <li key={post.slug} style={{ marginBottom: '2rem' }}>
-              <BlogListItem post={post} />
-            </li>
-          ))}
-        </ul>
-      )}
-    </section>
-  );
-};
+const getImageContext = (post: BlogPostMeta): BlogResponsiveImageContext | null => post.coverImage?.contexts.card ?? null;
 
 const getImageFrameStyle = (post: BlogPostMeta): CSSProperties | undefined => {
-  if (!post.imageWidth || !post.imageHeight) {
+  const cardImage = getImageContext(post);
+  const imageWidth = cardImage?.width ?? post.imageWidth;
+  const imageHeight = cardImage?.height ?? post.imageHeight;
+
+  if (!imageWidth || !imageHeight) {
     return undefined;
   }
 
   return {
-    '--blog-image-aspect': `${post.imageWidth} / ${post.imageHeight}`,
+    '--blog-image-aspect': `${imageWidth} / ${imageHeight}`,
   } as CSSProperties;
 };
 
@@ -46,19 +34,23 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
     tag,
     href: getMeaningfulTagHref(tag) ?? undefined,
   }));
+  const cardImage = getImageContext(post);
 
   return (
     <Card>
       <Link className={`snap-link ${styles['blog-card-link']}`} href={articleHref} aria-label={`Read blog post: ${post.title}`}>
-        {post.image && (
+        {(cardImage || post.image) && (
           <div className={styles['blog-image-frame']} style={getImageFrameStyle(post)}>
             <img
-              src={post.image}
+              src={cardImage?.src ?? post.image}
               alt={post.title}
               className={styles['blog-image']}
               loading="lazy"
-              width={post.imageWidth}
-              height={post.imageHeight}
+              decoding="async"
+              width={cardImage?.width ?? post.imageWidth}
+              height={cardImage?.height ?? post.imageHeight}
+              srcSet={cardImage?.srcSet}
+              sizes={cardImage?.sizes}
             />
           </div>
         )}
@@ -96,5 +88,23 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
         ))}
       </div>
     </Card>
-  )
+  );
+}
+
+export function BlogList({ posts, emptyMessage = 'No posts found.' }: Readonly<BlogListProps>) {
+  return (
+    <section aria-label="Blog posts list">
+      {posts.length === 0 ? (
+        <p>{emptyMessage}</p>
+      ) : (
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          {posts.map((post) => (
+            <li key={post.slug} style={{ marginBottom: '2rem' }}>
+              <BlogListItem post={post} />
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
 }
