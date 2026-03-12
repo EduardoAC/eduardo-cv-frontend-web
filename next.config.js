@@ -1,7 +1,11 @@
+const path = require('path')
+const { withSentryConfig } = require('@sentry/nextjs')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
   distDir: 'dist',
+  outputFileTracingRoot: path.resolve(__dirname),
   sassOptions: {
     includePaths: ['./styles', './app'],
   },
@@ -15,17 +19,8 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
   },
 
-  // Experimental optimizations
   experimental: {
     optimizePackageImports: ['react-icons', 'framer-motion'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
 
   // Compiler optimizations
@@ -33,32 +28,25 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 }
-
-module.exports = nextConfig
-
-// Injected content via Sentry wizard below
-
-const { withSentryConfig } = require("@sentry/nextjs");
-
 module.exports = withSentryConfig(
-  module.exports,
+  nextConfig,
   {
     // For all available options, see:
     // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
-    org: "none-03p",
-    project: "my-website",
+    org: 'none-03p',
+    project: 'my-website',
 
     // Only print logs for uploading source maps in CI
     silent: !process.env.CI,
 
     // Upload a larger set of source maps for prettier stack traces (increases build time)
     widenClientFileUpload: true,
-
-    // Automatically tree-shake Sentry logger statements to reduce bundle size
-    disableLogger: true,
-
-    // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
-    automaticVercelMonitors: false,
+    webpack: {
+      automaticVercelMonitors: false,
+      treeshake: {
+        removeDebugLogging: true,
+      },
+    },
   }
-);
+)
