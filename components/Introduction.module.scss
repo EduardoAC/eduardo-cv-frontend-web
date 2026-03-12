@@ -1,9 +1,9 @@
-@import '../styles/utilities/mixins';
+@use '../styles/utilities' as utilities;
 
 .introduction {
-  @include gradient-pattern;
+  @include utilities.gradient-pattern;
   position: relative;
-  @include flex-center;
+  @include utilities.flex-center;
   padding: 0;
   background-color: var(--color-background);
   width: 100%;
@@ -13,7 +13,7 @@
     background: var(--theme-hero-overlay);
     position: absolute;
     overflow: hidden;
-    @include flex-center;
+    @include utilities.flex-center;
     top: 0px;
     left: 0px;
     right: 0px;
@@ -53,7 +53,7 @@
 
   @media (min-width: 480px) {
     .title-block {
-      @include flex-center;
+      @include utilities.flex-center;
       flex-direction: column;
       width: 95%;
       height: 55%;

@@ -1,7 +1,7 @@
-@import '../styles/utilities/mixins';
+@use '../styles/utilities' as utilities;
 
 .profiles {
-  @include section-base-enhanced;
+  @include utilities.section-base-enhanced;
 }
 
 // Mobile Carousel Container Styles

@@ -1,7 +1,7 @@
-@import '../../styles/utilities/mixins';
+@use '../../styles/utilities' as utilities;
 
 .my_projects {
-  @include page-typography;
+  @include utilities.page-typography;
 
   .collection_projects {}
 

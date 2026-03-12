@@ -1,3 +1,3 @@
-// Import utilities
-@import './utilities/mixins';
-@import './utilities/utilities';
+@use './utilities' as utilities;
+
+@include utilities.load-utilities;
