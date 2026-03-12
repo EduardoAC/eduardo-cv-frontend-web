@@ -17,9 +17,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Worker typecheck
+        run: npm run worker:typecheck
 
       - name: Build
         run: npm run build
@@ -49,5 +59,3 @@ jobs:
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
           ALLOWED_ORIGIN: ${{ secrets.ALLOWED_ORIGIN }}
           EMAIL_KV: ${{ secrets.EMAIL_KV }}
-
-

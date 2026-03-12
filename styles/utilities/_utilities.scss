@@ -1,10 +1,9 @@
-@import './mixins';
+@mixin load-utilities {
+  .text-center {
+    text-align: center;
+  }
 
-// Text utilities
-.text-center {
-  text-align: center;
-}
-
-.align-items-center {
-  align-items: center;
+  .align-items-center {
+    align-items: center;
+  }
 }

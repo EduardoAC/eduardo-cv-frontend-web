@@ -9,9 +9,9 @@ import {
 import { generateMetadata as generateProfileMetadata } from '@/components/ProfilePage';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     version: string;
-  };
+  }>;
 }
 
 export const dynamicParams = false;
@@ -23,7 +23,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const versionId = params.version as FrontendProfileVersionId;
+  const { version } = await params;
+  const versionId = version as FrontendProfileVersionId;
   const activeVersion = getFrontendProfileVersion(versionId);
 
   if (!activeVersion) {
@@ -44,8 +45,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-export default function FrontendProfileVersionPage({ params }: PageProps) {
-  const versionId = params.version as FrontendProfileVersionId;
+export default async function FrontendProfileVersionPage({ params }: PageProps) {
+  const { version } = await params;
+  const versionId = version as FrontendProfileVersionId;
   const activeVersion = getFrontendProfileVersion(versionId);
 
   if (!activeVersion) {

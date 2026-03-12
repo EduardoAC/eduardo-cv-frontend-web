@@ -1,4 +1,4 @@
-@import '../../styles/utilities/mixins';
+@use '../../styles/utilities' as utilities;
 
 .page {
   --coming-soon-accent: #0d6efd;
@@ -23,7 +23,7 @@
 }
 
 .heroSection {
-  @include gradient-pattern;
+  @include utilities.gradient-pattern;
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(var(--coming-soon-accent-rgb), 0.18);

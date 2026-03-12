@@ -1,6 +1,27 @@
 import type { CustomProjectConfig } from 'lost-pixel';
 
 export const config: CustomProjectConfig = {
+  browserLaunchOptions: {
+    chromium: {
+      channel: 'chromium',
+      headless: true,
+    },
+  },
+  configureBrowser: () => ({
+    colorScheme: 'dark',
+  }),
+  beforeScreenshot: async (page) => {
+    await page.evaluate(() => {
+      const themePreference = 'dark';
+      const root = document.documentElement;
+
+      window.localStorage.setItem('eduardoac-theme-preference', themePreference);
+      root.setAttribute('data-theme', themePreference);
+      root.classList.add('dark-theme');
+      root.classList.remove('light-theme');
+      root.style.colorScheme = themePreference;
+    });
+  },
   pageShots: {
     breakpoints: [375, 768, 1440, 1920],
     pages: [

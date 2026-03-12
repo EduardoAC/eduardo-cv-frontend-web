@@ -8,9 +8,9 @@ import {
 } from '@/lib/blog/archive';
 
 interface BlogTagArchivePageProps {
-  params: {
+  params: Promise<{
     tag: string;
-  };
+  }>;
 }
 
 export const dynamicParams = false;
@@ -24,13 +24,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: BlogTagArchivePageProps): Promise<Metadata> {
-  return getTagArchiveMetadata(params.tag, 1);
+  const { tag } = await params;
+  return getTagArchiveMetadata(tag, 1);
 }
 
-export default function BlogTagArchivePage({
+export default async function BlogTagArchivePage({
   params,
 }: Readonly<BlogTagArchivePageProps>) {
-  const archiveViewModel = getTagArchiveViewModel(params.tag, 1);
+  const { tag } = await params;
+  const archiveViewModel = getTagArchiveViewModel(tag, 1);
 
   if (!archiveViewModel) {
     notFound();
