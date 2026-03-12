@@ -14,6 +14,7 @@
   --color-surface-hero: var(--site-surface-hero);
   --color-surface-inverse: var(--site-surface-inverse);
   --color-text-primary: var(--site-text-primary);
+  --color-text-heading: var(--site-text-heading);
   --color-text-emphasis: var(--site-text-emphasis);
   --color-text-secondary: var(--site-text-secondary);
   --color-text-muted: var(--site-text-muted);
@@ -52,12 +53,7 @@
   --shadow-soft: var(--site-shadow-soft);
   --shadow-medium: var(--site-shadow-medium);
   --shadow-strong: var(--site-shadow-strong);
-  --theme-pattern-primary: var(--site-pattern-primary);
-  --theme-pattern-secondary: var(--site-pattern-secondary);
-  --theme-pattern-bar: var(--site-pattern-bar);
-  --theme-pattern-stripe-start: var(--site-pattern-stripe-start);
-  --theme-pattern-stripe-mid: var(--site-pattern-stripe-mid);
-  --theme-pattern-stripe-end: var(--site-pattern-stripe-end);
+  --theme-pattern-template: var(--site-pattern-template);
   --theme-pattern-background: var(--site-pattern-background);
   --theme-hero-overlay: var(--site-hero-overlay);
   --theme-hero-panel: var(--site-hero-panel);

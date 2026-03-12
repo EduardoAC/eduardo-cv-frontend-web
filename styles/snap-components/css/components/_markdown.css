@@ -248,7 +248,7 @@
 .snap-markdown-content h2,
 .snap-markdown-content h3,
 .snap-markdown-content h4 {
-  color: var(--color-text-primary);
+  color: var(--color-text-heading);
   text-align: left;
   text-wrap: pretty;
 }
@@ -274,7 +274,7 @@
 .snap-blockquote {
   margin: var(--snap-prose-media-gap) auto;
   padding: 1rem 1.2rem 1rem 1.35rem;
-  border-left: 3px solid var(--snap-blockquote-border);
+  border-left: 4px solid var(--snap-blockquote-border);
   background: var(--snap-blockquote-bg);
   font-style: normal;
   color: var(--color-text-primary);

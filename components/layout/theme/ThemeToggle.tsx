@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ComponentType } from 'react'
 import {
   DEFAULT_THEME_PREFERENCE,
   type ResolvedTheme,
@@ -16,10 +16,43 @@ interface ThemeToggleProps {
   className?: string
 }
 
-const themeOptions: Array<{ value: ThemePreference; label: string; shortLabel: string }> = [
-  { value: 'system', label: 'Use system theme', shortLabel: 'System' },
-  { value: 'dark', label: 'Use dark theme', shortLabel: 'Dark' },
-  { value: 'light', label: 'Use light theme', shortLabel: 'Light' },
+const MoonIcon = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" className={styles.themeIcon}>
+    <path
+      d="M15.2 3.6a8.8 8.8 0 1 0 5.2 15.3 9.9 9.9 0 0 1-5.2-15.3Z"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
+
+const SunIcon = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" className={styles.themeIcon}>
+    <circle
+      cx="12"
+      cy="12"
+      r="4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    />
+    <path
+      d="M12 2.8v2.4M12 18.8v2.4M21.2 12h-2.4M5.2 12H2.8M18.5 5.5l-1.7 1.7M7.2 16.8l-1.7 1.7M18.5 18.5l-1.7-1.7M7.2 7.2 5.5 5.5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
+
+const themeOptions: Array<{ value: ResolvedTheme; label: string; Icon: ComponentType }> = [
+  { value: 'dark', label: 'Use dark theme', Icon: MoonIcon },
+  { value: 'light', label: 'Use light theme', Icon: SunIcon },
 ]
 
 const getStoredThemePreference = (): ThemePreference => {
@@ -73,16 +106,22 @@ export function ThemeToggle({ className = '' }: Readonly<ThemeToggleProps>) {
     }
   }, [])
 
-  const handleThemeChange = (nextPreference: ThemePreference) => {
+  const handleThemeChange = (nextPreference: ResolvedTheme) => {
     setPreference(nextPreference)
     setResolvedTheme(applyThemePreference(nextPreference))
     persistThemePreference(nextPreference)
   }
 
   return (
-    <div className={`${styles.themeToggle} ${className}`.trim()} role="group" aria-label="Theme switcher">
+    <div
+      className={`${styles.themeToggle} ${className}`.trim()}
+      role="group"
+      aria-label={preference === 'system'
+        ? `Theme switcher, following system ${resolvedTheme} mode`
+        : 'Theme switcher'}
+    >
       {themeOptions.map((option) => {
-        const isSelected = preference === option.value
+        const isSelected = resolvedTheme === option.value
 
         return (
           <button
@@ -91,10 +130,11 @@ export function ThemeToggle({ className = '' }: Readonly<ThemeToggleProps>) {
             className={`${styles.themeOption} ${isSelected ? styles.themeOptionActive : ''}`.trim()}
             aria-pressed={isSelected}
             aria-label={option.label}
-            data-resolved-theme={resolvedTheme}
+            data-follows-system={preference === 'system' && isSelected ? 'true' : 'false'}
             onClick={() => handleThemeChange(option.value)}
           >
-            <span aria-hidden="true">{option.shortLabel}</span>
+            <option.Icon />
+            <span className={styles.srOnly}>{option.label}</span>
           </button>
         )
       })}

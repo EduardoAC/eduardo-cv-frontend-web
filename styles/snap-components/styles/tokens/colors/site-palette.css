@@ -18,6 +18,7 @@
   --site-surface-hero: rgba(255, 255, 255, 0.76);
   --site-surface-inverse: #0f172a;
   --site-text-primary: #18202b;
+  --site-text-heading: #0f172a;
   --site-text-emphasis: #0f172a;
   --site-text-secondary: #334155;
   --site-text-muted: #64748b;
@@ -47,18 +48,19 @@
   --site-inline-code-bg: #eef2f6;
   --site-inline-code-text: #9a4d00;
   --site-blockquote-bg: rgba(15, 23, 42, 0.03);
-  --site-blockquote-border: rgba(15, 23, 42, 0.16);
+  --site-blockquote-border: #8d96a0;
   --site-toc-bg: rgba(255, 255, 255, 0.82);
   --site-overlay: rgba(15, 23, 42, 0.48);
   --site-shadow-soft: 0 14px 32px -24px rgba(15, 23, 42, 0.24);
   --site-shadow-medium: 0 20px 44px -30px rgba(15, 23, 42, 0.22);
   --site-shadow-strong: 0 28px 56px -34px rgba(15, 23, 42, 0.28);
-  --site-pattern-primary: #e3e8ee;
-  --site-pattern-secondary: #d9dfe7;
-  --site-pattern-bar: #d2dae4;
-  --site-pattern-stripe-start: #edf1f5;
-  --site-pattern-stripe-mid: #e8edf2;
-  --site-pattern-stripe-end: #dfe5ec;
+  --site-pattern-template:
+    linear-gradient(27deg, #d8dee7 5px, transparent 0) 0 5px,
+    linear-gradient(207deg, #d8dee7 5px, transparent 0) 10px 0,
+    linear-gradient(27deg, #c8d0db 5px, transparent 0) 0 10px,
+    linear-gradient(207deg, #c8d0db 5px, transparent 0) 10px 5px,
+    linear-gradient(90deg, #bcc5d1 10px, transparent 0),
+    linear-gradient(#eef2f6 25%, #e2e8ef 0, #e2e8ef 50%, transparent 0, transparent 75%, #d1d8e0 0, #d1d8e0);
   --site-pattern-background: #eef2f6;
   --site-hero-overlay: rgba(255, 255, 255, 0.62);
   --site-hero-panel: rgba(255, 255, 255, 0.76);
@@ -82,6 +84,7 @@
   --site-surface-hero: rgba(11, 15, 24, 0.6);
   --site-surface-inverse: #f8fafc;
   --site-text-primary: #cccccc;
+  --site-text-heading: #e5e7eb;
   --site-text-emphasis: #ffffff;
   --site-text-secondary: #b9bec6;
   --site-text-muted: #949aa4;
@@ -111,18 +114,19 @@
   --site-inline-code-bg: #202733;
   --site-inline-code-text: #fbbf24;
   --site-blockquote-bg: rgba(255, 255, 255, 0.04);
-  --site-blockquote-border: rgba(255, 255, 255, 0.18);
+  --site-blockquote-border: #555555;
   --site-toc-bg: rgba(255, 255, 255, 0.04);
   --site-overlay: rgba(0, 0, 0, 0.62);
   --site-shadow-soft: 0 14px 32px -24px rgba(0, 0, 0, 0.45);
   --site-shadow-medium: 0 20px 44px -30px rgba(0, 0, 0, 0.5);
   --site-shadow-strong: 0 28px 56px -34px rgba(0, 0, 0, 0.58);
-  --site-pattern-primary: #151515;
-  --site-pattern-secondary: #222222;
-  --site-pattern-bar: #1b1b1b;
-  --site-pattern-stripe-start: #1d1d1d;
-  --site-pattern-stripe-mid: #1a1a1a;
-  --site-pattern-stripe-end: #242424;
+  --site-pattern-template:
+    linear-gradient(27deg, #151515 5px, transparent 0) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 0) 10px 0,
+    linear-gradient(27deg, #222222 5px, transparent 0) 0 10px,
+    linear-gradient(207deg, #222222 5px, transparent 0) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 0),
+    linear-gradient(#1d1d1d 25%, #1a1a1a 0, #1a1a1a 50%, transparent 0, transparent 75%, #242424 0, #242424);
   --site-pattern-background: #131313;
   --site-hero-overlay: rgba(0, 0, 0, 0.4);
   --site-hero-panel: rgba(14, 18, 26, 0.74);
@@ -144,6 +148,7 @@
     --site-surface-hero: rgba(11, 15, 24, 0.6);
     --site-surface-inverse: #f8fafc;
     --site-text-primary: #cccccc;
+    --site-text-heading: #e5e7eb;
     --site-text-emphasis: #ffffff;
     --site-text-secondary: #b9bec6;
     --site-text-muted: #949aa4;
@@ -173,18 +178,19 @@
     --site-inline-code-bg: #202733;
     --site-inline-code-text: #fbbf24;
     --site-blockquote-bg: rgba(255, 255, 255, 0.04);
-    --site-blockquote-border: rgba(255, 255, 255, 0.18);
+    --site-blockquote-border: #555555;
     --site-toc-bg: rgba(255, 255, 255, 0.04);
     --site-overlay: rgba(0, 0, 0, 0.62);
     --site-shadow-soft: 0 14px 32px -24px rgba(0, 0, 0, 0.45);
     --site-shadow-medium: 0 20px 44px -30px rgba(0, 0, 0, 0.5);
     --site-shadow-strong: 0 28px 56px -34px rgba(0, 0, 0, 0.58);
-    --site-pattern-primary: #151515;
-    --site-pattern-secondary: #222222;
-    --site-pattern-bar: #1b1b1b;
-    --site-pattern-stripe-start: #1d1d1d;
-    --site-pattern-stripe-mid: #1a1a1a;
-    --site-pattern-stripe-end: #242424;
+    --site-pattern-template:
+      linear-gradient(27deg, #151515 5px, transparent 0) 0 5px,
+      linear-gradient(207deg, #151515 5px, transparent 0) 10px 0,
+      linear-gradient(27deg, #222222 5px, transparent 0) 0 10px,
+      linear-gradient(207deg, #222222 5px, transparent 0) 10px 5px,
+      linear-gradient(90deg, #1b1b1b 10px, transparent 0),
+      linear-gradient(#1d1d1d 25%, #1a1a1a 0, #1a1a1a 50%, transparent 0, transparent 75%, #242424 0, #242424);
     --site-pattern-background: #131313;
     --site-hero-overlay: rgba(0, 0, 0, 0.4);
     --site-hero-panel: rgba(14, 18, 26, 0.74);

@@ -94,8 +94,9 @@
       box-shadow: var(--shadow-medium);
       h1 {
         margin: 5px 0;
+        color: var(--color-text-heading);
       }
-      p, h1 {
+      p {
           color: var(--color-text-primary);
       }
       a {
@@ -176,7 +177,7 @@
 }
 
 .pull_quote {
-  border-left: 4px solid var(--color-accent);
+  border-left: 4px solid var(--color-blockquote-border);
   padding-left: 1.5rem;
   margin: 2rem 0;
   font-size: 1.25rem;

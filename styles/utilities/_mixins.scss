@@ -1,19 +1,6 @@
 // Gradient pattern mixin
 @mixin gradient-pattern {
-  background: linear-gradient(27deg, var(--theme-pattern-primary) 5px, transparent 0) 0 5px,
-    linear-gradient(207deg, var(--theme-pattern-primary) 5px, transparent 0) 10px 0,
-    linear-gradient(27deg, var(--theme-pattern-secondary) 5px, transparent 0) 0 10px,
-    linear-gradient(207deg, var(--theme-pattern-secondary) 5px, transparent 0) 10px 5px,
-    linear-gradient(90deg, var(--theme-pattern-bar) 10px, transparent 0),
-    linear-gradient(
-      var(--theme-pattern-stripe-start) 25%,
-      var(--theme-pattern-stripe-mid) 0,
-      var(--theme-pattern-stripe-mid) 50%,
-      transparent 0,
-      transparent 75%,
-      var(--theme-pattern-stripe-end) 0,
-      var(--theme-pattern-stripe-end)
-    );
+  background: var(--theme-pattern-template);
   background-color: var(--theme-pattern-background);
   background-size: 20px 20px;
 }
@@ -46,13 +33,13 @@
 
   h1 {
     text-align: center;
-    color: var(--color-text-primary);
+    color: var(--color-text-heading);
     margin: 30px auto;
   }
 
   h2 {
     text-align: center;
-    color: var(--color-text-primary);
+    color: var(--color-text-heading);
     margin: 30px auto;
   }
 
