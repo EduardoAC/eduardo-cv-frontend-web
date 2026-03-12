@@ -98,7 +98,7 @@
 }
 
 .snap-markdown-content li + li {
-  margin-top: 0.55em;
+  margin-top: 0;
 }
 
 .snap-markdown-content a {
@@ -557,6 +557,11 @@
   --snap-prose-toc-padding: var(--blog-prose-toc-padding, 1rem 1.1rem);
   --snap-prose-toc-size: var(--blog-prose-toc-size, 0.95rem);
   --snap-prose-media-gap: var(--blog-prose-media-gap, 1.85rem);
+  --snap-prose-list-indent: 1.1em;
+}
+
+.snap-markdown-article :where(ul, ol) {
+  padding-left: var(--snap-prose-list-indent);
 }
 
 .snap-markdown-article figure {

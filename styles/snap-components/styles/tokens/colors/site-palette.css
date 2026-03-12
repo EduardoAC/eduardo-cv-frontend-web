@@ -13,6 +13,7 @@
   --site-background-footer: #e8ecf1;
   --site-surface: #ffffff;
   --site-surface-elevated: #fbfcfe;
+  --site-surface-blog-archive: #fbfcfe;
   --site-surface-subtle: rgba(15, 23, 42, 0.03);
   --site-surface-subtle-strong: rgba(15, 23, 42, 0.06);
   --site-surface-hero: rgba(255, 255, 255, 0.76);
@@ -79,6 +80,7 @@
   --site-background-footer: #111111;
   --site-surface: #21252b;
   --site-surface-elevated: #272d35;
+  --site-surface-blog-archive: #181a1b;
   --site-surface-subtle: rgba(255, 255, 255, 0.03);
   --site-surface-subtle-strong: rgba(255, 255, 255, 0.08);
   --site-surface-hero: rgba(11, 15, 24, 0.6);
@@ -143,6 +145,7 @@
     --site-background-footer: #111111;
     --site-surface: #21252b;
     --site-surface-elevated: #272d35;
+    --site-surface-blog-archive: #181a1b;
     --site-surface-subtle: rgba(255, 255, 255, 0.03);
     --site-surface-subtle-strong: rgba(255, 255, 255, 0.08);
     --site-surface-hero: rgba(11, 15, 24, 0.6);

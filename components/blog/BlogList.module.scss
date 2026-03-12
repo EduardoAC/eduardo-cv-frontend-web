@@ -19,6 +19,7 @@
 }
 
 .blog-card {
+  --snap-card-bg: var(--color-surface-blog-archive);
   text-align: left;
   border-radius: 1rem;
   padding: clamp(1.25rem, 2vw, 1.6rem);
