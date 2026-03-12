@@ -18,8 +18,9 @@
   width: 100%;
   max-width: 100%;
   height: auto;
-  background-color: #fff;
+  background-color: var(--color-surface);
   border-radius: 0.5rem;
+  border: 1px solid var(--color-border-subtle);
   margin-bottom: var(--spacing-lg);
 }
 
@@ -100,8 +101,8 @@
 
 .snap-img-thumbnail {
   padding: 0.25rem;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-primary);
   border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
@@ -111,8 +112,8 @@
 /* Button styles */
 .snap-btn {
   display: inline-block;
-  font-weight: 400;
-  color: #212529;
+  font-weight: 600;
+  color: var(--color-text-primary);
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -120,23 +121,24 @@
   -moz-user-select: none;
   user-select: none;
   background-color: transparent;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--color-border-primary);
+  padding: 0.625rem 1rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: 0.25rem;
+  border-radius: 9999px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .snap-btn-primary {
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  color: var(--color-accent-contrast);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-soft);
 }
 
 .snap-btn-primary:hover {
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
 }
 
 /* Alert styles */
@@ -149,15 +151,15 @@
 }
 
 .snap-alert-success {
-  color: #0f5132;
-  background-color: #d1e7dd;
-  border-color: #badbcc;
+  color: var(--color-success);
+  background-color: var(--color-success-bg);
+  border-color: var(--color-success-border);
 }
 
 .snap-alert-danger {
-  color: #842029;
-  background-color: #f8d7da;
-  border-color: #f5c2c7;
+  color: var(--color-error);
+  background-color: var(--color-error-bg);
+  border-color: var(--color-error-border);
 }
 
 /* Form styles */
@@ -172,18 +174,18 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--color-border-primary);
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .snap-form-control:focus {
-  color: #212529;
-  background-color: #fff;
-  border-color: #86b7fe;
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  border-color: var(--color-accent);
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  box-shadow: 0 0 0 0.25rem var(--color-focus-ring);
 }

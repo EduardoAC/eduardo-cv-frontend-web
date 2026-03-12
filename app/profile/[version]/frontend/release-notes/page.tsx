@@ -105,9 +105,10 @@ export default function FrontendReleaseNotesPage({ params }: PageProps) {
             key={metric.label}
             style={{
               borderRadius: '16px',
-              border: '1px solid rgba(255,255,255,0.1)',
+              border: '1px solid var(--color-border-subtle)',
               padding: '16px',
-              background: 'rgba(255,255,255,0.04)',
+              background: 'var(--color-surface-elevated)',
+              boxShadow: 'var(--shadow-soft)',
             }}
           >
             <div style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-text-primary)' }}>

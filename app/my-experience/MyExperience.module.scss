@@ -41,7 +41,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: #555;
+    background-color: var(--color-border-primary);
 }
 
 .experience_block {
@@ -65,18 +65,19 @@
     display: inline-block;
     padding: 5px 9px;
     margin-right: 8px;
-    color: var(--color-text-secondary);
+    color: var(--color-accent-contrast);
     font-weight: bold;
     border-radius: 4px;
     font-size: 0.9rem;
 }
 
 .date_range span:first-child {
-    background-color: #008c99;
+    background-color: var(--color-accent);
 }
 
 .date_range span:last-child {
-    background-color: #6c757d;
+    background-color: var(--color-surface-subtle-strong);
+    color: var(--color-text-primary);
 }
 
 .timeline_dot {
@@ -85,7 +86,7 @@
     left: 5px;
     width: 16px;
     height: 16px;
-    background-color: #fff;
+    background-color: var(--color-surface);
     border-radius: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -95,12 +96,12 @@
 .logo_container {
     width: 60px;
     height: 60px;
-    background-color: #fff;
+    background-color: var(--color-surface);
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid #f0f0f0;
+    border: 3px solid var(--color-border-primary);
     float: left;
     margin-right: 15px;
     margin-bottom: 5px;
@@ -115,7 +116,7 @@
 }
 
 .details h4 {
-    color: #f0f0f0;
+    color: var(--color-text-primary);
     font-size: 1.6rem;
     margin-top: 0;
     margin-bottom: 0.25rem;
@@ -140,7 +141,7 @@
 }
 
 .details a {
-    color: var(--color-text-secondary);
+    color: var(--color-link);
 }
 
 /* Enhancements for Interactivity and Animation */

@@ -12,7 +12,7 @@ export const initializeAboutMe = () => {
     container.className = "modal";
     container.style.display = 'block';
     container.style.overflow = 'scroll';
-    container.style.backgroundColor = '#666';
+    container.style.backgroundColor = 'var(--color-overlay)';
 
     const currentImg = this.querySelector("IMG") as HTMLImageElement;
     if (!currentImg) return;

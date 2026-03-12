@@ -5,12 +5,12 @@
   position: relative;
   @include flex-center;
   padding: 0;
-  background-color: --color-background;
+  background-color: var(--color-background);
   width: 100%;
 
   .title-block {
     text-align: center;
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--theme-hero-overlay);
     position: absolute;
     overflow: hidden;
     @include flex-center;

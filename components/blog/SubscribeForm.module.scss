@@ -1,13 +1,13 @@
 .subscribeForm {
   background:
-    radial-gradient(circle at top right, rgba(29, 78, 216, 0.16), transparent 42%),
-    linear-gradient(180deg, rgba(33, 33, 33, 0.98), rgba(24, 24, 24, 0.98));
+    radial-gradient(circle at top right, rgba(var(--color-accent-rgb), 0.18), transparent 42%),
+    linear-gradient(180deg, var(--color-surface-elevated), var(--color-surface));
   border-radius: 16px;
   padding: clamp(1.25rem, 2vw, 1.75rem);
   margin: 1rem 0;
   color: var(--color-text-primary);
-  box-shadow: 0 20px 40px -30px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-medium);
+  border: 1px solid var(--color-border-subtle);
 }
 
 .subscribeContent {
@@ -71,17 +71,17 @@
 .emailInput {
   flex: 1;
   padding: 0.85rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--color-border-primary);
   border-radius: 8px;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--color-surface-subtle);
   color: var(--color-text-primary);
   transition: all 0.2s ease;
 
   &:focus-visible {
     outline: none;
-    border-color: rgba(59, 130, 246, 0.65);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
   }
 
   &::placeholder {
@@ -96,9 +96,9 @@
 
 .subscribeButton {
   padding: 0.85rem 1.35rem;
-  background: #1d4ed8;
-  color: #fff;
-  border: none;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  border: 1px solid var(--color-accent);
   border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 600;
@@ -107,14 +107,15 @@
   white-space: nowrap;
 
   &:hover:not(:disabled) {
-    background: #1e40af;
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
     transform: translateY(-1px);
-    box-shadow: 0 10px 20px -14px rgba(29, 78, 216, 0.85);
+    box-shadow: var(--shadow-soft);
   }
 
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
   }
 
   &:disabled {
@@ -131,11 +132,11 @@
 }
 
 .errorMessage {
-  background: rgba(127, 29, 29, 0.35);
-  color: #fecaca;
+  background: var(--color-error-bg);
+  color: var(--color-error);
   padding: 0.75rem 1rem;
   border-radius: 8px;
-  border: 1px solid rgba(248, 113, 113, 0.35);
+  border: 1px solid var(--color-error-border);
   font-size: 0.875rem;
   text-align: left;
 }

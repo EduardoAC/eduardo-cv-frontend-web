@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { ThemeToggle } from '../theme/ThemeToggle'
 import styles from './Navbar.module.css'
 
 const navItems = [
@@ -36,21 +37,27 @@ export const Navbar = () => {
         <Link href="/" className={styles.navbarBrand}>
           <span className='hidden-sm'>Eduardo Aparicio Cardenes - </span>Interactive CV
         </Link>
-        
-        <ul className={styles.navbarNavDesktop}>
-          {navItems.map((item) => (
-            <li key={item.href} className={styles.navItem}>
-              <Link href={item.href} className={styles.navLink}>
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        
-        <button 
+
+        <div className={styles.navbarDesktopControls}>
+          <ul className={styles.navbarNavDesktop}>
+            {navItems.map((item) => (
+              <li key={item.href} className={styles.navItem}>
+                <Link href={item.href} className={styles.navLink}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ThemeToggle className={styles.desktopThemeToggle} />
+        </div>
+
+        <button
+          type="button"
           className={`${styles.navbarToggle} ${isMenuOpen ? styles.active : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle navigation"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
         >
           <span className={styles.iconBar}></span>
           <span className={styles.iconBar}></span>
@@ -58,8 +65,8 @@ export const Navbar = () => {
         </button>
       </nav>
 
-      <div className={`${styles.mobileSidebar} ${isMenuOpen ? styles.open : ''}`}>
-        <button className={styles.mobileSidebarHeader} onClick={closeMenu}>
+      <div id="mobile-navigation" className={`${styles.mobileSidebar} ${isMenuOpen ? styles.open : ''}`}>
+        <button type="button" className={styles.mobileSidebarHeader} onClick={closeMenu}>
           <div className={styles.closeIcon}>&times;</div>
           <span className='heading5'>Close</span>
         </button>
@@ -72,8 +79,12 @@ export const Navbar = () => {
             </li>
           ))}
         </ul>
+        <div className={styles.mobileThemeSection}>
+          <p className={styles.mobileThemeLabel}>Theme</p>
+          <ThemeToggle className={styles.mobileThemeToggle} />
+        </div>
       </div>
-      {isMenuOpen && <button className={styles.sidebarOverlay} onClick={closeMenu} />}
+      {isMenuOpen && <button type="button" className={styles.sidebarOverlay} onClick={closeMenu} aria-label="Close navigation menu" />}
     </header>
   )
 }

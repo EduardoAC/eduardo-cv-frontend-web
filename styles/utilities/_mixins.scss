@@ -1,20 +1,20 @@
 // Gradient pattern mixin
 @mixin gradient-pattern {
-  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+  background: linear-gradient(27deg, var(--theme-pattern-1) 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, var(--theme-pattern-1) 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, var(--theme-pattern-2) 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, var(--theme-pattern-2) 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, var(--theme-pattern-3) 10px, transparent 10px),
     linear-gradient(
-      #1d1d1d 25%,
-      #1a1a1a 25%,
-      #1a1a1a 50%,
+      color-mix(in srgb, var(--theme-pattern-base) 86%, var(--theme-pattern-1) 14%) 25%,
+      color-mix(in srgb, var(--theme-pattern-base) 78%, var(--theme-pattern-2) 22%) 25%,
+      color-mix(in srgb, var(--theme-pattern-base) 78%, var(--theme-pattern-2) 22%) 50%,
       transparent 50%,
       transparent 75%,
-      #242424 75%,
-      #242424
+      var(--theme-pattern-4) 75%,
+      var(--theme-pattern-4)
     );
-  background-color: #131313;
+  background-color: var(--theme-pattern-base);
   background-size: 20px 20px;
 }
 
@@ -29,7 +29,7 @@
 
   img {
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-soft);
     margin-bottom: 8px;
   }
 }
@@ -101,5 +101,5 @@
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-soft);
 }
