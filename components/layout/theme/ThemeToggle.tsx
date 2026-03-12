@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, type ComponentType } from 'react'
+import { useEffect, useState } from 'react'
 import {
   DEFAULT_THEME_PREFERENCE,
   type ResolvedTheme,
@@ -49,11 +49,6 @@ const SunIcon = () => (
     />
   </svg>
 )
-
-const themeOptions: Array<{ value: ResolvedTheme; label: string; Icon: ComponentType }> = [
-  { value: 'dark', label: 'Use dark theme', Icon: MoonIcon },
-  { value: 'light', label: 'Use light theme', Icon: SunIcon },
-]
 
 const getStoredThemePreference = (): ThemePreference => {
   if (typeof window === 'undefined') {
@@ -112,32 +107,23 @@ export function ThemeToggle({ className = '' }: Readonly<ThemeToggleProps>) {
     persistThemePreference(nextPreference)
   }
 
-  return (
-    <div
-      className={`${styles.themeToggle} ${className}`.trim()}
-      role="group"
-      aria-label={preference === 'system'
-        ? `Theme switcher, following system ${resolvedTheme} mode`
-        : 'Theme switcher'}
-    >
-      {themeOptions.map((option) => {
-        const isSelected = resolvedTheme === option.value
+  const nextTheme: ResolvedTheme = resolvedTheme === 'dark' ? 'light' : 'dark'
+  const buttonLabel = `Switch to ${nextTheme} theme`
+  const Icon = nextTheme === 'dark' ? MoonIcon : SunIcon
 
-        return (
-          <button
-            key={option.value}
-            type="button"
-            className={`${styles.themeOption} ${isSelected ? styles.themeOptionActive : ''}`.trim()}
-            aria-pressed={isSelected}
-            aria-label={option.label}
-            data-follows-system={preference === 'system' && isSelected ? 'true' : 'false'}
-            onClick={() => handleThemeChange(option.value)}
-          >
-            <option.Icon />
-            <span className={styles.srOnly}>{option.label}</span>
-          </button>
-        )
-      })}
-    </div>
+  return (
+    <button
+      type="button"
+      className={`${styles.themeToggle} ${className}`.trim()}
+      aria-label={preference === 'system'
+        ? `${buttonLabel}. Currently following system ${resolvedTheme} mode`
+        : buttonLabel}
+      data-current-theme={resolvedTheme}
+      data-follows-system={preference === 'system' ? 'true' : 'false'}
+      onClick={() => handleThemeChange(nextTheme)}
+    >
+      <Icon />
+      <span className={styles.srOnly}>{buttonLabel}</span>
+    </button>
   )
 }
