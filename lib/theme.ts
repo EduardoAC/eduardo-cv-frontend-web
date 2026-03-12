@@ -6,6 +6,7 @@ export const THEME_ATTRIBUTE = 'data-theme'
 export const DEFAULT_THEME_PREFERENCE: ThemePreference = 'system'
 export const DARK_THEME_COLOR = '#303030'
 export const LIGHT_THEME_COLOR = '#f3f5f7'
+export const THEME_INIT_SCRIPT_SRC = '/theme-init.js'
 const EXPLICIT_THEME_META_SELECTOR = 'meta[name="theme-color"][data-explicit-theme-color]'
 
 const validThemePreferences = new Set<ThemePreference>(['system', 'dark', 'light'])
@@ -112,32 +113,3 @@ export const clearThemePreference = () => {
 
   window.localStorage.removeItem(THEME_STORAGE_KEY)
 }
-
-export const THEME_OVERRIDE_SCRIPT = `(() => {
-  const storageKey = '${THEME_STORAGE_KEY}';
-  const themeAttribute = '${THEME_ATTRIBUTE}';
-  const darkThemeColor = '${DARK_THEME_COLOR}';
-  const lightThemeColor = '${LIGHT_THEME_COLOR}';
-  const storedPreference = window.localStorage.getItem(storageKey);
-
-  if (storedPreference === 'system') {
-    window.localStorage.removeItem(storageKey);
-    return;
-  }
-
-  if (storedPreference !== 'dark' && storedPreference !== 'light') {
-    return;
-  }
-
-  const root = document.documentElement;
-  root.setAttribute(themeAttribute, storedPreference);
-  root.classList.toggle('dark-theme', storedPreference === 'dark');
-  root.classList.toggle('light-theme', storedPreference === 'light');
-  root.style.colorScheme = storedPreference;
-
-  const meta = document.createElement('meta');
-  meta.setAttribute('name', 'theme-color');
-  meta.setAttribute('content', storedPreference === 'dark' ? darkThemeColor : lightThemeColor);
-  meta.setAttribute('data-explicit-theme-color', 'true');
-  document.head.appendChild(meta);
-})();`
