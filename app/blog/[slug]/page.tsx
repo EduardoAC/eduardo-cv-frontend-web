@@ -5,9 +5,9 @@ import { generateMetaTags } from '@/lib/blog/seo';
 import BlogPost from '@/components/blog/BlogPost';
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate static params for all blog posts
@@ -20,7 +20,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = getPostMetaBySlug(params.slug);
+  const { slug } = await params;
+  const post = getPostMetaBySlug(slug);
   
   if (!post) {
     return {
@@ -50,14 +51,15 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
-export default function BlogPostPage({ params }: Readonly<BlogPostPageProps>) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: Readonly<BlogPostPageProps>) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   
   if (!post) {
     notFound();
   }
 
-  const relatedPosts = getRelatedPosts(params.slug, 3);
+  const relatedPosts = getRelatedPosts(slug, 3);
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website';
   const structuredData = generateMetaTags(post, baseUrl).structuredData;
 

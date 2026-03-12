@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
+import React, { useId } from 'react';
 import styles from './ReviewsGrid.module.scss';
 
 export interface Review {
@@ -42,7 +42,7 @@ function Stars({ rating }: { rating: number }) {
 
 export default function ReviewsGrid({ reviews, initialCount = 3 }: ReviewsGridProps) {
   const hasMore = reviews.length > initialCount;
-  const toggleId = `toggle-reviews-${Math.random().toString(36).slice(2)}`;
+  const toggleId = useId();
   return (
     <div className={styles.reviewsGridWrapper}>
       <input type="checkbox" id={toggleId} className={styles.toggleCheckbox} />

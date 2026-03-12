@@ -9,9 +9,9 @@ import {
 } from '@/lib/blog/archive';
 
 interface BlogArchivePaginationPageProps {
-  params: {
+  params: Promise<{
     pageNumber: string;
-  };
+  }>;
 }
 
 export const dynamicParams = false;
@@ -25,7 +25,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: BlogArchivePaginationPageProps): Promise<Metadata> {
-  const pageNumber = parsePageNumber(params.pageNumber);
+  const { pageNumber: rawPageNumber } = await params;
+  const pageNumber = parsePageNumber(rawPageNumber);
 
   if (!pageNumber || pageNumber === 1) {
     return {
@@ -37,10 +38,11 @@ export async function generateMetadata({
   return getBlogArchiveMetadata(pageNumber);
 }
 
-export default function BlogArchivePaginationPage({
+export default async function BlogArchivePaginationPage({
   params,
 }: Readonly<BlogArchivePaginationPageProps>) {
-  const pageNumber = parsePageNumber(params.pageNumber);
+  const { pageNumber: rawPageNumber } = await params;
+  const pageNumber = parsePageNumber(rawPageNumber);
 
   if (!pageNumber || pageNumber === 1) {
     notFound();

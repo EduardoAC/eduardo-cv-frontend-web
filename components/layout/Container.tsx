@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Container.module.scss';
 
-export interface ContainerProps {
+export interface ContainerProps extends React.HTMLAttributes<HTMLElement> {
   variant?: 'default' | 'narrow' | 'wide' | 'full' | 'fluid';
   padding?: 'none' | 'small' | 'medium' | 'large';
   className?: string;
   children: React.ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof HTMLElementTagNameMap;
 }
 
 export const Container: React.FC<ContainerProps> = ({

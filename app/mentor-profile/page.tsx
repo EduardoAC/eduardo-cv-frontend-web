@@ -1,14 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import dynamic from 'next/dynamic';
 import styles from './MentorProfile.module.scss';
 import { mentorPlatforms, certificate } from './data';
 import ReviewsGrid from './ReviewsGrid';
 import adplistReviews from './adplist-reviews.json';
 import mentoringClubReviews from './mentoring-club-reviews.json';
+import BookingModalClient from './BookingModalClient';
 import Container from '@/components/layout/Container';
-
-const BookingModalClient = dynamic(() => import('./BookingModalClient'), { ssr: false });
 
 export const metadata = {
   title: 'Mentor Profile | Eduardo Aparicio Cárdenes',

@@ -9,10 +9,10 @@ import {
 } from '@/lib/blog/archive';
 
 interface BlogTagArchivePaginationPageProps {
-  params: {
+  params: Promise<{
     tag: string;
     pageNumber: string;
-  };
+  }>;
 }
 
 export const dynamicParams = false;
@@ -24,7 +24,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: BlogTagArchivePaginationPageProps): Promise<Metadata> {
-  const pageNumber = parsePageNumber(params.pageNumber);
+  const { tag, pageNumber: rawPageNumber } = await params;
+  const pageNumber = parsePageNumber(rawPageNumber);
 
   if (!pageNumber || pageNumber === 1) {
     return {
@@ -33,19 +34,20 @@ export async function generateMetadata({
     };
   }
 
-  return getTagArchiveMetadata(params.tag, pageNumber);
+  return getTagArchiveMetadata(tag, pageNumber);
 }
 
-export default function BlogTagArchivePaginationPage({
+export default async function BlogTagArchivePaginationPage({
   params,
 }: Readonly<BlogTagArchivePaginationPageProps>) {
-  const pageNumber = parsePageNumber(params.pageNumber);
+  const { tag, pageNumber: rawPageNumber } = await params;
+  const pageNumber = parsePageNumber(rawPageNumber);
 
   if (!pageNumber || pageNumber === 1) {
     notFound();
   }
 
-  const archiveViewModel = getTagArchiveViewModel(params.tag, pageNumber);
+  const archiveViewModel = getTagArchiveViewModel(tag, pageNumber);
 
   if (!archiveViewModel) {
     notFound();
