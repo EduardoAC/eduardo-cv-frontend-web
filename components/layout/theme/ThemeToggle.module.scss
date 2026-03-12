@@ -13,6 +13,7 @@
   box-shadow: none;
   cursor: pointer;
   color: var(--color-text-secondary);
+  -webkit-tap-highlight-color: transparent;
   transition: color 0.2s ease, transform 0.2s ease;
 
   &:hover {
@@ -25,20 +26,47 @@
   }
 }
 
+.mobileRow {
+  width: 100%;
+  height: auto;
+  min-height: 3rem;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  background-color: transparent;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:active {
+    background-color: var(--color-background-header);
+    color: var(--color-text-emphasis);
+  }
+}
+
+@media (hover: hover) {
+  .mobileRow:hover {
+    background-color: var(--color-background-header);
+    color: var(--color-text-emphasis);
+  }
+}
+
+@media (hover: none) {
+  .mobileRow:hover {
+    background-color: transparent;
+    color: var(--color-text-secondary);
+  }
+}
+
 .themeIcon {
   width: 1rem;
   height: 1rem;
   flex-shrink: 0;
 }
 
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.themeLabel {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
 }

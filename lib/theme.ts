@@ -7,6 +7,7 @@ export const DEFAULT_THEME_PREFERENCE: ThemePreference = 'system'
 export const DARK_THEME_COLOR = '#303030'
 export const LIGHT_THEME_COLOR = '#f3f5f7'
 export const THEME_INIT_SCRIPT_SRC = '/theme-init.js'
+export const THEME_CHANGE_EVENT = 'eduardoac:theme-change'
 const EXPLICIT_THEME_META_SELECTOR = 'meta[name="theme-color"][data-explicit-theme-color]'
 
 const validThemePreferences = new Set<ThemePreference>(['system', 'dark', 'light'])
@@ -100,10 +101,18 @@ export const persistThemePreference = (preference: ThemePreference) => {
 
   if (preference === 'dark' || preference === 'light') {
     window.localStorage.setItem(THEME_STORAGE_KEY, preference)
-    return
+  } else {
+    window.localStorage.removeItem(THEME_STORAGE_KEY)
   }
 
-  window.localStorage.removeItem(THEME_STORAGE_KEY)
+  window.dispatchEvent(
+    new CustomEvent(THEME_CHANGE_EVENT, {
+      detail: {
+        preference,
+        resolvedTheme: resolveTheme(preference),
+      },
+    })
+  )
 }
 
 export const clearThemePreference = () => {

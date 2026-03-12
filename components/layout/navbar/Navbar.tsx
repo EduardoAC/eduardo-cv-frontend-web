@@ -81,8 +81,7 @@ export const Navbar = () => {
           ))}
         </ul>
         <div className={styles.mobileThemeSection}>
-          <p className={styles.mobileThemeLabel}>Theme</p>
-          <ThemeToggle className={styles.mobileThemeToggle} />
+          <ThemeToggle className={styles.mobileThemeToggle} variant="mobile-row" />
         </div>
       </div>
       {isMenuOpen && <button type="button" className={styles.sidebarOverlay} onClick={closeMenu} aria-label="Close navigation menu" />}

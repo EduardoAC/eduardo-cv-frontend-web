@@ -5,6 +5,7 @@ import {
   DEFAULT_THEME_PREFERENCE,
   type ResolvedTheme,
   type ThemePreference,
+  THEME_CHANGE_EVENT,
   THEME_STORAGE_KEY,
   applyThemePreference,
   persistThemePreference,
@@ -14,6 +15,7 @@ import styles from './ThemeToggle.module.scss'
 
 interface ThemeToggleProps {
   className?: string
+  variant?: 'icon-only' | 'mobile-row'
 }
 
 const MoonIcon = () => (
@@ -58,16 +60,20 @@ const getStoredThemePreference = (): ThemePreference => {
   return readThemePreference()
 }
 
-export function ThemeToggle({ className = '' }: Readonly<ThemeToggleProps>) {
+export function ThemeToggle({
+  className = '',
+  variant = 'icon-only',
+}: Readonly<ThemeToggleProps>) {
   const [preference, setPreference] = useState<ThemePreference>(DEFAULT_THEME_PREFERENCE)
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>('dark')
 
   useEffect(() => {
-    const initialPreference = getStoredThemePreference()
-    const initialTheme = applyThemePreference(initialPreference)
+    const syncThemeState = (nextPreference: ThemePreference) => {
+      setPreference(nextPreference)
+      setResolvedTheme(applyThemePreference(nextPreference))
+    }
 
-    setPreference(initialPreference)
-    setResolvedTheme(initialTheme)
+    syncThemeState(getStoredThemePreference())
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
@@ -76,7 +82,7 @@ export function ThemeToggle({ className = '' }: Readonly<ThemeToggleProps>) {
         return
       }
 
-      setResolvedTheme(applyThemePreference('system'))
+      syncThemeState('system')
     }
 
     const handleStorage = (event: StorageEvent) => {
@@ -88,16 +94,28 @@ export function ThemeToggle({ className = '' }: Readonly<ThemeToggleProps>) {
         ? event.newValue
         : DEFAULT_THEME_PREFERENCE
 
-      setPreference(nextPreference)
-      setResolvedTheme(applyThemePreference(nextPreference))
+      syncThemeState(nextPreference)
+    }
+
+    const handleThemeSync = (event: Event) => {
+      const nextPreference = (event as CustomEvent<{ preference?: ThemePreference }>).detail?.preference
+
+      if (nextPreference !== 'dark' && nextPreference !== 'light' && nextPreference !== 'system') {
+        syncThemeState(readThemePreference())
+        return
+      }
+
+      syncThemeState(nextPreference)
     }
 
     mediaQuery.addEventListener('change', handleMediaChange)
     window.addEventListener('storage', handleStorage)
+    window.addEventListener(THEME_CHANGE_EVENT, handleThemeSync)
 
     return () => {
       mediaQuery.removeEventListener('change', handleMediaChange)
       window.removeEventListener('storage', handleStorage)
+      window.removeEventListener(THEME_CHANGE_EVENT, handleThemeSync)
     }
   }, [])
 
@@ -110,11 +128,19 @@ export function ThemeToggle({ className = '' }: Readonly<ThemeToggleProps>) {
   const nextTheme: ResolvedTheme = resolvedTheme === 'dark' ? 'light' : 'dark'
   const buttonLabel = `Switch to ${nextTheme} theme`
   const Icon = nextTheme === 'dark' ? MoonIcon : SunIcon
+  const visibleLabel = nextTheme === 'dark' ? 'Dark' : 'Light'
+  const themeToggleClassName = [
+    styles.themeToggle,
+    variant === 'mobile-row' ? styles.mobileRow : '',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ')
 
   return (
     <button
       type="button"
-      className={`${styles.themeToggle} ${className}`.trim()}
+      className={themeToggleClassName}
       aria-label={preference === 'system'
         ? `${buttonLabel}. Currently following system ${resolvedTheme} mode`
         : buttonLabel}
@@ -123,7 +149,7 @@ export function ThemeToggle({ className = '' }: Readonly<ThemeToggleProps>) {
       onClick={() => handleThemeChange(nextTheme)}
     >
       <Icon />
-      <span className={styles.srOnly}>{buttonLabel}</span>
+      {variant === 'mobile-row' ? <span className={styles.themeLabel}>{visibleLabel}</span> : null}
     </button>
   )
 }
