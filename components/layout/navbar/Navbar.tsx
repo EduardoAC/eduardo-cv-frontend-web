@@ -35,7 +35,8 @@ export const Navbar = () => {
     <header>
       <nav className={styles.navbar}>
         <Link href="/" className={styles.navbarBrand}>
-          <span className='hidden-sm'>Eduardo Aparicio Cardenes - </span>Interactive CV
+          <span className={`${styles.navbarBrandText} hidden-sm`}>Eduardo Aparicio Cardenes - </span>
+          <span className={styles.navbarBrandText}>Interactive CV</span>
         </Link>
 
         <div className={styles.navbarDesktopControls}>

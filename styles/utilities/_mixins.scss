@@ -1,20 +1,20 @@
 // Gradient pattern mixin
 @mixin gradient-pattern {
-  background: linear-gradient(27deg, var(--theme-pattern-1) 5px, transparent 5px) 0 5px,
-    linear-gradient(207deg, var(--theme-pattern-1) 5px, transparent 5px) 10px 0px,
-    linear-gradient(27deg, var(--theme-pattern-2) 5px, transparent 5px) 0px 10px,
-    linear-gradient(207deg, var(--theme-pattern-2) 5px, transparent 5px) 10px 5px,
-    linear-gradient(90deg, var(--theme-pattern-3) 10px, transparent 10px),
+  background: linear-gradient(27deg, var(--theme-pattern-primary) 5px, transparent 0) 0 5px,
+    linear-gradient(207deg, var(--theme-pattern-primary) 5px, transparent 0) 10px 0,
+    linear-gradient(27deg, var(--theme-pattern-secondary) 5px, transparent 0) 0 10px,
+    linear-gradient(207deg, var(--theme-pattern-secondary) 5px, transparent 0) 10px 5px,
+    linear-gradient(90deg, var(--theme-pattern-bar) 10px, transparent 0),
     linear-gradient(
-      color-mix(in srgb, var(--theme-pattern-base) 86%, var(--theme-pattern-1) 14%) 25%,
-      color-mix(in srgb, var(--theme-pattern-base) 78%, var(--theme-pattern-2) 22%) 25%,
-      color-mix(in srgb, var(--theme-pattern-base) 78%, var(--theme-pattern-2) 22%) 50%,
-      transparent 50%,
+      var(--theme-pattern-stripe-start) 25%,
+      var(--theme-pattern-stripe-mid) 0,
+      var(--theme-pattern-stripe-mid) 50%,
+      transparent 0,
       transparent 75%,
-      var(--theme-pattern-4) 75%,
-      var(--theme-pattern-4)
+      var(--theme-pattern-stripe-end) 0,
+      var(--theme-pattern-stripe-end)
     );
-  background-color: var(--theme-pattern-base);
+  background-color: var(--theme-pattern-background);
   background-size: 20px 20px;
 }
 

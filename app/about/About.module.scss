@@ -164,6 +164,15 @@
 .timeline_image_container {
   max-width: 800px;
   margin: 1rem auto 0;
+  background-color: var(--color-media-frame-bg);
+  box-shadow: var(--color-media-frame-shadow);
+
+  :global(.snap-img-thumbnail) {
+    background-color: var(--color-media-frame-bg);
+    border-color: var(--color-media-frame-border);
+    box-shadow: none;
+    margin-bottom: 0;
+  }
 }
 
 .pull_quote {
