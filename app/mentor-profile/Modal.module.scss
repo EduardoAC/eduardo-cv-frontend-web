@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.7);
+  background: var(--color-overlay);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,13 +12,14 @@
 }
 
 .modal {
-  background: #232526;
+  background: var(--color-surface-elevated);
   border-radius: 16px;
-  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.25);
+  box-shadow: var(--shadow-strong);
   padding: 1px;
   width: 476px;
   overflow-y: auto;
   position: relative;
+  border: 1px solid var(--color-border-subtle);
 }
 
 .close {
@@ -27,7 +28,7 @@
   right: 1rem;
   background: none;
   border: none;
-  color: #fff;
+  color: var(--color-text-primary);
   font-size: 2rem;
   cursor: pointer;
   z-index: 1;

@@ -1,0 +1,204 @@
+/* =======================
+   Site Palette
+======================= */
+:root,
+.snap-components-theme,
+.light,
+.light-theme,
+.snap-components-theme.light-theme,
+.snap-components-theme[data-theme="light"] {
+  --site-page-background: #f3f5f7;
+  --site-page-background-alt: #eceff4;
+  --site-background-header: rgba(239, 242, 246, 0.95);
+  --site-background-footer: #e8ecf1;
+  --site-surface: #ffffff;
+  --site-surface-elevated: #fbfcfe;
+  --site-surface-blog-archive: #fbfcfe;
+  --site-surface-subtle: rgba(15, 23, 42, 0.03);
+  --site-surface-subtle-strong: rgba(15, 23, 42, 0.06);
+  --site-surface-hero: rgba(255, 255, 255, 0.76);
+  --site-surface-inverse: #0f172a;
+  --site-text-primary: #18202b;
+  --site-text-heading: #0f172a;
+  --site-text-emphasis: #0f172a;
+  --site-text-secondary: #334155;
+  --site-text-muted: #64748b;
+  --site-text-inverse: #f8fafc;
+  --site-border-primary: rgba(15, 23, 42, 0.14);
+  --site-border-subtle: rgba(15, 23, 42, 0.08);
+  --site-border-strong: rgba(15, 23, 42, 0.2);
+  --site-border-footer-top: rgba(15, 23, 42, 0.12);
+  --site-accent: #1d4ed8;
+  --site-accent-rgb: 29, 78, 216;
+  --site-accent-hover: #1e40af;
+  --site-accent-contrast: #ffffff;
+  --site-link: #1f2933;
+  --site-link-hover: #0f172a;
+  --site-focus-ring: rgba(15, 23, 42, 0.24);
+  --site-success: #047857;
+  --site-success-bg: #ecfdf5;
+  --site-success-border: rgba(4, 120, 87, 0.22);
+  --site-warning: #b45309;
+  --site-warning-bg: #fffbeb;
+  --site-warning-border: rgba(180, 83, 9, 0.22);
+  --site-error: #b91c1c;
+  --site-error-bg: #fef2f2;
+  --site-error-border: rgba(185, 28, 28, 0.18);
+  --site-code-bg: #f5f7fa;
+  --site-code-header-bg: #edf2f7;
+  --site-inline-code-bg: #eef2f6;
+  --site-inline-code-text: #9a4d00;
+  --site-blockquote-bg: rgba(15, 23, 42, 0.03);
+  --site-blockquote-border: #8d96a0;
+  --site-toc-bg: rgba(255, 255, 255, 0.82);
+  --site-overlay: rgba(15, 23, 42, 0.48);
+  --site-shadow-soft: 0 14px 32px -24px rgba(15, 23, 42, 0.24);
+  --site-shadow-medium: 0 20px 44px -30px rgba(15, 23, 42, 0.22);
+  --site-shadow-strong: 0 28px 56px -34px rgba(15, 23, 42, 0.28);
+  --site-pattern-template:
+    linear-gradient(27deg, #d8dee7 5px, transparent 0) 0 5px,
+    linear-gradient(207deg, #d8dee7 5px, transparent 0) 10px 0,
+    linear-gradient(27deg, #c8d0db 5px, transparent 0) 0 10px,
+    linear-gradient(207deg, #c8d0db 5px, transparent 0) 10px 5px,
+    linear-gradient(90deg, #bcc5d1 10px, transparent 0),
+    linear-gradient(#eef2f6 25%, #e2e8ef 0, #e2e8ef 50%, transparent 0, transparent 75%, #d1d8e0 0, #d1d8e0);
+  --site-pattern-background: #eef2f6;
+  --site-hero-overlay: rgba(255, 255, 255, 0.62);
+  --site-hero-panel: rgba(255, 255, 255, 0.76);
+  --site-media-frame-bg: #fdfefe;
+  --site-media-frame-border: rgba(15, 23, 42, 0.14);
+  --site-media-frame-shadow: 0 20px 44px -30px rgba(15, 23, 42, 0.26);
+}
+
+.dark,
+.dark-theme,
+.snap-components-theme.dark-theme,
+.snap-components-theme[data-theme="dark"] {
+  --site-page-background: #303030;
+  --site-page-background-alt: #25282d;
+  --site-background-header: #212121;
+  --site-background-footer: #111111;
+  --site-surface: #21252b;
+  --site-surface-elevated: #272d35;
+  --site-surface-blog-archive: #181a1b;
+  --site-surface-subtle: rgba(255, 255, 255, 0.03);
+  --site-surface-subtle-strong: rgba(255, 255, 255, 0.08);
+  --site-surface-hero: rgba(11, 15, 24, 0.6);
+  --site-surface-inverse: #f8fafc;
+  --site-text-primary: #cccccc;
+  --site-text-heading: #e5e7eb;
+  --site-text-emphasis: #ffffff;
+  --site-text-secondary: #b9bec6;
+  --site-text-muted: #949aa4;
+  --site-text-inverse: #111827;
+  --site-border-primary: rgba(255, 255, 255, 0.14);
+  --site-border-subtle: rgba(255, 255, 255, 0.08);
+  --site-border-strong: rgba(255, 255, 255, 0.22);
+  --site-border-footer-top: rgba(255, 255, 255, 0.12);
+  --site-accent: #3b82f6;
+  --site-accent-rgb: 59, 130, 246;
+  --site-accent-hover: #60a5fa;
+  --site-accent-contrast: #ffffff;
+  --site-link: #d5d9de;
+  --site-link-hover: #f3f4f6;
+  --site-focus-ring: rgba(255, 255, 255, 0.28);
+  --site-success: #6ee7b7;
+  --site-success-bg: rgba(16, 185, 129, 0.16);
+  --site-success-border: rgba(16, 185, 129, 0.32);
+  --site-warning: #fbbf24;
+  --site-warning-bg: rgba(245, 158, 11, 0.16);
+  --site-warning-border: rgba(245, 158, 11, 0.3);
+  --site-error: #fca5a5;
+  --site-error-bg: rgba(239, 68, 68, 0.16);
+  --site-error-border: rgba(248, 113, 113, 0.28);
+  --site-code-bg: #171b21;
+  --site-code-header-bg: #1f2530;
+  --site-inline-code-bg: #202733;
+  --site-inline-code-text: #fbbf24;
+  --site-blockquote-bg: rgba(255, 255, 255, 0.04);
+  --site-blockquote-border: #555555;
+  --site-toc-bg: rgba(255, 255, 255, 0.04);
+  --site-overlay: rgba(0, 0, 0, 0.62);
+  --site-shadow-soft: 0 14px 32px -24px rgba(0, 0, 0, 0.45);
+  --site-shadow-medium: 0 20px 44px -30px rgba(0, 0, 0, 0.5);
+  --site-shadow-strong: 0 28px 56px -34px rgba(0, 0, 0, 0.58);
+  --site-pattern-template:
+    linear-gradient(27deg, #151515 5px, transparent 0) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 0) 10px 0,
+    linear-gradient(27deg, #222222 5px, transparent 0) 0 10px,
+    linear-gradient(207deg, #222222 5px, transparent 0) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 0),
+    linear-gradient(#1d1d1d 25%, #1a1a1a 0, #1a1a1a 50%, transparent 0, transparent 75%, #242424 0, #242424);
+  --site-pattern-background: #131313;
+  --site-hero-overlay: rgba(0, 0, 0, 0.4);
+  --site-hero-panel: rgba(14, 18, 26, 0.74);
+  --site-media-frame-bg: #f8fafc;
+  --site-media-frame-border: rgba(226, 232, 240, 0.72);
+  --site-media-frame-shadow: 0 20px 44px -30px rgba(0, 0, 0, 0.62);
+}
+
+@media (prefers-color-scheme: dark) {
+  .snap-components-theme:not([data-theme="light"]):not(.light-theme) {
+    --site-page-background: #303030;
+    --site-page-background-alt: #25282d;
+    --site-background-header: #212121;
+    --site-background-footer: #111111;
+    --site-surface: #21252b;
+    --site-surface-elevated: #272d35;
+    --site-surface-blog-archive: #181a1b;
+    --site-surface-subtle: rgba(255, 255, 255, 0.03);
+    --site-surface-subtle-strong: rgba(255, 255, 255, 0.08);
+    --site-surface-hero: rgba(11, 15, 24, 0.6);
+    --site-surface-inverse: #f8fafc;
+    --site-text-primary: #cccccc;
+    --site-text-heading: #e5e7eb;
+    --site-text-emphasis: #ffffff;
+    --site-text-secondary: #b9bec6;
+    --site-text-muted: #949aa4;
+    --site-text-inverse: #111827;
+    --site-border-primary: rgba(255, 255, 255, 0.14);
+    --site-border-subtle: rgba(255, 255, 255, 0.08);
+    --site-border-strong: rgba(255, 255, 255, 0.22);
+    --site-border-footer-top: rgba(255, 255, 255, 0.12);
+    --site-accent: #3b82f6;
+    --site-accent-rgb: 59, 130, 246;
+    --site-accent-hover: #60a5fa;
+    --site-accent-contrast: #ffffff;
+    --site-link: #d5d9de;
+    --site-link-hover: #f3f4f6;
+    --site-focus-ring: rgba(255, 255, 255, 0.28);
+    --site-success: #6ee7b7;
+    --site-success-bg: rgba(16, 185, 129, 0.16);
+    --site-success-border: rgba(16, 185, 129, 0.32);
+    --site-warning: #fbbf24;
+    --site-warning-bg: rgba(245, 158, 11, 0.16);
+    --site-warning-border: rgba(245, 158, 11, 0.3);
+    --site-error: #fca5a5;
+    --site-error-bg: rgba(239, 68, 68, 0.16);
+    --site-error-border: rgba(248, 113, 113, 0.28);
+    --site-code-bg: #171b21;
+    --site-code-header-bg: #1f2530;
+    --site-inline-code-bg: #202733;
+    --site-inline-code-text: #fbbf24;
+    --site-blockquote-bg: rgba(255, 255, 255, 0.04);
+    --site-blockquote-border: #555555;
+    --site-toc-bg: rgba(255, 255, 255, 0.04);
+    --site-overlay: rgba(0, 0, 0, 0.62);
+    --site-shadow-soft: 0 14px 32px -24px rgba(0, 0, 0, 0.45);
+    --site-shadow-medium: 0 20px 44px -30px rgba(0, 0, 0, 0.5);
+    --site-shadow-strong: 0 28px 56px -34px rgba(0, 0, 0, 0.58);
+    --site-pattern-template:
+      linear-gradient(27deg, #151515 5px, transparent 0) 0 5px,
+      linear-gradient(207deg, #151515 5px, transparent 0) 10px 0,
+      linear-gradient(27deg, #222222 5px, transparent 0) 0 10px,
+      linear-gradient(207deg, #222222 5px, transparent 0) 10px 5px,
+      linear-gradient(90deg, #1b1b1b 10px, transparent 0),
+      linear-gradient(#1d1d1d 25%, #1a1a1a 0, #1a1a1a 50%, transparent 0, transparent 75%, #242424 0, #242424);
+    --site-pattern-background: #131313;
+    --site-hero-overlay: rgba(0, 0, 0, 0.4);
+    --site-hero-panel: rgba(14, 18, 26, 0.74);
+    --site-media-frame-bg: #f8fafc;
+    --site-media-frame-border: rgba(226, 232, 240, 0.72);
+    --site-media-frame-shadow: 0 20px 44px -30px rgba(0, 0, 0, 0.62);
+  }
+}

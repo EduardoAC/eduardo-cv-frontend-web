@@ -1,28 +1,21 @@
 /* --- Components: Tag --- */
 .snap-tag {
   display: inline-block;
-  background: var(--snap-tag-bg, #f3f4f6);
-  color: var(--snap-tag-color, #fff);
+  background: var(--snap-tag-bg, var(--color-surface-subtle));
+  color: var(--snap-tag-color, var(--color-text-secondary));
+  border: 1px solid var(--snap-tag-border, var(--color-border-subtle));
   font-size: 0.875rem;
   padding: var(--spacing-xs) var(--spacing-md);
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 600;
   margin-right: 0.25em;
   margin-bottom: 0.25em;
   line-height: 1.5;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .snap-tag:hover {
-  background: var(--snap-tag-bg-hover, #e5e7eb);
-  color: var(--snap-tag-color-hover, #111827);
+  background: var(--snap-tag-bg-hover, var(--color-surface-subtle-strong));
+  color: var(--snap-tag-color-hover, var(--color-text-primary));
+  border-color: var(--snap-tag-border-hover, var(--color-border-primary));
 }
-
-@media (prefers-color-scheme: dark) {
-  .snap-tag {
-    --snap-tag-bg: #23272b;
-    --snap-tag-color: #f3f4f6;
-    --snap-tag-bg-hover: #181a1b;
-    --snap-tag-color-hover: #fff;
-  }
-} 

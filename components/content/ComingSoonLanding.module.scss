@@ -115,19 +115,19 @@
 .primaryAction {
   border-color: var(--coming-soon-accent);
   background-color: var(--coming-soon-accent);
-  color: #fff;
+  color: var(--color-accent-contrast);
 }
 
 .primaryAction:hover {
   border-color: rgba(var(--coming-soon-accent-rgb), 0.88);
   background-color: rgba(var(--coming-soon-accent-rgb), 0.88);
-  color: #fff;
+  color: var(--color-accent-contrast);
 }
 
 .secondaryAction {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--color-border-primary);
   color: var(--color-text-primary);
-  background: rgba(0, 0, 0, 0.18);
+  background: var(--color-surface-subtle);
 }
 
 .secondaryAction:hover {
@@ -143,10 +143,10 @@
 
 .imageFrame {
   padding: 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-border-subtle);
   border-radius: 0.35rem;
-  background: rgba(7, 8, 10, 0.72);
-  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.24);
+  background: var(--color-surface-elevated);
+  box-shadow: var(--shadow-medium);
 }
 
 .image {

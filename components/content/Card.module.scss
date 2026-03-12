@@ -9,20 +9,20 @@
 
 // Card variants
 .card--default {
-  background-color: #ffffff;
-  border: 1px solid #e1e5e9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-soft);
 }
 
 .card--elevated {
-  background-color: #ffffff;
+  background-color: var(--color-surface-elevated);
   border: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-medium);
 }
 
 .card--outlined {
   background-color: transparent;
-  border: 2px solid #e1e5e9;
+  border: 2px solid var(--color-border-primary);
   box-shadow: none;
 }
 
@@ -38,11 +38,11 @@
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-medium);
   }
   
   &:focus {
-    outline: 2px solid #007bff;
+    outline: 2px solid var(--color-focus-ring);
     outline-offset: 2px;
   }
 }

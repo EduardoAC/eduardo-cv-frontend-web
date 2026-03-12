@@ -4,6 +4,13 @@ import { GoogleAnalytics } from '../components/layout/GoogleAnalytics'
 import { Navbar } from '../components/layout/navbar'
 import { Footer } from '../components/layout/Footer'
 import ServiceWorkerRegistration from '../components/layout/ServiceWorkerRegistration'
+import {
+  DARK_THEME_COLOR,
+  LIGHT_THEME_COLOR,
+  THEME_ATTRIBUTE,
+  THEME_INIT_SCRIPT_SRC,
+  THEME_STORAGE_KEY,
+} from '../lib/theme'
 import '../styles/snap-components/snap-components-optimized.css'
 import '../styles/main.scss'
 import './components.scss'
@@ -26,6 +33,10 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: DARK_THEME_COLOR },
+    { media: '(prefers-color-scheme: light)', color: LIGHT_THEME_COLOR },
+  ],
 }
 
 export default function RootLayout({
@@ -34,8 +45,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} snap-components-theme dark-theme`}>
+    <html
+      lang="en"
+      className="snap-components-theme"
+      data-theme-attribute={THEME_ATTRIBUTE}
+      data-theme-color-dark={DARK_THEME_COLOR}
+      data-theme-color-light={LIGHT_THEME_COLOR}
+      data-theme-storage-key={THEME_STORAGE_KEY}
+      suppressHydrationWarning
+    >
+      <head>
+        <link rel="preload" href={THEME_INIT_SCRIPT_SRC} as="script" />
+        {/* Theme overrides must run before hydration to avoid flashing an explicit user preference. */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src={THEME_INIT_SCRIPT_SRC}></script>
+      </head>
+      <body className={inter.className}>
         <Navbar />
         <div className="wrap">{children}</div>
         <Footer />

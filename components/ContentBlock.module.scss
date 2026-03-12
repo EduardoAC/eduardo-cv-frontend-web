@@ -12,7 +12,7 @@
   h2 {
     text-align: center;
     margin: 10px 0 10px 0;
-    color: var(--color-text-secondary);
+    color: var(--color-text-heading);
   }
 
   p {
@@ -82,12 +82,12 @@
 
     .profile_block_picture {
       width: 100%;
-      background-color: #fff;
+      background-color: var(--color-surface);
       padding: 0;
       border-radius: 12px;
       margin-bottom: 15px;
       display: block;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: var(--shadow-soft);
 
       /* This ensures the Next.js Image component inside gets rounded corners too */
       :global(img) {
@@ -126,17 +126,18 @@
         display: inline-block;
         padding: 5px 9px;
         margin-right: 8px;
-        color: #fff;
+        color: var(--color-accent-contrast);
         font-weight: bold;
         border-radius: 4px;
         font-size: 0.9rem;
 
         &:first-child {
-          background-color: #008c99;
+          background-color: var(--color-accent);
         }
 
         &:last-child {
-          background-color: #6c757d;
+          background-color: var(--color-surface-subtle-strong);
+          color: var(--color-text-primary);
         }
       }
     }
@@ -147,7 +148,7 @@
       left: 5px;
       width: 16px;
       height: 16px;
-      background-color: #fff;
+      background-color: var(--color-surface);
       border-radius: 50%;
       transform: translateX(-50%);
       z-index: 1;
@@ -162,12 +163,12 @@
     .logo_container {
       width: 60px;
       height: 60px;
-      background-color: #fff;
+      background-color: var(--color-surface);
       border-radius: 5px;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 3px solid #f0f0f0;
+      border: 3px solid var(--color-border-primary);
       float: left;
       margin-right: 15px;
       margin-bottom: 5px;
@@ -185,7 +186,7 @@
       flex: 1;
 
       h4 {
-        color: #f0f0f0;
+        color: var(--color-text-primary);
         font-size: 1.6rem;
         margin-top: 0;
         margin-bottom: 0.25rem;

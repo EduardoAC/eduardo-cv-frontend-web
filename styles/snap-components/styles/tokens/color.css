@@ -1,19 +1,77 @@
 @import "./colors/index.css";
 
 :where(.snap-components-theme) {
-  --color-background: var(--charcoal-1);
-  --color-background-header: var(--charcoal-2);
-  --color-background-footer: var(--charcoal-3);
-  --color-text-primary: var(--charcoal-13);
-  --color-text-secondary: var(--charcoal-8);
-  --color-border-footer-top: var(--charcoal-10);
+  color-scheme: light;
+  --color-page-background: var(--site-page-background);
+  --color-page-background-alt: var(--site-page-background-alt);
+  --color-background: var(--color-page-background);
+  --color-background-header: var(--site-background-header);
+  --color-background-footer: var(--site-background-footer);
+  --color-surface: var(--site-surface);
+  --color-surface-elevated: var(--site-surface-elevated);
+  --color-surface-blog-archive: var(--site-surface-blog-archive);
+  --color-surface-subtle: var(--site-surface-subtle);
+  --color-surface-subtle-strong: var(--site-surface-subtle-strong);
+  --color-surface-hero: var(--site-surface-hero);
+  --color-surface-inverse: var(--site-surface-inverse);
+  --color-text-primary: var(--site-text-primary);
+  --color-text-heading: var(--site-text-heading);
+  --color-text-emphasis: var(--site-text-emphasis);
+  --color-text-secondary: var(--site-text-secondary);
+  --color-text-muted: var(--site-text-muted);
+  --color-text-inverse: var(--site-text-inverse);
+  --color-border-primary: var(--site-border-primary);
+  --color-border-subtle: var(--site-border-subtle);
+  --color-border-strong: var(--site-border-strong);
+  --color-border-footer-top: var(--site-border-footer-top);
+  --color-accent: var(--site-accent);
+  --color-accent-rgb: var(--site-accent-rgb);
+  --color-accent-hover: var(--site-accent-hover);
+  --color-accent-contrast: var(--site-accent-contrast);
+  --color-link: var(--site-link);
+  --color-link-hover: var(--site-link-hover);
+  --color-focus-ring: var(--site-focus-ring);
+  --color-success: var(--site-success);
+  --color-success-bg: var(--site-success-bg);
+  --color-success-border: var(--site-success-border);
+  --color-warning: var(--site-warning);
+  --color-warning-bg: var(--site-warning-bg);
+  --color-warning-border: var(--site-warning-border);
+  --color-error: var(--site-error);
+  --color-error-bg: var(--site-error-bg);
+  --color-error-border: var(--site-error-border);
+  --color-code-bg: var(--site-code-bg);
+  --color-code-header-bg: var(--site-code-header-bg);
+  --color-inline-code-bg: var(--site-inline-code-bg);
+  --color-inline-code-text: var(--site-inline-code-text);
+  --color-blockquote-bg: var(--site-blockquote-bg);
+  --color-blockquote-border: var(--site-blockquote-border);
+  --color-toc-bg: var(--site-toc-bg);
+  --color-overlay: var(--site-overlay);
+  --color-media-frame-bg: var(--site-media-frame-bg);
+  --color-media-frame-border: var(--site-media-frame-border);
+  --color-media-frame-shadow: var(--site-media-frame-shadow);
+  --shadow-soft: var(--site-shadow-soft);
+  --shadow-medium: var(--site-shadow-medium);
+  --shadow-strong: var(--site-shadow-strong);
+  --theme-pattern-template: var(--site-pattern-template);
+  --theme-pattern-background: var(--site-pattern-background);
+  --theme-hero-overlay: var(--site-hero-overlay);
+  --theme-hero-panel: var(--site-hero-panel);
 }
-:is(.dark, .dark-theme),
-:is(.dark, .dark-theme) :where(.snap-components-theme:not(.light, .light-theme)) {
-  --color-background: var(--charcoal-5);
-  --color-background-header: var(--charcoal-3);
-  --color-background-footer: var(--charcoal-1);
-  --color-text-primary: var(--charcoal-13);
-  --color-text-secondary: var(--charcoal-12);
-  --color-border-footer-top: var(--charcoal-2);
+
+@media (prefers-color-scheme: dark) {
+  :where(.snap-components-theme):not([data-theme="light"]):not(.light-theme) {
+    color-scheme: dark;
+  }
+}
+
+:where(.snap-components-theme[data-theme="light"]),
+:where(.snap-components-theme.light-theme) {
+  color-scheme: light;
+}
+
+:where(.snap-components-theme[data-theme="dark"]),
+:where(.snap-components-theme.dark-theme) {
+  color-scheme: dark;
 }

@@ -14,15 +14,16 @@ html {
 }
 
 body {
-  background-color: var(--color-background);
+  background:
+    linear-gradient(180deg, var(--color-page-background), var(--color-page-background-alt));
   color: var(--color-text-primary);
-  background-size: 20px 20px !important;
+  background-size: auto !important;
   text-align: justify;
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--color-text-primary);
+  color: var(--color-text-heading);
   margin-bottom: 0.75rem;
 }
 
@@ -98,7 +99,10 @@ a {
   font-weight: var(--font-weight-regular);
   letter-spacing: var(--letter-spacing-normal);
   font-family: var(--font-content);
-  color: var(--color-text-secondary);
+  color: var(--color-link);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
 }
 
 ul li, ol li {
@@ -110,7 +114,7 @@ ul li, ol li {
   color: var(--color-text-secondary);
 }
 a:hover {
-  color: var(--color-text-primary);
+  color: var(--color-link-hover);
 }
 
 .wrap {
@@ -129,6 +133,7 @@ a:hover {
 }
 
 .footer hr {
+  border: none;
   border-top: 3px solid var(--color-border-footer-top);
 }
 
@@ -149,6 +154,7 @@ a:hover {
 /* Profile link styles */
 .profile-link {
   text-decoration: none;
+  color: inherit;
 }
 
 /* Image responsive styles */

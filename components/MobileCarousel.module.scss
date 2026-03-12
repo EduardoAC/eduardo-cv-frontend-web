@@ -12,7 +12,7 @@
     right: 10px;
     width: 20px;
     height: 20px;
-    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1));
+    background: linear-gradient(90deg, transparent, rgba(var(--color-accent-rgb), 0.14));
     border-radius: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -40,8 +40,8 @@
   display: inline-flex;
   width: 2rem;
   height: 2rem;
-  background: var(--snap-card-bg, #181a1b);
-  color: var(--color-text-primary, #fff);
+  background: var(--color-surface-elevated);
+  color: var(--color-text-primary);
   text-decoration: none;
   align-items: center;
   justify-content: center;
@@ -54,23 +54,24 @@
   border: 2px solid transparent;
   
   &:hover {
-    background: #007bff;
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
   }
 
   &:active {
-    background: #007bff;
+    background: var(--color-accent);
   }
   
   &:focus {
     outline: none;
-    background: #007bff;
-    color: white;
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
   }
   
   // Active state when this dot's target slide is in view
   &:focus-visible {
-    background: #007bff;
-    color: white;
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
   }
 }
 
@@ -88,7 +89,7 @@
   }
   
   &::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--color-border-primary);
     border-radius: 10px;
   }
   
