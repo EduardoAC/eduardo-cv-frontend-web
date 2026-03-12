@@ -27,7 +27,7 @@
 
   &:hover {
     background: var(--color-surface-subtle-strong);
-    color: var(--color-text-primary);
+    color: var(--color-text-emphasis);
   }
 
   &:focus-visible {
@@ -38,7 +38,7 @@
 
 .themeOptionActive {
   background: var(--color-surface-elevated);
-  color: var(--color-text-primary);
+  color: var(--color-text-emphasis);
   box-shadow: var(--shadow-soft);
 }
 

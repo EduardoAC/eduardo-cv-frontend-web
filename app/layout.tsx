@@ -4,7 +4,7 @@ import { GoogleAnalytics } from '../components/layout/GoogleAnalytics'
 import { Navbar } from '../components/layout/navbar'
 import { Footer } from '../components/layout/Footer'
 import ServiceWorkerRegistration from '../components/layout/ServiceWorkerRegistration'
-import { DARK_THEME_COLOR, LIGHT_THEME_COLOR, THEME_BOOTSTRAP_SCRIPT } from '../lib/theme'
+import { DARK_THEME_COLOR, LIGHT_THEME_COLOR, THEME_OVERRIDE_SCRIPT } from '../lib/theme'
 import '../styles/snap-components/snap-components-optimized.css'
 import '../styles/main.scss'
 import './components.scss'
@@ -41,8 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="snap-components-theme" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content={DARK_THEME_COLOR} />
-        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: THEME_OVERRIDE_SCRIPT }} />
       </head>
       <body className={inter.className}>
         <Navbar />

@@ -22,7 +22,7 @@
 .navbarBrand {
   text-decoration: none;
   font-size: var(--font-size-body2);
-  color: var(--color-text-primary);
+  color: var(--color-text-emphasis);
 
   &:hover {
     text-decoration: none;
@@ -102,7 +102,7 @@
   display: block;
   width: 22px;
   height: 2px;
-  background-color: var(--color-text-primary);
+  background-color: var(--color-text-emphasis);
   border-radius: 1px;
   transition: all 0.3s;
 }
@@ -160,7 +160,7 @@
 }
 
 .mobileSidebarHeader:hover {
-  color: var(--color-text-primary);
+  color: var(--color-text-emphasis);
 }
 
 .closeIcon {
@@ -191,7 +191,7 @@
 
 .mobileSidebar .navLink:hover {
   background-color: var(--color-surface-subtle-strong);
-  color: var(--color-text-primary);
+  color: var(--color-text-emphasis);
 }
 
 .mobileThemeSection {

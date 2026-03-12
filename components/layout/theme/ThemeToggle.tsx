@@ -27,11 +27,6 @@ const getStoredThemePreference = (): ThemePreference => {
     return DEFAULT_THEME_PREFERENCE
   }
 
-  const storedPreference = window.localStorage.getItem(THEME_STORAGE_KEY)
-  if (storedPreference === 'system' || storedPreference === 'dark' || storedPreference === 'light') {
-    return storedPreference
-  }
-
   return readThemePreference()
 }
 
@@ -61,10 +56,9 @@ export function ThemeToggle({ className = '' }: Readonly<ThemeToggleProps>) {
         return
       }
 
-      const nextPreference =
-        event.newValue === 'system' || event.newValue === 'dark' || event.newValue === 'light'
-          ? event.newValue
-          : DEFAULT_THEME_PREFERENCE
+      const nextPreference = event.newValue === 'dark' || event.newValue === 'light'
+        ? event.newValue
+        : DEFAULT_THEME_PREFERENCE
 
       setPreference(nextPreference)
       setResolvedTheme(applyThemePreference(nextPreference))
