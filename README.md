@@ -1,236 +1,180 @@
-# Eduardo Aparicio Cardenes - Interactive CV
+# Eduardo Aparicio Cardenes Interactive CV
 
-> **Software Architect & Full-Stack Developer** | Building modern web experiences with cutting-edge technologies
+This repository powers [eduardo-aparicio-cardenes.website](https://eduardo-aparicio-cardenes.website/), Eduardo Aparicio Cardenes' personal website and interactive CV. It brings together profile content, long-form writing, project storytelling, career history, and performance-aware frontend engineering in one maintainable Next.js application.
 
-## 📋 Project Status
+## Repository At A Glance
 
-🔄 **Work in Progress** - This project has successfully migrated from PHP/Yii2 (2014) to Next.js 14 (2024) and is currently under active development. The migration is complete, but ongoing improvements and new features are being added.
+| Area | Detail |
+| --- | --- |
+| Live site | [eduardo-aparicio-cardenes.website](https://eduardo-aparicio-cardenes.website/) |
+| Runtime | Node.js `24.12.0`, Next.js `16`, React `19`, TypeScript |
+| Content source | Markdown posts in `content/posts/` |
+| Build output | Static export in `dist/` |
+| Deployment | Cloudflare Pages, plus a Cloudflare Worker for newsletter subscriptions |
 
-### Current Development Phase
-- ✅ **Migration Complete**: Successfully migrated from PHP/Yii2 to Next.js 14
-- 🔄 **Post-Migration Development**: Adding new features and improvements
-- 🚧 **Active Development**: Regular updates and enhancements
-- 📈 **Performance Optimisation**: Continuous performance improvements
+## Live Site
 
-## 👨‍💻 About Me
+Production URL: [https://eduardo-aparicio-cardenes.website/](https://eduardo-aparicio-cardenes.website/)
 
-Hi! I'm **Eduardo Aparicio Cardenes**, a passionate Software Architect with extensive experience in both Frontend and Backend development. This repository showcases my interactive CV website, demonstrating my technical skills, professional journey, and commitment to modern web development practices.
+## Why This Project Exists
 
-### 🎯 What I Do
-- **Software Architecture**: Design scalable, maintainable systems
-- **Frontend Development**: React, Next.js, TypeScript, modern CSS
-- **Backend Development**: API design, database optimisation, server-side logic
-- **Performance Optimisation**: Core Web Vitals, Lighthouse optimisation, bundle analysis
-- **DevOps & Testing**: CI/CD, visual regression testing, automated quality assurance
+This site is not meant to be a flat portfolio brochure. It is a working personal platform that combines professional profile, technical writing, project context, and career narrative in one place.
 
-## 🚀 Project Overview
+The goal is twofold:
 
-This is my **interactive CV website** - a modern, performant web application built with Next.js that showcases my professional experience, technical skills, and projects. The site serves as both a portfolio and a demonstration of my development capabilities.
+- Give recruiters, collaborators, and clients a clearer view of Eduardo as an engineer, mentor, writer, and builder.
+- Keep the site maintainable as a product, with reusable routes, structured content, static delivery, and explicit quality checks around build output.
 
-### ✨ Key Features
-- **Responsive Design**: Optimised for all devices and screen sizes
-- **Performance Optimised**: 95-100% Lighthouse performance scores
-- **Modern Tech Stack**: Next.js 14, React 18, TypeScript, Sass
-- **Visual Regression Testing**: Automated UI consistency checks
-- **SEO Optimised**: Semantic HTML, meta tags, structured data
-- **Accessibility**: WCAG compliant, keyboard navigation, screen reader support
+## Core Areas Of The Site
 
-## 🛠️ Technology Stack
+- **Profile and interactive CV**: the homepage, about page, role-specific profile routes, and mentor profile present Eduardo's background from multiple angles.
+- **Blog**: statically generated articles, archive pagination, topic archives, and a newsletter sign-up surface technical writing and engineering thinking.
+- **Projects**: `/my-projects` groups projects, hackathons, and ideas into a browsable archive.
+- **Experience**: `/my-experience` turns career history into a timeline rather than a short CV summary.
+- **Contact and discoverability**: the contact page, sitemap, robots rules, metadata, manifest, and internal linking help people find the right route quickly.
 
-### Core Technologies
-- **Framework**: Next.js 14 (React 18)
-- **Language**: TypeScript
-- **Styling**: Sass/SCSS with CSS Modules
-- **Build Tool**: Next.js built-in bundler
-- **Package Manager**: npm
+## Tech Stack
 
-### Development Tools
-- **Linting**: ESLint with Next.js configuration
-- **Testing**: Playwright for visual regression testing
-- **Performance**: Lighthouse CI, bundle analysis
-- **Visual Testing**: Lost Pixel for UI consistency
-- **Image Optimisation**: Sharp for WebP conversion and optimisation
+| Area | Implementation |
+| --- | --- |
+| Framework | Next.js App Router with static export |
+| Language | TypeScript |
+| UI styling | Sass, CSS Modules, shared `styles/snap-components` styles |
+| Content pipeline | Markdown posts with `gray-matter`, `marked`, and `PrismJS` |
+| Image pipeline | `sharp` generates responsive blog image variants in WebP |
+| Analytics and monitoring | Google Analytics, Sentry |
+| Quality tooling | ESLint, TypeScript type generation, Lost Pixel, Playwright |
+| Deployment | Cloudflare Pages for the static site, Cloudflare Worker plus Wrangler for newsletter subscriptions |
+| Email integration | Resend, behind the subscription worker |
 
-### Performance & Quality
-- **Bundle Analysis**: Next.js bundle analyser
-- **Performance Monitoring**: Lighthouse audits
-- **Visual Regression**: Automated screenshot comparison
-- **Code Quality**: TypeScript strict mode, ESLint rules
-
-## 📊 Migration Accomplishments
-
-### 🎯 Performance Excellence
-- **Lighthouse Performance**: 95-100% scores across all pages
-- **Core Web Vitals**: All metrics in "Good" range
-- **Bundle Optimisation**: Analysed and optimised JavaScript bundles
-- **Image Optimisation**: 96% reduction in contact page SVG (1.2MB → 45KB)
-
-### 🏗️ Architecture Improvements
-- **Component Unification**: Replaced snap-components with custom React components
-- **Code Consolidation**: Eliminated duplication across profile pages
-- **Maintainability**: Unified Container and Card components
-- **Type Safety**: Full TypeScript implementation
-
-### 🧪 Quality Assurance
-- **Visual Regression Testing**: Automated UI consistency checks
-- **Cross-browser Compatibility**: Tested across all major browsers
-- **Responsive Design**: Optimised for mobile, tablet, and desktop
-- **Accessibility**: WCAG 2.1 AA compliance
-
-### 🔧 Development Experience
-- **Modern Tooling**: Next.js 14, React 18, TypeScript
-- **Hot Reloading**: Fast development iteration
-- **Build Optimisation**: Efficient production builds
-- **Code Quality**: ESLint, TypeScript strict mode
-
-## 🚀 Quick Start
+## Local Development
 
 ### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
 
-### Installation & Development
+- Node.js `24.12.0`, as defined in [`.nvmrc`](./.nvmrc)
+- `npm`
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/EduardoAC/eduardo-cv-frontend-web.git
-   cd eduardo-cv-frontend-web
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Install Playwright browsers** (for visual testing):
-   ```bash
-   npx playwright install
-   ```
-
-4. **Start development server**:
-   ```bash
-   npm run dev
-   ```
-
-5. **Open your browser** and visit [http://localhost:3000](http://localhost:3000)
-
-### Available Scripts
+### Install And Run
 
 ```bash
-# Development
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-
-# Performance & Testing
-npm run analyse      # Analyse bundle size
-npm run lighthouse   # Run Lighthouse performance audit
-npm run lost-pixel   # Run visual regression tests
-npm run lost-pixel:update  # Update visual test baselines
-```
-
-## 🎨 Visual Regression Testing
-
-This project uses [Lost Pixel](https://lost-pixel.com/) for automated visual regression testing, ensuring UI consistency across changes.
-
-### Running Visual Tests
-```bash
-# Start the development server first
+nvm use 24.12.0
+npm ci
 npm run dev
-
-# In another terminal, run visual tests
-npm run lost-pixel
-
-# Update baselines after intentional changes
-npm run lost-pixel:update
 ```
 
-### Test Coverage
-Visual tests cover all major pages:
-- Home page (`/`)
-- About page (`/about`)
-- Contact page (`/contact`)
-- Profile pages (`/frontend-profile`, `/backend-profile`, `/software-architect-profile`)
-- Project pages (`/my-projects`, `/my-experience`)
-- Content pages (`/blog`, `/forum`, `/projects/how-do-i-build-it`)
+Open [http://localhost:3000](http://localhost:3000).
 
-## 📈 Performance Metrics
+`npm run dev` automatically regenerates the blog manifest and rendered article artefacts before the Next.js dev server starts.
 
-### Current Performance Scores
-- **Homepage**: 99-100% Performance Score
-- **About Page**: 97% Performance Score
-- **Contact Page**: 81% Performance Score (optimised from 80%)
-- **All Pages**: Excellent Core Web Vitals
+### Useful Local Commands
 
-### Optimisation Achievements
-- **Image Optimisation**: 96% file size reduction on contact page
-- **Bundle Size**: Optimised JavaScript bundles
-- **Loading Speed**: Sub-second First Contentful Paint (FCP)
-- **User Experience**: Smooth interactions and fast navigation
+```bash
+# Static export and verification
+npm run build
+npm run serve
 
-## 🔄 Migration Journey: From PHP/Yii2 to Next.js
+# Quality checks
+npm run lint
+npm run typecheck
+npm run blog:validate
+```
 
-### The Challenge
-Originally built in **2014 with PHP and Yii2 framework**, the CV website needed modernisation to:
-- Improve performance and user experience
-- Adopt modern development practices
-- Enhance maintainability and scalability
-- Support modern web standards
+### Optional Environment Variables
 
-### Migration Strategy
-1. **Technology Selection**: Chose Next.js for its React ecosystem, SSR capabilities, and performance optimisations
-2. **Gradual Migration**: Migrated page by page whilst maintaining functionality
-3. **Component Architecture**: Rebuilt with modern React components and TypeScript
-4. **Performance Optimisation**: Implemented comprehensive performance framework
-5. **Quality Assurance**: Added visual regression testing and automated quality checks
+- `NEXT_PUBLIC_BASE_URL`: overrides the canonical host used for metadata, sitemap, and robots output. If omitted, the production domain is used.
+- `NEXT_PUBLIC_SUBSCRIPTION_ENDPOINT`: preferred browser-side endpoint for the newsletter form.
+- `NEXT_PUBLIC_EMAIL_WORKER_URL`: legacy fallback still supported by the frontend.
 
-### Key Migration Achievements
-- **Framework Migration**: PHP/Yii2 → Next.js 14
-- **Language Upgrade**: PHP → TypeScript
-- **Styling Modernisation**: Bootstrap 3 → Custom Sass with CSS Modules
-- **Performance Improvement**: 95-100% Lighthouse scores
-- **Development Experience**: Modern tooling and hot reloading
-- **Code Quality**: Type safety and automated testing
+If you plan to run visual regression tests on a new machine, install Playwright browsers first:
 
-### Legacy Code
-The original **2014 PHP/Yii2 version** is preserved in the `master` branch for reference and historical context.
+```bash
+npx playwright install
+```
 
-## 🚧 Current Development Focus
+## Project Structure
 
-### Active Work Areas
-- **Content Updates**: Refreshing and expanding project content
-- **UI/UX Improvements**: Enhancing user experience and visual design
-- **Performance Optimisation**: Continuous performance monitoring and improvements
-- **New Features**: Adding interactive elements and functionality
-- **SEO Enhancement**: Improving search engine optimisation
+| Path | Purpose |
+| --- | --- |
+| `app/` | App Router pages, route metadata, sitemap, robots, manifest, and route-specific page logic |
+| `components/` | Shared UI, blog rendering, layout, navigation, profile sections, and reusable content blocks |
+| `content/posts/` | Markdown source for blog articles |
+| `generated/` | Build-time blog manifest and rendered article artefacts used by the site |
+| `lib/` | Shared blog, SEO, theme, and profile data utilities |
+| `public/` | Static assets, legacy redirects, icons, and generated blog image variants |
+| `scripts/` | Blog generation, validation, export verification, service worker generation, CSP helpers, and reporting utilities |
+| `workers/subscription-handler/` | Cloudflare Worker used by the newsletter subscription flow |
+| `docs/` | Deeper notes on performance, rollout, and blog architecture |
 
-### Planned Improvements
-- **Enhanced Interactivity**: More dynamic user interactions
-- **Content Management**: Easier content updates and management
-- **Analytics Integration**: Better tracking and insights
-- **Mobile Optimisation**: Further mobile experience improvements
-- **Accessibility**: Enhanced accessibility features
+## Content, SEO, And Performance
 
-## 🤝 Contributing
+- Blog posts live in `content/posts/*.md`; the file name becomes the route slug.
+- `predev` and `prebuild` run `scripts/generate-blog-manifest.js`, which produces `generated/blog-manifest.json`, `generated/blog-posts.json`, and responsive blog images under `public/generated/blog-images/`.
+- Articles are rendered to HTML at build time, not parsed in the browser for primary content. The client enhancer only adds progressive behaviour such as TOC highlighting and gist embeds.
+- Archive and tag routes are generated from shared logic in `lib/blog/archive.ts`. The current rules are `8` posts per archive page and a minimum of `2` posts before a tag gets its own archive.
+- Blog pages emit canonical URLs, Open Graph and Twitter metadata, JSON-LD, reading time, table of contents data, and related post links.
+- `app/sitemap.ts`, `app/robots.ts`, and `app/manifest.ts` keep discoverability assets inside the application build.
+- `postbuild` generates `dist/service-worker.js` and verifies the exported blog output against route coverage, canonical links, hero image metadata, and lightweight size budgets.
+- Sentry and Google Analytics are already wired into the application shell.
 
-This is my personal CV website, but I welcome feedback and suggestions! Feel free to:
-- Report bugs or issues
-- Suggest improvements
-- Ask questions about the implementation
-- Share ideas for new features
+## Deployment
 
-## 📄 Licence
+The site is built as a static export. [`next.config.js`](./next.config.js) sets `output: 'export'` and writes the production artefact to `dist/`.
 
-This project is open source and available under the [MIT Licence](LICENSE).
+GitHub Actions in [`.github/workflows/deploy-cloudflare.yml`](./.github/workflows/deploy-cloudflare.yml) currently handles deployment:
 
-## 🔗 Connect With Me
+1. `npm ci`
+2. `npm run lint`
+3. `npm run typecheck`
+4. `npm run worker:typecheck`
+5. `npm run build`
+6. `npm run generate-csp-hashes`
+7. `wrangler pages deploy ./dist ...`
+8. `wrangler deploy` for the subscription worker
 
-- **Website**: [Your deployed site URL]
-- **LinkedIn**: [Your LinkedIn profile]
-- **GitHub**: [@EduardoAC](https://github.com/EduardoAC)
-- **Email**: [Your email]
+Environment details that matter:
 
----
+- `NEXT_PUBLIC_BASE_URL` should match the deployed host so canonical URLs, Open Graph URLs, and `sitemap.xml` stay correct.
+- The frontend newsletter flow prefers `NEXT_PUBLIC_SUBSCRIPTION_ENDPOINT`, with `NEXT_PUBLIC_EMAIL_WORKER_URL` still supported as fallback.
+- The subscription worker expects `RESEND_API_KEY`, `FROM_EMAIL`, `TO_EMAIL`, `ALLOWED_ORIGIN`, `EMAIL_KV`, and `AUDIENCE_ID`.
 
-**Built with ❤️ using Next.js, React, and TypeScript | Work in Progress**
+Because production is a static export, caching is mainly a Cloudflare concern rather than a Next.js server concern. Hashed assets under `/_next/static/` and generated blog images are suitable for aggressive caching, while HTML routes, `sitemap.xml`, `robots.txt`, `manifest.webmanifest`, and `service-worker.js` need normal revalidation.
+
+## Scripts Reference
+
+| Script | Purpose |
+| --- | --- |
+| `npm run dev` | Starts the Next.js dev server after regenerating blog artefacts |
+| `npm run build` | Runs blog validation, builds the site, generates the service worker, and verifies the exported blog output |
+| `npm run serve` | Serves the static `dist/` export locally |
+| `npm run lint` | Runs ESLint across the app, shared components, libraries, and Sentry instrumentation files |
+| `npm run typecheck` | Generates Next.js route types and runs `tsc --noEmit` |
+| `npm run blog:validate` | Regenerates blog artefacts and validates markdown, images, and manifest integrity |
+| `npm run blog:verify` | Verifies the built blog output in `dist/` |
+| `npm run blog:report` | Prints benchmark and size information for the blog export |
+| `npm run analyze` | Builds with bundle analysis enabled |
+| `npm run lighthouse` | Runs a Lighthouse JSON report against `http://localhost:3000` |
+| `npm run lighthouse:html` | Runs a Lighthouse HTML report against `http://localhost:3000` |
+| `npm run lost-pixel` | Runs visual regression tests against a local preview |
+| `npm run lost-pixel:update` | Updates Lost Pixel baselines |
+| `npm run worker:typecheck` | Type checks the Cloudflare subscription worker |
+| `npm run worker:deploy` | Deploys the subscription worker with Wrangler |
+| `npm run generate-csp-hashes` | Generates suggested CSP hashes for deployment |
+
+## Maintenance Notes
+
+- Treat blog file names as public URLs. Renaming a file in `content/posts/` changes the route.
+- Do not hand edit `generated/` or `public/generated/blog-images/`. Regenerate them through the scripts.
+- `npm run build` is the safest pre-merge or pre-deploy check because it exercises the blog pipeline end to end.
+- Keep [`public/_redirects`](./public/_redirects) in sync when route names change or legacy URLs need preserving.
+- The contact page exists, but the current newsletter integration is the part that is wired to the Cloudflare worker. Keep that distinction clear in future docs and product copy.
+- Visual regression expects a local site on port `3000` and Playwright browsers to be installed.
+
+## Roadmap
+
+- Publish the full build journal behind `/projects/how-do-i-build-it`
+- Launch the brainstorming forum at `/forum`
+- Continue tightening blog asset budgets where the export verification still raises warnings
+
+## Licence
+
+MIT. See [LICENSE](./LICENSE).
