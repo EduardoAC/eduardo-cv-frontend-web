@@ -1,6 +1,6 @@
 ---
 title: "Outside-In Testing Strategy: Building Confidence for Continuous Deployment - Part 1"
-description: "How outside-in testing focused on system boundaries and integration tests enables teams to ship confidently with continuous deployment."
+description: "A practical case study in outside-in testing for payment frontends, showing how Player Cashier uses boundaries and integration tests to build release confidence."
 date: "2026-03-10"
 author: "eduardo aparicio cardenes"
 tags: ["Outside-In Testing", "Integration Testing", "Testing Strategy", "Continuous Deployment"]
