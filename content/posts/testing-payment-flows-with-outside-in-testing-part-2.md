@@ -45,7 +45,7 @@ The architecture makes that clear. The internal cashier experience is intentiona
 
 Together, they keep the internal system focused, but they also define the exact places where risk enters the application.
 
-<!-- Reserved image slot: /images/blog/testing-payment-flows-with-outside-in-testing-part-2/02-player-cashier-system-context.png -->
+![Player Cashier system context showing host shells, adapters, the API layer, and backend services.](/images/blog/testing-payment-flows-with-outside-in-testing-part-2/02-player-cashier-system-context.png)
 
 That architectural shape matters because it changes the testing conversation. If we reduce the Player Cashier to a collection of screens, components, and helper functions, it becomes easy to optimise for isolated validation while missing the places where real production risk actually enters the system.
 
@@ -83,7 +83,7 @@ Part 1 introduced the idea that confidence starts with the journey, then works i
 
 That is exactly what the confidence loop is meant to protect.
 
-<!-- Reserved image slot: /images/blog/testing-payment-flows-with-outside-in-testing-part-2/03-payment-confidence-loop.png -->
+![Player Cashier confidence loop showing the payment journey from customer entry to outcome.](/images/blog/testing-payment-flows-with-outside-in-testing-part-2/03-payment-confidence-loop.png)
 
 In the Player Cashier, the deposit and withdrawal journey can be described simply enough for any stakeholder to understand. At this stage, there are two core journey shapes for these transaction types: fully embedded journeys and external third-party journeys.
 
@@ -111,8 +111,9 @@ In the Player Cashier, the deposit and withdrawal journey can be described simpl
 
 These are the loops that deserve protection first.
 
-<!-- Reserved image slot: /images/blog/testing-payment-flows-with-outside-in-testing-part-2/04-deposit-experience-embedded.png -->
-<!-- Reserved image slot: /images/blog/testing-payment-flows-with-outside-in-testing-part-2/05-payment-widget-close-up.png -->
+| ![Deposit experience embedded inside the wider account area.](/images/blog/testing-payment-flows-with-outside-in-testing-part-2/04-deposit-experience-embedded.png) | ![Close-up view of the payment widget the customer actually interacts with.](/images/blog/testing-payment-flows-with-outside-in-testing-part-2/05-payment-widget-close-up.png) |
+| :---: | :---: |
+| *The deposit experience embedded inside the wider account area.* | *The close-up view of the payment widget the customer actually interacts with.* |
 
 These two journey shapes differ in how control moves through the system, but they share the same testing need.
 
@@ -134,8 +135,9 @@ But in a payment orchestration frontend, **integration tests** **become the wide
 
 That is why the testing trophy matters here. It does not say every kind of test has equal value. It shows that the greatest return comes from the tests that preserve the most meaningful customer behaviour while still providing stable and fast enough feedback for day-to-day engineering work. In the Player Cashier, that sweet spot sits squarely in integration.
 
-<!-- Reserved image slot: /images/blog/testing-payment-flows-with-outside-in-testing-part-2/06-testing-hourglass-integration-confidence.png -->
-<!-- Reserved image slot: /images/blog/testing-payment-flows-with-outside-in-testing-part-2/07-testing-trophy-payments.png -->
+| ![Testing hourglass showing integration as the primary pre-deployment confidence layer.](/images/blog/testing-payment-flows-with-outside-in-testing-part-2/06-testing-hourglass-integration-confidence.png) | ![Testing trophy model showing customer-facing confidence higher up the stack.](/images/blog/testing-payment-flows-with-outside-in-testing-part-2/07-testing-trophy-payments.png) |
+| :---: | :---: |
+| *The practical hourglass: integration carries most of the pre-deployment confidence, while end-to-end remains more selective and slower.* | *The wider testing trophy model: static and unit tests matter, but most customer-facing confidence sits higher up the stack. (credits to Daniel Alonso for illustration)* |
 
 This is also why end-to-end cannot be the only answer. End-to-end gives maximum realism, but it also comes with slower feedback, more environmental fragility, more difficult debugging, and higher operational cost. In practice, integration becomes the place where confidence is most usable before deployment.
 
@@ -172,7 +174,7 @@ The test underneath reflects that reality. It mounts the application with the ex
 
 This is a good example of outside-in thinking: the team is not testing a helper in isolation; it is proving that the user entered the right system state before the visible journey even begins.
 
-<!-- Reserved image slot: /images/blog/testing-payment-flows-with-outside-in-testing-part-2/08-url-boundary-runtime-context.png -->
+![Runtime environment context derived from the Player Cashier URL and domain.](/images/blog/testing-payment-flows-with-outside-in-testing-part-2/08-url-boundary-runtime-context.png)
 
 ### Boundary 2: Feature flags shape what the customer can do
 
@@ -184,7 +186,7 @@ The split example makes that explicit. At the top, the disabled-state UI shows a
 
 This is exactly why feature flags belong in the boundary model: they are external configurations that directly reshape the real product experience.
 
-<!-- Reserved image slot: /images/blog/testing-payment-flows-with-outside-in-testing-part-2/09-feature-flag-payment-state.png -->
+![Feature-flag-driven disabled payment state in the Player Cashier.](/images/blog/testing-payment-flows-with-outside-in-testing-part-2/09-feature-flag-payment-state.png)
 
 ### Boundary 3: The API layer is mocked at the boundary, not inside the journey
 
@@ -198,7 +200,7 @@ This is an important principle of the whole strategy: **we mock at the boundary,
 
 That is what keeps the test close to reality without giving up control.
 
-<!-- Reserved image slot: /images/blog/testing-payment-flows-with-outside-in-testing-part-2/10-api-boundary-msw-setup.png -->
+![Mock Service Worker setup intercepting Player Cashier API requests at the network boundary.](/images/blog/testing-payment-flows-with-outside-in-testing-part-2/10-api-boundary-msw-setup.png)
 
 ### Boundary 4, part one: The journey must reflect what the customer just did
 
@@ -208,7 +210,7 @@ The customer sees those buttons as real actions, not as decorative UI. So the te
 
 This is a small example, but it shows why integration matters. The test validates the visible UI control, the interaction path, and the resulting state together. That is much closer to user reality than proving that a local value changed inside a single component.
 
-<!-- Reserved image slot: /images/blog/testing-payment-flows-with-outside-in-testing-part-2/11-quick-amount-selection.png -->
+![Quick amount selection updating the deposit amount in the Player Cashier UI.](/images/blog/testing-payment-flows-with-outside-in-testing-part-2/11-quick-amount-selection.png)
 
 ### Boundary 4, part two: Creating the deposit and withdrawal and handing off to the payment provider
 
@@ -220,7 +222,7 @@ The strongest journey-level example is the one that goes beyond rendering and pr
 
 That is not a single unit of behaviour. It is the coordinated result of the URL context, the feature flag state, the API boundary, and the journey logic all holding together.
 
-<!-- Reserved image slot: /images/blog/testing-payment-flows-with-outside-in-testing-part-2/12-provider-handoff-deposit-flow.png -->
+![Deposit flow creating the payment request and redirecting to the payment provider.](/images/blog/testing-payment-flows-with-outside-in-testing-part-2/12-provider-handoff-deposit-flow.png)
 
 The split view works especially well here.
 
