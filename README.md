@@ -1,16 +1,10 @@
 # Eduardo Aparicio Cardenes Interactive CV
 
-This repository powers [eduardo-aparicio-cardenes.website](https://eduardo-aparicio-cardenes.website/), Eduardo Aparicio Cardenes' personal website and interactive CV. It brings together profile content, long-form writing, project storytelling, career history, and performance-aware frontend engineering in one maintainable Next.js application.
+Hi readers, my name is Eduardo Aparicio Cardenes.
 
-## Repository At A Glance
+This repository powers [eduardo-aparicio-cardenes.website](https://eduardo-aparicio-cardenes.website/), my personal website and interactive CV. I originally built it because a normal CV never felt like enough space to explain how I work, what I build, and why certain projects mattered. Over time it became something broader: a place where profile, projects, writing, experience, and mentoring can live together in one maintainable frontend application.
 
-| Area | Detail |
-| --- | --- |
-| Live site | [eduardo-aparicio-cardenes.website](https://eduardo-aparicio-cardenes.website/) |
-| Runtime | Node.js `24.12.0`, Next.js `16`, React `19`, TypeScript |
-| Content source | Markdown posts in `content/posts/` |
-| Build output | Static export in `dist/` |
-| Deployment | Cloudflare Pages, plus a Cloudflare Worker for newsletter subscriptions |
+Today the site is built with Next.js, TypeScript, and a static deployment pipeline, but it still serves the same purpose it had at the beginning: to present the work behind the job titles, not only the job titles themselves.
 
 ## Live Site
 
@@ -18,34 +12,47 @@ Production URL: [https://eduardo-aparicio-cardenes.website/](https://eduardo-apa
 
 ## Why This Project Exists
 
-This site is not meant to be a flat portfolio brochure. It is a working personal platform that combines professional profile, technical writing, project context, and career narrative in one place.
+I built this project to go beyond a standard CV.
 
-The goal is twofold:
+I wanted one place where I could show my professional profile, explain the thinking behind my work, document projects properly, publish technical writing, and make it easier for people to understand the wider story behind my career. That is why this repository is not just a portfolio site and not just a blog either. It is a personal platform that brings together profile, writing, project storytelling, experience, and discoverability in one product.
 
-- Give recruiters, collaborators, and clients a clearer view of Eduardo as an engineer, mentor, writer, and builder.
-- Keep the site maintainable as a product, with reusable routes, structured content, static delivery, and explicit quality checks around build output.
+The technical side matters as much as the content. I also use the site as a real piece of frontend engineering: something that should stay maintainable, perform well, scale with more content, and reflect the standards I care about in production work.
+
+## How This Project Evolved
+
+The history below comes from the repository itself, not from reconstructed memory.
+
+1. **1 August 2015**: the repository starts, followed immediately by the commit titled `Installation of Yii2 framework for frontend website`. This is the beginning of the PHP and Yii2 version captured in this repo.
+2. **August to October 2015**: the site was built section by section. The homepage, profile areas, projects, blog and forum entry points, jobs timeline, footer, menu, metadata, about page, and contact experience all arrived incrementally rather than as one finished launch.
+3. **January 2016**: the next wave added the projects page, the first `how do I build it` page, role-specific profile pages, work experience, Google Analytics, sitemap support, and coming soon placeholders for the blog and forum.
+4. **29 June 2025**: the major migration commit moved the project from the old PHP and Yii2 implementation into Next.js and reframed it as a modern frontend application, with static export, styling cleanup, performance work, maintainability improvements, and visual regression tooling.
+5. **July 2025 onward**: the project kept evolving. Blog implementation, sitemap work, theming, service worker versioning, Medium article import, the mentor profile, and ongoing clean-up turned the site into the richer platform it is now.
+
+One detail is worth stating carefully. A later migration label refers to `PHP/Yii2 (2014) -> Next.js 14 (2024)`, which reflects the broader story behind the platform. The current repository history itself starts on **1 August 2015**, so that is the stricter date used throughout this README.
 
 ## Core Areas Of The Site
 
-- **Profile and interactive CV**: the homepage, about page, role-specific profile routes, and mentor profile present Eduardo's background from multiple angles.
-- **Blog**: statically generated articles, archive pagination, topic archives, and a newsletter sign-up surface technical writing and engineering thinking.
+- **Profile and interactive CV**: the homepage, about page, and role-specific profile routes present my background from different angles.
+- **Blog**: the site includes a statically generated blog with archive pagination, topic archives, related posts, and newsletter subscription.
 - **Projects**: `/my-projects` groups projects, hackathons, and ideas into a browsable archive.
-- **Experience**: `/my-experience` turns career history into a timeline rather than a short CV summary.
-- **Contact and discoverability**: the contact page, sitemap, robots rules, metadata, manifest, and internal linking help people find the right route quickly.
+- **Experience**: `/my-experience` turns work history into a timeline rather than a short bullet list.
+- **Mentoring and discoverability**: `/mentor-profile`, contact routes, metadata, sitemap, robots rules, and internal linking make it easier for people to find the right part of the site.
 
 ## Tech Stack
 
 | Area | Implementation |
 | --- | --- |
-| Framework | Next.js App Router with static export |
+| Runtime | Node.js `24.12.0` |
+| Framework | Next.js `16` with the App Router |
+| UI | React `19` |
 | Language | TypeScript |
-| UI styling | Sass, CSS Modules, shared `styles/snap-components` styles |
-| Content pipeline | Markdown posts with `gray-matter`, `marked`, and `PrismJS` |
-| Image pipeline | `sharp` generates responsive blog image variants in WebP |
-| Analytics and monitoring | Google Analytics, Sentry |
-| Quality tooling | ESLint, TypeScript type generation, Lost Pixel, Playwright |
-| Deployment | Cloudflare Pages for the static site, Cloudflare Worker plus Wrangler for newsletter subscriptions |
-| Email integration | Resend, behind the subscription worker |
+| Styling | Sass, CSS Modules, and shared `styles/snap-components` styles |
+| Content | Markdown posts parsed with `gray-matter` and `marked`, with syntax highlighting via `PrismJS` |
+| Blog image pipeline | `sharp` generates build-time responsive WebP variants for local blog images |
+| Monitoring | Sentry and Google Analytics |
+| Quality tooling | ESLint, Next.js type generation, Lost Pixel, Playwright |
+| Deployment | Cloudflare Pages for the static site, plus a Cloudflare Worker for newsletter subscriptions |
+| Email integration | Resend, through the subscription worker |
 
 ## Local Development
 
@@ -64,12 +71,12 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-`npm run dev` automatically regenerates the blog manifest and rendered article artefacts before the Next.js dev server starts.
+`npm run dev` regenerates the blog manifest and rendered article artefacts before the dev server starts.
 
-### Useful Local Commands
+### Useful Commands
 
 ```bash
-# Static export and verification
+# Build and preview the static export
 npm run build
 npm run serve
 
@@ -79,62 +86,62 @@ npm run typecheck
 npm run blog:validate
 ```
 
+If you want to run visual regression tests on a new machine, install Playwright browsers first:
+
+```bash
+npx playwright install
+```
+
 ### Optional Environment Variables
 
 - `NEXT_PUBLIC_BASE_URL`: overrides the canonical host used for metadata, sitemap, and robots output. If omitted, the production domain is used.
 - `NEXT_PUBLIC_SUBSCRIPTION_ENDPOINT`: preferred browser-side endpoint for the newsletter form.
 - `NEXT_PUBLIC_EMAIL_WORKER_URL`: legacy fallback still supported by the frontend.
 
-If you plan to run visual regression tests on a new machine, install Playwright browsers first:
-
-```bash
-npx playwright install
-```
-
 ## Project Structure
 
 | Path | Purpose |
 | --- | --- |
-| `app/` | App Router pages, route metadata, sitemap, robots, manifest, and route-specific page logic |
-| `components/` | Shared UI, blog rendering, layout, navigation, profile sections, and reusable content blocks |
+| `app/` | App Router pages, metadata, sitemap, robots, manifest, and route-specific page logic |
+| `components/` | Shared UI, blog rendering, layout, profile sections, navigation, and content blocks |
 | `content/posts/` | Markdown source for blog articles |
-| `generated/` | Build-time blog manifest and rendered article artefacts used by the site |
+| `generated/` | Build-time blog manifest and rendered article artefacts |
 | `lib/` | Shared blog, SEO, theme, and profile data utilities |
 | `public/` | Static assets, legacy redirects, icons, and generated blog image variants |
 | `scripts/` | Blog generation, validation, export verification, service worker generation, CSP helpers, and reporting utilities |
-| `workers/subscription-handler/` | Cloudflare Worker used by the newsletter subscription flow |
+| `workers/subscription-handler/` | Cloudflare Worker used by the newsletter flow |
 | `docs/` | Deeper notes on performance, rollout, and blog architecture |
 
 ## Content, SEO, And Performance
 
-- Blog posts live in `content/posts/*.md`; the file name becomes the route slug.
-- `predev` and `prebuild` run `scripts/generate-blog-manifest.js`, which produces `generated/blog-manifest.json`, `generated/blog-posts.json`, and responsive blog images under `public/generated/blog-images/`.
-- Articles are rendered to HTML at build time, not parsed in the browser for primary content. The client enhancer only adds progressive behaviour such as TOC highlighting and gist embeds.
+- Blog posts live in `content/posts/*.md`, and the file name becomes the route slug.
+- `predev` and `prebuild` run `scripts/generate-blog-manifest.js`, which produces `generated/blog-manifest.json`, `generated/blog-posts.json`, and responsive local blog image variants under `public/generated/blog-images/`.
+- Articles are rendered to HTML at build time rather than parsed in the browser for primary content. Client-side enhancement is limited to progressive behaviour such as table-of-contents highlighting, anchor scrolling, and gist embeds.
 - Archive and tag routes are generated from shared logic in `lib/blog/archive.ts`. The current rules are `8` posts per archive page and a minimum of `2` posts before a tag gets its own archive.
-- Blog pages emit canonical URLs, Open Graph and Twitter metadata, JSON-LD, reading time, table of contents data, and related post links.
+- Blog pages emit canonical URLs, Open Graph and Twitter metadata, JSON-LD, reading time, table-of-contents data, and related post links.
 - `app/sitemap.ts`, `app/robots.ts`, and `app/manifest.ts` keep discoverability assets inside the application build.
-- `postbuild` generates `dist/service-worker.js` and verifies the exported blog output against route coverage, canonical links, hero image metadata, and lightweight size budgets.
+- `postbuild` generates `dist/service-worker.js` and verifies exported blog output against route coverage, canonical links, hero image metadata, and lightweight size budgets.
 - Sentry and Google Analytics are already wired into the application shell.
 
 ## Deployment
 
 The site is built as a static export. [`next.config.js`](./next.config.js) sets `output: 'export'` and writes the production artefact to `dist/`.
 
-GitHub Actions in [`.github/workflows/deploy-cloudflare.yml`](./.github/workflows/deploy-cloudflare.yml) currently handles deployment:
+Deployment is currently handled through [`.github/workflows/deploy-cloudflare.yml`](./.github/workflows/deploy-cloudflare.yml). The workflow:
 
-1. `npm ci`
-2. `npm run lint`
-3. `npm run typecheck`
-4. `npm run worker:typecheck`
-5. `npm run build`
-6. `npm run generate-csp-hashes`
-7. `wrangler pages deploy ./dist ...`
-8. `wrangler deploy` for the subscription worker
+1. installs dependencies with `npm ci`
+2. runs `npm run lint`
+3. runs `npm run typecheck`
+4. runs `npm run worker:typecheck`
+5. runs `npm run build`
+6. runs `npm run generate-csp-hashes`
+7. deploys `./dist` to Cloudflare Pages
+8. deploys the subscription worker with Wrangler
 
 Environment details that matter:
 
 - `NEXT_PUBLIC_BASE_URL` should match the deployed host so canonical URLs, Open Graph URLs, and `sitemap.xml` stay correct.
-- The frontend newsletter flow prefers `NEXT_PUBLIC_SUBSCRIPTION_ENDPOINT`, with `NEXT_PUBLIC_EMAIL_WORKER_URL` still supported as fallback.
+- The frontend newsletter flow prefers `NEXT_PUBLIC_SUBSCRIPTION_ENDPOINT`, with `NEXT_PUBLIC_EMAIL_WORKER_URL` still supported as a fallback.
 - The subscription worker expects `RESEND_API_KEY`, `FROM_EMAIL`, `TO_EMAIL`, `ALLOWED_ORIGIN`, `EMAIL_KV`, and `AUDIENCE_ID`.
 
 Because production is a static export, caching is mainly a Cloudflare concern rather than a Next.js server concern. Hashed assets under `/_next/static/` and generated blog images are suitable for aggressive caching, while HTML routes, `sitemap.xml`, `robots.txt`, `manifest.webmanifest`, and `service-worker.js` need normal revalidation.
@@ -146,7 +153,7 @@ Because production is a static export, caching is mainly a Cloudflare concern ra
 | `npm run dev` | Starts the Next.js dev server after regenerating blog artefacts |
 | `npm run build` | Runs blog validation, builds the site, generates the service worker, and verifies the exported blog output |
 | `npm run serve` | Serves the static `dist/` export locally |
-| `npm run lint` | Runs ESLint across the app, shared components, libraries, and Sentry instrumentation files |
+| `npm run lint` | Runs ESLint across the app, shared components, libraries, and instrumentation files |
 | `npm run typecheck` | Generates Next.js route types and runs `tsc --noEmit` |
 | `npm run blog:validate` | Regenerates blog artefacts and validates markdown, images, and manifest integrity |
 | `npm run blog:verify` | Verifies the built blog output in `dist/` |
@@ -166,14 +173,14 @@ Because production is a static export, caching is mainly a Cloudflare concern ra
 - Do not hand edit `generated/` or `public/generated/blog-images/`. Regenerate them through the scripts.
 - `npm run build` is the safest pre-merge or pre-deploy check because it exercises the blog pipeline end to end.
 - Keep [`public/_redirects`](./public/_redirects) in sync when route names change or legacy URLs need preserving.
-- The contact page exists, but the current newsletter integration is the part that is wired to the Cloudflare worker. Keep that distinction clear in future docs and product copy.
+- The contact page exists, but the worker-backed integration currently applies to the newsletter flow. Future documentation should keep that distinction clear.
 - Visual regression expects a local site on port `3000` and Playwright browsers to be installed.
 
 ## Roadmap
 
 - Publish the full build journal behind `/projects/how-do-i-build-it`
 - Launch the brainstorming forum at `/forum`
-- Continue tightening blog asset budgets where the export verification still raises warnings
+- Continue tightening blog asset budgets where export verification still raises warnings
 
 ## Licence
 
