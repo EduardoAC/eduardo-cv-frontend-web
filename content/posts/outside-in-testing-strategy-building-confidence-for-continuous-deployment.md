@@ -3,7 +3,7 @@ title: "Outside-In Testing Strategy: Building Confidence for Continuous Deployme
 description: "How outside-in testing focused on system boundaries and integration tests enables teams to ship confidently with continuous deployment."
 date: "2026-03-10"
 author: "eduardo aparicio cardenes"
-tags: ["Outside-in Testing Strategy", "Integration Testing", "Testing Strategy", "Continuous Deployment"]
+tags: ["Outside-In Testing", "Integration Testing", "Testing Strategy", "Continuous Deployment"]
 image: "/images/blog/outside-in-testing-strategy-part-1/outside-in-extending-trophy-of-testing.png"
 ---
 
@@ -455,6 +455,8 @@ Because the goal is not simply to prove that code ran.
 
 The goal is to prove that the system still holds where failure actually matters.
 
-### Part 2: Testing payments at scale, a practical case study in outside-in testing
+### Part 2: Testing Payment Flows with Outside-In Testing: A Practical Integration Testing Case Study
 
-In the next article, I will move from theory to practice and show how I applied this approach in a real payment orchestration system, including how I defined the boundaries, shaped the confidence loop, used boundary-level simulation, and turned the strategy into a practical path towards releasing with confidence.
+In the next article, I move from theory to practice and show how I applied this approach in a real payment orchestration system, including how I defined the boundaries, shaped the confidence loop, used boundary-level simulation, and turned the strategy into a practical path towards releasing with confidence.
+
+Read [Part 2: Testing Payment Flows with Outside-In Testing: A Practical Integration Testing Case Study](/blog/testing-payment-flows-with-outside-in-testing-part-2)

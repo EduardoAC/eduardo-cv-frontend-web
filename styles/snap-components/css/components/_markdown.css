@@ -174,6 +174,33 @@
   border-bottom-right-radius: 14px;
 }
 
+/* Image galleries authored as markdown tables */
+.snap-markdown-content .snap-media-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: var(--snap-prose-media-gap) auto;
+}
+
+.snap-markdown-content .snap-media-gallery-item {
+  margin: 0;
+}
+
+.snap-markdown-content .snap-media-gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.snap-markdown-content .snap-media-gallery-item figcaption {
+  margin-top: 0.75rem;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
 /* Custom code block container and header (Prism handles code/pre) */
 .snap-code-block {
   margin: var(--snap-prose-media-gap) auto;
@@ -589,6 +616,11 @@
   .snap-markdown-content th,
   .snap-markdown-content td {
     padding: 0.75rem 0.875rem;
+  }
+
+  .snap-markdown-content .snap-media-gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .snap-code-header {
