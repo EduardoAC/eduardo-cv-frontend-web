@@ -330,6 +330,41 @@ const transformCalloutBlockquotes = (html) =>
     },
   );
 
+const transformMediaGalleryTables = (html) =>
+  html.replace(
+    /<table>\s*<thead>\s*<tr>([\s\S]*?)<\/tr>\s*<\/thead>\s*<tbody>\s*<tr>([\s\S]*?)<\/tr>\s*<\/tbody>\s*<\/table>/gi,
+    (match, headerRow, bodyRow) => {
+      const images = Array.from(
+        String(headerRow).matchAll(/<th[^>]*>\s*(<img\b[\s\S]*?\/?>)\s*<\/th>/gi),
+        (imageMatch) => imageMatch[1].trim(),
+      );
+
+      if (images.length < 2) {
+        return match;
+      }
+
+      const captions = Array.from(
+        String(bodyRow).matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi),
+        (captionMatch) => captionMatch[1].trim(),
+      );
+
+      if (captions.length !== images.length) {
+        return match;
+      }
+
+      const items = images
+        .map((imageHtml, index) => {
+          const captionHtml = captions[index];
+          const caption = captionHtml ? `<figcaption>${captionHtml}</figcaption>` : '';
+
+          return `<figure class="snap-media-gallery-item">${imageHtml}${caption}</figure>`;
+        })
+        .join('');
+
+      return `<div class="snap-media-gallery" data-media-gallery="true">${items}</div>`;
+    },
+  );
+
 const renderMarkdownToHtml = async ({ slug, title, rawContent, inlineAssetMap, marked }) => {
   const toc = [];
   const inlineImages = [];
@@ -413,7 +448,7 @@ const renderMarkdownToHtml = async ({ slug, title, rawContent, inlineAssetMap, m
   });
 
   return {
-    html: transformCalloutBlockquotes(html),
+    html: transformMediaGalleryTables(transformCalloutBlockquotes(html)),
     toc,
     inlineImages,
     slug,
