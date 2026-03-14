@@ -2,12 +2,9 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { BlogTopicPage } from '@/components/blog/BlogTopicPage';
 import {
-  getBlogTopicBySlug,
   getBlogTopics,
-  getPostsForTopic,
+  getTopicArchiveViewModel,
   getTopicMetadata,
-  getTopicStructuredData,
-  getTopicSubthemeGroups,
 } from '@/lib/blog/topics';
 
 interface BlogTopicArchivePageProps {
@@ -28,25 +25,18 @@ export async function generateMetadata({
   params,
 }: BlogTopicArchivePageProps): Promise<Metadata> {
   const { topic } = await params;
-  return getTopicMetadata(topic);
+  return getTopicMetadata(topic, 1);
 }
 
 export default async function BlogTopicArchivePage({
   params,
 }: Readonly<BlogTopicArchivePageProps>) {
   const { topic: topicSlug } = await params;
-  const topic = getBlogTopicBySlug(topicSlug);
+  const topicArchiveViewModel = getTopicArchiveViewModel(topicSlug, 1);
 
-  if (!topic) {
+  if (!topicArchiveViewModel) {
     notFound();
   }
 
-  return (
-    <BlogTopicPage
-      topic={topic}
-      posts={getPostsForTopic(topicSlug)}
-      subthemes={getTopicSubthemeGroups(topicSlug)}
-      structuredData={getTopicStructuredData(topicSlug) ?? {}}
-    />
-  );
+  return <BlogTopicPage {...topicArchiveViewModel} />;
 }

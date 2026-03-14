@@ -1,5 +1,7 @@
 import type { BlogPostMeta } from '@/lib/blog/markdown';
-import { buildTopicPath, type BlogTopicDefinition, type BlogTopicSubthemeGroup } from '@/lib/blog/topics';
+import type { ArchivePaginationData } from '@/lib/blog/pagination';
+import type { BlogTopicDefinition, BlogTopicSubthemeGroup } from '@/lib/blog/topics';
+import { ArchivePagination } from './ArchivePagination';
 import { BlogLayout } from './BlogLayout';
 import { BlogList } from './BlogList';
 import styles from './Blog.module.scss';
@@ -7,6 +9,9 @@ import styles from './Blog.module.scss';
 interface BlogTopicPageProps {
   topic: BlogTopicDefinition;
   posts: ReadonlyArray<BlogPostMeta>;
+  resultsSummary: string;
+  pagination: ArchivePaginationData;
+  showBottomPagination: boolean;
   subthemes: ReadonlyArray<BlogTopicSubthemeGroup>;
   structuredData: Record<string, unknown>;
 }
@@ -14,6 +19,9 @@ interface BlogTopicPageProps {
 export function BlogTopicPage({
   topic,
   posts,
+  resultsSummary,
+  pagination,
+  showBottomPagination,
   subthemes,
   structuredData,
 }: Readonly<BlogTopicPageProps>) {
@@ -30,20 +38,10 @@ export function BlogTopicPage({
         title={topic.name}
         description={topic.description}
         supportingText={topic.intro}
-        resultsSummary={`${posts.length} article${posts.length === 1 ? '' : 's'} in this topic.`}
+        resultsSummary={resultsSummary}
         topics={[]}
         tags={[]}
-        pagination={{
-          currentPage: 1,
-          totalPages: 1,
-          links: [
-            {
-              page: 1,
-              href: buildTopicPath(topic.slug),
-              isCurrent: true,
-            },
-          ],
-        }}
+        pagination={pagination}
         backLink={{
           href: '/blog',
           label: '← Back to all posts',
@@ -78,6 +76,11 @@ export function BlogTopicPage({
           </div>
           <BlogList posts={posts} emptyMessage="No posts have been assigned to this topic yet." />
         </section>
+        {showBottomPagination && (
+          <div className={styles['archive-bottom-pagination']}>
+            <ArchivePagination pagination={pagination} />
+          </div>
+        )}
       </BlogLayout>
     </>
   );

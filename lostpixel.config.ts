@@ -36,6 +36,7 @@ export const config: CustomProjectConfig = {
       { path: '/software-architect-profile', name: 'software-architect-profile' },
       { path: '/blog', name: 'blog' },
       { path: '/blog/topics/testing-strategy', name: 'blog-topic-testing-strategy' },
+      { path: '/blog/topics/frontend-architecture/page/2', name: 'blog-topic-frontend-architecture-page-2' },
       { path: '/blog/testing-payment-flows-with-outside-in-testing-part-2', name: 'blog-payment-testing-part-2' },
       { path: '/forum', name: 'forum' },
       { path: '/projects/how-do-i-build-it', name: 'how-do-i-build-it' },

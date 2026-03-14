@@ -1,37 +1,34 @@
 import type { Metadata } from 'next';
 import { getAllPosts, type BlogPostMeta } from './markdown';
 import blogConfig from './config.json';
+import {
+  BLOG_ARCHIVE_PAGE_SIZE,
+  createArchivePagination,
+  formatArchiveResultsSummary,
+  getPageCount,
+  paginatePosts,
+  parsePageNumber,
+  type ArchivePaginationData,
+  type ArchivePaginationLink,
+  type PaginatedPostSlice,
+} from './pagination';
 import { getBlogTopicSummaries, type BlogTopicSummary } from './topics';
 
-export const BLOG_ARCHIVE_PAGE_SIZE = blogConfig.archivePageSize;
 export const MIN_TAG_ARCHIVE_POSTS = blogConfig.minTagArchivePosts;
+export {
+  BLOG_ARCHIVE_PAGE_SIZE,
+  createArchivePagination,
+  formatArchiveResultsSummary,
+  getPageCount,
+  parsePageNumber,
+};
+export type { ArchivePaginationData, ArchivePaginationLink, PaginatedPostSlice };
 
 const SITE_NAME = 'Eduardo Aparicio Cardenes';
 const BLOG_ARCHIVE_NAME = 'Engineering Blog';
 const DEFAULT_BASE_URL = 'https://eduardo-aparicio-cardenes.website';
 
-export interface ArchivePageSlice {
-  posts: BlogPostMeta[];
-  currentPage: number;
-  totalPages: number;
-  totalPosts: number;
-  pageSize: number;
-  startIndex: number;
-}
-
-export interface ArchivePaginationLink {
-  page: number;
-  href: string;
-  isCurrent: boolean;
-}
-
-export interface ArchivePaginationData {
-  currentPage: number;
-  totalPages: number;
-  links: ArchivePaginationLink[];
-  previousHref?: string;
-  nextHref?: string;
-}
+export type ArchivePageSlice = PaginatedPostSlice<BlogPostMeta>;
 
 export interface MeaningfulTagArchiveSummary {
   tag: string;
@@ -71,10 +68,6 @@ interface MeaningfulTagArchiveCache {
 const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? DEFAULT_BASE_URL).replace(/\/$/, '');
 
 let cachedMeaningfulTagArchives: MeaningfulTagArchiveCache | null = null;
-
-const getPageCount = (totalItems: number, pageSize: number = BLOG_ARCHIVE_PAGE_SIZE): number => {
-  return Math.max(1, Math.ceil(totalItems / pageSize));
-};
 
 const getAbsoluteUrl = (path: string): string => `${baseUrl}${path}`;
 
@@ -197,15 +190,6 @@ const buildArchiveMetaTitle = (label: string, currentPage: number): string => {
   return currentPage > 1 ? `${label} | Page ${currentPage} | ${SITE_NAME}` : `${label} | ${SITE_NAME}`;
 };
 
-export const parsePageNumber = (value: string): number | null => {
-  if (!/^[1-9]\d*$/.test(value)) {
-    return null;
-  }
-
-  const pageNumber = Number.parseInt(value, 10);
-  return Number.isSafeInteger(pageNumber) ? pageNumber : null;
-};
-
 export const buildBlogArchivePath = (pageNumber: number = 1): string => {
   return pageNumber <= 1 ? '/blog' : `/blog/page/${pageNumber}`;
 };
@@ -216,24 +200,7 @@ export const buildTagArchivePath = (tagSlug: string, pageNumber: number = 1): st
 
 export const getBlogArchivePage = (pageNumber: number): ArchivePageSlice | null => {
   const posts = getAllPosts();
-  const totalPosts = posts.length;
-  const totalPages = getPageCount(totalPosts);
-
-  if (!Number.isInteger(pageNumber) || pageNumber < 1 || pageNumber > totalPages) {
-    return null;
-  }
-
-  const startIndex = (pageNumber - 1) * BLOG_ARCHIVE_PAGE_SIZE;
-  const slicedPosts = posts.slice(startIndex, startIndex + BLOG_ARCHIVE_PAGE_SIZE);
-
-  return {
-    posts: slicedPosts,
-    currentPage: pageNumber,
-    totalPages,
-    totalPosts,
-    pageSize: BLOG_ARCHIVE_PAGE_SIZE,
-    startIndex,
-  };
+  return paginatePosts(posts, pageNumber);
 };
 
 export const getBlogArchivePageNumbers = (): number[] => {
@@ -289,21 +256,11 @@ export const getMeaningfulTagArchiveByTag = (tag: string): MeaningfulTagArchiveS
 export const getMeaningfulTagArchivePageBySlug = (tagSlug: string, pageNumber: number): ArchivePageSlice | null => {
   const archive = getMeaningfulTagArchiveCache().bySlug.get(tagSlug);
 
-  if (!archive || !Number.isInteger(pageNumber) || pageNumber < 1 || pageNumber > archive.totalPages) {
+  if (!archive) {
     return null;
   }
 
-  const startIndex = (pageNumber - 1) * BLOG_ARCHIVE_PAGE_SIZE;
-  const slicedPosts = archive.posts.slice(startIndex, startIndex + BLOG_ARCHIVE_PAGE_SIZE);
-
-  return {
-    posts: slicedPosts,
-    currentPage: pageNumber,
-    totalPages: archive.totalPages,
-    totalPosts: archive.count,
-    pageSize: BLOG_ARCHIVE_PAGE_SIZE,
-    startIndex,
-  };
+  return paginatePosts(archive.posts, pageNumber);
 };
 
 export const getMeaningfulTagHref = (tag: string, pageNumber: number = 1): string | null => {
@@ -322,47 +279,6 @@ export const getAdditionalTagArchivePageParams = (): Array<{ tag: string; pageNu
       pageNumber: String(index + 2),
     })),
   );
-};
-
-export const createArchivePagination = (
-  currentPage: number,
-  totalPages: number,
-  buildPagePath: (pageNumber: number) => string,
-): ArchivePaginationData => {
-  return {
-    currentPage,
-    totalPages,
-    links: Array.from({ length: totalPages }, (_, index) => {
-      const page = index + 1;
-
-      return {
-        page,
-        href: buildPagePath(page),
-        isCurrent: page === currentPage,
-      };
-    }),
-    previousHref: currentPage > 1 ? buildPagePath(currentPage - 1) : undefined,
-    nextHref: currentPage < totalPages ? buildPagePath(currentPage + 1) : undefined,
-  };
-};
-
-export const formatArchiveResultsSummary = ({
-  startIndex,
-  postsOnPage,
-  totalPosts,
-}: {
-  startIndex: number;
-  postsOnPage: number;
-  totalPosts: number;
-}): string => {
-  if (postsOnPage === 0 || totalPosts === 0) {
-    return 'No articles are available yet.';
-  }
-
-  const firstPostNumber = startIndex + 1;
-  const lastPostNumber = startIndex + postsOnPage;
-
-  return `Showing articles ${firstPostNumber}-${lastPostNumber} of ${totalPosts}.`;
 };
 
 export const getBlogArchiveMetadata = (pageNumber: number): Metadata => {

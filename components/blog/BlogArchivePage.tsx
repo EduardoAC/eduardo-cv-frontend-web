@@ -1,5 +1,6 @@
 import type { BlogPostMeta } from '@/lib/blog/markdown';
-import type { ArchivePaginationData, MeaningfulTagArchiveSummary } from '@/lib/blog/archive';
+import type { MeaningfulTagArchiveSummary } from '@/lib/blog/archive';
+import type { ArchivePaginationData } from '@/lib/blog/pagination';
 import type { BlogTopicSummary } from '@/lib/blog/topics';
 import { ArchivePagination } from './ArchivePagination';
 import { BlogLayout } from './BlogLayout';
@@ -40,6 +41,7 @@ export function BlogArchivePage({
   emptyMessage,
 }: BlogArchivePageProps) {
   const showSubscribeCta = posts.length > 0 && !currentTag && pagination.currentPage === 1;
+  const showBottomPagination = pagination.totalPages > 1;
 
   return (
     <>
@@ -67,9 +69,11 @@ export function BlogArchivePage({
             <SubscribeForm className={styles['archive-subscribe-form']} />
           </section>
         )}
-        <div className={styles['archive-bottom-pagination']}>
-          <ArchivePagination pagination={pagination} />
-        </div>
+        {showBottomPagination && (
+          <div className={styles['archive-bottom-pagination']}>
+            <ArchivePagination pagination={pagination} />
+          </div>
+        )}
       </BlogLayout>
     </>
   );

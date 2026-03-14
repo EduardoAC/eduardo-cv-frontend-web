@@ -54,12 +54,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: pageNumber === 1 ? 0.6 : 0.5,
   }));
 
-  const topicPages = getBlogTopicSummaries().map((topic) => ({
-    url: `${baseUrl}${buildTopicPath(topic.slug)}`,
-    lastModified: new Date(topic.latestPostDate ?? blogPosts[0]?.date ?? Date.now()),
-    changeFrequency: 'weekly' as const,
-    priority: 0.55,
-  }));
+  const topicPages = getBlogTopicSummaries().flatMap((topic) =>
+    Array.from({ length: topic.totalPages }, (_, index) => {
+      const pageNumber = index + 1;
+
+      return {
+        url: `${baseUrl}${buildTopicPath(topic.slug, pageNumber)}`,
+        lastModified: new Date(topic.latestPostDate ?? blogPosts[0]?.date ?? Date.now()),
+        changeFrequency: 'weekly' as const,
+        priority: pageNumber === 1 ? 0.55 : 0.45,
+      };
+    }),
+  );
 
   const tagArchives = getMeaningfulTagArchiveSummaries().flatMap((tagArchive) =>
     Array.from({ length: tagArchive.totalPages }, (_, index) => {

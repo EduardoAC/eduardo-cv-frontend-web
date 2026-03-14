@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Container from '@/components/layout/Container';
-import type { ArchivePaginationData, MeaningfulTagArchiveSummary } from '@/lib/blog/archive';
+import type { MeaningfulTagArchiveSummary } from '@/lib/blog/archive';
+import type { ArchivePaginationData } from '@/lib/blog/pagination';
 import type { BlogTopicSummary } from '@/lib/blog/topics';
 import Tag from '../content/Tag';
 import { ArchivePagination } from './ArchivePagination';
@@ -75,8 +76,6 @@ export function BlogLayout({
       </header>
 
       <div className={styles['blog-navigation']}>
-        <p className={styles['archive-summary']}>{resultsSummary}</p>
-
         {topics.length > 0 && <TopicHubGrid topics={topics} />}
 
         {tags.length > 0 && (
@@ -109,7 +108,11 @@ export function BlogLayout({
         )}
 
         <div className={styles['archive-top-pagination']}>
-          <ArchivePagination pagination={pagination} />
+          <ArchivePagination
+            pagination={pagination}
+            summary={resultsSummary}
+            ariaLabel="Article archive overview and pagination"
+          />
         </div>
       </div>
 
