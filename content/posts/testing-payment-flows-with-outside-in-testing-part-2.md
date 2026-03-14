@@ -5,6 +5,7 @@ date: "2026-03-13"
 author: "eduardo aparicio cardenes"
 tags: ["Outside-In Testing", "Integration Testing", "Testing Strategy", "Payment Testing"]
 image: "/images/blog/testing-payment-flows-with-outside-in-testing-part-2/01-hero-payment-flows-outside-in-testing.png"
+imageAlt: "Payment flow diagram showing an outside-in integration testing strategy"
 ---
 
 *From customer journeys to actionable code, with integration acting as the confidence engine.*

@@ -5,6 +5,7 @@ date: "2025-08-09"
 author: "eduardo aparicio cardenes"
 tags: ["Mentoring", "Engineering", "Leadership", "Career Development", "Life Lessons"]
 image: "/images/blog/channeling-failure-into-success-mentoring-lessong-for-engineers.webp"
+imageAlt: "Illustration of an engineer reflecting on mentoring through setbacks"
 ---
 
 Yesterday, I had the pleasure of recording my first-ever podcast at [The Señor Developer](https://www.youtube.com/@NeciuDan) with [Dan Neciu](https://neciudan.dev/), where we talked about many exciting things, especially a topic very close to my heart: engineering mentoring. The video will be released soon, so make sure to subscribe to his channel so you don't miss it.
@@ -74,4 +75,3 @@ Well, it's time to continue my morning workout, but I'll see you soon to make a 
 ## Additional Resources
 
 If you got this far, it means you love the topic and want to learn more. Here is a really great talk from [Rachel Lee Nabors](https://nearestnabors.com/) about how to [Navigate Professional Relationships in the Tech Industry](https://www.wearedevelopers.com/en/videos/1276/how-to-navigate-professional-relationships-in-the-tech-industry-1734359933?_gl=1%2a1xtqugx%2a_up%2aMQ..%2a_ga%2aMTMxNjU5MDYzNi4xNzU0NzMwMTI4%2a_ga_CLQTX36RMG%2aczE3NTQ3MzAxMjckbzEkZzAkdDE3NTQ3MzAxMjckajYwJGwwJGgyNTY3NTcwNzg.) that talks about how responsibility is a 50/50 split, which is well worth watching.
-

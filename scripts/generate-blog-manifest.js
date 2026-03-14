@@ -1,8 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
-const sharp = require('sharp');
 const Prism = require('prismjs');
+const {
+  buildResponsiveContext,
+  getLocalImageMetadata,
+  isLocalImagePath,
+} = require('./lib/image-pipeline');
 
 require('prismjs/components/prism-markup');
 require('prismjs/components/prism-clike');
@@ -28,20 +32,23 @@ const wordsPerMinute = 200;
 
 const IMAGE_CONTEXTS = {
   card: {
-    widths: [480, 768],
-    sizes: '(min-width: 1024px) 480px, 100vw',
+    widths: [480, 768, 1200],
+    sizes: '(min-width: 1200px) 1100px, 100vw',
   },
   hero: {
-    widths: [1200, 1536],
-    sizes: '(min-width: 1440px) 1200px, 100vw',
+    widths: [768, 1200, 1536],
+    sizes: '(min-width: 1400px) 1290px, 100vw',
+  },
+  related: {
+    widths: [320, 480, 640],
+    sizes: '(min-width: 1200px) 360px, (min-width: 768px) 50vw, 100vw',
   },
   inline: {
     widths: [720, 1200],
-    sizes: '(min-width: 1024px) 720px, 100vw',
+    sizes: '(min-width: 1400px) 1200px, (min-width: 1024px) 960px, 100vw',
   },
 };
 
-const imageMetadataCache = new Map();
 const responsiveImageCache = new Map();
 
 const calculateReadingTime = (content) => {
@@ -153,133 +160,6 @@ const getInlineSizes = (sizeHint, fallbackSizes) => {
   return fallbackSizes;
 };
 
-const isLocalImagePath = (imagePath) => typeof imagePath === 'string' && imagePath.startsWith('/') && !imagePath.startsWith('//');
-
-const getLocalImageMetadata = async (imagePath) => {
-  if (!isLocalImagePath(imagePath)) {
-    return null;
-  }
-
-  const cachedMetadata = imageMetadataCache.get(imagePath);
-  if (cachedMetadata) {
-    return cachedMetadata;
-  }
-
-  const absoluteSourcePath = path.join(publicDirectory, imagePath.replace(/^\//, ''));
-
-  if (!fs.existsSync(absoluteSourcePath)) {
-    console.warn(`Skipping missing blog image: ${imagePath}`);
-    return null;
-  }
-
-  try {
-    const metadata = await sharp(absoluteSourcePath).metadata();
-
-    if (!metadata.width || !metadata.height) {
-      return null;
-    }
-
-    const value = {
-      absoluteSourcePath,
-      width: metadata.width,
-      height: metadata.height,
-      format: metadata.format ?? (path.extname(absoluteSourcePath).replace('.', '') || 'unknown'),
-    };
-
-    imageMetadataCache.set(imagePath, value);
-    return value;
-  } catch (error) {
-    console.warn(`Unable to read image metadata for ${imagePath}:`, error);
-    return null;
-  }
-};
-
-const ensureVariantFile = async ({ sourcePath, outputPath, width }) => {
-  let shouldGenerate = true;
-
-  if (fs.existsSync(outputPath)) {
-    const sourceStats = fs.statSync(sourcePath);
-    const outputStats = fs.statSync(outputPath);
-    shouldGenerate = sourceStats.mtimeMs > outputStats.mtimeMs;
-  }
-
-  if (!shouldGenerate) {
-    return;
-  }
-
-  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  await sharp(sourcePath).resize({ width, withoutEnlargement: true }).webp({ quality: 82 }).toFile(outputPath);
-};
-
-const toPublicVariantPath = (sourcePath, contextName, width) => {
-  const publicRelativePath = sourcePath.replace(/^\//, '');
-  const parsedPath = path.parse(publicRelativePath);
-  const normalizedDirectory = parsedPath.dir.replace(/^images[\\/]/, '');
-  const outputRelativePath = path.join(
-    'generated',
-    'blog-images',
-    normalizedDirectory,
-    `${parsedPath.name}-${contextName}-${width}.webp`,
-  );
-
-  return {
-    absolutePath: path.join(publicDirectory, outputRelativePath),
-    publicPath: `/${outputRelativePath.split(path.sep).join('/')}`,
-  };
-};
-
-const buildResponsiveContext = async (sourcePath, metadata, contextName) => {
-  const contextConfig = IMAGE_CONTEXTS[contextName];
-
-  if (!contextConfig) {
-    return null;
-  }
-
-  const variantWidths = Array.from(
-    new Set(
-      contextConfig.widths
-        .map((requestedWidth) => Math.min(requestedWidth, metadata.width))
-        .filter(Boolean),
-    ),
-  ).sort((a, b) => a - b);
-
-  if (variantWidths.length === 0) {
-    return null;
-  }
-
-  const variants = [];
-
-  for (const width of variantWidths) {
-    const height = Math.max(1, Math.round((metadata.height / metadata.width) * width));
-    const { absolutePath, publicPath } = toPublicVariantPath(sourcePath, contextName, width);
-
-    await ensureVariantFile({
-      sourcePath: metadata.absoluteSourcePath,
-      outputPath: absolutePath,
-      width,
-    });
-
-    variants.push({
-      src: publicPath,
-      width,
-      height,
-      format: 'webp',
-    });
-  }
-
-  const defaultVariant = variants[variants.length - 1];
-
-  return {
-    src: defaultVariant.src,
-    width: defaultVariant.width,
-    height: defaultVariant.height,
-    format: defaultVariant.format,
-    sizes: contextConfig.sizes,
-    srcSet: variants.map((variant) => `${variant.src} ${variant.width}w`).join(', '),
-    variants,
-  };
-};
-
 const ensureResponsiveImageAsset = async (sourcePath, contextNames) => {
   if (!isLocalImagePath(sourcePath)) {
     return null;
@@ -306,7 +186,19 @@ const ensureResponsiveImageAsset = async (sourcePath, contextNames) => {
 
   for (const contextName of contextNames) {
     if (!asset.contexts[contextName]) {
-      asset.contexts[contextName] = await buildResponsiveContext(sourcePath, metadata, contextName);
+      const contextConfig = IMAGE_CONTEXTS[contextName];
+
+      if (!contextConfig) {
+        continue;
+      }
+
+      asset.contexts[contextName] = await buildResponsiveContext({
+        sourcePath,
+        widths: contextConfig.widths,
+        sizes: contextConfig.sizes,
+        outputSubdirectory: path.join('generated', 'blog-images'),
+        variantName: contextName,
+      });
     }
   }
 
@@ -482,7 +374,7 @@ const createPostRecord = async ({ fileName, marked }) => {
   const coverImagePath = typeof data.image === 'string' ? data.image : undefined;
   const readingTime = calculateReadingTime(content);
   const inlineImageSources = extractMarkdownImageReferences(content).filter(isLocalImagePath);
-  const coverImage = coverImagePath ? await ensureResponsiveImageAsset(coverImagePath, ['card', 'hero']) : null;
+  const coverImage = coverImagePath ? await ensureResponsiveImageAsset(coverImagePath, ['card', 'hero', 'related']) : null;
   const inlineAssetEntries = await Promise.all(
     inlineImageSources.map(async (imagePath) => [imagePath, await ensureResponsiveImageAsset(imagePath, ['inline'])]),
   );
@@ -503,6 +395,7 @@ const createPostRecord = async ({ fileName, marked }) => {
     author: typeof data.author === 'string' ? data.author : '',
     tags: Array.isArray(data.tags) ? data.tags : [],
     image: coverImagePath,
+    imageAlt: typeof data.imageAlt === 'string' ? data.imageAlt : '',
     imageWidth: coverImage?.width,
     imageHeight: coverImage?.height,
     coverImage: coverImage ?? undefined,
@@ -539,6 +432,7 @@ const generateArtifacts = async () => {
     author: post.author,
     tags: post.tags,
     image: post.image,
+    imageAlt: post.imageAlt,
     imageWidth: post.imageWidth,
     imageHeight: post.imageHeight,
     coverImage: post.coverImage,

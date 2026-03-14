@@ -45,7 +45,7 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
           <div className={styles['blog-image-frame']} style={getImageFrameStyle(post)}>
             <img
               src={cardImage?.src ?? post.image}
-              alt={post.title}
+              alt=""
               className={styles['blog-image']}
               loading="lazy"
               decoding="async"

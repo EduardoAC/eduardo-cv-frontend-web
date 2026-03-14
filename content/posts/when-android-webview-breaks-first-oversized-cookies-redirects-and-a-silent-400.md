@@ -5,6 +5,7 @@ date: "2025-12-21"
 author: "Eduardo Aparicio Cardenes"
 tags: ["Android WebView", "Http redirect", "Cookies", "Payment systems", "Iframe"]
 image: "/images/blog/when-android-webview-breaks-first/hero-android-webview-oversized-cookies-eduardo-avatar.webp"
+imageAlt: "Android WebView illustration showing oversized cookies breaking a payment flow"
 ---
 
 One of the most fascinating challenges I have faced over the past months is an error that **exclusively** occurred in Android WebView.

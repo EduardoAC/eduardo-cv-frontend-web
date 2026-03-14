@@ -5,6 +5,7 @@ date: "2023-10-01"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "Redux", "Web Development", "Manifest V3"]
 image: "/images/blog/optimising-chrome-extensions-part-1-beyond-redux-post-manifest-v3/hero-post-manifest-v3-redux.png"
+imageAlt: "Illustration of a post-Manifest V3 Chrome extension architecture beyond Redux"
 ---
 
 The landscape of Chrome extension development underwent a significant shift with the introduction of Manifest v3. In this article, we’ll explore the journey of why we decided to part ways with the Redux ecosystem in our Chrome extension after adopting Manifest v3. We aim to provide insights and guidance for fellow extension developers facing similar decisions in selecting their tech stack.

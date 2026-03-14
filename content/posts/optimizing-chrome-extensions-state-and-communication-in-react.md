@@ -5,6 +5,7 @@ date: "2023-11-05"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "React", "State Management", "Web Development"]
 image: "/images/blog/optimizing-chrome-extensions-state-and-communication-in-react/hero-chrome-extension-state-management.jpeg"
+imageAlt: "Chrome extension interface illustrating state management and cross-context communication"
 ---
 
 In the previous article, we discussed the limitations of using Redux and the need to adapt our approach to Chrome extension development due to the changes introduced by Manifest v3.

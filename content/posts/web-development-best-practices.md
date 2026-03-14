@@ -5,6 +5,7 @@ date: "2024-12-17"
 author: "Eduardo Aparicio Cárdenes"
 tags: ["Web Development", "Best Practices", "JavaScript", "CSS", "HTML", "Performance"]
 image: "/images/blog/web-development-best-practices.jpg"
+imageAlt: "Laptop and code illustration representing web development best practices"
 ---
 
 Building modern web applications requires more than just writing code. It involves following established best practices that ensure your applications are maintainable, performant, and user-friendly. In this comprehensive guide, we'll explore the essential best practices that every web developer should know.

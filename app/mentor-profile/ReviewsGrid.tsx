@@ -58,7 +58,15 @@ export default function ReviewsGrid({ reviews, initialCount = 3 }: ReviewsGridPr
               key={idx}
             >
               <div className={styles.avatarRow}>
-                <img src={review.image} alt={review.name} className={styles.avatar} />
+                <img
+                  src={review.image}
+                  alt=""
+                  width={56}
+                  height={56}
+                  loading="lazy"
+                  decoding="async"
+                  className={styles.avatar}
+                />
                 <div>
                   <div className={styles.name}>{review.name}</div>
                   <div className={styles.title}>{review.title}</div>

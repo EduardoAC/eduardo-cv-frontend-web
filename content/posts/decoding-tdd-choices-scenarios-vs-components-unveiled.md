@@ -5,6 +5,7 @@ date: "2016-08-23"
 author: "Eduardo Aparicio Cárdenes"
 tags: ["TDD", "Web Development", "JavaScript"]
 image: "/images/blog/decoding-tdd-choices-scenarios-vs-components-unveiled/hero-scenarios-vs-components-testing.png"
+imageAlt: "Comparison graphic contrasting scenario tests and component tests"
 ---
 
 Today I started as any other day, but I came across an interesting challenge, **what kind of test should we put in our suit** (describe - jasmine) **scenarios or components** and **how do we need to express the specs** (it - jasmine) **by cases or features**?

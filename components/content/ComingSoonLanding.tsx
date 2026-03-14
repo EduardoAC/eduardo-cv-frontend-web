@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { getSiteImageDimensions } from '@/lib/images/siteImageData';
+import { COMING_SOON_IMAGE_SIZES } from '@/lib/images/siteSizes';
 import Link from 'next/link';
 import Container from '@/components/layout/Container';
 import styles from './ComingSoonLanding.module.scss';
@@ -39,6 +41,9 @@ interface ComingSoonLandingProps {
   actions: ComingSoonAction[];
   imageAlt: string;
 }
+
+const imageSrc = '/images/comingsoon-optimized-1280.webp';
+const imageDimensions = getSiteImageDimensions(imageSrc, { width: 1280, height: 582 });
 
 export default function ComingSoonLanding({
   variant,
@@ -94,10 +99,11 @@ export default function ComingSoonLanding({
             <div className={styles.media}>
               <div className={styles.imageFrame}>
                 <Image
-                  src="/images/comingsoon-optimized-1280.webp"
+                  src={imageSrc}
                   alt={imageAlt}
-                  width={1280}
-                  height={582}
+                  width={imageDimensions.width}
+                  height={imageDimensions.height}
+                  sizes={COMING_SOON_IMAGE_SIZES}
                   priority
                   className={`snap-img-fluid ${styles.image}`}
                 />

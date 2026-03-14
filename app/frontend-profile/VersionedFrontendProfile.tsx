@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Container from '@/components/layout/Container';
 import ProfilePage from '@/components/ProfilePage';
+import { getSiteImageDimensions } from '@/lib/images/siteImageData';
+import { FRONTEND_HERO_CARD_SIZES } from '@/lib/images/siteSizes';
 import type { FrontendProfileVersion, FrontendProfileVersionId } from './data';
 import styles from './VersionedFrontendProfile.module.scss';
 
@@ -21,6 +23,10 @@ export default function VersionedFrontendProfile({
   versions,
 }: VersionedFrontendProfileProps) {
   const orderedVersions = [...versions].sort((a, b) => Number(b.version) - Number(a.version));
+  const brandCardDimensions = getSiteImageDimensions(activeVersion.brandCardImage, {
+    width: 1200,
+    height: 630,
+  });
 
   return (
     <div className={styles.page} data-version={activeVersion.id}>
@@ -42,9 +48,9 @@ export default function VersionedFrontendProfile({
               <Image
                 src={activeVersion.brandCardImage}
                 alt={`${activeVersion.label} brand card`}
-                width={600}
-                height={315}
-                sizes="(max-width: 900px) 100vw, 600px"
+                width={brandCardDimensions.width}
+                height={brandCardDimensions.height}
+                sizes={FRONTEND_HERO_CARD_SIZES}
                 priority
               />
             </figure>

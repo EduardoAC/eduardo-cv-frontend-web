@@ -5,6 +5,7 @@ date: "2026-03-10"
 author: "eduardo aparicio cardenes"
 tags: ["Outside-In Testing", "Integration Testing", "Testing Strategy", "Continuous Deployment"]
 image: "/images/blog/outside-in-testing-strategy-part-1/outside-in-extending-trophy-of-testing.png"
+imageAlt: "Testing trophy illustration showing an outside-in testing strategy"
 ---
 
 Last year, I joined a team responsible for one of the most critical areas of any digital product: payments.

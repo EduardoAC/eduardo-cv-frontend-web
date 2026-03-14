@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { EXPERIENCE_LOGO_IMAGE_SIZES } from '@/lib/images/siteSizes';
 import Link from 'next/link';
 import Tag from '@/components/content/Tag';
 import styles from './MyExperience.module.scss';
@@ -38,6 +39,7 @@ export default function ExperienceBlock({
             alt={company}
             width={60}
             height={60}
+            sizes={EXPERIENCE_LOGO_IMAGE_SIZES}
           />
         </div>
         <div className={styles.details}>

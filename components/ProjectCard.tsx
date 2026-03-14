@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { PROJECT_CARD_IMAGE_SIZES } from '@/lib/images/siteSizes';
 import styles from './ProjectCard.module.scss';
 
 interface ProjectCardProps {
@@ -28,6 +29,7 @@ export default function ProjectCard({
         alt={title}
         width={100}
         height={100}
+        sizes={PROJECT_CARD_IMAGE_SIZES}
         className={styles.logo}
       />
       <p>{description}</p>

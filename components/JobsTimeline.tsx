@@ -1,7 +1,12 @@
 import Image from 'next/image'
+import { getSiteImageDimensions } from '@/lib/images/siteImageData'
+import { HOME_PROMO_IMAGE_SIZES } from '@/lib/images/siteSizes'
 import Link from 'next/link'
 import Container from './layout/Container'
 import styles from './JobsTimeline.module.scss'
+
+const imageSrc = '/images/jobs-timeline-optimized-1280.webp'
+const imageDimensions = getSiteImageDimensions(imageSrc, { width: 1280, height: 960 })
 
 export default function JobsTimeline() {
   return (
@@ -27,10 +32,11 @@ export default function JobsTimeline() {
           </div>
           <div className="snap-col snap-col-md-5">
             <Image
-              src="/images/jobs-timeline-optimized-1280.webp"
-              alt="My Career Timeline"
-              width={400}
-              height={300}
+              src={imageSrc}
+              alt="Illustrated timeline representing Eduardo Aparicio Cardenes' career journey"
+              width={imageDimensions.width}
+              height={imageDimensions.height}
+              sizes={HOME_PROMO_IMAGE_SIZES}
               className="snap-img-fluid"
             />
           </div>

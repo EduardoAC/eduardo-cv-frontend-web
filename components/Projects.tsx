@@ -1,7 +1,12 @@
 import Container from './layout/Container'
 import Image from 'next/image'
+import { getSiteImageDimensions } from '@/lib/images/siteImageData'
+import { HOME_PROJECT_IMAGE_SIZES } from '@/lib/images/siteSizes'
 import Link from 'next/link'
 import styles from './Projects.module.scss'
+
+const imageSrc = '/images/code-projects-done-optimized-1280.webp'
+const imageDimensions = getSiteImageDimensions(imageSrc, { width: 1280, height: 960 })
 
 export default function Projects() {
   return (
@@ -21,10 +26,11 @@ export default function Projects() {
           <div className="snap-col snap-col-md-5 snap-col-lg-4">
             <Link href="/my-projects">
               <Image
-                src="/images/code-projects-done-optimized-1280.webp"
-                alt="Code Projects Done"
-                width={400}
-                height={300}
+                src={imageSrc}
+                alt="Illustration of completed software projects and code milestones"
+                width={imageDimensions.width}
+                height={imageDimensions.height}
+                sizes={HOME_PROJECT_IMAGE_SIZES}
                 className="snap-img-fluid"
               />
             </Link>

@@ -5,6 +5,7 @@ date: "2026-02-01"
 author: "Eduardo Aparicio Cardenes"
 tags: ["TypeScript", "JavaScript", "Clean Code", "Software Engineering", "Code Review"]
 image: "/images/blog/stop-defaulting-to-options-objects-in-helper-functions-a-2026-decision-framework-frontmatter.webp"
+imageAlt: "Decision framework illustration about helper function parameter design"
 ---
 
 Not long ago, I was about to ship a change when a pull request comment landed: "Can we switch these parameters into an object parameter as we have more than 3?"

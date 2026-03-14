@@ -1,7 +1,12 @@
 import Image from 'next/image'
+import { getSiteImageDimensions } from '@/lib/images/siteImageData'
+import { HOME_PROMO_IMAGE_SIZES } from '@/lib/images/siteSizes'
 import Link from 'next/link'
 import Container from './layout/Container'
 import styles from './Greetings.module.scss'
+
+const imageSrc = '/images/finding-the-secrets-optimized-1280.webp'
+const imageDimensions = getSiteImageDimensions(imageSrc, { width: 1280, height: 960 })
 
 export default function Greetings() {
   return (
@@ -11,10 +16,11 @@ export default function Greetings() {
         <div className="snap-grid align-items-center">
           <div className="snap-col snap-col-md-5">
             <Image
-              src="/images/finding-the-secrets-optimized-1280.webp"
-              alt="Finding the Secrets"
-              width={400}
-              height={300}
+              src={imageSrc}
+              alt="Illustration of a person exploring a hidden passage"
+              width={imageDimensions.width}
+              height={imageDimensions.height}
+              sizes={HOME_PROMO_IMAGE_SIZES}
               className="snap-img-fluid"
             />
           </div>

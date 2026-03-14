@@ -44,7 +44,7 @@ const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
         url: image.url.startsWith('http') ? image.url : `${baseUrl}${image.url}`,
         width: image.width ?? 1200,
         height: image.height ?? 630,
-        alt: post.title,
+        alt: post.imageAlt ?? post.title,
       }
     ] : [],
     locale: 'en_GB',

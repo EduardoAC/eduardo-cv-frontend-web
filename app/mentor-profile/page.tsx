@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import Image from 'next/image';
 import styles from './MentorProfile.module.scss';
 import { mentorPlatforms, certificate } from './data';
 import ReviewsGrid from './ReviewsGrid';
@@ -7,6 +7,13 @@ import adplistReviews from './adplist-reviews.json';
 import mentoringClubReviews from './mentoring-club-reviews.json';
 import BookingModalClient from './BookingModalClient';
 import Container from '@/components/layout/Container';
+
+const platformLogoMeta: Record<string, { width: number; height: number }> = {
+  ADPList: { width: 909, height: 256 },
+  'Mentoring Club': { width: 463, height: 510 },
+};
+
+const certificatePreviewMeta = { width: 225, height: 225 };
 
 export const metadata = {
   title: 'Mentor Profile | Eduardo Aparicio Cárdenes',
@@ -66,7 +73,14 @@ export default function MentorProfilePage() {
         return (
           <section key={platform.name} className={styles.platformSection}>
             <div className={styles.platformHeader}>
-              <img src={platform.logo} alt={platform.name} width={platform.logoWidth} />
+              <Image
+                src={platform.logo}
+                alt={`${platform.name} logo`}
+                width={platformLogoMeta[platform.name].width}
+                height={platformLogoMeta[platform.name].height}
+                sizes={`${platform.logoWidth}px`}
+                style={{ width: platform.logoWidth, height: 'auto' }}
+              />
               <h2>
                 <BookingModalClient platform={platform} />
               </h2>
@@ -85,7 +99,14 @@ export default function MentorProfilePage() {
       <section className={styles.certificateSection}>
         <h2>Certificate</h2>
         <a href={certificate.file} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', textAlign: 'center' }}>
-          <img src={certificate.preview} alt="Mentoring Excellence Certificate Preview" style={{ width: 200, marginBottom: 8, borderRadius: 8 }} />
+          <Image
+            src={certificate.preview}
+            alt="Preview of Eduardo Aparicio Cardenes' mentoring excellence certificate"
+            width={certificatePreviewMeta.width}
+            height={certificatePreviewMeta.height}
+            sizes="200px"
+            style={{ width: 200, height: 'auto', marginBottom: 8, borderRadius: 8 }}
+          />
           <br />
           <span>{certificate.description}</span>
         </a>

@@ -1,7 +1,12 @@
 import Image from 'next/image'
+import { getSiteImageDimensions } from '@/lib/images/siteImageData'
+import { HOME_PROMO_IMAGE_SIZES } from '@/lib/images/siteSizes'
 import Link from 'next/link'
 import Container from './layout/Container'
 import styles from './ContentBlogs.module.scss'
+
+const imageSrc = '/images/ideas-content-blog-optimized-1280.webp'
+const imageDimensions = getSiteImageDimensions(imageSrc, { width: 1280, height: 960 })
 
 export default function ContentBlogs() {
   return (
@@ -11,10 +16,11 @@ export default function ContentBlogs() {
         <div className="snap-grid align-items-center">
           <div className="snap-col snap-col-md-5">
             <Image
-              src="/images/ideas-content-blog-optimized-1280.webp"
-              alt="Ideas Content Blog"
-              width={400}
-              height={300}
+              src={imageSrc}
+              alt="Notebook and desk setup representing blog writing and technical ideas"
+              width={imageDimensions.width}
+              height={imageDimensions.height}
+              sizes={HOME_PROMO_IMAGE_SIZES}
               className="snap-img-fluid"
             />
           </div>

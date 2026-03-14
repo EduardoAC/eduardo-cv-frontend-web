@@ -5,6 +5,7 @@ date: "2020-09-26"
 author: "eduardo aparicio cardenes"
 tags: ["JWT", "Authentication", "Security", "Web Development"]
 image: "/images/blog/managing-jwt-token-expiration/hero-jwt-token-expiration.png"
+imageAlt: "Flow diagram showing JWT expiration handling strategies"
 ---
 
 When you manage JWT tokens, there are some problems that you may experience when you are dealing with authentication. Particularly, when you need to handle token expiration.

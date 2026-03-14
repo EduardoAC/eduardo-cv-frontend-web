@@ -5,6 +5,7 @@ date: "2024-08-24"
 author: "eduardo aparicio cardenes"
 tags: ["Web Development", "UI Design", "Forms", "Best Practices"]
 image: "/images/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing/hero-form-field-spacing-comparison.jpg"
+imageAlt: "Two form layouts comparing inner spacing and outer spacing choices"
 ---
 
 When discussing creating a great user experience, we must address forms

@@ -108,6 +108,10 @@ const validateMarkdownPost = (post, manifestBySlug, postArtifactsBySlug, knownSl
   }
 
   if (typeof data.image === 'string') {
+    if (typeof data.imageAlt !== 'string' || !data.imageAlt.trim()) {
+      addError(`${fileName}: frontmatter image requires a non-empty "imageAlt" field.`);
+    }
+
     const imagePath = resolvePublicFileFromUrl(data.image);
 
     if (!imagePath || !fs.existsSync(imagePath)) {
@@ -185,6 +189,10 @@ const validateMarkdownPost = (post, manifestBySlug, postArtifactsBySlug, knownSl
   }
 
   if (manifestEntry.image) {
+    if (typeof manifestEntry.imageAlt !== 'string' || !manifestEntry.imageAlt.trim()) {
+      addError(`${fileName}: manifest image is missing imageAlt metadata.`);
+    }
+
     if (!manifestEntry.imageWidth || !manifestEntry.imageHeight) {
       addError(`${fileName}: manifest image is missing intrinsic width/height metadata.`);
     }
@@ -194,6 +202,7 @@ const validateMarkdownPost = (post, manifestBySlug, postArtifactsBySlug, knownSl
     } else {
       validateGeneratedImageContext(slug, 'card', manifestEntry.coverImage.contexts?.card);
       validateGeneratedImageContext(slug, 'hero', manifestEntry.coverImage.contexts?.hero);
+      validateGeneratedImageContext(slug, 'related', manifestEntry.coverImage.contexts?.related);
     }
   }
 
