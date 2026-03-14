@@ -84,28 +84,23 @@
 
 .title {
   margin: 0;
-  max-width: 10ch;
   color: var(--color-text-heading);
-  font-size: clamp(2.6rem, 3vw + 1.4rem, 4.8rem);
+  font-size: clamp(2.58rem, 2.42vw + 1.43rem, 4.4rem);
   line-height: 1;
-  text-wrap: balance;
 }
 
 .subtitle {
   margin: 0;
-  max-width: 36rem;
   color: var(--color-text-heading);
   font-size: clamp(1.08rem, 0.6vw + 0.98rem, 1.3rem);
   font-weight: 600;
   line-height: 1.5;
-  text-wrap: balance;
 }
 
 .lead {
   margin: 0;
-  max-width: 62ch;
   color: var(--color-text-secondary);
-  font-size: 1rem;
+  font-size: clamp(1.04rem, 0.5vw + 0.98rem, 1.18rem);
   line-height: 1.65;
 }
 
@@ -129,6 +124,14 @@
 .jumpNav {
   margin-top: 0;
   width: 100%;
+}
+
+.jumpNavIntro {
+  margin: 1rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .jumpNavList {
@@ -555,6 +558,10 @@
 }
 
 @media (min-width: 1280px) {
+  .title {
+    white-space: nowrap;
+  }
+
   .featuredGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

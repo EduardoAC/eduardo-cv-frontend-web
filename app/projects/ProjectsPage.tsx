@@ -167,6 +167,8 @@ export default function ProjectsPage() {
                   ))}
                 </div>
 
+                <p className={styles.jumpNavIntro}>Browse the curated collections:</p>
+
                 <nav className={styles.jumpNav} aria-label="Projects section navigation">
                   <ul className={styles.jumpNavList}>
                     {projectSections.map((section) => (
