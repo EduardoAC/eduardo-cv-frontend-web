@@ -49,21 +49,14 @@ const staleWhileRevalidate = async (
 ) => {
   const cache = await caches.open(cacheName);
   const cachedResponse = await cache.match(request);
-  const refreshPromise = fetchAndCache(cacheName, request, shouldCache).catch(() => undefined);
-
-  event.waitUntil(refreshPromise);
 
   if (cachedResponse) {
+    const refreshPromise = fetchAndCache(cacheName, request, shouldCache).catch(() => undefined);
+    event.waitUntil(refreshPromise);
     return cachedResponse;
   }
 
-  const networkResponse = await refreshPromise;
-
-  if (networkResponse) {
-    return networkResponse;
-  }
-
-  throw new Error(`Unable to resolve request: ${request.url}`);
+  return fetchAndCache(cacheName, request, shouldCache);
 };
 
 const staleWhileRevalidateImage = async (cacheName, request, event) =>
