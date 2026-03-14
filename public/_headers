@@ -1,0 +1,26 @@
+/service-worker.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/theme-init.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.txt
+  Cache-Control: public, max-age=0, must-revalidate
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=0, must-revalidate
+
+/robots.txt
+  Cache-Control: public, max-age=0, must-revalidate
+
+/sitemap*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/_next/static/css/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/_next/static/chunks/*
+  Cache-Control: public, max-age=0, must-revalidate
