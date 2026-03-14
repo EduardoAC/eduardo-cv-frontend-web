@@ -233,7 +233,7 @@ export default function ProjectsPage() {
                 ))}
               </ul>
 
-              {section.id === 'ventures' ? (
+              {section.id === 'hackathons' ? (
                 <aside className={styles.archivedStrip} aria-labelledby="archived-projects-title">
                   <h3 id="archived-projects-title" className={styles.archivedTitle}>
                     Selected experiments and workshops

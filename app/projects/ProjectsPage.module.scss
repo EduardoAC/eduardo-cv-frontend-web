@@ -171,7 +171,7 @@
 }
 
 .section {
-  padding-top: clamp(0.95rem, 0.45rem + 0.8vw, 1.35rem);
+  padding-block: clamp(0.95rem, 0.45rem + 0.8vw, 1.35rem);
 }
 
 .sectionHeader {
@@ -189,7 +189,6 @@
 
 .sectionIntro {
   margin: 0;
-  max-width: 65ch;
   color: var(--color-text-secondary);
   font-size: 1rem;
   line-height: 1.65;
