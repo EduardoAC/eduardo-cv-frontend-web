@@ -7,7 +7,7 @@ const STATIC_ASSETS = [
   '/',
   '/about',
   '/contact',
-  '/my-projects',
+  '/projects',
   '/my-experience',
   '/images/introduction-image-1280-optimized.webp',
   '/images/introduction-image-1280-optimized.jpg',

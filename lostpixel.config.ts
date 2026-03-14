@@ -28,7 +28,7 @@ export const config: CustomProjectConfig = {
       { path: '/', name: 'home' },
       { path: '/about', name: 'about' },
       { path: '/contact', name: 'contact' },
-      { path: '/my-projects', name: 'my-projects' },
+      { path: '/projects', name: 'projects' },
       { path: '/my-experience', name: 'my-experience' },
       { path: '/frontend-profile', name: 'frontend-profile' },
       { path: '/backend-profile', name: 'backend-profile' },

@@ -14,6 +14,8 @@ In the previous article, we discussed the limitations of using Redux and the nee
 
 However, it’s essential to understand the role that Redux played in our extensions and how to replace it with the new architectural strategy using only React. In this article, we’ll focus on managing the state in your Chrome extension using React in content scripts, briefly caching data in the background script, and facilitating effective communication between these components to ensure data synchronisation.
 
+If you want to see how this kind of browser tooling fits into the wider portfolio, the [projects page](/projects) curates the extension work alongside API generation, platform thinking, and open-source projects.
+
 #### Understanding State in Content Scripts
 
 When we talk about “state,” it can be a somewhat ambiguous term. The state could refer to a state machine that controls the user interface, or it could be about how we persist data in our React application. In this article, we’ll focus on the latter, referring to how you persist data within your React application, as the nature of your project and the user experience you aim to provide will determine the specific state requirements for data persistence. If you’re interested in discussing user experience, feel free to leave a comment (spoiler: I firmly believe a browser extension should NOT use react-router).

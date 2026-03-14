@@ -1,0 +1,608 @@
+@use '../../styles/utilities' as utilities;
+
+.page {
+  color: var(--color-text-primary);
+  text-align: left;
+}
+
+.page > section:nth-of-type(odd) {
+  @include utilities.gradient-pattern;
+}
+
+.page :where(p, li) {
+  font-size: clamp(0.98rem, 0.22vw + 0.94rem, 1.06rem);
+  line-height: 1.7;
+  letter-spacing: 0;
+  font-family: var(--font-content);
+  text-align: left;
+  word-spacing: normal;
+}
+
+.page :where(a) {
+  text-align: left;
+  word-spacing: normal;
+}
+
+.page :where(a:not(.linkButton):not(.jumpNavLink):not(.writingLink):not(.ctaButton)) {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+.page :global(.snap-tag) {
+  margin: 0;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.82rem;
+  line-height: 1.2;
+}
+
+.page :global(.snap-btn) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.72rem 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.heroSection {
+  @include utilities.gradient-pattern;
+
+  padding: 1rem 0 0.35rem;
+}
+
+.heroShell {
+  width: 100%;
+  background:
+    linear-gradient(145deg, rgba(var(--color-accent-rgb), 0.08), transparent 55%),
+    var(--color-surface-hero);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 28px;
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1.4rem, 1rem + 1.6vw, 2.6rem);
+}
+
+.heroContent {
+  display: grid;
+  gap: 0.9rem;
+  width: 100%;
+}
+
+.heroRail {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 0.2rem;
+  width: 100%;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-size: clamp(2.58rem, 2.42vw + 1.43rem, 4.4rem);
+  line-height: 1;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-size: clamp(1.08rem, 0.6vw + 0.98rem, 1.3rem);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.lead {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: clamp(1.04rem, 0.5vw + 0.98rem, 1.18rem);
+  line-height: 1.65;
+}
+
+.heroActions,
+.finalActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.heroActionSecondary,
+.ctaSecondary {
+  background: var(--color-surface-elevated);
+}
+
+.heroActionSecondary:hover,
+.ctaSecondary:hover {
+  background: var(--color-surface-subtle);
+}
+
+.jumpNav {
+  margin-top: 0;
+  width: 100%;
+}
+
+.jumpNavIntro {
+  margin: 1rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.jumpNavList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.jumpNavLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.72rem 1rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 9999px;
+  background: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.jumpNavLink:hover,
+.jumpNavLink:focus-visible {
+  border-color: var(--color-border-primary);
+  background: var(--color-surface-subtle);
+  transform: translateY(-1px);
+}
+
+.section {
+  padding-block: clamp(0.95rem, 0.45rem + 0.8vw, 1.35rem);
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1.2rem;
+}
+
+.sectionTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-size: clamp(1.7rem, 0.9vw + 1.25rem, 2.5rem);
+  line-height: 1.1;
+}
+
+.sectionIntro {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.sectionInlineLink {
+  color: var(--color-link);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.grid,
+.writingGrid {
+  display: grid;
+  gap: clamp(1rem, 0.55rem + 0.8vw, 1.45rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grid > li,
+.writingGrid > li {
+  min-width: 0;
+  height: 100%;
+}
+
+.featuredGrid {
+  grid-template-columns: 1fr;
+}
+
+.supportingGrid,
+.hackathonGrid,
+.venturesGrid,
+.writingGrid {
+  grid-template-columns: 1fr;
+}
+
+.projectCard {
+  display: grid;
+  gap: 0.9rem;
+  height: 100%;
+  padding: 1.35rem;
+}
+
+.projectCard[data-tier='featured'] {
+  --snap-card-bg:
+    linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.1), rgba(var(--color-accent-rgb), 0.02)),
+    var(--color-surface-elevated);
+  --snap-card-border: rgba(var(--color-accent-rgb), 0.18);
+  --snap-card-border-hover: rgba(var(--color-accent-rgb), 0.34);
+  --snap-card-shadow: var(--shadow-medium);
+  --snap-card-shadow-hover: var(--shadow-strong);
+}
+
+.projectCard[data-tier='supporting'] {
+  --snap-card-bg: var(--color-surface-elevated);
+}
+
+.projectCard[data-tier='hackathon'] {
+  --snap-card-bg: linear-gradient(180deg, rgba(var(--color-accent-rgb), 0.05), transparent 45%), var(--color-surface-elevated);
+  --snap-card-border: var(--color-border-subtle);
+}
+
+.projectCard[data-tier='venture'] {
+  --snap-card-bg: linear-gradient(180deg, rgba(15, 23, 42, 0.02), transparent 55%), var(--color-surface);
+  --snap-card-border: var(--color-border-subtle);
+}
+
+.compactCard {
+  gap: 0.8rem;
+  padding: 1.1rem;
+}
+
+.compactCard :global(.snap-tag) {
+  padding: 0.4rem 0.72rem;
+  font-size: 0.78rem;
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.typeTag {
+  --snap-tag-bg: rgba(var(--color-accent-rgb), 0.1);
+  --snap-tag-border: rgba(var(--color-accent-rgb), 0.18);
+  --snap-tag-color: var(--color-text-heading);
+}
+
+.statusTagLive {
+  --snap-tag-bg: var(--color-success-bg);
+  --snap-tag-border: var(--color-success-border);
+  --snap-tag-color: var(--color-success);
+}
+
+.statusTagOss {
+  --snap-tag-bg: rgba(var(--color-accent-rgb), 0.1);
+  --snap-tag-border: rgba(var(--color-accent-rgb), 0.18);
+  --snap-tag-color: var(--color-accent);
+}
+
+.statusTagInProgress {
+  --snap-tag-bg: var(--color-warning-bg);
+  --snap-tag-border: var(--color-warning-border);
+  --snap-tag-color: var(--color-warning);
+}
+
+.statusTagHistoric {
+  --snap-tag-bg: var(--color-surface-subtle);
+  --snap-tag-border: var(--color-border-subtle);
+  --snap-tag-color: var(--color-text-secondary);
+}
+
+.mediaFrame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top right, rgba(var(--color-accent-rgb), 0.16), transparent 40%),
+    linear-gradient(135deg, var(--color-surface-subtle), var(--color-surface-elevated));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholderMedia {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.placeholderInner {
+  display: grid;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.placeholderLabel {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.placeholderTitle {
+  color: var(--color-text-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.cardBody {
+  display: grid;
+  gap: 0.72rem;
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-size: clamp(1.15rem, 0.3vw + 1.08rem, 1.38rem);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.cardSummary {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techTag {
+  --snap-tag-bg: var(--color-surface-subtle);
+  --snap-tag-border: var(--color-border-subtle);
+  --snap-tag-color: var(--color-text-secondary);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: auto;
+}
+
+.compactCard .actions {
+  margin-top: 0.15rem;
+}
+
+.cardActionSecondary {
+  background: var(--color-surface-elevated);
+}
+
+.cardActionSecondary:hover {
+  background: var(--color-surface-subtle);
+}
+
+.ventureList {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.writingCard {
+  display: grid;
+  gap: 0.55rem;
+  height: 100%;
+}
+
+.writingLink {
+  color: var(--color-text-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.writingLink:hover,
+.writingLink:focus-visible {
+  color: var(--color-link-hover);
+}
+
+.writingDescription {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.archivedStrip {
+  margin-top: 1.35rem;
+  padding: 1.35rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 24px;
+  background: var(--color-surface-elevated);
+}
+
+.archivedTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-size: 1.15rem;
+}
+
+.archivedBody {
+  margin: 0.55rem 0 0;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+.archivedList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.archivedTag {
+  --snap-tag-bg: var(--color-surface-subtle);
+  --snap-tag-border: var(--color-border-subtle);
+  --snap-tag-color: var(--color-text-secondary);
+}
+
+.archivedActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
+}
+
+.ctaSection {
+  padding: 1.8rem 0 2.6rem;
+}
+
+.ctaCard {
+  background:
+    linear-gradient(135deg, rgba(var(--color-accent-rgb), 0.12), rgba(var(--color-accent-rgb), 0.03)),
+    var(--color-surface-elevated);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.18);
+  border-radius: 28px;
+  box-shadow: var(--shadow-medium);
+  padding: clamp(1.4rem, 1rem + 1.5vw, 2.5rem);
+}
+
+.ctaTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-size: clamp(1.7rem, 1vw + 1.35rem, 2.35rem);
+}
+
+.ctaBody {
+  margin: 0.75rem 0 0;
+  max-width: 60ch;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.finalActions {
+  margin-top: 1.2rem;
+}
+
+.linkButton,
+.ctaButton {
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .page :where(p, li) {
+    font-size: 1.04rem;
+    line-height: 1.72;
+  }
+
+  .page :global(.snap-btn) {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.16rem;
+    line-height: 1.55;
+  }
+
+  .lead,
+  .sectionIntro,
+  .cardSummary,
+  .writingDescription,
+  .archivedBody,
+  .ctaBody {
+    font-size: 1.06rem;
+    line-height: 1.72;
+  }
+
+  .jumpNavIntro,
+  .jumpNavLink {
+    font-size: 0.98rem;
+  }
+
+  .cardTitle,
+  .writingLink,
+  .archivedTitle {
+    font-size: 1.18rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroSection {
+    padding-top: 1.25rem;
+  }
+
+  .supportingGrid,
+  .hackathonGrid,
+  .writingGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .venturesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .section {
+    padding-top: clamp(1rem, 0.4rem + 0.9vw, 1.5rem);
+  }
+
+  .jumpNavList {
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .featuredGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .supportingGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hackathonGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .venturesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .writingGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .title {
+    white-space: nowrap;
+  }
+
+  .featuredGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

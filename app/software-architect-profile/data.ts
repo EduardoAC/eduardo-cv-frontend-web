@@ -7,7 +7,7 @@ interface Strength {
 export const strengths: Strength[] = [
   {
     title: 'Architectures definition',
-    description: `<p>How to define your domain is the first part to solve it. However, it's not always easy thing to do it that as part of my last 6 years as developer, I keep improving my skills with specific courses as Human Computer Interaction Course from University of California, San Diego's</p><p>As part of this learning, I built personal projects in order to understand it. Platform as TuOcio, Dream Maker Factory, Trainer's WoD was made to get better understanding of users, you can see more details in <a href='/my-projects'>my projects</a> section.</p>`,
+    description: `<p>How to define your domain is the first part to solve it. However, it's not always easy thing to do it that as part of my last 6 years as developer, I keep improving my skills with specific courses as Human Computer Interaction Course from University of California, San Diego's</p><p>As part of this learning, I built personal projects in order to understand it. Platform as TuOcio, Dream Maker Factory, Trainer's WoD was made to get better understanding of users, you can see more details in the <a href='/projects'>projects</a> section.</p>`,
     imgUrl: '/images/software-architect/architect-definition.jpg',
   },
   {

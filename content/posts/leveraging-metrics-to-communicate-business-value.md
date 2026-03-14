@@ -18,6 +18,8 @@ My goal with this article is to share my view on how you can enhance communicati
 
 Therefore, I want to share three ways metrics can help elevate these conversations in your organisation and among your peers. Imagine walking into a room filled with strong opinions. By bringing data to the table, we can transform those heated debates into clear, fact-based discussions that everyone can rally around. Metrics offer an unbiased foundation to support your viewpoint, making it easier for your audience to understand your perspective and move past the subjective opinions.
 
+This kind of analytical thinking also shows up across the projects on my [projects page](/projects), where platform tooling, frontend systems, and product work all benefit from clearer engineering signals.
+
 #### Why Should Engineers Care About Metrics?
 
 You might be asking why we engineers, of all people, should care about metrics; honestly, this is a valid question. Consider the last time you talked to your colleagues and didn’t convince them of your point of view. While strong opinions can drive passionate debates, they don’t always lead to predictive outcomes. Metrics, on the other hand, shift the focus from opinions to facts as an engineer who knows how to use the organisation’s data to measure value effectively. These are some of the benefits I found when metrics using metrics effectively:

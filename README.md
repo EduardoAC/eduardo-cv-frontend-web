@@ -34,7 +34,7 @@ One detail is worth stating carefully. A later migration label refers to `PHP/Yi
 
 - **Profile and interactive CV**: the homepage, about page, and role-specific profile routes present my background from different angles.
 - **Blog**: the site includes a statically generated blog with archive pagination, topic archives, related posts, and newsletter subscription.
-- **Projects**: `/my-projects` groups projects, hackathons, and ideas into a browsable archive.
+- **Projects**: `/projects` curates flagship work, developer tooling, hackathons, and earlier ventures into a browsable archive.
 - **Experience**: `/my-experience` turns work history into a timeline rather than a short bullet list.
 - **Mentoring and discoverability**: `/mentor-profile`, contact routes, metadata, sitemap, robots rules, and internal linking make it easier for people to find the right part of the site.
 

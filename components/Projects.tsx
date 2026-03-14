@@ -12,19 +12,24 @@ export default function Projects() {
   return (
     <section className={styles.projects}>
       <Container variant="default" padding="medium">
-        <h2>Some of my projects</h2>
+        <h2>Projects and tooling</h2>
         <div className="snap-grid align-items-center">
           <div className="snap-col snap-col-md-7 snap-col-lg-8">
             <p>
-              As part of this project that try to catch new employers and clients attention to open the door to new work opportunities.
+              The projects page curates the work that best represents how I build today, from developer tooling and
+              open source to hackathons and earlier ventures.
             </p>
             <p>
-              I upload all <Link href="/my-projects">my projects here that include hackathons, work and personal ideas</Link>
+              Explore the <Link href="/projects">full projects collection</Link> to see flagship work such as GenX API,
+              browser tooling, platform experiments, and the ventures that shaped my product thinking.
             </p>
-            <p>Please self yourself to enter and take a look</p>
+            <p>
+              If you want the technical context behind that work, the <Link href="/blog">blog</Link> connects many of
+              these projects to architecture, testing, and delivery decisions.
+            </p>
           </div>
           <div className="snap-col snap-col-md-5 snap-col-lg-4">
-            <Link href="/my-projects">
+            <Link href="/projects">
               <Image
                 src={imageSrc}
                 alt="Illustration of completed software projects and code milestones"

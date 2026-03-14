@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { getSiteImageDimensions } from '@/lib/images/siteImageData';
 import {
@@ -59,6 +60,10 @@ export default function AboutPageClient() {
             <a href="https://www.tuocio.org">TuOcio</a>,{" "}
             <a href="https://www.trainerswod.com/">Trainer&apos;s WOD</a> and{" "}
             <a href="https://www.proyectoadoptame.es">Proyecto Adoptame</a>.
+          </p>
+          <p>
+            The curated <Link href="/projects">projects page</Link> brings those ventures together with my current
+            open-source tooling, hackathon work, and flagship engineering projects.
           </p>
           <p>
             When I&apos;m not doing those things, I&apos;m working for companies as a web
