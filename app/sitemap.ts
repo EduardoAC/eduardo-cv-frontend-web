@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { BLOG_AUTHOR_PATH } from '@/lib/blog/author';
 import { getAllPosts } from '@/lib/blog/markdown';
 import {
   buildBlogArchivePath,
@@ -38,6 +39,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const blogPosts = getAllPosts();
+  const authorPages = [
+    {
+      url: `${baseUrl}${BLOG_AUTHOR_PATH}`,
+      lastModified: new Date(blogPosts[0]?.date ?? Date.now()),
+      changeFrequency: 'monthly' as const,
+      priority: 0.65,
+    },
+  ];
   const blogArchivePages = getBlogArchivePageNumbers().map((pageNumber) => ({
     url: `${baseUrl}${buildBlogArchivePath(pageNumber)}`,
     lastModified: new Date(blogPosts[0]?.date ?? Date.now()),
@@ -72,5 +81,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...pages, ...blogArchivePages, ...topicPages, ...tagArchives, ...articlePages];
+  return [...pages, ...authorPages, ...blogArchivePages, ...topicPages, ...tagArchives, ...articlePages];
 }

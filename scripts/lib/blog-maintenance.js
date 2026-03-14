@@ -26,6 +26,7 @@ const buildTagArchivePath = (tagSlug, pageNumber = 1) =>
   pageNumber <= 1 ? `/blog/tag/${tagSlug}` : `/blog/tag/${tagSlug}/page/${pageNumber}`;
 
 const buildTopicPath = (topicSlug) => `/blog/topics/${topicSlug}`;
+const buildAuthorPath = () => '/blog/author/eduardo-aparicio-cardenes';
 
 const getPageCount = (totalItems) => Math.max(1, Math.ceil(totalItems / blogConfig.archivePageSize));
 
@@ -137,6 +138,7 @@ const getExpectedBlogRoutes = (posts) => {
   const archiveRoutes = Array.from({ length: getPageCount(posts.length) }, (_, index) =>
     buildBlogArchivePath(index + 1),
   );
+  const authorRoutes = [buildAuthorPath()];
   const topicRoutes = (topicsConfig.topics ?? []).map((topic) => buildTopicPath(topic.slug));
   const tagRoutes = getQualifyingTagArchives(posts).flatMap((tagArchive) =>
     Array.from({ length: tagArchive.totalPages }, (_, index) =>
@@ -147,10 +149,11 @@ const getExpectedBlogRoutes = (posts) => {
 
   return {
     archiveRoutes,
+    authorRoutes,
     topicRoutes,
     tagRoutes,
     articleRoutes,
-    allRoutes: [...archiveRoutes, ...topicRoutes, ...tagRoutes, ...articleRoutes],
+    allRoutes: [...archiveRoutes, ...authorRoutes, ...topicRoutes, ...tagRoutes, ...articleRoutes],
   };
 };
 

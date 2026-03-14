@@ -1,12 +1,6 @@
 import type { BlogPost, BlogPostMeta } from './markdown';
+import { getAbsoluteBlogAssetUrl, getBlogAuthor, getBlogPostUrl } from './author';
 import { getResolvedTopicName } from './topics';
-
-const formatAuthorName = (author: string) =>
-  author
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
 
 const getSeoImage = (post: BlogPost | BlogPostMeta) => {
   if (post.image) {
@@ -31,9 +25,9 @@ const getSeoImage = (post: BlogPost | BlogPostMeta) => {
 };
 
 const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
-  const url = `${baseUrl}/blog/${post.slug}`;
+  const author = getBlogAuthor(baseUrl);
+  const url = getBlogPostUrl(post.slug, baseUrl);
   const image = getSeoImage(post);
-  const authorName = formatAuthorName(post.author);
   const topicName = getResolvedTopicName(post);
   const openGraphTags = Array.from(new Set([topicName, ...post.tags].filter(Boolean)));
   
@@ -41,10 +35,10 @@ const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
     title: post.title,
     description: post.description,
     url,
-    siteName: 'Eduardo Aparicio Cárdenes',
+    siteName: 'Eduardo Aparicio Cardenes',
     images: image ? [
       {
-        url: image.url.startsWith('http') ? image.url : `${baseUrl}${image.url}`,
+        url: getAbsoluteBlogAssetUrl(image.url, baseUrl),
         width: image.width ?? 1200,
         height: image.height ?? 630,
         alt: post.imageAlt ?? post.title,
@@ -53,7 +47,9 @@ const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
     locale: 'en_GB',
     type: 'article',
     publishedTime: post.date,
-    author: authorName,
+    modifiedTime: post.date,
+    authors: [author.url],
+    section: topicName || 'Blog',
     tags: openGraphTags,
   };
 };
@@ -66,7 +62,7 @@ const generateTwitterCard = (post: BlogPost | BlogPostMeta, baseUrl: string) => 
     title: post.title,
     description: post.description,
     images: image ? [
-      image.url.startsWith('http') ? image.url : `${baseUrl}${image.url}`
+      getAbsoluteBlogAssetUrl(image.url, baseUrl)
     ] : [],
     creator: '@eduardoac',
     site: '@eduardoac',
@@ -74,9 +70,9 @@ const generateTwitterCard = (post: BlogPost | BlogPostMeta, baseUrl: string) => 
 };
 
 const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
-  const url = `${baseUrl}/blog/${post.slug}`;
+  const author = getBlogAuthor(baseUrl);
+  const url = getBlogPostUrl(post.slug, baseUrl);
   const image = getSeoImage(post);
-  const authorName = formatAuthorName(post.author);
   const topicName = getResolvedTopicName(post);
   
   return {
@@ -84,20 +80,20 @@ const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) 
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
-    image: image ? (image.url.startsWith('http') ? image.url : `${baseUrl}${image.url}`) : undefined,
+    image: image ? getAbsoluteBlogAssetUrl(image.url, baseUrl) : undefined,
     author: {
       '@type': 'Person',
-      name: authorName,
-      url: baseUrl,
+      name: author.name,
+      url: author.url,
+      image: getAbsoluteBlogAssetUrl(author.image.src, baseUrl),
+      sameAs: author.sameAs,
+      jobTitle: author.jobTitle,
     },
     publisher: {
-      '@type': 'Organization',
-      name: 'Eduardo Aparicio Cárdenes',
-      url: baseUrl,
-      logo: {
-        '@type': 'ImageObject',
-        url: `${baseUrl}/favicon.ico`,
-      },
+      '@type': 'Person',
+      name: author.name,
+      url: author.url,
+      image: getAbsoluteBlogAssetUrl(author.image.src, baseUrl),
     },
     datePublished: post.date,
     dateModified: post.date,
@@ -113,23 +109,24 @@ const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) 
 };
 
 const generateCanonicalUrl = (slug: string, baseUrl: string) => {
-  return `${baseUrl}/blog/${slug}`;
+  return getBlogPostUrl(slug, baseUrl);
 };
 
 export const generateMetaTags = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
+  const author = getBlogAuthor(baseUrl);
   const canonicalUrl = generateCanonicalUrl(post.slug, baseUrl);
   const openGraph = generateOpenGraph(post, baseUrl);
   const twitterCard = generateTwitterCard(post, baseUrl);
   const structuredData = generateStructuredData(post, baseUrl);
-  const authorName = formatAuthorName(post.author);
   const topicName = getResolvedTopicName(post);
   const keywords = Array.from(new Set([topicName, ...post.tags].filter(Boolean))).join(', ');
 
   return {
-    title: `${post.title} | Eduardo Aparicio Cárdenes`,
+    title: `${post.title} | Eduardo Aparicio Cardenes`,
     description: post.description,
     keywords,
-    author: authorName,
+    author: author.name,
+    authorUrl: author.url,
     canonical: canonicalUrl,
     openGraph,
     twitter: twitterCard,

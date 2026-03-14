@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { BLOG_AUTHOR_PATH, getCanonicalBlogAuthorName } from '@/lib/blog/author';
 import type { BlogPostMeta } from '@/lib/blog/markdown';
 import { buildTopicPath, type BlogTopicDefinition, type BlogTopicSubthemeGroup } from '@/lib/blog/topics';
 import { BlogLayout } from './BlogLayout';
@@ -72,6 +73,22 @@ export function BlogTopicPage({
                   {featuredPost.title}
                 </Link>
               </h3>
+              <div className={styles['topic-start-here-meta']}>
+                <time dateTime={featuredPost.date}>
+                  {new Date(featuredPost.date).toLocaleDateString('en-GB', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+                <span>• {featuredPost.readingTime} min read</span>
+                <span className={styles['topic-start-here-author']}>
+                  <span>By</span>
+                  <Link className={`snap-link ${styles['topic-inline-author-link']}`} href={BLOG_AUTHOR_PATH}>
+                    {getCanonicalBlogAuthorName(featuredPost.author)}
+                  </Link>
+                </span>
+              </div>
               <p className={styles['topic-start-here-summary']}>{featuredPost.summary ?? featuredPost.description}</p>
             </article>
           </section>

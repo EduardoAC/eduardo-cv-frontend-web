@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     title: metaTags.title,
     description: metaTags.description,
     keywords: metaTags.keywords,
-    authors: [{ name: metaTags.author }],
+    authors: [{ name: metaTags.author, url: metaTags.authorUrl }],
     alternates: {
       canonical: metaTags.canonical,
     },
@@ -47,7 +47,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     twitter: metaTags.twitter,
     other: {
       'article:published_time': post.date,
-      'article:author': post.author,
+      'article:modified_time': post.date,
+      'article:author': metaTags.authorUrl,
       'article:section': articleSection,
       'article:tag': post.tags.join(', '),
     },
@@ -65,7 +66,8 @@ export default async function BlogPostPage({ params }: Readonly<BlogPostPageProp
   const relatedPosts = getRelatedPosts(slug, 3);
   const seriesContext = getSeriesContext(slug);
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website';
-  const structuredData = generateMetaTags(post, baseUrl).structuredData;
+  const metaTags = generateMetaTags(post, baseUrl);
+  const structuredData = metaTags.structuredData;
 
   return (
     <>
@@ -76,7 +78,12 @@ export default async function BlogPostPage({ params }: Readonly<BlogPostPageProp
           __html: JSON.stringify(structuredData),
         }}
       />
-      <BlogPost post={post} relatedPosts={relatedPosts} seriesContext={seriesContext} />
+      <BlogPost
+        post={post}
+        relatedPosts={relatedPosts}
+        seriesContext={seriesContext}
+        canonicalUrl={metaTags.canonical}
+      />
     </>
   );
 } 
