@@ -24,7 +24,7 @@ export interface BlogImageAsset {
   width: number;
   height: number;
   format: string;
-  contexts: Partial<Record<'card' | 'hero' | 'inline', BlogResponsiveImageContext | null>>;
+  contexts: Partial<Record<'card' | 'hero' | 'related' | 'inline', BlogResponsiveImageContext | null>>;
 }
 
 export interface TableOfContentsItem {
@@ -52,6 +52,7 @@ export interface BlogPostMeta {
   author: string;
   tags: string[];
   image?: string;
+  imageAlt?: string;
   imageWidth?: number;
   imageHeight?: number;
   coverImage?: BlogImageAsset;
@@ -101,6 +102,7 @@ const createPostMetaFromFile = (fileName: string): BlogPostMeta => {
     author: typeof data.author === 'string' ? data.author : '',
     tags: Array.isArray(data.tags) ? data.tags : [],
     image: typeof data.image === 'string' ? data.image : undefined,
+    imageAlt: typeof data.imageAlt === 'string' ? data.imageAlt : undefined,
     readingTime: calculateReadingTime(content),
     relatedSlugs: [],
   };

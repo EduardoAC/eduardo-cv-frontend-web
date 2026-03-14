@@ -5,6 +5,7 @@ date: "2020-04-22"
 author: "eduardo aparicio cardenes"
 tags: ["DevOps", "AWS", "CloudFront", "Frontend"]
 image: "/images/blog/moving-from-nginx-to-aws-cloudfront/micro-frontend-nginx-architecture.jpg"
+imageAlt: "Architecture diagram showing a migration from Nginx to AWS CloudFront"
 ---
 
 One of my first initiatives within Moneyfarm was migrating to AWS CloudFront to reduce the operational costs on our Frontend ecosystem, allowing us to scale efficiently with a fraction of the cost.

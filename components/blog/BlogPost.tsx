@@ -28,7 +28,7 @@ const getImageFrameStyle = (imageWidth?: number, imageHeight?: number): CSSPrope
 
 const getImageContext = (
   post: Pick<BlogPostType, 'coverImage' | 'image' | 'imageWidth' | 'imageHeight'>,
-  usage: 'card' | 'hero',
+  usage: 'card' | 'hero' | 'related',
 ): BlogResponsiveImageContext | null => post.coverImage?.contexts[usage] ?? null;
 
 const getFallbackImageContext = (post: Pick<BlogPostType, 'image' | 'imageWidth' | 'imageHeight'>) => {
@@ -116,7 +116,7 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
           >
             <img
               src={heroImage?.src ?? fallbackHeroImage?.src}
-              alt={post.title}
+              alt={post.imageAlt ?? post.title}
               className={styles['blog-post-image']}
               loading="eager"
               fetchPriority="high"
@@ -162,7 +162,7 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
             </div>
             <div className={styles['related-posts-grid']}>
               {relatedPosts.map((relatedPost) => {
-                const relatedImage = getImageContext(relatedPost, 'card');
+                const relatedImage = getImageContext(relatedPost, 'related');
                 const relatedFallbackImage = getFallbackImageContext(relatedPost);
 
                 return (
@@ -170,7 +170,7 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
                     {(relatedImage || relatedFallbackImage) && (
                       <img
                         src={relatedImage?.src ?? relatedFallbackImage?.src}
-                        alt={relatedPost.title}
+                        alt={relatedPost.imageAlt ?? relatedPost.title}
                         className={styles['related-post-image']}
                         loading="lazy"
                         decoding="async"

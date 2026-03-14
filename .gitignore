@@ -70,6 +70,7 @@ docs
 !docs/
 docs/*
 !docs/blog-image-validation-cleanup-summary.md
+!docs/image-audit-report.md
 
 .scannerwork
 

@@ -1,8 +1,24 @@
 "use client";
 import { useEffect } from "react";
 import Image from "next/image";
+import { getSiteImageDimensions } from '@/lib/images/siteImageData';
+import {
+  ABOUT_CHALLENGE_IMAGE_SIZES,
+  ABOUT_HERO_IMAGE_SIZES,
+  ABOUT_INLINE_IMAGE_SIZES,
+  ABOUT_TIMELINE_IMAGE_SIZES,
+} from '@/lib/images/siteSizes';
 import styles from "./About.module.scss";
 import { initializeAboutMe } from "../lib/about-me";
+
+const aboutHeroSrc = '/images/about-eduardo-hacktheviual-1280-optimized-1280.webp';
+const aboutHeroDimensions = getSiteImageDimensions(aboutHeroSrc, { width: 1280, height: 853 });
+const photoWorkingSrc = '/images/photo-working-optimized-1280.webp';
+const photoWorkingDimensions = getSiteImageDimensions(photoWorkingSrc, { width: 1280, height: 853 });
+const timelineSrc = '/images/my-life-timeline-optimized-1280.webp';
+const timelineDimensions = getSiteImageDimensions(timelineSrc, { width: 1280, height: 960 });
+const challengeSrc = '/images/eduardo-challenge-complete-optimized-1280.webp';
+const challengeDimensions = getSiteImageDimensions(challengeSrc, { width: 1280, height: 1172 });
 
 export default function AboutPageClient() {
   useEffect(() => {
@@ -14,10 +30,11 @@ export default function AboutPageClient() {
       <div className={styles.introduction}>
         <div className={styles.gradient_effect}>
           <Image
-            src="/images/about-eduardo-hacktheviual-1280-optimized-1280.webp"
-            alt="About Eduardo"
-            width={1280}
-            height={853}
+            src={aboutHeroSrc}
+            alt="Eduardo Aparicio Cardenes standing outdoors beside a lake"
+            width={aboutHeroDimensions.width}
+            height={aboutHeroDimensions.height}
+            sizes={ABOUT_HERO_IMAGE_SIZES}
             className="snap-img-fluid"
             priority
           />
@@ -50,10 +67,11 @@ export default function AboutPageClient() {
           </p>
           <div className={`${styles.centered_image_container} hidden-bigger-lg`}>
             <Image
-              src="/images/photo-working-optimized-1280.webp"
-              alt="Working"
-              width={400}
-              height={267}
+              src={photoWorkingSrc}
+              alt="Eduardo Aparicio Cardenes working on a laptop outdoors"
+              width={photoWorkingDimensions.width}
+              height={photoWorkingDimensions.height}
+              sizes={ABOUT_INLINE_IMAGE_SIZES}
               className="snap-img-fluid snap-img-thumbnail"
             />
           </div>
@@ -76,10 +94,11 @@ export default function AboutPageClient() {
           </div>
           <div className={styles.timeline_image_container}>
             <Image
-              src="/images/my-life-timeline-optimized-1280.webp"
-              alt="My Life Timeline"
-              width={800}
-              height={600}
+              src={timelineSrc}
+              alt="Collage timeline showing milestones from Eduardo Aparicio Cardenes' life and career"
+              width={timelineDimensions.width}
+              height={timelineDimensions.height}
+              sizes={ABOUT_TIMELINE_IMAGE_SIZES}
               className="snap-img-fluid snap-img-thumbnail"
             />
           </div>
@@ -117,10 +136,11 @@ export default function AboutPageClient() {
             discourage me, you helped me to become the person i am today
           </p>
           <Image
-            src="/images/eduardo-challenge-complete-optimized-1280.webp"
-            alt="Challenge Complete"
-            width={500}
-            height={458}
+            src={challengeSrc}
+            alt="Eduardo Aparicio Cardenes celebrating after completing a challenge"
+            width={challengeDimensions.width}
+            height={challengeDimensions.height}
+            sizes={ABOUT_CHALLENGE_IMAGE_SIZES}
             className="snap-img-fluid snap-img-thumbnail"
           />
           <p className={styles.final_thought}>

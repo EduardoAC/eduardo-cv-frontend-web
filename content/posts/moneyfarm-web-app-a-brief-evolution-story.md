@@ -5,6 +5,7 @@ date: "2020-03-31"
 author: "eduardo aparicio cardenes"
 tags: ["Frontend Architecture", "Technical Debt", "Web Development", "React"]
 image: "/images/blog/moneyfarm-web-app-a-brief-evolution-story-frontmatter.jpg"
+imageAlt: "Screenshot of the Moneyfarm web application interface"
 ---
 
 I joined Moneyfarm at the end of 2018. I soon realized that a company with talented people faced the challenge of delivering new products and services while paying back the technical debt it had incurred in its start-up phase. The task at hand is challenging, but we’ve made significant progress in the past 16 months and it’s this story that I want to share with you.

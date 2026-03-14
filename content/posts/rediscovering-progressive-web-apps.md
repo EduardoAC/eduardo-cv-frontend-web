@@ -5,6 +5,7 @@ date: "2016-09-15"
 author: "eduardo aparicio cardenes"
 tags: ["Progressive Web Apps", "Web Development", "Performance", "UX"]
 image: "/images/blog/rediscovering-progressive-web-apps-frontmatter.jpg"
+imageAlt: "Mobile devices illustrating progressive web app capabilities"
 ---
 
 Today, I’m writing you about progressive web apps. Since i went to Fullstack 2016 in London, I started to feel passion about this and spend some time researching on my own but it wasn’t until I attended “Google’s Building Progressive Web Apps (Beta)” course that i recognise that my understanding of this concept was focus mainly on bringing native capabilities from native apps to mobile including offline elements like service workers, push notifications, cache, etc.

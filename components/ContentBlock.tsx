@@ -1,5 +1,11 @@
 import Image from "next/image";
 import Link from 'next/link';
+import { getSiteImageDimensions } from '@/lib/images/siteImageData';
+import {
+  CONTENT_BLOCK_LOGO_IMAGE_SIZES,
+  PROFILE_STRENGTH_IMAGE_SIZES,
+  PROFILE_TILE_IMAGE_SIZES,
+} from '@/lib/images/siteSizes';
 import styles from './ContentBlock.module.scss';
 
 interface ContentBlockProps {
@@ -41,6 +47,8 @@ export default function ContentBlock({
 }: ContentBlockProps) {
   const leftClass = swap ? 'snap-order-sm-2 snap-order-md-2' : '';
   const rightClass = swap ? 'snap-order-sm-1 snap-order-md-1' : '';
+  const profileImageDimensions = getSiteImageDimensions(imgUrl, { width: 490, height: 490 });
+  const contentImageDimensions = getSiteImageDimensions(imgUrl, { width: 300, height: 300 });
 
   // Profile variant
   if (variant === 'profile' && link) {
@@ -48,22 +56,14 @@ export default function ContentBlock({
       <div className={styles.content_block} data-variant="profile" data-role={role}>
         <Link href={link}>
           <div className={styles.profile_block_picture}>
-            <picture>
-              <source 
-                srcSet={imgUrl.replace('.png', '-optimized-640.webp') + ' 640w, ' +
-                       imgUrl.replace('.png', '-optimized-1280.webp') + ' 1280w, ' +
-                       imgUrl.replace('.png', '-optimized-1920.webp') + ' 1920w'} 
-                type="image/webp" 
-              />
-              <Image
-                src={imgUrl.replace('.png', '-optimized.png')}
-                alt={title}
-                width={1280}
-                height={960}
-                sizes="(max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px"
-                className={styles.img_full_width}
-              />
-            </picture>
+            <Image
+              src={imgUrl}
+              alt={title}
+              width={profileImageDimensions.width}
+              height={profileImageDimensions.height}
+              sizes={PROFILE_TILE_IMAGE_SIZES}
+              className={styles.img_full_width}
+            />
           </div>
           <h3>{title}</h3>
         </Link>
@@ -87,6 +87,7 @@ export default function ContentBlock({
               alt={company}
               width={80}
               height={80}
+              sizes={CONTENT_BLOCK_LOGO_IMAGE_SIZES}
             />
           </div>
           <div className={styles.details}>
@@ -122,8 +123,9 @@ export default function ContentBlock({
               <Image
                 src={imgUrl}
                 alt={title}
-                width={300}
-                height={300}
+                width={contentImageDimensions.width}
+                height={contentImageDimensions.height}
+                sizes={PROFILE_STRENGTH_IMAGE_SIZES}
                 className="snap-img-fluid"
               />
             </div>

@@ -5,6 +5,7 @@ date: "2023-09-14"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "Concurrency", "Web Development", "Service Workers"]
 image: "/images/blog/managing-concurrency-in-chrome-extensions-frontmatter.jpeg"
+imageAlt: "Chrome extension workflow showing concurrent tasks and shared state"
 ---
 
 ![Managing Concurrency in Chrome Extensions](/images/blog/managing-concurrency-in-chrome-extensions-frontmatter.jpeg)

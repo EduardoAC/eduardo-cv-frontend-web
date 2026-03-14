@@ -5,6 +5,7 @@ date: "2025-10-27"
 author: "eduardo aparicio cardenes"
 tags: ["AWS", "CloudFront", "Security", "Web Security", "Cache Poisoning", "Web Application Security", "CDN", "S3"]
 image: "/images/blog/mitigating-cache-poisoning/hero-banner-mitigating-cache-poisoning-in-aws-cloudfront.png"
+imageAlt: "CloudFront architecture diagram for mitigating cache poisoning"
 ---
 
 Not long ago, we hit a problem that seemed almost unbelievable at first: customers opening our cashier application suddenly saw error pages instead of the app itself.

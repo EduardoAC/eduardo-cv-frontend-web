@@ -5,6 +5,7 @@ date: "2025-03-29"
 author: "eduardo aparicio cardenes"
 tags: ["React", "Vue.js", "Component Design", "Web Development"]
 image: "/images/blog/react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison/hero-react-vue-dynamic-components.png"
+imageAlt: "Comparison graphic of React higher-order components and Vue slots"
 ---
 
 Recently, I faced the interesting challenge of customising the experience of a button group component on VueJS as part of my job at Happenning. As someone deeply experienced in React but a newcomer to VueJS, I approached the problem as I would on React by turning the value property from a string into a ReactNode (component) and attempting to pass it down to be evaluated within the loop but quickly realise that it wasn’t as simple as I thought so I decided to bring today my learnings on how to achieve such a things on VueJS but more interestingly how React compares to VueJS to achieve such a thing.

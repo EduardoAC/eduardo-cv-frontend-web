@@ -5,6 +5,7 @@ date: "2024-12-18"
 author: "Eduardo Aparicio Cárdenes"
 tags: ["Performance", "Web Development", "Core Web Vitals", "Optimization", "JavaScript"]
 image: "/images/blog/performance-optimization.png"
+imageAlt: "Performance dashboard illustration for a modern web application"
 ---
 
 Performance is crucial for user experience and SEO success. In today's fast-paced digital world, users expect websites to load quickly and respond instantly. This guide covers essential performance optimization techniques that every web developer should know.

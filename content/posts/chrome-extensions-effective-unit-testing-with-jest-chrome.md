@@ -5,6 +5,7 @@ date: "2024-06-07"
 author: "eduardo aparicio cardenes"
 tags: ["Testing", "Chrome Extensions", "JavaScript", "Web Development"]
 image: "/images/blog/chrome-extensions-effective-unit-testing-with-jest-chrome/hero-jest-chrome-testing.png"
+imageAlt: "Diagram of a Chrome extension message flow under unit test"
 ---
 
 When we develop software, we cannot do it without talking about testing. Testing provides a reliable way to validate our changes, provide context on how the code is expected to work and document the projects to a certain extent. We need to understand that the value of the software we deliver is directly proportional to the trust and reliability of our system. Therefore, we need to start our journey by making our extension robust and reliable, which can only be done by understanding the principles behind testing our product.

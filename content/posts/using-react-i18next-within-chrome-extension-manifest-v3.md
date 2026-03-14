@@ -5,6 +5,7 @@ date: "2023-02-09"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "Internationalization", "React", "i18next"]
 image: "/images/blog/using-react-i18next-within-chrome-extension-manifest-v3-frontmatter.jpg"
+imageAlt: "Chrome extension localization interface using react-i18next"
 ---
 
 A few years ago, I found myself driving the creation of Chrome extensions, where I work on displaying large data sets to provide relevant content to its users. Mainly focused on scaling and improving extension resilience.

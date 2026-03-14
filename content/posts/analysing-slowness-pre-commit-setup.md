@@ -5,6 +5,7 @@ date: "2020-08-15"
 author: "eduardo aparicio cardenes"
 tags: ["Developer Experience", "Git", "Pre-commit", "Productivity"]
 image: "/images/blog/analysing-slowness-pre-commit-setup-frontmatter.jpeg"
+imageAlt: "Illustration of a developer analysing a slow pre-commit pipeline"
 ---
 
 Recently one of my colleagues flagged the fact that our pre-commit validation was taking a long execution time, causing a bad developer experience. This slowness concern kept me thinking why we spend over 3 minutes in this particular repository to validate a low number of changes made in comparison with our existing setups in other repositories.

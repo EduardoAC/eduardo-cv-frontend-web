@@ -35,6 +35,7 @@ export const config: CustomProjectConfig = {
       { path: '/mentor-profile', name: 'mentor-profile' },
       { path: '/software-architect-profile', name: 'software-architect-profile' },
       { path: '/blog', name: 'blog' },
+      { path: '/blog/testing-payment-flows-with-outside-in-testing-part-2', name: 'blog-payment-testing-part-2' },
       { path: '/forum', name: 'forum' },
       { path: '/projects/how-do-i-build-it', name: 'how-do-i-build-it' },
     ],

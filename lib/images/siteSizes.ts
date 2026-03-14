@@ -1,0 +1,15 @@
+export const HOME_HERO_IMAGE_SIZES = '(min-width: 1280px) 1280px, 100vw';
+export const HOME_PROMO_IMAGE_SIZES = '(min-width: 1200px) 445px, (min-width: 768px) 300px, 100vw';
+export const HOME_PROJECT_IMAGE_SIZES = '(min-width: 1200px) 350px, (min-width: 768px) 270px, 100vw';
+export const PROFILE_TILE_IMAGE_SIZES = '(min-width: 1600px) 490px, (min-width: 1200px) 325px, (min-width: 991px) 245px, 85vw';
+export const PROFILE_STRENGTH_IMAGE_SIZES = '(min-width: 768px) 300px, 70vw';
+export const ABOUT_HERO_IMAGE_SIZES = '(min-width: 1280px) 1280px, 100vw';
+export const ABOUT_INLINE_IMAGE_SIZES = '(min-width: 768px) 400px, 100vw';
+export const ABOUT_TIMELINE_IMAGE_SIZES = '(min-width: 1200px) 800px, 100vw';
+export const ABOUT_CHALLENGE_IMAGE_SIZES = '(min-width: 768px) 500px, 100vw';
+export const COMING_SOON_IMAGE_SIZES = '(min-width: 1200px) 480px, (min-width: 992px) 40vw, 100vw';
+export const FRONTEND_HERO_CARD_SIZES = '(max-width: 768px) 0px, (min-width: 1320px) 640px, 46vw';
+export const CONTACT_BACKGROUND_IMAGE_SIZES = '100vw';
+export const PROJECT_CARD_IMAGE_SIZES = '100px';
+export const EXPERIENCE_LOGO_IMAGE_SIZES = '60px';
+export const CONTENT_BLOCK_LOGO_IMAGE_SIZES = '80px';

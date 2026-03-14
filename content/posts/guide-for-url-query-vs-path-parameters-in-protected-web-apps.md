@@ -5,6 +5,7 @@ date: "2024-09-15"
 author: "eduardo aparicio cardenes"
 tags: ["Web Development", "URL Design", "Best Practices", "Frontend"]
 image: "/images/blog/guide-for-url-query-vs-path-parameters-in-protected-web-apps/hero-protected-web-app-url-design.png"
+imageAlt: "Diagram comparing path parameters and query parameters in a protected web app URL"
 ---
 
 Using standardised REST API practices to Web Application URLs

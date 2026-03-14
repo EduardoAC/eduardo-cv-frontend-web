@@ -5,6 +5,7 @@ date: "2024-12-19"
 author: "Eduardo Aparicio Cárdenes"
 tags: ["Next.js", "React", "Web Development", "JavaScript", "TypeScript"]
 image: "/images/blog/getting-started-nextjs.png"
+imageAlt: "Next.js logo and starter dashboard illustration"
 ---
 
 Next.js has become the go-to framework for building modern React applications. With its powerful features like server-side rendering, static site generation, and API routes, it's no wonder why developers love it. In this comprehensive guide, we'll explore everything you need to know to get started with Next.js.
