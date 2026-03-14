@@ -4,6 +4,8 @@ description: "Stop using object parameters for helper functions. Instead, consid
 date: "2026-02-01"
 author: "Eduardo Aparicio Cardenes"
 tags: ["TypeScript", "JavaScript", "Clean Code", "Software Engineering", "Code Review"]
+topic: "Developer Experience and Engineering Effectiveness"
+topicSlug: "developer-experience"
 image: "/images/blog/stop-defaulting-to-options-objects-in-helper-functions-a-2026-decision-framework-frontmatter.webp"
 imageAlt: "Decision framework illustration about helper function parameter design"
 ---

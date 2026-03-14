@@ -4,6 +4,8 @@ description: "Today, I’m writing you about progressive web apps. Since I went 
 date: "2016-09-15"
 author: "eduardo aparicio cardenes"
 tags: ["Progressive Web Apps", "Web Development", "Performance", "UX"]
+topic: "Web Performance, Reliability and Edge Security"
+topicSlug: "web-performance-reliability-security"
 image: "/images/blog/rediscovering-progressive-web-apps-frontmatter.jpg"
 imageAlt: "Mobile devices illustrating progressive web app capabilities"
 ---

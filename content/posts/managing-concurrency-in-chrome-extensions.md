@@ -4,6 +4,8 @@ description: "Mastering Concurrency in Chrome Extensions: Unlocking Seamless Use
 date: "2023-09-14"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "Concurrency", "Web Development", "Service Workers"]
+topic: "Frontend Architecture and Platform Design"
+topicSlug: "frontend-architecture"
 image: "/images/blog/managing-concurrency-in-chrome-extensions-frontmatter.jpeg"
 imageAlt: "Chrome extension workflow showing concurrent tasks and shared state"
 ---

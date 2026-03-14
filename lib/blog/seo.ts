@@ -1,4 +1,5 @@
 import type { BlogPost, BlogPostMeta } from './markdown';
+import { getResolvedTopicName } from './topics';
 
 const formatAuthorName = (author: string) =>
   author
@@ -33,6 +34,8 @@ const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
   const url = `${baseUrl}/blog/${post.slug}`;
   const image = getSeoImage(post);
   const authorName = formatAuthorName(post.author);
+  const topicName = getResolvedTopicName(post);
+  const openGraphTags = Array.from(new Set([topicName, ...post.tags].filter(Boolean)));
   
   return {
     title: post.title,
@@ -51,7 +54,7 @@ const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
     type: 'article',
     publishedTime: post.date,
     author: authorName,
-    tags: post.tags,
+    tags: openGraphTags,
   };
 };
 
@@ -74,6 +77,7 @@ const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) 
   const url = `${baseUrl}/blog/${post.slug}`;
   const image = getSeoImage(post);
   const authorName = formatAuthorName(post.author);
+  const topicName = getResolvedTopicName(post);
   
   return {
     '@context': 'https://schema.org',
@@ -102,8 +106,8 @@ const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) 
       '@type': 'WebPage',
       '@id': url,
     },
-    keywords: post.tags.join(', '),
-    articleSection: 'Blog',
+    keywords: Array.from(new Set([topicName, ...post.tags].filter(Boolean))).join(', '),
+    articleSection: topicName || 'Blog',
     inLanguage: 'en-GB',
   };
 };
@@ -118,11 +122,13 @@ export const generateMetaTags = (post: BlogPost | BlogPostMeta, baseUrl: string)
   const twitterCard = generateTwitterCard(post, baseUrl);
   const structuredData = generateStructuredData(post, baseUrl);
   const authorName = formatAuthorName(post.author);
+  const topicName = getResolvedTopicName(post);
+  const keywords = Array.from(new Set([topicName, ...post.tags].filter(Boolean))).join(', ');
 
   return {
     title: `${post.title} | Eduardo Aparicio Cárdenes`,
     description: post.description,
-    keywords: post.tags.join(', '),
+    keywords,
     author: authorName,
     canonical: canonicalUrl,
     openGraph,

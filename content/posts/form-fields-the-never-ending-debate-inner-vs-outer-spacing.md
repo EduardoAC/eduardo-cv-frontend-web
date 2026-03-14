@@ -4,6 +4,8 @@ description: "Explore the key trade-offs between inner and outer spacing in form
 date: "2024-08-24"
 author: "eduardo aparicio cardenes"
 tags: ["Web Development", "UI Design", "Forms", "Best Practices"]
+topic: "Frontend Architecture and Platform Design"
+topicSlug: "frontend-architecture"
 image: "/images/blog/form-fields-the-never-ending-debate-inner-vs-outer-spacing/hero-form-field-spacing-comparison.jpg"
 imageAlt: "Two form layouts comparing inner spacing and outer spacing choices"
 ---

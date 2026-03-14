@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
+const topicsConfig = require('../lib/blog/topics.json');
 
 const {
   blogConfig,
@@ -17,6 +18,8 @@ const errors = [];
 const warnings = [];
 const warnedImages = new Set();
 const warnedContentIssues = new Set();
+const knownTopicSlugs = new Set((topicsConfig.topics ?? []).map((topic) => topic.slug));
+const topicNameBySlug = new Map((topicsConfig.topics ?? []).map((topic) => [topic.slug, topic.name]));
 
 const addError = (message) => {
   errors.push(message);
@@ -103,6 +106,44 @@ const validateMarkdownPost = (post, manifestBySlug, postArtifactsBySlug, knownSl
     addError(`${fileName}: missing required frontmatter field "tags".`);
   }
 
+  if (typeof data.topic !== 'string' || !data.topic.trim()) {
+    addError(`${fileName}: missing required frontmatter field "topic".`);
+  }
+
+  if (typeof data.topicSlug !== 'string' || !data.topicSlug.trim()) {
+    addError(`${fileName}: missing required frontmatter field "topicSlug".`);
+  } else if (!knownTopicSlugs.has(data.topicSlug)) {
+    addError(`${fileName}: topicSlug "${data.topicSlug}" is not part of the topic configuration.`);
+  } else if (typeof data.topic === 'string' && data.topic !== topicNameBySlug.get(data.topicSlug)) {
+    addError(`${fileName}: topic "${data.topic}" does not match configured topic "${topicNameBySlug.get(data.topicSlug)}".`);
+  }
+
+  if (typeof data.summary === 'string' && !data.summary.trim()) {
+    addError(`${fileName}: optional frontmatter field "summary" must not be empty when present.`);
+  }
+
+  if (typeof data.contentType === 'string' && !data.contentType.trim()) {
+    addError(`${fileName}: optional frontmatter field "contentType" must not be empty when present.`);
+  }
+
+  if (typeof data.featured !== 'undefined' && typeof data.featured !== 'boolean') {
+    addError(`${fileName}: optional frontmatter field "featured" must be a boolean when present.`);
+  }
+
+  if (typeof data.series !== 'undefined' && (typeof data.series !== 'string' || !data.series.trim())) {
+    addError(`${fileName}: optional frontmatter field "series" must be a non-empty string when present.`);
+  }
+
+  if (typeof data.seriesOrder !== 'undefined') {
+    if (!Number.isInteger(data.seriesOrder) || data.seriesOrder < 1) {
+      addError(`${fileName}: optional frontmatter field "seriesOrder" must be a positive integer when present.`);
+    }
+
+    if (typeof data.series !== 'string' || !data.series.trim()) {
+      addError(`${fileName}: seriesOrder requires a matching non-empty "series" field.`);
+    }
+  }
+
   if (data.slug && data.slug !== slug) {
     addError(`${fileName}: frontmatter slug does not match the file name slug.`);
   }
@@ -168,8 +209,36 @@ const validateMarkdownPost = (post, manifestBySlug, postArtifactsBySlug, knownSl
     addError(`${fileName}: generated manifest entry is missing required metadata.`);
   }
 
+  if (!manifestEntry.summary || typeof manifestEntry.summary !== 'string') {
+    addError(`${fileName}: generated manifest entry is missing summary metadata.`);
+  }
+
   if (!Array.isArray(manifestEntry.tags) || manifestEntry.tags.length === 0) {
     addError(`${fileName}: generated manifest entry is missing tags.`);
+  }
+
+  if (typeof manifestEntry.topic !== 'string' || !manifestEntry.topic.trim()) {
+    addError(`${fileName}: generated manifest entry is missing topic metadata.`);
+  }
+
+  if (typeof manifestEntry.topicSlug !== 'string' || !manifestEntry.topicSlug.trim()) {
+    addError(`${fileName}: generated manifest entry is missing topicSlug metadata.`);
+  }
+
+  if (manifestEntry.topic !== data.topic) {
+    addError(`${fileName}: generated manifest topic does not match markdown frontmatter.`);
+  }
+
+  if (manifestEntry.topicSlug !== data.topicSlug) {
+    addError(`${fileName}: generated manifest topicSlug does not match markdown frontmatter.`);
+  }
+
+  if (typeof manifestEntry.contentType !== 'string' || !manifestEntry.contentType.trim()) {
+    addError(`${fileName}: generated manifest entry is missing contentType metadata.`);
+  }
+
+  if (typeof manifestEntry.featured !== 'boolean') {
+    addError(`${fileName}: generated manifest entry has invalid featured metadata.`);
   }
 
   if (!Number.isInteger(manifestEntry.readingTime) || manifestEntry.readingTime < 1) {

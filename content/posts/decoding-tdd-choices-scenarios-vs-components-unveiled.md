@@ -4,6 +4,8 @@ description: "Today I started as any other day, but I came across an interesting
 date: "2016-08-23"
 author: "Eduardo Aparicio Cárdenes"
 tags: ["TDD", "Web Development", "JavaScript"]
+topic: "Testing Strategy and Delivery Confidence"
+topicSlug: "testing-strategy"
 image: "/images/blog/decoding-tdd-choices-scenarios-vs-components-unveiled/hero-scenarios-vs-components-testing.png"
 imageAlt: "Comparison graphic contrasting scenario tests and component tests"
 ---

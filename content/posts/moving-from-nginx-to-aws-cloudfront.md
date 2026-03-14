@@ -4,6 +4,8 @@ description: "One of my first initiatives within Moneyfarm was migrating to AWS 
 date: "2020-04-22"
 author: "eduardo aparicio cardenes"
 tags: ["DevOps", "AWS", "CloudFront", "Frontend"]
+topic: "Web Performance, Reliability and Edge Security"
+topicSlug: "web-performance-reliability-security"
 image: "/images/blog/moving-from-nginx-to-aws-cloudfront/micro-frontend-nginx-architecture.jpg"
 imageAlt: "Architecture diagram showing a migration from Nginx to AWS CloudFront"
 ---

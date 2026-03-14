@@ -4,6 +4,10 @@ description: "A practical case study in outside-in testing for payment frontends
 date: "2026-03-10"
 author: "eduardo aparicio cardenes"
 tags: ["Outside-In Testing", "Integration Testing", "Testing Strategy", "Continuous Deployment"]
+topic: "Testing Strategy and Delivery Confidence"
+topicSlug: "testing-strategy"
+series: "Outside-In Testing"
+seriesOrder: 1
 image: "/images/blog/outside-in-testing-strategy-part-1/outside-in-extending-trophy-of-testing.png"
 imageAlt: "Testing trophy illustration showing an outside-in testing strategy"
 ---

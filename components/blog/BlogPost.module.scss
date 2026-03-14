@@ -60,6 +60,27 @@
   gap: 0.9rem;
 }
 
+.blog-post-topic {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  align-items: center;
+}
+
+.blog-post-topic-label,
+.blog-series-label {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.blog-post-topic-link {
+  font-weight: 600;
+}
+
 .blog-post-title {
   margin: 0;
   text-wrap: balance;
@@ -101,6 +122,75 @@
 .blog-post-tags :global(.snap-tag),
 .related-post-tags :global(.snap-tag) {
   margin: 0;
+}
+
+.author-strip,
+.blog-series {
+  background: var(--color-surface-blog-archive);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.95rem;
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.author-strip {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.author-strip-name,
+.author-strip-role,
+.author-strip-summary,
+.blog-series-progress,
+.blog-series-edge {
+  margin: 0;
+}
+
+.author-strip-name,
+.blog-series-title {
+  color: var(--color-text-heading);
+  font-weight: 700;
+}
+
+.author-strip-role,
+.author-strip-summary,
+.blog-series-progress,
+.blog-series-edge {
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
+.author-strip-role {
+  font-size: 0.95rem;
+}
+
+.author-strip-summary {
+  font-size: 0.95rem;
+}
+
+.blog-series {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.blog-series-header {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.blog-series-title {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.blog-series-links {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.blog-series-link {
+  font-size: 0.95rem;
 }
 
 .blog-post-hero {

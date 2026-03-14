@@ -4,6 +4,8 @@ description: "Learn how to turn failure into success as an engineer through ment
 date: "2025-08-09"
 author: "eduardo aparicio cardenes"
 tags: ["Mentoring", "Engineering", "Leadership", "Career Development", "Life Lessons"]
+topic: "Engineering Leadership, Mentoring and Career Growth"
+topicSlug: "engineering-leadership"
 image: "/images/blog/channeling-failure-into-success-mentoring-lessong-for-engineers.webp"
 imageAlt: "Illustration of an engineer reflecting on mentoring through setbacks"
 ---

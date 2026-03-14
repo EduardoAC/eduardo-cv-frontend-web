@@ -4,6 +4,8 @@ description: "Discover how to harness the power of metrics to improve communicat
 date: "2024-10-06"
 author: "eduardo aparicio cardenes"
 tags: ["Metrics", "Engineering", "Business Value", "Web Development"]
+topic: "Developer Experience and Engineering Effectiveness"
+topicSlug: "developer-experience"
 image: "/images/blog/leveraging-metrics-to-communicate-business-value-frontmatter.png"
 imageAlt: "Dashboard-style illustration connecting engineering metrics to business outcomes"
 ---

@@ -69,7 +69,7 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
             <span>• {post.readingTime} min read</span>
           </div>
         </header>
-        <p className={styles['blog-card-description']}>{post.description}</p>
+        <p className={styles['blog-card-description']}>{post.summary ?? post.description}</p>
         <span className={styles['blog-card-read-more']}>Read article →</span>
       </Link>
       <div className={styles['blog-tags']}>

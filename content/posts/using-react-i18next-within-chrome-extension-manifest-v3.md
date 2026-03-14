@@ -4,6 +4,8 @@ description: "A guide how to efficiently support internationalisation using reac
 date: "2023-02-09"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "Internationalization", "React", "i18next"]
+topic: "Frontend Architecture and Platform Design"
+topicSlug: "frontend-architecture"
 image: "/images/blog/using-react-i18next-within-chrome-extension-manifest-v3-frontmatter.jpg"
 imageAlt: "Chrome extension localization interface using react-i18next"
 ---

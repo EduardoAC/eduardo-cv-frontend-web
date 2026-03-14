@@ -4,6 +4,8 @@ description: "Explore Chrome extension evolution, moving beyond Redux in Post-Ma
 date: "2023-10-01"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "Redux", "Web Development", "Manifest V3"]
+topic: "Frontend Architecture and Platform Design"
+topicSlug: "frontend-architecture"
 image: "/images/blog/optimising-chrome-extensions-part-1-beyond-redux-post-manifest-v3/hero-post-manifest-v3-redux.png"
 imageAlt: "Illustration of a post-Manifest V3 Chrome extension architecture beyond Redux"
 ---

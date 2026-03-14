@@ -4,6 +4,8 @@ description: "Learn essential web development best practices that will help you 
 date: "2024-12-17"
 author: "Eduardo Aparicio Cárdenes"
 tags: ["Web Development", "Best Practices", "JavaScript", "CSS", "HTML", "Performance"]
+topic: "Frontend Architecture and Platform Design"
+topicSlug: "frontend-architecture"
 image: "/images/blog/web-development-best-practices.jpg"
 imageAlt: "Laptop and code illustration representing web development best practices"
 ---

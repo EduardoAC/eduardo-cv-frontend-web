@@ -6,6 +6,7 @@ import {
   getBlogArchivePageNumbers,
   getMeaningfulTagArchiveSummaries,
 } from '@/lib/blog/archive';
+import { buildTopicPath, getBlogTopicSummaries } from '@/lib/blog/topics';
 
 export const dynamic = 'force-static';
 
@@ -44,6 +45,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: pageNumber === 1 ? 0.6 : 0.5,
   }));
 
+  const topicPages = getBlogTopicSummaries().map((topic) => ({
+    url: `${baseUrl}${buildTopicPath(topic.slug)}`,
+    lastModified: new Date(topic.latestPostDate ?? blogPosts[0]?.date ?? Date.now()),
+    changeFrequency: 'weekly' as const,
+    priority: 0.55,
+  }));
+
   const tagArchives = getMeaningfulTagArchiveSummaries().flatMap((tagArchive) =>
     Array.from({ length: tagArchive.totalPages }, (_, index) => {
       const pageNumber = index + 1;
@@ -64,5 +72,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...pages, ...blogArchivePages, ...tagArchives, ...articlePages];
+  return [...pages, ...blogArchivePages, ...topicPages, ...tagArchives, ...articlePages];
 }

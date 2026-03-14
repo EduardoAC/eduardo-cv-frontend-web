@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import { getAllPosts, type BlogPostMeta } from './markdown';
 import blogConfig from './config.json';
+import { getBlogTopicSummaries, type BlogTopicSummary } from './topics';
 
 export const BLOG_ARCHIVE_PAGE_SIZE = blogConfig.archivePageSize;
 export const MIN_TAG_ARCHIVE_POSTS = blogConfig.minTagArchivePosts;
 
 const SITE_NAME = 'Eduardo Aparicio Cardenes';
-const BLOG_ARCHIVE_NAME = 'Business And Technology Blog';
+const BLOG_ARCHIVE_NAME = 'Engineering Blog';
 const DEFAULT_BASE_URL = 'https://eduardo-aparicio-cardenes.website';
 
 export interface ArchivePageSlice {
@@ -46,6 +47,7 @@ export interface ArchivePageViewModel {
   supportingText?: string;
   resultsSummary: string;
   posts: BlogPostMeta[];
+  topics?: BlogTopicSummary[];
   tags: MeaningfulTagArchiveSummary[];
   pagination: ArchivePaginationData;
   structuredData: Record<string, unknown>;
@@ -167,10 +169,10 @@ const buildArchiveDescription = ({
   totalPosts: number;
 }): string => {
   if (currentPage === 1) {
-    return `Browse ${totalPosts} articles on web performance, software architecture, Chrome extensions, frontend engineering, and leadership across ${totalPages} crawlable archive pages.`;
+    return `Browse ${totalPosts} articles on frontend architecture, testing strategy, web performance, developer experience, and engineering leadership across ${totalPages} archive page${totalPages === 1 ? '' : 's'}.`;
   }
 
-  return `Page ${currentPage} of ${totalPages} in the blog archive, with metadata-rich article summaries covering performance, software architecture, frontend engineering, and technical leadership.`;
+  return `Page ${currentPage} of ${totalPages} in the engineering blog archive, with practical articles on frontend architecture, testing strategy, performance, developer experience, and engineering leadership.`;
 };
 
 const buildTagArchiveDescription = ({
@@ -185,10 +187,10 @@ const buildTagArchiveDescription = ({
   totalPosts: number;
 }): string => {
   if (currentPage === 1) {
-    return `Browse ${totalPosts} articles tagged ${tag} in a crawlable archive built for static discovery and direct links into the full posts.`;
+    return `Browse ${totalPosts} articles tagged ${tag}, with direct links into the full posts and the wider blog archive.`;
   }
 
-  return `Page ${currentPage} of ${totalPages} for the ${tag} tag archive, with metadata-first article summaries and direct links to each post.`;
+  return `Page ${currentPage} of ${totalPages} for the ${tag} tag archive, with direct links into the relevant articles.`;
 };
 
 const buildArchiveMetaTitle = (label: string, currentPage: number): string => {
@@ -380,7 +382,14 @@ export const getBlogArchiveMetadata = (pageNumber: number): Metadata => {
   return {
     title,
     description,
-    keywords: ['blog', 'web performance', 'software architecture', 'frontend', 'Chrome extensions', 'engineering leadership'],
+    keywords: [
+      'engineering blog',
+      'frontend architecture',
+      'testing strategy',
+      'web performance',
+      'developer experience',
+      'engineering leadership',
+    ],
     alternates: {
       canonical: getAbsoluteUrl(canonicalPath),
     },
@@ -501,15 +510,17 @@ export const getBlogArchiveViewModel = (pageNumber: number): ArchivePageViewMode
 
   return {
     title: BLOG_ARCHIVE_NAME,
-    description: 'Unlock advanced strategies in web performance, software architecture, Chrome extensions, and software leadership.',
+    description:
+      'Practical writing on frontend architecture, testing strategy, web performance and reliability, developer experience, and engineering leadership.',
     supportingText:
-      'Learn directly from hands-on experience in real-world projects. Whether you are a developer, software architect, or tech lead, this archive links you into practical insights without loading the entire corpus in one page.',
+      'Start with a topic if you want a clearer path through the archive. Tags are still available when you want something narrower.',
     resultsSummary: formatArchiveResultsSummary({
       startIndex: archivePage.startIndex,
       postsOnPage: archivePage.posts.length,
       totalPosts: archivePage.totalPosts,
     }),
     posts: archivePage.posts,
+    topics: archivePage.currentPage === 1 ? getBlogTopicSummaries() : [],
     tags: getMeaningfulTagArchiveSummaries(),
     pagination: createArchivePagination(archivePage.currentPage, archivePage.totalPages, buildBlogArchivePath),
     structuredData: getArchiveStructuredData({
@@ -545,13 +556,14 @@ export const getTagArchiveViewModel = (tagSlug: string, pageNumber: number): Arc
     title: `${archiveSummary.tag} Articles`,
     description: `Browse ${archiveSummary.count} articles filed under ${archiveSummary.tag}.`,
     supportingText:
-      'These tag archives stay metadata-first, keep pagination crawlable, and link directly into each full article without shipping the entire archive to the client.',
+      'Tags stay available for narrower browsing, while the main blog archive now groups articles by topic first.',
     resultsSummary: formatArchiveResultsSummary({
       startIndex: archivePage.startIndex,
       postsOnPage: archivePage.posts.length,
       totalPosts: archivePage.totalPosts,
     }),
     posts: archivePage.posts,
+    topics: [],
     tags: getMeaningfulTagArchiveSummaries(),
     pagination: createArchivePagination(archivePage.currentPage, archivePage.totalPages, (currentPage) =>
       buildTagArchivePath(tagSlug, currentPage),

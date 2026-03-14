@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
+const topicsConfig = require('../../lib/blog/topics.json');
 
 const blogConfig = require('../../lib/blog/config.json');
 
@@ -23,6 +24,8 @@ const buildBlogArchivePath = (pageNumber = 1) => (pageNumber <= 1 ? '/blog' : `/
 
 const buildTagArchivePath = (tagSlug, pageNumber = 1) =>
   pageNumber <= 1 ? `/blog/tag/${tagSlug}` : `/blog/tag/${tagSlug}/page/${pageNumber}`;
+
+const buildTopicPath = (topicSlug) => `/blog/topics/${topicSlug}`;
 
 const getPageCount = (totalItems) => Math.max(1, Math.ceil(totalItems / blogConfig.archivePageSize));
 
@@ -134,6 +137,7 @@ const getExpectedBlogRoutes = (posts) => {
   const archiveRoutes = Array.from({ length: getPageCount(posts.length) }, (_, index) =>
     buildBlogArchivePath(index + 1),
   );
+  const topicRoutes = (topicsConfig.topics ?? []).map((topic) => buildTopicPath(topic.slug));
   const tagRoutes = getQualifyingTagArchives(posts).flatMap((tagArchive) =>
     Array.from({ length: tagArchive.totalPages }, (_, index) =>
       buildTagArchivePath(tagArchive.slug, index + 1),
@@ -143,9 +147,10 @@ const getExpectedBlogRoutes = (posts) => {
 
   return {
     archiveRoutes,
+    topicRoutes,
     tagRoutes,
     articleRoutes,
-    allRoutes: [...archiveRoutes, ...tagRoutes, ...articleRoutes],
+    allRoutes: [...archiveRoutes, ...topicRoutes, ...tagRoutes, ...articleRoutes],
   };
 };
 
@@ -252,6 +257,7 @@ module.exports = {
   SITEMAP_PATH,
   normalizeBaseUrl,
   buildBlogArchivePath,
+  buildTopicPath,
   buildTagArchivePath,
   listMarkdownPostFiles,
   readMarkdownPost,
