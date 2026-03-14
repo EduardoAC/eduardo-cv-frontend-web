@@ -170,7 +170,7 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
                     {(relatedImage || relatedFallbackImage) && (
                       <img
                         src={relatedImage?.src ?? relatedFallbackImage?.src}
-                        alt=""
+                        alt={relatedPost.imageAlt ?? relatedPost.title}
                         className={styles['related-post-image']}
                         loading="lazy"
                         decoding="async"
