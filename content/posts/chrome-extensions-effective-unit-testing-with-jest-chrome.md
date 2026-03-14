@@ -14,6 +14,8 @@ When we develop software, we cannot do it without talking about testing. Testing
 
 As there aren’t many articles regarding browser extension testing, I have decided to write about how I do testing, which tools I use at different levels, and what testing strategies I follow for such a technology. Hopefully, by the end of these articles, you will have the basics and required knowledge to apply testing to your extensions.
 
+If you want the wider context behind this extension-focused work, the [projects page](/projects) curates the browser tooling, platform experiments, and open-source foundations connected to these articles.
+
 Nevertheless, if you believe it’s missing something, don’t hesitate to drop a comment. I am glad to support you in your particular case or any concept that might be unclear.
 
 Let’s start by discussing the lower-level testing that can be done, called unit testing. In this type of testing, we want to test functionality, such as functions that involve handling messages, functions depending on the person’s components, etc.

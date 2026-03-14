@@ -48,10 +48,10 @@ const helpfulLinks = [
       'Read the articles that already document practical lessons from performance, testing, architecture, and product delivery.',
   },
   {
-    href: '/my-projects',
+    href: '/projects',
     title: 'Review my projects',
     description:
-      'The project archive shows the wider context behind the work, experiments, and ideas that influence this interactive CV.',
+      'The curated projects page shows the wider context behind the work, experiments, ventures, and tooling that influence this interactive CV.',
   },
 ] as const;
 

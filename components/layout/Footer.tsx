@@ -35,7 +35,7 @@ const defaultSections: FooterSection[] = [
       { href: '/backend-profile', label: 'As backend developer' },
       { href: '/mentor-profile', label: 'As mentor' },
       { href: '/my-experience', label: 'My work experience' },
-      { href: '/my-projects', label: 'Projects, hackathons and ideas' },
+      { href: '/projects', label: 'Projects' },
     ]
   },
   {

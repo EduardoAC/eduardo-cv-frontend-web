@@ -1,3 +1,4 @@
 # Legacy route redirects
 /homepage / 301
 /blogBusiness /blog 301
+/my-projects /projects 301
