@@ -8,9 +8,9 @@ const pagePath = '/projects';
 const pageUrl = `${baseUrl}${pagePath}`;
 const imagePath = '/images/code-projects-done-optimized-1280.webp';
 const imageUrl = `${baseUrl}${imagePath}`;
-const pageTitle = 'Projects, Open Source and Hackathons | Eduardo Aparicio Cardenes';
+const pageTitle = 'Projects and Open Source | Eduardo Aparicio Cardenes';
 const pageDescription =
-  'Explore the projects, open-source tools, hackathons, and product experiments created by Eduardo Aparicio Cardenes across frontend engineering, developer experience, and platform design.';
+  'Explore projects, open-source tools, hackathons, and product experiments by Eduardo Aparicio Cardenes in frontend engineering and developer experience.';
 
 export const metadata: Metadata = {
   title: pageTitle,
