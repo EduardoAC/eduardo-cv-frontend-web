@@ -209,6 +209,13 @@
   text-align: center;
 }
 
+.challenge_image {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
 .dark_section {
   background-color: var(--color-surface-inverse);
   color: var(--color-text-inverse);

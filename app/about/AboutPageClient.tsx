@@ -141,7 +141,7 @@ export default function AboutPageClient() {
             width={challengeDimensions.width}
             height={challengeDimensions.height}
             sizes={ABOUT_CHALLENGE_IMAGE_SIZES}
-            className="snap-img-fluid snap-img-thumbnail"
+            className={`${styles.challenge_image} snap-img-fluid snap-img-thumbnail`}
           />
           <p className={styles.final_thought}>
             I capable to achieve every goal in my life
