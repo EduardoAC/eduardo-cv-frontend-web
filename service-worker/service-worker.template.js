@@ -26,8 +26,8 @@ const STATIC_ASSETS = [
 
 const isCacheableResponse = (response) => response && CACHEABLE_STATUS_CODES.has(response.status);
 
-const cacheResponse = async (cacheName, request, response) => {
-  if (!isCacheableResponse(response)) {
+const cacheResponse = async (cacheName, request, response, shouldCache = isCacheableResponse) => {
+  if (!shouldCache(response)) {
     return response;
   }
 
@@ -36,15 +36,20 @@ const cacheResponse = async (cacheName, request, response) => {
   return response;
 };
 
-const fetchAndCache = async (cacheName, request) => {
+const fetchAndCache = async (cacheName, request, shouldCache = isCacheableResponse) => {
   const response = await fetch(request);
-  return cacheResponse(cacheName, request, response);
+  return cacheResponse(cacheName, request, response, shouldCache);
 };
 
-const staleWhileRevalidate = async (cacheName, request, event) => {
+const staleWhileRevalidate = async (
+  cacheName,
+  request,
+  event,
+  shouldCache = isCacheableResponse
+) => {
   const cache = await caches.open(cacheName);
   const cachedResponse = await cache.match(request);
-  const refreshPromise = fetchAndCache(cacheName, request).catch(() => undefined);
+  const refreshPromise = fetchAndCache(cacheName, request, shouldCache).catch(() => undefined);
 
   event.waitUntil(refreshPromise);
 
@@ -61,16 +66,8 @@ const staleWhileRevalidate = async (cacheName, request, event) => {
   throw new Error(`Unable to resolve request: ${request.url}`);
 };
 
-const cacheFirst = async (cacheName, request) => {
-  const cache = await caches.open(cacheName);
-  const cachedResponse = await cache.match(request);
-
-  if (cachedResponse) {
-    return cachedResponse;
-  }
-
-  return fetchAndCache(cacheName, request);
-};
+const staleWhileRevalidateImage = async (cacheName, request, event) =>
+  staleWhileRevalidate(cacheName, request, event, isCacheableResponse);
 
 const networkFirst = async (cacheName, request) => {
   try {
@@ -163,7 +160,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   if (request.destination === 'image') {
-    event.respondWith(cacheFirst(STATIC_CACHE, request));
+    event.respondWith(staleWhileRevalidateImage(STATIC_CACHE, request, event));
     return;
   }
 
