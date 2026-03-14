@@ -8,17 +8,6 @@ export default function ServiceWorkerRegistration() {
       return;
     }
 
-    let hasReloadedAfterControllerChange = false;
-
-    const handleControllerChange = () => {
-      if (hasReloadedAfterControllerChange) {
-        return;
-      }
-
-      hasReloadedAfterControllerChange = true;
-      window.location.reload();
-    };
-
     const registerServiceWorker = () => {
       navigator.serviceWorker
         .register('/service-worker.js', { updateViaCache: 'none' })
@@ -31,15 +20,14 @@ export default function ServiceWorkerRegistration() {
         });
     };
 
-    navigator.serviceWorker.addEventListener('controllerchange', handleControllerChange);
-    window.addEventListener('load', registerServiceWorker);
-
     if (document.readyState === 'complete') {
       registerServiceWorker();
+      return;
     }
 
+    window.addEventListener('load', registerServiceWorker);
+
     return () => {
-      navigator.serviceWorker.removeEventListener('controllerchange', handleControllerChange);
       window.removeEventListener('load', registerServiceWorker);
     };
   }, []);
