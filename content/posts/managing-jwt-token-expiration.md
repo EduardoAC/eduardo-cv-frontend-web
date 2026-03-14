@@ -4,6 +4,8 @@ description: "JWT token management strategies can be challenging. Here are some 
 date: "2020-09-26"
 author: "eduardo aparicio cardenes"
 tags: ["JWT", "Authentication", "Security", "Web Development"]
+topic: "Web Performance, Reliability and Edge Security"
+topicSlug: "web-performance-reliability-security"
 image: "/images/blog/managing-jwt-token-expiration/hero-jwt-token-expiration.png"
 imageAlt: "Flow diagram showing JWT expiration handling strategies"
 ---

@@ -1,5 +1,7 @@
 import type { BlogPostMeta } from '@/lib/blog/markdown';
-import type { ArchivePaginationData, MeaningfulTagArchiveSummary } from '@/lib/blog/archive';
+import type { MeaningfulTagArchiveSummary } from '@/lib/blog/archive';
+import type { ArchivePaginationData } from '@/lib/blog/pagination';
+import type { BlogTopicSummary } from '@/lib/blog/topics';
 import { ArchivePagination } from './ArchivePagination';
 import { BlogLayout } from './BlogLayout';
 import { BlogList } from './BlogList';
@@ -12,6 +14,7 @@ interface BlogArchivePageProps {
   supportingText?: string;
   resultsSummary: string;
   posts: ReadonlyArray<BlogPostMeta>;
+  topics?: ReadonlyArray<BlogTopicSummary>;
   tags: ReadonlyArray<MeaningfulTagArchiveSummary>;
   pagination: ArchivePaginationData;
   structuredData: Record<string, unknown>;
@@ -29,6 +32,7 @@ export function BlogArchivePage({
   supportingText,
   resultsSummary,
   posts,
+  topics = [],
   tags,
   pagination,
   structuredData,
@@ -37,6 +41,7 @@ export function BlogArchivePage({
   emptyMessage,
 }: BlogArchivePageProps) {
   const showSubscribeCta = posts.length > 0 && !currentTag && pagination.currentPage === 1;
+  const showBottomPagination = pagination.totalPages > 1;
 
   return (
     <>
@@ -52,6 +57,7 @@ export function BlogArchivePage({
         description={description}
         supportingText={supportingText}
         resultsSummary={resultsSummary}
+        topics={topics}
         currentTag={currentTag}
         tags={tags}
         pagination={pagination}
@@ -63,9 +69,11 @@ export function BlogArchivePage({
             <SubscribeForm className={styles['archive-subscribe-form']} />
           </section>
         )}
-        <div className={styles['archive-bottom-pagination']}>
-          <ArchivePagination pagination={pagination} />
-        </div>
+        {showBottomPagination && (
+          <div className={styles['archive-bottom-pagination']}>
+            <ArchivePagination pagination={pagination} />
+          </div>
+        )}
       </BlogLayout>
     </>
   );

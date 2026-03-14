@@ -4,6 +4,8 @@ description: "I joined Moneyfarm at the end of 2018. I soon realized that it was
 date: "2020-03-31"
 author: "eduardo aparicio cardenes"
 tags: ["Frontend Architecture", "Technical Debt", "Web Development", "React"]
+topic: "Frontend Architecture and Platform Design"
+topicSlug: "frontend-architecture"
 image: "/images/blog/moneyfarm-web-app-a-brief-evolution-story-frontmatter.jpg"
 imageAlt: "Screenshot of the Moneyfarm web application interface"
 ---

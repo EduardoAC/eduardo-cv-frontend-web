@@ -1,9 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Container from '@/components/layout/Container';
-import type { ArchivePaginationData, MeaningfulTagArchiveSummary } from '@/lib/blog/archive';
+import type { MeaningfulTagArchiveSummary } from '@/lib/blog/archive';
+import type { ArchivePaginationData } from '@/lib/blog/pagination';
+import type { BlogTopicSummary } from '@/lib/blog/topics';
 import Tag from '../content/Tag';
 import { ArchivePagination } from './ArchivePagination';
+import { TopicHubGrid } from './TopicHubGrid';
 import styles from './Blog.module.scss';
 
 interface BlogLayoutProps {
@@ -12,6 +15,7 @@ interface BlogLayoutProps {
   description: string;
   supportingText?: string;
   resultsSummary: string;
+  topics?: ReadonlyArray<BlogTopicSummary>;
   currentTag?: string;
   tags: ReadonlyArray<MeaningfulTagArchiveSummary>;
   pagination: ArchivePaginationData;
@@ -27,6 +31,7 @@ export function BlogLayout({
   description,
   supportingText,
   resultsSummary,
+  topics = [],
   currentTag,
   pagination,
   tags,
@@ -71,12 +76,12 @@ export function BlogLayout({
       </header>
 
       <div className={styles['blog-navigation']}>
-        <p className={styles['archive-summary']}>{resultsSummary}</p>
+        {topics.length > 0 && <TopicHubGrid topics={topics} />}
 
         {tags.length > 0 && (
-          <section className={styles['archive-tags-panel']} aria-label="Browse blog topics">
+          <section className={styles['archive-tags-panel']} aria-label="Browse blog tags">
             <div className={styles['archive-tags-header']}>
-              <h2 className="heading4">Browse by topic</h2>
+              <h2 className="heading4">Explore by tag</h2>
               {currentTag && (
                 <Link className={`snap-link snap-read-more ${styles['archive-inline-link']}`} href="/blog">
                   View all posts
@@ -103,7 +108,11 @@ export function BlogLayout({
         )}
 
         <div className={styles['archive-top-pagination']}>
-          <ArchivePagination pagination={pagination} />
+          <ArchivePagination
+            pagination={pagination}
+            summary={resultsSummary}
+            ariaLabel="Article archive overview and pagination"
+          />
         </div>
       </div>
 

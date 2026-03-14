@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const Prism = require('prismjs');
+const topicsConfig = require('../lib/blog/topics.json');
 const {
   buildResponsiveContext,
   getLocalImageMetadata,
@@ -50,6 +51,7 @@ const IMAGE_CONTEXTS = {
 };
 
 const responsiveImageCache = new Map();
+const knownTopicSlugs = new Set((topicsConfig.topics ?? []).map((topic) => topic.slug));
 
 const calculateReadingTime = (content) => {
   const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
@@ -348,23 +350,72 @@ const renderMarkdownToHtml = async ({ slug, title, rawContent, inlineAssetMap, m
   };
 };
 
-const buildRelatedSlugs = (posts, currentPost, limit = 3) =>
-  posts
+const buildTagFrequencyMap = (posts) => {
+  const tagFrequency = new Map();
+
+  for (const post of posts) {
+    for (const tag of post.tags ?? []) {
+      tagFrequency.set(tag, (tagFrequency.get(tag) ?? 0) + 1);
+    }
+  }
+
+  return tagFrequency;
+};
+
+const getSharedTagScore = (currentPost, candidatePost, tagFrequency) =>
+  currentPost.tags.reduce((score, tag) => {
+    if (!candidatePost.tags.includes(tag)) {
+      return score;
+    }
+
+    return score + 1 / (tagFrequency.get(tag) ?? 1);
+  }, 0);
+
+const sortRelatedPosts = (a, b) => {
+  if (a.sameTopic !== b.sameTopic) {
+    return Number(b.sameTopic) - Number(a.sameTopic);
+  }
+
+  if (a.sameSeries !== b.sameSeries) {
+    return Number(b.sameSeries) - Number(a.sameSeries);
+  }
+
+  if (b.sharedTagScore !== a.sharedTagScore) {
+    return b.sharedTagScore - a.sharedTagScore;
+  }
+
+  return a.date < b.date ? 1 : -1;
+};
+
+const buildRelatedSlugs = (posts, currentPost, tagFrequency, limit = 3) => {
+  const rankedPosts = posts
     .filter((post) => post.slug !== currentPost.slug)
     .map((post) => ({
       ...post,
-      relevanceScore: post.tags.filter((tag) => currentPost.tags.includes(tag)).length,
+      sameTopic: Boolean(currentPost.topicSlug) && currentPost.topicSlug === post.topicSlug,
+      sameSeries: Boolean(currentPost.series) && currentPost.series === post.series,
+      sharedTagScore: getSharedTagScore(currentPost, post, tagFrequency),
     }))
-    .filter((post) => post.relevanceScore > 0)
-    .sort((a, b) => {
-      if (b.relevanceScore !== a.relevanceScore) {
-        return b.relevanceScore - a.relevanceScore;
-      }
+    .sort(sortRelatedPosts);
+  const matchingPosts = rankedPosts.filter((post) => post.sameTopic || post.sameSeries || post.sharedTagScore > 0);
+  const selectedPosts = [];
+  const selectedSlugs = new Set();
 
-      return a.date < b.date ? 1 : -1;
-    })
-    .slice(0, limit)
-    .map(({ slug }) => slug);
+  for (const post of [...matchingPosts, ...rankedPosts]) {
+    if (selectedSlugs.has(post.slug)) {
+      continue;
+    }
+
+    selectedPosts.push(post);
+    selectedSlugs.add(post.slug);
+
+    if (selectedPosts.length === limit) {
+      break;
+    }
+  }
+
+  return selectedPosts.map(({ slug }) => slug);
+};
 
 const createPostRecord = async ({ fileName, marked }) => {
   const slug = fileName.replace(/\.md$/, '');
@@ -391,9 +442,16 @@ const createPostRecord = async ({ fileName, marked }) => {
     slug,
     title: typeof data.title === 'string' ? data.title : '',
     description: typeof data.description === 'string' ? data.description : '',
+    summary: typeof data.summary === 'string' ? data.summary : typeof data.description === 'string' ? data.description : '',
     date: normalizeDate(data.date),
     author: typeof data.author === 'string' ? data.author : '',
     tags: Array.isArray(data.tags) ? data.tags : [],
+    topic: typeof data.topic === 'string' ? data.topic : '',
+    topicSlug: typeof data.topicSlug === 'string' && knownTopicSlugs.has(data.topicSlug) ? data.topicSlug : '',
+    series: typeof data.series === 'string' ? data.series : undefined,
+    seriesOrder: Number.isInteger(data.seriesOrder) ? data.seriesOrder : undefined,
+    contentType: typeof data.contentType === 'string' ? data.contentType : 'article',
+    featured: typeof data.featured === 'boolean' ? data.featured : false,
     image: coverImagePath,
     imageAlt: typeof data.imageAlt === 'string' ? data.imageAlt : '',
     imageWidth: coverImage?.width,
@@ -416,11 +474,12 @@ const generateArtifacts = async () => {
   const posts = await Promise.all(fileNames.map((fileName) => createPostRecord({ fileName, marked })));
 
   posts.sort(sortPostsByDate);
+  const tagFrequency = buildTagFrequencyMap(posts);
 
   const postsBySlug = Object.fromEntries(posts.map((post) => [post.slug, post]));
 
   for (const post of posts) {
-    const relatedSlugs = buildRelatedSlugs(posts, post, 3);
+    const relatedSlugs = buildRelatedSlugs(posts, post, tagFrequency, 3);
     post.relatedSlugs = relatedSlugs;
   }
 
@@ -428,9 +487,16 @@ const generateArtifacts = async () => {
     slug: post.slug,
     title: post.title,
     description: post.description,
+    summary: post.summary,
     date: post.date,
     author: post.author,
     tags: post.tags,
+    topic: post.topic,
+    topicSlug: post.topicSlug,
+    series: post.series,
+    seriesOrder: post.seriesOrder,
+    contentType: post.contentType,
+    featured: post.featured,
     image: post.image,
     imageAlt: post.imageAlt,
     imageWidth: post.imageWidth,

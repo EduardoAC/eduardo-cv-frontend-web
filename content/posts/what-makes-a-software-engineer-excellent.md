@@ -4,6 +4,8 @@ description: "My five traits that define an excellent software engineer"
 date: "2020-09-10"
 author: "eduardo aparicio cardenes"
 tags: ["Software Engineering", "Career", "Best Practices", "Productivity"]
+topic: "Engineering Leadership, Mentoring and Career Growth"
+topicSlug: "engineering-leadership"
 image: "/images/blog/what-makes-a-software-engineer-excellent-frontmatter.jpeg"
 imageAlt: "Illustration of the traits that make a software engineer excellent"
 ---

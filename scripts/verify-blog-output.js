@@ -137,6 +137,19 @@ const main = () => {
     validateHtmlBudget(routePath, htmlPath, blogConfig.performanceBudgets.archiveHtmlWarningBytes);
   }
 
+  for (const routePath of expectedRoutes.topicRoutes) {
+    const htmlPath = routeToExportHtmlPath(routePath);
+
+    if (!fs.existsSync(htmlPath)) {
+      addError(`${routePath}: missing exported topic hub HTML file.`);
+      continue;
+    }
+
+    const topicHtml = fs.readFileSync(htmlPath, 'utf8');
+    validateCanonical(routePath, topicHtml, baseUrl);
+    validateHtmlBudget(routePath, htmlPath, blogConfig.performanceBudgets.archiveHtmlWarningBytes);
+  }
+
   for (const routePath of expectedRoutes.tagRoutes) {
     const htmlPath = routeToExportHtmlPath(routePath);
 
@@ -155,6 +168,23 @@ const main = () => {
     (filePath) => filePath.endsWith('.html'),
   );
   const actualTagRoutes = new Set(actualTagRouteFiles.map(routeFromDistHtmlPath));
+  const actualTopicRouteFiles = walkFiles(
+    path.join(DIST_DIR, 'blog/topics'),
+    (filePath) => filePath.endsWith('.html'),
+  );
+  const actualTopicRoutes = new Set(actualTopicRouteFiles.map(routeFromDistHtmlPath));
+
+  for (const routePath of expectedRoutes.topicRoutes) {
+    if (!actualTopicRoutes.has(routePath)) {
+      addError(`${routePath}: topic hub route was not exported.`);
+    }
+  }
+
+  for (const routePath of actualTopicRoutes) {
+    if (!expectedRoutes.topicRoutes.includes(routePath)) {
+      addError(`${routePath}: exported topic hub route is not part of the configured topic set.`);
+    }
+  }
 
   for (const routePath of expectedRoutes.tagRoutes) {
     if (!actualTagRoutes.has(routePath)) {

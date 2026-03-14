@@ -4,6 +4,8 @@ description: "Cache poisoning in AWS CloudFront can break user experiences by se
 date: "2025-10-27"
 author: "eduardo aparicio cardenes"
 tags: ["AWS", "CloudFront", "Security", "Web Security", "Cache Poisoning", "Web Application Security", "CDN", "S3"]
+topic: "Web Performance, Reliability and Edge Security"
+topicSlug: "web-performance-reliability-security"
 image: "/images/blog/mitigating-cache-poisoning/hero-banner-mitigating-cache-poisoning-in-aws-cloudfront.png"
 imageAlt: "CloudFront architecture diagram for mitigating cache poisoning"
 ---

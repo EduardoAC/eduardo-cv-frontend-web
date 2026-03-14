@@ -1,0 +1,34 @@
+{
+  "topics": [
+    {
+      "name": "Frontend Architecture and Platform Design",
+      "slug": "frontend-architecture",
+      "description": "Real-world frontend systems, platform trade-offs, component patterns, browser extensions, and application evolution.",
+      "intro": "Architecture decisions only matter once they survive product constraints, browser limits, and legacy code. This topic collects the articles where frontend design becomes delivery work."
+    },
+    {
+      "name": "Testing Strategy and Delivery Confidence",
+      "slug": "testing-strategy",
+      "description": "Outside-in testing, integration-first confidence, and practical ways to ship faster without gambling on quality.",
+      "intro": "Testing is most useful when it helps teams release with confidence. These articles focus on outside in thinking, integration boundaries, and delivery choices that reduce risk."
+    },
+    {
+      "name": "Web Performance, Reliability and Edge Security",
+      "slug": "web-performance-reliability-security",
+      "description": "Incidents, performance tuning, edge architecture, and the reliability lessons hidden inside production failures.",
+      "intro": "Production systems fail in ways that local checks rarely reveal. This topic brings together incident analysis, performance tuning, security controls, and edge behaviour from real systems."
+    },
+    {
+      "name": "Developer Experience and Engineering Effectiveness",
+      "slug": "developer-experience",
+      "description": "Tooling, workflow, code review decisions, metrics, and the systems that help engineers move faster with less friction.",
+      "intro": "Developer experience is about more than tool choice. These pieces look at workflow design, code review judgement, feedback loops, and the systems that shape day to day pace."
+    },
+    {
+      "name": "Engineering Leadership, Mentoring and Career Growth",
+      "slug": "engineering-leadership",
+      "description": "Mentoring, engineering judgement, communication, and career lessons from real work and real mistakes.",
+      "intro": "Leadership is rarely abstract in day to day engineering. This topic covers mentoring, judgement, communication, and the career lessons that come from real projects and real mistakes."
+    }
+  ]
+}

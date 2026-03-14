@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getRelatedPosts, getAllPosts, getPostMetaBySlug } from '@/lib/blog/markdown';
+import { getSeriesContext } from '@/lib/blog/series';
 import { generateMetaTags } from '@/lib/blog/seo';
+import { getResolvedTopicName } from '@/lib/blog/topics';
 import BlogPost from '@/components/blog/BlogPost';
 
 interface BlogPostPageProps {
@@ -31,12 +33,13 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website';
   const metaTags = generateMetaTags(post, baseUrl);
+  const articleSection = getResolvedTopicName(post) || 'Blog';
 
   return {
     title: metaTags.title,
     description: metaTags.description,
     keywords: metaTags.keywords,
-    authors: [{ name: metaTags.author }],
+    authors: [{ name: metaTags.author, url: metaTags.authorUrl }],
     alternates: {
       canonical: metaTags.canonical,
     },
@@ -44,8 +47,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     twitter: metaTags.twitter,
     other: {
       'article:published_time': post.date,
-      'article:author': post.author,
-      'article:section': 'Blog',
+      'article:modified_time': post.date,
+      'article:author': metaTags.authorUrl,
+      'article:section': articleSection,
       'article:tag': post.tags.join(', '),
     },
   };
@@ -60,8 +64,10 @@ export default async function BlogPostPage({ params }: Readonly<BlogPostPageProp
   }
 
   const relatedPosts = getRelatedPosts(slug, 3);
+  const seriesContext = getSeriesContext(slug);
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website';
-  const structuredData = generateMetaTags(post, baseUrl).structuredData;
+  const metaTags = generateMetaTags(post, baseUrl);
+  const structuredData = metaTags.structuredData;
 
   return (
     <>
@@ -72,7 +78,12 @@ export default async function BlogPostPage({ params }: Readonly<BlogPostPageProp
           __html: JSON.stringify(structuredData),
         }}
       />
-      <BlogPost post={post} relatedPosts={relatedPosts} />
+      <BlogPost
+        post={post}
+        relatedPosts={relatedPosts}
+        seriesContext={seriesContext}
+        canonicalUrl={metaTags.canonical}
+      />
     </>
   );
 } 

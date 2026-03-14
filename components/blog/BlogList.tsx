@@ -40,8 +40,8 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
 
   return (
     <Card className={styles['blog-card']}>
-      <Link className={`snap-link ${styles['blog-card-link']}`} href={articleHref} aria-label={`Read blog post: ${post.title}`}>
-        {(cardImage || post.image) && (
+      {(cardImage || post.image) && (
+        <Link className={`snap-link ${styles['blog-card-cover-link']}`} href={articleHref} aria-label={`Read blog post: ${post.title}`}>
           <div className={styles['blog-image-frame']} style={getImageFrameStyle(post)}>
             <img
               src={cardImage?.src ?? post.image}
@@ -55,9 +55,17 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
               sizes={cardImage?.sizes}
             />
           </div>
-        )}
+        </Link>
+      )}
+
+      <div className={styles['blog-card-body']}>
         <header className={styles['blog-card-header']}>
-          <h2 className={styles['blog-card-title']}>{post.title}</h2>
+          <h2 className={styles['blog-card-title']}>
+            <Link className={`snap-link ${styles['blog-card-title-link']}`} href={articleHref}>
+              {post.title}
+            </Link>
+          </h2>
+
           <div className={styles['blog-card-meta']}>
             <time dateTime={post.date}>
               {new Date(post.date).toLocaleDateString('en-GB', {
@@ -69,19 +77,26 @@ function BlogListItem({ post }: { post: BlogPostMeta }) {
             <span>• {post.readingTime} min read</span>
           </div>
         </header>
-        <p className={styles['blog-card-description']}>{post.description}</p>
-        <span className={styles['blog-card-read-more']}>Read article →</span>
-      </Link>
-      <div className={styles['blog-tags']}>
-        {tagLinks.map(({ tag, href }) => (
-          <Tag
-            key={tag}
-            href={href}
-            ariaLabel={href ? `Browse articles tagged ${tag}` : undefined}
-          >
-            {tag}
-          </Tag>
-        ))}
+
+        <p className={styles['blog-card-description']}>{post.summary ?? post.description}</p>
+
+        <div className={styles['blog-card-footer']}>
+          <Link className={`snap-link snap-read-more ${styles['blog-card-read-more']}`} href={articleHref}>
+            Read article →
+          </Link>
+
+          <div className={styles['blog-tags']}>
+            {tagLinks.map(({ tag, href }) => (
+              <Tag
+                key={tag}
+                href={href}
+                ariaLabel={href ? `Browse articles tagged ${tag}` : undefined}
+              >
+                {tag}
+              </Tag>
+            ))}
+          </div>
+        </div>
       </div>
     </Card>
   );

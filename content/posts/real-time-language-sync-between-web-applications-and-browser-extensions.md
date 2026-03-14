@@ -4,6 +4,8 @@ description: "Sync language preferences instantly: a guide to real-time language
 date: "2024-02-11"
 author: "eduardo aparicio cardenes"
 tags: ["Web Development", "Internationalization", "Browser Extensions", "React"]
+topic: "Frontend Architecture and Platform Design"
+topicSlug: "frontend-architecture"
 image: "/images/blog/real-time-language-sync-between-web-applications-and-browser-extensions/hero-language-sync-browser-extension.png"
 imageAlt: "Diagram showing language data syncing between a web app and browser extension"
 ---

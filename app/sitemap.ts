@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { BLOG_AUTHOR_PATH } from '@/lib/blog/author';
 import { getAllPosts } from '@/lib/blog/markdown';
 import {
   buildBlogArchivePath,
@@ -6,6 +7,7 @@ import {
   getBlogArchivePageNumbers,
   getMeaningfulTagArchiveSummaries,
 } from '@/lib/blog/archive';
+import { buildTopicPath, getBlogTopicSummaries } from '@/lib/blog/topics';
 
 export const dynamic = 'force-static';
 
@@ -37,12 +39,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const blogPosts = getAllPosts();
+  const authorPages = [
+    {
+      url: `${baseUrl}${BLOG_AUTHOR_PATH}`,
+      lastModified: new Date(blogPosts[0]?.date ?? Date.now()),
+      changeFrequency: 'monthly' as const,
+      priority: 0.65,
+    },
+  ];
   const blogArchivePages = getBlogArchivePageNumbers().map((pageNumber) => ({
     url: `${baseUrl}${buildBlogArchivePath(pageNumber)}`,
     lastModified: new Date(blogPosts[0]?.date ?? Date.now()),
     changeFrequency: 'weekly' as const,
     priority: pageNumber === 1 ? 0.6 : 0.5,
   }));
+
+  const topicPages = getBlogTopicSummaries().flatMap((topic) =>
+    Array.from({ length: topic.totalPages }, (_, index) => {
+      const pageNumber = index + 1;
+
+      return {
+        url: `${baseUrl}${buildTopicPath(topic.slug, pageNumber)}`,
+        lastModified: new Date(topic.latestPostDate ?? blogPosts[0]?.date ?? Date.now()),
+        changeFrequency: 'weekly' as const,
+        priority: pageNumber === 1 ? 0.55 : 0.45,
+      };
+    }),
+  );
 
   const tagArchives = getMeaningfulTagArchiveSummaries().flatMap((tagArchive) =>
     Array.from({ length: tagArchive.totalPages }, (_, index) => {
@@ -64,5 +87,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...pages, ...blogArchivePages, ...tagArchives, ...articlePages];
+  return [...pages, ...authorPages, ...blogArchivePages, ...topicPages, ...tagArchives, ...articlePages];
 }

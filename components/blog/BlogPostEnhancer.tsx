@@ -39,6 +39,15 @@ export default function BlogPostEnhancer({ rootId }: Readonly<BlogPostEnhancerPr
 
     let activeHeadingId = '';
     const collapsibleToc = root.querySelector<HTMLDetailsElement>('[data-blog-toc-collapsible]');
+    const getHeadingById = (targetId: string | null | undefined): HTMLElement | null => {
+      if (!targetId) {
+        return null;
+      }
+
+      const heading = document.getElementById(targetId);
+
+      return heading instanceof HTMLElement && root.contains(heading) ? heading : null;
+    };
 
     const clearActiveTocItems = () => {
       root.querySelectorAll('.snap-toc-item').forEach((item) => {
@@ -75,7 +84,7 @@ export default function BlogPostEnhancer({ rootId }: Readonly<BlogPostEnhancerPr
 
     root.querySelectorAll<HTMLElement>('[data-blog-toc] a[href^="#"]').forEach((anchor) => {
       const targetId = anchor.getAttribute('href')?.slice(1);
-      const heading = targetId ? root.querySelector<HTMLElement>(`#${targetId}`) : null;
+      const heading = getHeadingById(targetId);
 
       if (heading) {
         tocObserver.observe(heading);
@@ -123,7 +132,7 @@ export default function BlogPostEnhancer({ rootId }: Readonly<BlogPostEnhancerPr
       }
 
       const targetId = anchor.getAttribute('href')?.slice(1);
-      const heading = targetId ? root.querySelector<HTMLElement>(`#${targetId}`) : null;
+      const heading = getHeadingById(targetId);
 
       if (!heading) {
         return;

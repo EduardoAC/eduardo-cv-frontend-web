@@ -48,9 +48,16 @@ export interface BlogPostMeta {
   slug: string;
   title: string;
   description: string;
+  summary?: string;
   date: string;
   author: string;
   tags: string[];
+  topic?: string;
+  topicSlug?: string;
+  series?: string;
+  seriesOrder?: number;
+  contentType?: string;
+  featured?: boolean;
   image?: string;
   imageAlt?: string;
   imageWidth?: number;
@@ -98,9 +105,16 @@ const createPostMetaFromFile = (fileName: string): BlogPostMeta => {
     slug,
     title: typeof data.title === 'string' ? data.title : '',
     description: typeof data.description === 'string' ? data.description : '',
+    summary: typeof data.summary === 'string' ? data.summary : typeof data.description === 'string' ? data.description : undefined,
     date: normalizeDate(data.date),
     author: typeof data.author === 'string' ? data.author : '',
     tags: Array.isArray(data.tags) ? data.tags : [],
+    topic: typeof data.topic === 'string' ? data.topic : undefined,
+    topicSlug: typeof data.topicSlug === 'string' ? data.topicSlug : undefined,
+    series: typeof data.series === 'string' ? data.series : undefined,
+    seriesOrder: Number.isInteger(data.seriesOrder) ? data.seriesOrder : undefined,
+    contentType: typeof data.contentType === 'string' ? data.contentType : 'article',
+    featured: typeof data.featured === 'boolean' ? data.featured : false,
     image: typeof data.image === 'string' ? data.image : undefined,
     imageAlt: typeof data.imageAlt === 'string' ? data.imageAlt : undefined,
     readingTime: calculateReadingTime(content),

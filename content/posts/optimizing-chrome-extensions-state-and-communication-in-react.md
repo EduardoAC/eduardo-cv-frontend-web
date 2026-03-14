@@ -4,6 +4,8 @@ description: "Master Chrome Extension State Management and Communication with Re
 date: "2023-11-05"
 author: "eduardo aparicio cardenes"
 tags: ["Chrome Extensions", "React", "State Management", "Web Development"]
+topic: "Frontend Architecture and Platform Design"
+topicSlug: "frontend-architecture"
 image: "/images/blog/optimizing-chrome-extensions-state-and-communication-in-react/hero-chrome-extension-state-management.jpeg"
 imageAlt: "Chrome extension interface illustrating state management and cross-context communication"
 ---

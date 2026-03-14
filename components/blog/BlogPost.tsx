@@ -2,9 +2,14 @@
 import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import { getMeaningfulTagHref } from '@/lib/blog/archive';
+import { BLOG_AUTHOR_PATH, getCanonicalBlogAuthorName } from '@/lib/blog/author';
 import type { BlogPost as BlogPostType, BlogPostMeta, BlogResponsiveImageContext } from '@/lib/blog/markdown';
+import type { BlogSeriesContext } from '@/lib/blog/series';
+import { buildTopicPath, getResolvedTopicName } from '@/lib/blog/topics';
 import Container from '@/components/layout/Container';
 import MarkdownRenderer from './MarkdownRenderer';
+import BlogAuthorCard from './BlogAuthorCard';
+import BlogShareActions from './BlogShareActions';
 import Card from '../content/Card';
 import Tag from '../content/Tag';
 import styles from './BlogPost.module.scss';
@@ -12,9 +17,9 @@ import styles from './BlogPost.module.scss';
 interface BlogPostProps {
   post: BlogPostType;
   relatedPosts: BlogPostMeta[];
+  seriesContext: BlogSeriesContext | null;
+  canonicalUrl: string;
 }
-
-const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website').replace(/\/$/, '');
 
 const getImageFrameStyle = (imageWidth?: number, imageHeight?: number): CSSProperties | undefined => {
   if (!imageWidth || !imageHeight) {
@@ -43,35 +48,22 @@ const getFallbackImageContext = (post: Pick<BlogPostType, 'image' | 'imageWidth'
   };
 };
 
-const formatAuthorName = (author: string) =>
-  author
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
-
-export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>) {
-  const shareUrl = `${baseUrl}/blog/${post.slug}`;
-  const shareText = encodeURIComponent(`${post.title} - ${post.description}`);
+export default function BlogPost({
+  post,
+  relatedPosts,
+  seriesContext,
+  canonicalUrl,
+}: Readonly<BlogPostProps>) {
   const tagLinks = post.tags.map((tag) => ({
     tag,
     href: getMeaningfulTagHref(tag) ?? undefined,
   }));
   const heroImage = getImageContext(post, 'hero');
   const fallbackHeroImage = getFallbackImageContext(post);
-  const displayAuthor = formatAuthorName(post.author);
+  const displayAuthor = getCanonicalBlogAuthorName(post.author);
   const shouldShowTableOfContents = post.toc.length > 0;
-
-  const shareLinks = [
-    {
-      name: 'Twitter',
-      url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${shareText}`,
-    },
-    {
-      name: 'LinkedIn',
-      url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
-    },
-  ];
+  const topicName = getResolvedTopicName(post);
+  const topicHref = post.topicSlug ? buildTopicPath(post.topicSlug) : null;
 
   return (
     <Container as="article" padding="small" variant="wide" className={styles['blog-post-page']}>
@@ -82,6 +74,14 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
           </Link>
         </nav>
         <div className={styles['blog-post-header-content']}>
+          {topicHref && topicName && (
+            <div className={styles['blog-post-topic']}>
+              <span className={styles['blog-post-topic-label']}>Topic</span>
+              <Link className={`snap-link ${styles['blog-post-topic-link']}`} href={topicHref}>
+                {topicName}
+              </Link>
+            </div>
+          )}
           <h1 className={`text-align-left ${styles['blog-post-title']}`}>{post.title}</h1>
           <p className={styles['blog-post-dek']}>{post.description}</p>
           <div className={styles['blog-post-meta']}>
@@ -93,7 +93,12 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
               })}
             </time>
             <span>• {post.readingTime} min read</span>
-            <span>By {displayAuthor}</span>
+            <span className={styles['blog-post-meta-author']}>
+              <span>By</span>
+              <Link className={`snap-link ${styles['blog-post-meta-author-link']}`} href={BLOG_AUTHOR_PATH}>
+                {displayAuthor}
+              </Link>
+            </span>
           </div>
           <div className={styles['blog-post-tags']}>
             {tagLinks.map(({ tag, href }) => (
@@ -106,6 +111,39 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
               </Tag>
             ))}
           </div>
+          {seriesContext && (
+            <section className={styles['blog-series']} aria-label="Series navigation">
+              <div className={styles['blog-series-header']}>
+                <p className={styles['blog-series-label']}>Series</p>
+                <h2 className={styles['blog-series-title']}>{seriesContext.name}</h2>
+                <p className={styles['blog-series-progress']}>
+                  Part {seriesContext.currentIndex} of {seriesContext.totalPosts}
+                </p>
+              </div>
+              <div className={styles['blog-series-links']}>
+                {seriesContext.previousPost ? (
+                  <Link
+                    className={`snap-link snap-read-more ${styles['blog-series-link']}`}
+                    href={`/blog/${seriesContext.previousPost.slug}`}
+                  >
+                    Previous article: {seriesContext.previousPost.title}
+                  </Link>
+                ) : (
+                  <p className={styles['blog-series-edge']}>This is the first article in the series.</p>
+                )}
+                {seriesContext.nextPost ? (
+                  <Link
+                    className={`snap-link snap-read-more ${styles['blog-series-link']}`}
+                    href={`/blog/${seriesContext.nextPost.slug}`}
+                  >
+                    Next article: {seriesContext.nextPost.title}
+                  </Link>
+                ) : (
+                  <p className={styles['blog-series-edge']}>This is the latest article in the series.</p>
+                )}
+              </div>
+            </section>
+          )}
         </div>
       </header>
       {(heroImage || fallbackHeroImage) && (
@@ -139,22 +177,8 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
         />
       </section>
       <footer className={styles['blog-post-footer']}>
-        <section className={styles['blog-post-share']} aria-label="Share this post">
-          <h2 className={styles['blog-post-share-title']}>Share this post</h2>
-          <div className={styles['blog-post-share-links']}>
-            {shareLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles['blog-post-share-link']}
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-        </section>
+        <BlogShareActions canonicalUrl={canonicalUrl} title={post.title} />
+        <BlogAuthorCard />
         {relatedPosts.length > 0 && (
           <section className={styles['related-posts']}>
             <div className={styles['related-posts-header']}>
@@ -193,6 +217,13 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
                           day: 'numeric',
                         })}
                       </time>
+                      <span>• {relatedPost.readingTime} min read</span>
+                      <span className={styles['related-post-meta-author']}>
+                        <span>By</span>
+                        <Link className={`snap-link ${styles['related-post-meta-author-link']}`} href={BLOG_AUTHOR_PATH}>
+                          {getCanonicalBlogAuthorName(relatedPost.author)}
+                        </Link>
+                      </span>
                     </div>
                     <div className={styles['related-post-tags']}>
                       {relatedPost.tags.slice(0, 2).map((tag) => {
@@ -209,7 +240,7 @@ export default function BlogPost({ post, relatedPosts }: Readonly<BlogPostProps>
                         );
                       })}
                     </div>
-                    <p className={styles['related-post-description']}>{relatedPost.description}</p>
+                    <p className={styles['related-post-description']}>{relatedPost.summary ?? relatedPost.description}</p>
                   </Card>
                 );
               })}

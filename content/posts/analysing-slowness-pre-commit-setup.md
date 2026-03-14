@@ -4,6 +4,8 @@ description: "Recently one of my colleagues flagged the fact that our pre-commit
 date: "2020-08-15"
 author: "eduardo aparicio cardenes"
 tags: ["Developer Experience", "Git", "Pre-commit", "Productivity"]
+topic: "Developer Experience and Engineering Effectiveness"
+topicSlug: "developer-experience"
 image: "/images/blog/analysing-slowness-pre-commit-setup-frontmatter.jpeg"
 imageAlt: "Illustration of a developer analysing a slow pre-commit pipeline"
 ---

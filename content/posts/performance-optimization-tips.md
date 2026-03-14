@@ -4,6 +4,8 @@ description: "Discover essential techniques to improve your web application's pe
 date: "2024-12-18"
 author: "Eduardo Aparicio Cárdenes"
 tags: ["Performance", "Web Development", "Core Web Vitals", "Optimization", "JavaScript"]
+topic: "Web Performance, Reliability and Edge Security"
+topicSlug: "web-performance-reliability-security"
 image: "/images/blog/performance-optimization.png"
 imageAlt: "Performance dashboard illustration for a modern web application"
 ---

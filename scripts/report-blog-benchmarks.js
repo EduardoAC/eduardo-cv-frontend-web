@@ -211,6 +211,10 @@ const buildSitemapCoverageSummary = (expectedRoutes, sitemapUrls, baseUrl) => {
       expected: expectedRoutes.archiveRoutes.length,
       covered: countCoverage(expectedRoutes.archiveRoutes),
     },
+    topics: {
+      expected: expectedRoutes.topicRoutes.length,
+      covered: countCoverage(expectedRoutes.topicRoutes),
+    },
     tags: {
       expected: expectedRoutes.tagRoutes.length,
       covered: countCoverage(expectedRoutes.tagRoutes),
@@ -270,6 +274,8 @@ const main = () => {
   const smallestArticle = articleHtmlSizes[0];
   const averageArticleHtmlBytes = getAverage(articleHtmlSizes.map((article) => article.bytes));
   const additionalArchivePageCount = expectedRoutes.archiveRoutes.filter((routePath) => routePath !== '/blog').length;
+  const topicPageCount = expectedRoutes.topicRoutes.length;
+  const additionalTopicPageCount = expectedRoutes.topicRoutes.filter((routePath) => /\/page\/\d+$/.test(routePath)).length;
   const additionalTagPageCount = expectedRoutes.tagRoutes.filter((routePath) => /\/page\/\d+$/.test(routePath)).length;
 
   console.log('Blog benchmark report');
@@ -277,12 +283,13 @@ const main = () => {
   printMetric('Posts', manifest.length);
   printMetric('Archive page size', blogConfig.archivePageSize);
   printMetric('Archive pages', `${expectedRoutes.archiveRoutes.length} total (${additionalArchivePageCount} paginated beyond /blog)`);
+  printMetric('Topic pages', `${topicPageCount} total (${additionalTopicPageCount} paginated beyond page 1)`);
   printMetric('Qualifying tag archives', qualifyingTags.length);
   printMetric('Tag archive pages', `${expectedRoutes.tagRoutes.length} total (${additionalTagPageCount} paginated beyond page 1)`);
   printMetric('Posts linked from /blog', countPostsReferencedInArchiveHtml(archivePage.html, manifest));
   printMetric(
     'Sitemap blog coverage',
-    `${sitemapCoverage.blogUrlCount} URLs (${sitemapCoverage.articles.covered}/${sitemapCoverage.articles.expected} articles, ${sitemapCoverage.archives.covered}/${sitemapCoverage.archives.expected} archives, ${sitemapCoverage.tags.covered}/${sitemapCoverage.tags.expected} tag pages)`,
+    `${sitemapCoverage.blogUrlCount} URLs (${sitemapCoverage.articles.covered}/${sitemapCoverage.articles.expected} articles, ${sitemapCoverage.archives.covered}/${sitemapCoverage.archives.expected} archives, ${sitemapCoverage.topics.covered}/${sitemapCoverage.topics.expected} topic pages, ${sitemapCoverage.tags.covered}/${sitemapCoverage.tags.expected} tag pages)`,
   );
 
   console.log('');

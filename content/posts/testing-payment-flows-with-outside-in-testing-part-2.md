@@ -4,6 +4,10 @@ description: "Learn how to apply outside-in testing to payment flows in a fronte
 date: "2026-03-13"
 author: "eduardo aparicio cardenes"
 tags: ["Outside-In Testing", "Integration Testing", "Testing Strategy", "Payment Testing"]
+topic: "Testing Strategy and Delivery Confidence"
+topicSlug: "testing-strategy"
+series: "Outside-In Testing"
+seriesOrder: 2
 image: "/images/blog/testing-payment-flows-with-outside-in-testing-part-2/01-hero-payment-flows-outside-in-testing.png"
 imageAlt: "Payment flow diagram showing an outside-in integration testing strategy"
 ---

@@ -4,6 +4,8 @@ description: "Learn how to build modern web applications with Next.js, from setu
 date: "2024-12-19"
 author: "Eduardo Aparicio Cárdenes"
 tags: ["Next.js", "React", "Web Development", "JavaScript", "TypeScript"]
+topic: "Frontend Architecture and Platform Design"
+topicSlug: "frontend-architecture"
 image: "/images/blog/getting-started-nextjs.png"
 imageAlt: "Next.js logo and starter dashboard illustration"
 ---

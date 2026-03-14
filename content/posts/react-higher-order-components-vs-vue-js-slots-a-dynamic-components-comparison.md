@@ -4,6 +4,8 @@ description: "Recently, I faced the interesting challenge of customising the exp
 date: "2025-03-29"
 author: "eduardo aparicio cardenes"
 tags: ["React", "Vue.js", "Component Design", "Web Development"]
+topic: "Frontend Architecture and Platform Design"
+topicSlug: "frontend-architecture"
 image: "/images/blog/react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison/hero-react-vue-dynamic-components.png"
 imageAlt: "Comparison graphic of React higher-order components and Vue slots"
 ---

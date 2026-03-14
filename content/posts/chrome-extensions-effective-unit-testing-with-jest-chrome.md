@@ -4,6 +4,8 @@ description: "Learn how to effectively perform unit testing for Chrome extension
 date: "2024-06-07"
 author: "eduardo aparicio cardenes"
 tags: ["Testing", "Chrome Extensions", "JavaScript", "Web Development"]
+topic: "Testing Strategy and Delivery Confidence"
+topicSlug: "testing-strategy"
 image: "/images/blog/chrome-extensions-effective-unit-testing-with-jest-chrome/hero-jest-chrome-testing.png"
 imageAlt: "Diagram of a Chrome extension message flow under unit test"
 ---

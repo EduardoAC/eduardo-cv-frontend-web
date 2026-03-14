@@ -1,0 +1,83 @@
+.share-panel {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.share-header {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.share-title {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.share-description,
+.share-status {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.share-status {
+  min-height: 1.55em;
+}
+
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.share-action {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--color-text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.95rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.share-action:hover {
+  background: var(--color-surface-subtle);
+  border-color: var(--color-border-strong);
+  color: var(--color-link-hover);
+  transform: translateY(-1px);
+}
+
+.share-action:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+.share-action svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 640px) {
+  .share-actions {
+    gap: 0.6rem;
+  }
+
+  .share-action {
+    flex: 1 1 calc(50% - 0.6rem);
+  }
+}
