@@ -22,9 +22,8 @@ export interface ProjectEntry {
   techTags: [string, string, string] | [string, string] | [string];
   status: ProjectStatus;
   image?: ProjectImage;
-  primaryCta: ProjectActionLink;
+  primaryCta?: ProjectActionLink;
   secondaryCta?: ProjectActionLink;
-  relatedLinks?: ProjectActionLink[];
   order: number;
   sectionId: ProjectSectionId;
   showInItemList: boolean;
@@ -188,12 +187,6 @@ export const projectEntries: ProjectEntry[] = [
       label: 'Blog',
       href: '/blog',
     },
-    relatedLinks: [
-      {
-        label: 'How I build this site',
-        href: '/projects/how-do-i-build-it',
-      },
-    ],
     order: 5,
     sectionId: 'featured',
     showInItemList: true,
@@ -341,10 +334,6 @@ export const projectEntries: ProjectEntry[] = [
       src: '/images/SharonLogo-optimized-1280.webp',
       alt: 'Sharon hackathon project logo',
     },
-    primaryCta: {
-      label: 'Contact me',
-      href: '/contact',
-    },
     order: 1,
     sectionId: 'hackathons',
     showInItemList: true,
@@ -362,10 +351,6 @@ export const projectEntries: ProjectEntry[] = [
       src: '/images/eventBuddyLogo-optimized-1280.webp',
       alt: 'Event Buddy hackathon project logo',
     },
-    primaryCta: {
-      label: 'Contact me',
-      href: '/contact',
-    },
     order: 2,
     sectionId: 'hackathons',
     showInItemList: true,
@@ -379,10 +364,6 @@ export const projectEntries: ProjectEntry[] = [
     typeLabel: 'Hackathon',
     techTags: ['Hackathon', 'Fintech', 'Trust'],
     status: 'Historic',
-    primaryCta: {
-      label: 'Contact me',
-      href: '/contact',
-    },
     order: 3,
     sectionId: 'hackathons',
     showInItemList: true,
@@ -404,10 +385,6 @@ export const projectEntries: ProjectEntry[] = [
       label: 'Website',
       href: 'http://www.dreammakerfactory.com',
       external: true,
-    },
-    secondaryCta: {
-      label: 'About me',
-      href: '/about',
     },
     order: 1,
     sectionId: 'ventures',
@@ -431,10 +408,6 @@ export const projectEntries: ProjectEntry[] = [
       href: 'http://www.tuocio.org',
       external: true,
     },
-    secondaryCta: {
-      label: 'About me',
-      href: '/about',
-    },
     order: 2,
     sectionId: 'ventures',
     showInItemList: true,
@@ -452,10 +425,6 @@ export const projectEntries: ProjectEntry[] = [
       label: 'Website',
       href: 'https://www.innervirtuoso.com',
       external: true,
-    },
-    secondaryCta: {
-      label: 'About me',
-      href: '/about',
     },
     order: 3,
     sectionId: 'ventures',
@@ -479,10 +448,6 @@ export const projectEntries: ProjectEntry[] = [
       href: 'https://www.trainerswod.com/',
       external: true,
     },
-    secondaryCta: {
-      label: 'About me',
-      href: '/about',
-    },
     order: 4,
     sectionId: 'ventures',
     showInItemList: true,
@@ -504,10 +469,6 @@ export const projectEntries: ProjectEntry[] = [
       label: 'Website',
       href: 'https://www.proyectoadoptame.es',
       external: true,
-    },
-    secondaryCta: {
-      label: 'About me',
-      href: '/about',
     },
     order: 5,
     sectionId: 'ventures',

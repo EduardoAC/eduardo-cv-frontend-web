@@ -74,6 +74,9 @@ function ProjectCard({
   compact?: boolean;
 }>) {
   const cardClassName = [styles.projectCard, compact ? styles.compactCard : ''].filter(Boolean).join(' ');
+  const actions = [project.primaryCta, project.secondaryCta].filter(
+    (link): link is ProjectActionLink => Boolean(link),
+  );
 
   return (
     <Card id={project.slug} className={cardClassName} data-tier={project.tier}>
@@ -114,36 +117,16 @@ function ProjectCard({
         </div>
       </div>
 
-      <div className={styles.actions}>
-        <ActionLink link={project.primaryCta} className={styles.linkButton} primary />
-        {project.secondaryCta ? (
-          <ActionLink link={project.secondaryCta} className={`${styles.linkButton} ${styles.cardActionSecondary}`} />
-        ) : null}
-      </div>
-
-      {project.relatedLinks?.length ? (
-        <div className={styles.relatedLinks}>
-          {project.relatedLinks.map((link) => {
-            if (link.external) {
-              return (
-                <a
-                  key={`${project.slug}-${link.label}`}
-                  className={styles.relatedLink}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.label}
-                </a>
-              );
-            }
-
-            return (
-              <Link key={`${project.slug}-${link.label}`} className={styles.relatedLink} href={link.href}>
-                {link.label}
-              </Link>
-            );
-          })}
+      {actions.length ? (
+        <div className={styles.actions}>
+          {actions.map((action, index) => (
+            <ActionLink
+              key={`${project.slug}-${action.label}`}
+              link={action}
+              className={`${styles.linkButton} ${index === 0 ? '' : styles.cardActionSecondary}`}
+              primary={index === 0}
+            />
+          ))}
         </div>
       ) : null}
     </Card>
@@ -157,7 +140,7 @@ export default function ProjectsPage() {
   return (
     <main className={styles.page}>
       <section className={styles.heroSection} aria-labelledby="projects-title">
-        <Container variant="default" padding="large">
+        <Container variant="wide" padding="medium">
           <div className={styles.heroShell}>
             <div className={styles.heroContent}>
               <p className={styles.eyebrow}>Curated engineering work</p>
@@ -172,13 +155,9 @@ export default function ProjectsPage() {
                 From contract-driven API generation to browser tooling, technical content platforms, and hackathon
                 products, this page brings together the work that best represents how I think, build, and ship.
               </p>
-              <p className={styles.supportingStory}>
-                This page brings together the projects that best represent my journey as a frontend engineer, platform
-                builder, open-source creator, and product-minded technologist. It includes current flagship work,
-                developer tooling, earlier ventures, and selected hackathon projects that shaped how I build today. For
-                the wider career story behind them, you can also visit the <Link href={aboutProjectsLink}>about page</Link>.
-              </p>
+            </div>
 
+            <div className={styles.heroRail}>
               <div className={styles.heroActions}>
                 {heroActions.map((action, index) => (
                   <ActionLink
@@ -189,24 +168,24 @@ export default function ProjectsPage() {
                   />
                 ))}
               </div>
-            </div>
 
-            <nav className={styles.jumpNav} aria-label="Projects section navigation">
-              <ul className={styles.jumpNavList}>
-                {projectSections.map((section) => (
-                  <li key={section.id}>
-                    <a className={styles.jumpNavLink} href={`#${section.id}`}>
-                      {section.navLabel}
+              <nav className={styles.jumpNav} aria-label="Projects section navigation">
+                <ul className={styles.jumpNavList}>
+                  {projectSections.map((section) => (
+                    <li key={section.id}>
+                      <a className={styles.jumpNavLink} href={`#${section.id}`}>
+                        {section.navLabel}
+                      </a>
+                    </li>
+                  ))}
+                  <li>
+                    <a className={styles.jumpNavLink} href="#writing-and-talks">
+                      Writing and Talks
                     </a>
                   </li>
-                ))}
-                <li>
-                  <a className={styles.jumpNavLink} href="#writing-and-talks">
-                    Writing and Talks
-                  </a>
-                </li>
-              </ul>
-            </nav>
+                </ul>
+              </nav>
+            </div>
           </div>
         </Container>
       </section>
@@ -225,12 +204,24 @@ export default function ProjectsPage() {
 
         return (
           <section key={section.id} id={section.id} className={styles.section} aria-labelledby={`${section.id}-title`}>
-            <Container variant="default" padding="large">
+            <Container variant="wide" padding="medium">
               <div className={styles.sectionHeader}>
                 <h2 id={`${section.id}-title`} className={styles.sectionTitle}>
                   {section.title}
                 </h2>
-                <p className={styles.sectionIntro}>{section.intro}</p>
+                <p className={styles.sectionIntro}>
+                  {section.intro}
+                  {section.id === 'ventures' ? (
+                    <>
+                      {' '}
+                      For the broader journey behind this work, visit the{' '}
+                      <Link className={styles.sectionInlineLink} href={aboutProjectsLink}>
+                        about page
+                      </Link>
+                      .
+                    </>
+                  ) : null}
+                </p>
               </div>
 
               <ul className={`${styles.grid} ${gridClassName}`}>
@@ -268,7 +259,7 @@ export default function ProjectsPage() {
       })}
 
       <section id="writing-and-talks" className={styles.section} aria-labelledby="writing-and-talks-title">
-        <Container variant="default" padding="large">
+        <Container variant="wide" padding="medium">
           <div className={styles.sectionHeader}>
             <h2 id="writing-and-talks-title" className={styles.sectionTitle}>
               Writing and talks
@@ -295,7 +286,7 @@ export default function ProjectsPage() {
       </section>
 
       <section className={styles.ctaSection} aria-labelledby="projects-cta-title">
-        <Container variant="default" padding="large">
+        <Container variant="wide" padding="medium">
           <div className={styles.ctaCard}>
             <h2 id="projects-cta-title" className={styles.ctaTitle}>
               Interested in collaborating?
