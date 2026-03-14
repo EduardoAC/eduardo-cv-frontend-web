@@ -1,5 +1,6 @@
 const STATIC_CACHE = `eduardo-cv-__BUILD_VERSION__-static`;
 const DYNAMIC_CACHE = `eduardo-cv-__BUILD_VERSION__-dynamic`;
+const CACHEABLE_STATUS_CODES = new Set([200]);
 
 // Static assets to cache
 const STATIC_ASSETS = [
@@ -22,6 +23,85 @@ const STATIC_ASSETS = [
   '/images/world-wide-map-high-res.svg',
   '/favicon.ico'
 ];
+
+const isCacheableResponse = (response) => response && CACHEABLE_STATUS_CODES.has(response.status);
+
+const cacheResponse = async (cacheName, request, response) => {
+  if (!isCacheableResponse(response)) {
+    return response;
+  }
+
+  const cache = await caches.open(cacheName);
+  await cache.put(request, response.clone());
+  return response;
+};
+
+const fetchAndCache = async (cacheName, request) => {
+  const response = await fetch(request);
+  return cacheResponse(cacheName, request, response);
+};
+
+const staleWhileRevalidate = async (cacheName, request, event) => {
+  const cache = await caches.open(cacheName);
+  const cachedResponse = await cache.match(request);
+  const refreshPromise = fetchAndCache(cacheName, request).catch(() => undefined);
+
+  event.waitUntil(refreshPromise);
+
+  if (cachedResponse) {
+    return cachedResponse;
+  }
+
+  const networkResponse = await refreshPromise;
+
+  if (networkResponse) {
+    return networkResponse;
+  }
+
+  throw new Error(`Unable to resolve request: ${request.url}`);
+};
+
+const cacheFirst = async (cacheName, request) => {
+  const cache = await caches.open(cacheName);
+  const cachedResponse = await cache.match(request);
+
+  if (cachedResponse) {
+    return cachedResponse;
+  }
+
+  return fetchAndCache(cacheName, request);
+};
+
+const networkFirst = async (cacheName, request) => {
+  try {
+    return await fetchAndCache(cacheName, request);
+  } catch (error) {
+    const cachedResponse = await caches.match(request);
+
+    if (cachedResponse) {
+      return cachedResponse;
+    }
+
+    throw error;
+  }
+};
+
+const handleNavigationRequest = async (request, event) => {
+  try {
+    return await staleWhileRevalidate(DYNAMIC_CACHE, request, event);
+  } catch (error) {
+    const offlineFallback = await caches.match('/');
+
+    if (offlineFallback) {
+      return offlineFallback;
+    }
+
+    throw error;
+  }
+};
+
+const isNavigationRequest = (request) =>
+  request.mode === 'navigate' || request.destination === 'document';
 
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
@@ -73,80 +153,30 @@ self.addEventListener('fetch', (event) => {
 
   // Handle API requests
   if (url.pathname.startsWith('/api/')) {
-    event.respondWith(
-      fetch(request)
-        .then((response) => {
-          // Cache successful API responses
-          if (response.status === 200) {
-            const responseClone = response.clone();
-            caches.open(DYNAMIC_CACHE)
-              .then((cache) => {
-                cache.put(request, responseClone);
-              });
-          }
-          return response;
-        })
-        .catch(() => {
-          // Return cached response if network fails
-          return caches.match(request);
-        })
-    );
+    event.respondWith(networkFirst(DYNAMIC_CACHE, request));
     return;
   }
 
-  // Handle static assets
-  if (request.destination === 'image' || 
-      request.destination === 'style' || 
-      request.destination === 'script' ||
-      request.destination === 'font') {
-    event.respondWith(
-      caches.match(request)
-        .then((response) => {
-          if (response) {
-            return response;
-          }
-          return fetch(request)
-            .then((response) => {
-              if (response.status === 200) {
-                const responseClone = response.clone();
-                caches.open(STATIC_CACHE)
-                  .then((cache) => {
-                    cache.put(request, responseClone);
-                  });
-              }
-              return response;
-            });
-        })
-    );
+  if (isNavigationRequest(request)) {
+    event.respondWith(handleNavigationRequest(request, event));
     return;
   }
 
-  // Handle navigation requests
-  event.respondWith(
-    caches.match(request)
-      .then((response) => {
-        if (response) {
-          return response;
-        }
-        return fetch(request)
-          .then((response) => {
-            if (response.status === 200) {
-              const responseClone = response.clone();
-              caches.open(DYNAMIC_CACHE)
-                .then((cache) => {
-                  cache.put(request, responseClone);
-                });
-            }
-            return response;
-          });
-      })
-      .catch(() => {
-        // Return offline page for navigation requests
-        if (request.destination === 'document') {
-          return caches.match('/');
-        }
-      })
-  );
+  if (request.destination === 'image') {
+    event.respondWith(cacheFirst(STATIC_CACHE, request));
+    return;
+  }
+
+  if (
+    request.destination === 'style' ||
+    request.destination === 'script' ||
+    request.destination === 'font'
+  ) {
+    event.respondWith(staleWhileRevalidate(STATIC_CACHE, request, event));
+    return;
+  }
+
+  event.respondWith(staleWhileRevalidate(DYNAMIC_CACHE, request, event));
 });
 
 // Background sync for form submissions
