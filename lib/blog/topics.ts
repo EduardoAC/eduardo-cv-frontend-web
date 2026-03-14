@@ -15,7 +15,6 @@ export interface BlogTopicDefinition {
   slug: string;
   description: string;
   intro?: string;
-  featuredSlug?: string;
   subthemes?: BlogTopicSubthemeDefinition[];
 }
 
@@ -23,8 +22,6 @@ export interface BlogTopicSummary extends BlogTopicDefinition {
   href: string;
   count: number;
   latestPostDate?: string;
-  featuredPost: BlogPostMeta | null;
-  featuredReason: 'start-here' | 'latest';
 }
 
 export interface BlogTopicSubthemeGroup extends BlogTopicSubthemeDefinition {
@@ -65,38 +62,15 @@ export const getPostsForTopic = (topicSlug: string): BlogPostMeta[] =>
     .filter((post) => post.topicSlug === topicSlug)
     .sort(sortPostsByDate);
 
-const getFeaturedTopicPost = (topic: BlogTopicDefinition, posts: BlogPostMeta[]): BlogPostMeta | null => {
-  if (topic.featuredSlug) {
-    const configuredFeaturedPost = posts.find((post) => post.slug === topic.featuredSlug) ?? null;
-
-    if (configuredFeaturedPost) {
-      return configuredFeaturedPost;
-    }
-  }
-
-  const editorialFeaturedPost = posts.find((post) => post.featured) ?? null;
-
-  if (editorialFeaturedPost) {
-    return editorialFeaturedPost;
-  }
-
-  return posts[0] ?? null;
-};
-
 export const getBlogTopicSummaries = (): BlogTopicSummary[] =>
   topicDefinitions.map((topic) => {
     const posts = getPostsForTopic(topic.slug);
-    const featuredPost = getFeaturedTopicPost(topic, posts);
-    const featuredReason =
-      topic.featuredSlug && featuredPost?.slug === topic.featuredSlug ? 'start-here' : featuredPost?.featured ? 'start-here' : 'latest';
 
     return {
       ...topic,
       href: buildTopicPath(topic.slug),
       count: posts.length,
       latestPostDate: posts[0]?.date,
-      featuredPost,
-      featuredReason,
     };
   });
 

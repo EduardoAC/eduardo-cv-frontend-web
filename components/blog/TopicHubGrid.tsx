@@ -33,25 +33,8 @@ export function TopicHubGrid({ topics }: Readonly<TopicHubGridProps>) {
                   {topic.count} post{topic.count === 1 ? '' : 's'}
                 </span>
               </div>
-              <h3 className={styles['topic-hub-title']}>
-                <Link className={`snap-link ${styles['topic-hub-title-link']}`} href={topic.href}>
-                  {topic.name}
-                </Link>
-              </h3>
+              <h3 className={styles['topic-hub-title']}>{topic.name}</h3>
               <p className={styles['topic-hub-description']}>{topic.description}</p>
-              {topic.featuredPost && (
-                <div className={styles['topic-hub-featured']}>
-                  <p className={styles['topic-hub-featured-label']}>
-                    {topic.featuredReason === 'start-here' ? 'Start here' : 'Latest article'}
-                  </p>
-                  <Link className={`snap-link ${styles['topic-hub-featured-link']}`} href={`/blog/${topic.featuredPost.slug}`}>
-                    {topic.featuredPost.title}
-                  </Link>
-                  <p className={styles['topic-hub-featured-summary']}>
-                    {topic.featuredPost.summary ?? topic.featuredPost.description}
-                  </p>
-                </div>
-              )}
               <Link className={`snap-link snap-read-more ${styles['topic-hub-cta']}`} href={topic.href}>
                 Explore topic
               </Link>

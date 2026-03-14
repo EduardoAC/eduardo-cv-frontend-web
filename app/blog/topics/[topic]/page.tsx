@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { BlogTopicPage } from '@/components/blog/BlogTopicPage';
 import {
   getBlogTopicBySlug,
-  getBlogTopicSummaries,
   getBlogTopics,
   getPostsForTopic,
   getTopicMetadata,
@@ -42,14 +41,10 @@ export default async function BlogTopicArchivePage({
     notFound();
   }
 
-  const topicSummary = getBlogTopicSummaries().find((entry) => entry.slug === topicSlug);
-
   return (
     <BlogTopicPage
       topic={topic}
       posts={getPostsForTopic(topicSlug)}
-      featuredPost={topicSummary?.featuredPost ?? null}
-      featuredReason={topicSummary?.featuredReason ?? 'latest'}
       subthemes={getTopicSubthemeGroups(topicSlug)}
       structuredData={getTopicStructuredData(topicSlug) ?? {}}
     />
