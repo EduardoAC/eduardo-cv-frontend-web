@@ -5,6 +5,10 @@
   text-align: left;
 }
 
+.page > section:nth-of-type(odd) {
+  @include utilities.gradient-pattern;
+}
+
 .page :where(p, li) {
   font-size: clamp(0.98rem, 0.22vw + 0.94rem, 1.06rem);
   line-height: 1.7;
@@ -508,6 +512,43 @@
 .linkButton,
 .ctaButton {
   text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .page :where(p, li) {
+    font-size: 1.04rem;
+    line-height: 1.72;
+  }
+
+  .page :global(.snap-btn) {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.16rem;
+    line-height: 1.55;
+  }
+
+  .lead,
+  .sectionIntro,
+  .cardSummary,
+  .writingDescription,
+  .archivedBody,
+  .ctaBody {
+    font-size: 1.06rem;
+    line-height: 1.72;
+  }
+
+  .jumpNavIntro,
+  .jumpNavLink {
+    font-size: 0.98rem;
+  }
+
+  .cardTitle,
+  .writingLink,
+  .archivedTitle {
+    font-size: 1.18rem;
+  }
 }
 
 @media (min-width: 768px) {
