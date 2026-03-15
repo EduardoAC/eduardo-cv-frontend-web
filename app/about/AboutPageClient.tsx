@@ -48,7 +48,7 @@ export default function AboutPageClient() {
           </p>
           <p>
             Currently, I&apos;m co-founder of{" "}
-            <a href="https://www.innervirtuoso.com">Inner Virtuoso</a>. Inner
+            <a href="http://www.innervirtuoso.com">Inner Virtuoso</a>. Inner
             Virtuoso uses Global Incubator technology to create tailor made
             solutions that boost the development of human capital.
           </p>
