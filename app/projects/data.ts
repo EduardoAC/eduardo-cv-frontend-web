@@ -423,7 +423,7 @@ export const projectEntries: ProjectEntry[] = [
     status: 'Historic',
     primaryCta: {
       label: 'Website',
-      href: 'https://www.innervirtuoso.com',
+      href: 'http://www.innervirtuoso.com',
       external: true,
     },
     order: 3,
