@@ -1,6 +1,6 @@
 import { getAllPosts, type BlogPostMeta } from './markdown';
 
-const DEFAULT_BASE_URL = 'https://eduardo-aparicio-cardenes.website';
+const DEFAULT_BASE_URL = 'https://eduardoac.dev';
 
 export const BLOG_AUTHOR_NAME = 'Eduardo Aparicio Cardenes';
 export const BLOG_AUTHOR_SLUG = 'eduardo-aparicio-cardenes';

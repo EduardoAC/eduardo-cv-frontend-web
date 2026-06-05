@@ -11,7 +11,7 @@ import { buildTopicPath, getBlogTopicSummaries } from '@/lib/blog/topics';
 
 export const dynamic = 'force-static';
 
-const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website').replace(/\/$/, '');
+const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardoac.dev').replace(/\/$/, '');
 
 const staticRoutes: Array<{
   path: string;

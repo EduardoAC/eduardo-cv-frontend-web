@@ -8,7 +8,7 @@ import {
 } from '@/lib/blog/author';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardoac.dev';
   const author = getBlogAuthor(baseUrl);
   const imageUrl = getAbsoluteBlogAssetUrl(author.image.src, baseUrl);
 
@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function BlogAuthorRoutePage() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardoac.dev';
 
   return (
     <BlogAuthorPage

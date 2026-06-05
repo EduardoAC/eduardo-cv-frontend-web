@@ -69,7 +69,7 @@ Required environment variables:
 
 ## Public Endpoint
 
-- Browser-facing production endpoint: `https://subscription-handler.eduardo-aparicio-cardenes.website/subscribe`
+- Browser-facing production endpoint: `https://subscription-handler.eduardoac.dev/subscribe`
 - Frontend config should use `NEXT_PUBLIC_SUBSCRIPTION_ENDPOINT`
 - `NEXT_PUBLIC_EMAIL_WORKER_URL` can remain temporarily as a fallback during rollout only
 

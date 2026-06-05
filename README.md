@@ -2,13 +2,13 @@
 
 Hi readers, my name is Eduardo Aparicio Cardenes.
 
-This repository powers [eduardo-aparicio-cardenes.website](https://eduardo-aparicio-cardenes.website/), my personal website and interactive CV. I originally built it because a normal CV never felt like enough space to explain how I work, what I build, and why certain projects mattered. Over time it became something broader: a place where profile, projects, writing, experience, and mentoring can live together in one maintainable frontend application.
+This repository powers [eduardoac.dev](https://eduardoac.dev/), my personal website and interactive CV. I originally built it because a normal CV never felt like enough space to explain how I work, what I build, and why certain projects mattered. Over time it became something broader: a place where profile, projects, writing, experience, and mentoring can live together in one maintainable frontend application.
 
 Today the site is built with Next.js, TypeScript, and a static deployment pipeline, but it still serves the same purpose it had at the beginning: to present the work behind the job titles, not only the job titles themselves.
 
 ## Live Site
 
-Production URL: [https://eduardo-aparicio-cardenes.website/](https://eduardo-aparicio-cardenes.website/)
+Production URL: [https://eduardoac.dev/](https://eduardoac.dev/)
 
 ## Why This Project Exists
 

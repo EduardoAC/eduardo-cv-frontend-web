@@ -9,7 +9,7 @@ const backgroundImageSrc = '/images/world-wide-map-optimized.svg';
 const backgroundImageDimensions = getSiteImageDimensions(backgroundImageSrc, { width: 940, height: 415 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://eduardo-aparicio-cardenes.website';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://eduardoac.dev';
   return {
     title: "Contact - Eduardo Aparicio Cardenes",
     description:
