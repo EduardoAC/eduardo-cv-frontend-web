@@ -6,7 +6,7 @@ const topicsConfig = require('../../lib/blog/topics.json');
 const blogConfig = require('../../lib/blog/config.json');
 
 const ROOT_DIR = process.cwd();
-const DEFAULT_BASE_URL = 'https://eduardo-aparicio-cardenes.website';
+const DEFAULT_BASE_URL = 'https://eduardoac.dev';
 const POSTS_DIR = path.join(ROOT_DIR, 'content/posts');
 const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
 const GENERATED_DIR = path.join(ROOT_DIR, 'generated');

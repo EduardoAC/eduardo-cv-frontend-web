@@ -7,7 +7,7 @@ import JobsTimeline from '@/components/JobsTimeline'
 import Greetings from '@/components/Greetings'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://eduardo-aparicio-cardenes.website';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://eduardoac.dev';
   return {
     title: 'Eduardo Aparicio Cardenes - Frontend Engineer, Software Architect,Mentor and speaker',
     description: "Explore my interactive CV, projects, blog posts, and tech talks. A space where software engineering meets storytelling.",

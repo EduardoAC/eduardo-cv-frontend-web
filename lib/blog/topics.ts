@@ -10,7 +10,7 @@ import {
   type PaginatedPostSlice,
 } from './pagination';
 
-const DEFAULT_BASE_URL = 'https://eduardo-aparicio-cardenes.website';
+const DEFAULT_BASE_URL = 'https://eduardoac.dev';
 const SITE_NAME = 'Eduardo Aparicio Cardenes';
 
 export interface BlogTopicSubthemeDefinition {

@@ -26,7 +26,7 @@ export type { ArchivePaginationData, ArchivePaginationLink, PaginatedPostSlice }
 
 const SITE_NAME = 'Eduardo Aparicio Cardenes';
 const BLOG_ARCHIVE_NAME = 'Engineering Blog';
-const DEFAULT_BASE_URL = 'https://eduardo-aparicio-cardenes.website';
+const DEFAULT_BASE_URL = 'https://eduardoac.dev';
 
 export type ArchivePageSlice = PaginatedPostSlice<BlogPostMeta>;
 

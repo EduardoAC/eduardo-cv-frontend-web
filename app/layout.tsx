@@ -16,7 +16,7 @@ import '../styles/main.scss'
 import './components.scss'
 
 const inter = Inter({ subsets: ['latin'] })
-const siteUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website').replace(/\/$/, '')
+const siteUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardoac.dev').replace(/\/$/, '')
 
 export const metadata: Metadata = {
   title: 'Eduardo Aparicio Cardenes - Interactive CV',

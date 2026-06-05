@@ -3,7 +3,7 @@ import { SUBSCRIPTION_ERROR_CODES } from '../contracts';
 import { isValidEmail } from '../utils';
 import { createErrorResponse, createCorsHeaders } from '../utils/response';
 
-const DEFAULT_ALLOWED_ORIGIN = 'https://eduardo-aparicio-cardenes.website';
+const DEFAULT_ALLOWED_ORIGIN = 'https://eduardoac.dev';
 
 export function isAllowedRequestOrigin(origin: string, allowedOrigin?: string): boolean {
   return origin === allowedOrigin || origin === DEFAULT_ALLOWED_ORIGIN;

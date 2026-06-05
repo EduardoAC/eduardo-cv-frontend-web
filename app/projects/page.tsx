@@ -3,7 +3,7 @@ import { getBlogAuthor } from '@/lib/blog/author';
 import ProjectsPage from './ProjectsPage';
 import { getVisibleProjectEntries } from './data';
 
-const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website').replace(/\/$/, '');
+const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardoac.dev').replace(/\/$/, '');
 const pagePath = '/projects';
 const pageUrl = `${baseUrl}${pagePath}`;
 const imagePath = '/images/code-projects-done-optimized-1280.webp';

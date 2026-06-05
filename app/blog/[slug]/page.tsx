@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardoac.dev';
   const metaTags = generateMetaTags(post, baseUrl);
   const articleSection = getResolvedTopicName(post) || 'Blog';
 
@@ -65,7 +65,7 @@ export default async function BlogPostPage({ params }: Readonly<BlogPostPageProp
 
   const relatedPosts = getRelatedPosts(slug, 3);
   const seriesContext = getSeriesContext(slug);
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardo-aparicio-cardenes.website';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardoac.dev';
   const metaTags = generateMetaTags(post, baseUrl);
   const structuredData = metaTags.structuredData;
 
