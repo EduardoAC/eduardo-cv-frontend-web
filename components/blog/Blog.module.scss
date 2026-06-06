@@ -268,7 +268,7 @@
   --snap-card-bg: linear-gradient(
     180deg,
     var(--color-surface-blog-archive) 0%,
-    var(--color-surface-raised, rgba(255, 255, 255, 0.72)) 100%
+    var(--color-surface-elevated) 100%
   );
   --snap-card-border: var(--color-border-subtle);
   --snap-card-border-hover: var(--color-accent);
@@ -391,8 +391,27 @@
   --snap-card-border-hover: var(--color-border-primary);
 }
 
+@media (prefers-color-scheme: dark) {
+  :global(.snap-components-theme:not([data-theme="light"]):not(.light-theme)) .topic-hub-card {
+    --topic-card-title-color: var(--color-text-heading);
+    --topic-card-body-color: var(--color-text-secondary);
+    --topic-card-link-color: var(--color-link);
+    --topic-card-link-hover-color: var(--color-link-hover);
+    --topic-card-top-accent-color: var(--color-border-primary);
+    --topic-card-count-bg: var(--color-surface-elevated);
+    --topic-card-count-border: var(--color-border-subtle);
+    --topic-card-count-color: var(--color-text-primary);
+    --topic-card-cta-color: var(--color-link);
+    --topic-card-cta-hover-color: var(--color-link-hover);
+    --topic-card-accent-opacity: 0.36;
+    --snap-card-bg: var(--color-surface-blog-archive);
+    --snap-card-border: var(--color-border-subtle);
+    --snap-card-border-hover: var(--color-border-primary);
+  }
+}
+
 .topic-subtheme-card {
-  background: var(--color-surface-raised, rgba(255, 255, 255, 0.65));
+  background: var(--color-surface-elevated);
   border: 1px solid var(--color-border-subtle);
   border-radius: 0.9rem;
   padding: 1rem;
