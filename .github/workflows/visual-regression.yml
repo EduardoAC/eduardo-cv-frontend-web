@@ -30,6 +30,9 @@ jobs:
     - name: Worker typecheck
       run: npm run worker:typecheck
 
+    - name: Service worker tests
+      run: npm run test:service-worker
+
     - name: Install Playwright browsers
       run: npx playwright install --with-deps
 

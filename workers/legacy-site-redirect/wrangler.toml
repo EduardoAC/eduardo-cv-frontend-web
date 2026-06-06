@@ -1,0 +1,7 @@
+name = "legacy-site-redirect"
+main = "src/index.mjs"
+compatibility_date = "2026-06-06"
+
+routes = [
+  { pattern = "eduardo-aparicio-cardenes.website/service-worker.js*", zone_name = "eduardo-aparicio-cardenes.website" }
+]
