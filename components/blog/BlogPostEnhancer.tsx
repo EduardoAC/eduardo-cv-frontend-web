@@ -54,10 +54,10 @@ const renderMermaidDiagrams = async (root: HTMLElement) => {
     flowchart: {
       curve: 'linear',
       diagramPadding: 12,
-      nodeSpacing: 28,
-      rankSpacing: 38,
+      nodeSpacing: 52,
+      rankSpacing: 42,
       useMaxWidth: false,
-      wrappingWidth: 160,
+      wrappingWidth: 220,
     },
     themeVariables: {
       background: diagramBackground,

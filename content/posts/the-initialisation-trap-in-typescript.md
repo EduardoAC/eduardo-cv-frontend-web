@@ -76,17 +76,12 @@ The issue happens when we pretend there is only one world: the ready world. We w
 ### The two realities of a dynamically initialised frontend store
 
 ```mermaid
-flowchart LR
+flowchart TD
   A["Application starts: store created with user = null"]
   A --> B{Runtime services ready?}
 
-  B -- No --> C[Initialising world]
-  C --> D["Safe states: loading UI, waiting route, deferred composable"]
-  C --> E["Risk: redirect logic requiring user"]
-
-  B -- Yes --> F[Ready world]
-  F --> G["user and services are available"]
-  G --> H["Payment-sensitive flows can execute safely"]
+  B -- No --> C["Initialising world<br/>Safe: loading UI, waiting route, deferred composable<br/>Risk: redirect logic requiring user"]
+  B -- Yes --> D["Ready world<br/>user and services are available<br/>Payment-sensitive flows can execute safely"]
 ```
 
 This kind of bug is risky because locally, the code can feel reasonable. In the normal path, the assumption often holds. The user is initialised before most of the application needs it. The code passes review because everyone shares the same lifecycle assumption. But production is very good at finding the paths where our assumptions are incomplete.

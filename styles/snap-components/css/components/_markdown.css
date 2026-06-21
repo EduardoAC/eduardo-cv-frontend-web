@@ -271,7 +271,8 @@
   --snap-mermaid-node-text: var(--color-text-primary);
 
   margin: var(--snap-prose-media-gap) auto;
-  max-width: min(100%, 64rem);
+  width: fit-content;
+  max-width: min(100%, 52rem);
   padding: clamp(0.875rem, 2vw, 1.25rem);
   border: 1px solid var(--snap-mermaid-border);
   border-radius: 0.875rem;
@@ -310,7 +311,6 @@
   display: block;
   width: auto !important;
   max-width: 100%;
-  max-height: min(70vh, 42rem);
   height: auto;
   margin: 0 auto;
 }
