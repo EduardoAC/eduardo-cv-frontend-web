@@ -283,6 +283,12 @@ const renderMarkdownToHtml = async ({ slug, title, rawContent, inlineAssetMap, m
   };
 
   renderer.code = ({ text, lang }) => {
+    const languageLabel = String(lang ?? '').trim().toLowerCase().split(/\s+/)[0];
+
+    if (languageLabel === 'mermaid') {
+      return `<figure class="snap-mermaid" data-mermaid-diagram><pre class="snap-mermaid-source"><code>${escapeHtml(text)}</code></pre><div class="snap-mermaid-rendered" aria-live="polite"></div></figure>`;
+    }
+
     const { prismLanguage, label } = normaliseLanguage(lang);
 
     try {

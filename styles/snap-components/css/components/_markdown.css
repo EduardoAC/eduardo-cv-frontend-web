@@ -59,7 +59,7 @@
   text-align: left;
 }
 
-.snap-markdown-content > :where(p, ul, ol, blockquote, table, h2, h3, h4, h5, h6, figure, .snap-code-block, .snap-callout, .snap-gist-placeholder) {
+.snap-markdown-content > :where(p, ul, ol, blockquote, table, h2, h3, h4, h5, h6, figure, .snap-code-block, .snap-callout, .snap-gist-placeholder, .snap-mermaid) {
   margin-left: auto;
   margin-right: auto;
 }
@@ -260,6 +260,120 @@
   background: var(--color-success);
   color: var(--color-accent-contrast);
   border-color: var(--color-success);
+}
+
+.snap-mermaid {
+  --snap-mermaid-background: var(--color-surface-elevated);
+  --snap-mermaid-border: var(--snap-markdown-border);
+  --snap-mermaid-line: var(--color-accent);
+  --snap-mermaid-node-background: var(--color-surface);
+  --snap-mermaid-node-border: var(--color-border-strong);
+  --snap-mermaid-node-text: var(--color-text-primary);
+
+  margin: var(--snap-prose-media-gap) auto;
+  width: fit-content;
+  max-width: min(100%, 52rem);
+  padding: clamp(0.875rem, 2vw, 1.25rem);
+  border: 1px solid var(--snap-mermaid-border);
+  border-radius: 0.875rem;
+  background: var(--snap-mermaid-background);
+  box-shadow: var(--shadow-soft);
+  color: var(--snap-mermaid-node-text);
+  overflow-x: auto;
+}
+
+.snap-mermaid-source {
+  margin: 0;
+  white-space: pre;
+  color: var(--color-text-secondary);
+}
+
+.snap-mermaid-source code {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+  font-size: var(--snap-prose-code-size);
+  line-height: var(--snap-prose-code-line-height);
+}
+
+.snap-mermaid-source[hidden] {
+  display: none;
+}
+
+.snap-mermaid-rendered:empty {
+  display: none;
+}
+
+.snap-mermaid-rendered {
+  display: flex;
+  justify-content: center;
+}
+
+.snap-mermaid-rendered svg {
+  display: block;
+  width: auto !important;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.snap-mermaid-rendered svg,
+.snap-mermaid-rendered svg .label,
+.snap-mermaid-rendered svg .nodeLabel,
+.snap-mermaid-rendered svg .edgeLabel,
+.snap-mermaid-rendered svg .edgeLabel p,
+.snap-mermaid-rendered svg .node div,
+.snap-mermaid-rendered svg .node p,
+.snap-mermaid-rendered svg .node span,
+.snap-mermaid-rendered svg text,
+.snap-mermaid-rendered svg tspan {
+  color: var(--snap-mermaid-node-text) !important;
+  fill: var(--snap-mermaid-node-text) !important;
+}
+
+.snap-mermaid-rendered svg .label,
+.snap-mermaid-rendered svg .nodeLabel,
+.snap-mermaid-rendered svg .node p {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+}
+
+.snap-mermaid-rendered svg .node p,
+.snap-mermaid-rendered svg .edgeLabel p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.snap-mermaid-rendered svg .node rect,
+.snap-mermaid-rendered svg .node circle,
+.snap-mermaid-rendered svg .node ellipse,
+.snap-mermaid-rendered svg .node polygon,
+.snap-mermaid-rendered svg .node path {
+  fill: var(--snap-mermaid-node-background) !important;
+  stroke: var(--snap-mermaid-node-border) !important;
+  stroke-width: 1.5px !important;
+}
+
+.snap-mermaid-rendered svg .flowchart-link,
+.snap-mermaid-rendered svg .edgePath .path {
+  stroke: var(--snap-mermaid-line) !important;
+  stroke-width: 1.75px !important;
+}
+
+.snap-mermaid-rendered svg .arrowheadPath,
+.snap-mermaid-rendered svg marker path {
+  fill: var(--snap-mermaid-line) !important;
+  stroke: var(--snap-mermaid-line) !important;
+}
+
+.snap-mermaid-rendered svg .edgeLabel,
+.snap-mermaid-rendered svg .edgeLabel rect,
+.snap-mermaid-rendered svg .labelBkg {
+  background-color: var(--snap-mermaid-background) !important;
+  fill: var(--snap-mermaid-background) !important;
+}
+
+.snap-mermaid-error {
+  border-color: var(--color-danger, var(--snap-markdown-border));
 }
 
 /* Inline code (optional, do not override Prism's code coloring) */
