@@ -75,64 +75,23 @@ The issue happens when we pretend there is only one world: the ready world. We w
 
 ### The two realities of a dynamically initialised frontend store
 
-<figure style="margin: 1.9rem auto;">
-  <svg role="img" aria-labelledby="runtime-state-diagram-title runtime-state-diagram-desc" viewBox="0 0 960 420" width="100%" style="display: block; max-width: 960px; height: auto; border: 1px solid var(--color-border-subtle); border-radius: 16px; background: var(--color-surface-elevated); box-shadow: var(--shadow-soft);">
-    <title id="runtime-state-diagram-title">Runtime state moves from initialising to ready</title>
-    <desc id="runtime-state-diagram-desc">The store starts with a null user. Pending UI can wait safely, but redirect logic that requires a user is risky until runtime services are ready.</desc>
-    <defs>
-      <marker id="runtime-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f9f8f" />
-      </marker>
-      <marker id="runtime-risk-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="#d99022" />
-      </marker>
-    </defs>
-    <rect x="36" y="48" width="170" height="72" rx="14" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
-    <text x="121" y="78" text-anchor="middle" fill="var(--color-text-primary)" font-size="18" font-weight="700">Application</text>
-    <text x="121" y="102" text-anchor="middle" fill="var(--color-text-secondary)" font-size="15">starts</text>
-    <path d="M206 84 H268" stroke="#0f9f8f" stroke-width="3" marker-end="url(#runtime-arrow)" />
-    <rect x="278" y="48" width="170" height="72" rx="14" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
-    <text x="363" y="78" text-anchor="middle" fill="var(--color-text-primary)" font-size="18" font-weight="700">Vue store</text>
-    <text x="363" y="102" text-anchor="middle" fill="var(--color-text-secondary)" font-size="15">created</text>
-    <path d="M448 84 H510" stroke="#0f9f8f" stroke-width="3" marker-end="url(#runtime-arrow)" />
-    <rect x="520" y="48" width="170" height="72" rx="14" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
-    <text x="605" y="78" text-anchor="middle" fill="var(--color-text-primary)" font-size="18" font-weight="700">user = null</text>
-    <text x="605" y="102" text-anchor="middle" fill="var(--color-text-secondary)" font-size="15">valid first state</text>
-    <path d="M690 84 H750" stroke="#0f9f8f" stroke-width="3" marker-end="url(#runtime-arrow)" />
-    <path d="M820 38 L906 84 L820 130 L734 84 Z" fill="var(--color-surface-subtle-strong)" stroke="#0f9f8f" stroke-width="2" />
-    <text x="820" y="80" text-anchor="middle" fill="var(--color-text-primary)" font-size="17" font-weight="700">Runtime</text>
-    <text x="820" y="103" text-anchor="middle" fill="var(--color-text-primary)" font-size="17" font-weight="700">ready?</text>
+```mermaid
+flowchart TD
+  A[Application starts] --> B[Vue store created]
+  B --> C[user = null]
+  C --> D{Runtime services ready?}
 
-    <path d="M820 130 C820 162 739 159 700 184" stroke="#d99022" stroke-width="3" fill="none" marker-end="url(#runtime-risk-arrow)" />
-    <text x="774" y="158" fill="#b76e00" font-size="15" font-weight="700">No</text>
-    <rect x="468" y="170" width="232" height="86" rx="18" fill="rgba(217, 144, 34, 0.12)" stroke="#d99022" stroke-width="2" />
-    <text x="584" y="204" text-anchor="middle" fill="var(--color-text-primary)" font-size="20" font-weight="700">Initialising world</text>
-    <text x="584" y="229" text-anchor="middle" fill="var(--color-text-secondary)" font-size="15">business values may be missing</text>
-    <path d="M584 256 V292" stroke="#d99022" stroke-width="3" marker-end="url(#runtime-risk-arrow)" />
-    <rect x="292" y="304" width="160" height="58" rx="14" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
-    <text x="372" y="339" text-anchor="middle" fill="var(--color-text-primary)" font-size="16" font-weight="700">loading UI</text>
-    <rect x="474" y="304" width="160" height="58" rx="14" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
-    <text x="554" y="339" text-anchor="middle" fill="var(--color-text-primary)" font-size="16" font-weight="700">waiting route</text>
-    <rect x="656" y="304" width="160" height="58" rx="14" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
-    <text x="736" y="339" text-anchor="middle" fill="var(--color-text-primary)" font-size="16" font-weight="700">deferred work</text>
-    <rect x="66" y="296" width="190" height="74" rx="16" fill="rgba(217, 144, 34, 0.18)" stroke="#d99022" stroke-width="2" />
-    <text x="161" y="326" text-anchor="middle" fill="var(--color-text-primary)" font-size="16" font-weight="700">redirect needs user</text>
-    <text x="161" y="350" text-anchor="middle" fill="#b76e00" font-size="15" font-weight="700">risky too early</text>
-    <path d="M468 214 C342 218 258 254 194 296" stroke="#d99022" stroke-width="3" fill="none" stroke-dasharray="8 8" marker-end="url(#runtime-risk-arrow)" />
+  D -- No --> E[Initialising world]
+  E --> F[Valid: loading UI]
+  E --> G[Valid: waiting route]
+  E --> H[Valid: deferred composable]
+  E --> I[Risky: redirect logic requiring user]
 
-    <path d="M906 84 C930 145 912 206 858 250" stroke="#0f9f8f" stroke-width="3" fill="none" marker-end="url(#runtime-arrow)" />
-    <text x="916" y="155" fill="#0b8276" font-size="15" font-weight="700">Yes</text>
-    <rect x="742" y="238" width="174" height="72" rx="18" fill="rgba(15, 159, 143, 0.14)" stroke="#0f9f8f" stroke-width="2" />
-    <text x="829" y="269" text-anchor="middle" fill="var(--color-text-primary)" font-size="20" font-weight="700">Ready world</text>
-    <text x="829" y="292" text-anchor="middle" fill="var(--color-text-secondary)" font-size="15">contract exists</text>
-    <path d="M829 310 V342" stroke="#0f9f8f" stroke-width="3" marker-end="url(#runtime-arrow)" />
-    <rect x="730" y="354" width="88" height="42" rx="12" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
-    <text x="774" y="381" text-anchor="middle" fill="var(--color-text-primary)" font-size="15" font-weight="700">User</text>
-    <rect x="834" y="354" width="104" height="42" rx="12" fill="var(--color-surface-subtle)" stroke="var(--color-border-subtle)" />
-    <text x="886" y="381" text-anchor="middle" fill="var(--color-text-primary)" font-size="15" font-weight="700">Services</text>
-  </svg>
-  <figcaption>The same store has two valid runtime worlds. The bug appears when execution code enters the ready-only path while the application is still initialising.</figcaption>
-</figure>
+  D -- Yes --> J[Ready world]
+  J --> K[user: User]
+  K --> L[services: Services]
+  L --> M[Payment-sensitive flows can execute safely]
+```
 
 This kind of bug is risky because locally, the code can feel reasonable. In the normal path, the assumption often holds. The user is initialised before most of the application needs it. The code passes review because everyone shares the same lifecycle assumption. But production is very good at finding the paths where our assumptions are incomplete.
 

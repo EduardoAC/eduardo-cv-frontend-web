@@ -29,6 +29,61 @@ const copyCodeToClipboard = async (button: HTMLButtonElement) => {
   }
 };
 
+const renderMermaidDiagrams = async (root: HTMLElement) => {
+  const diagrams = Array.from(root.querySelectorAll<HTMLElement>('.snap-mermaid[data-mermaid-diagram]')).filter(
+    (diagram) => diagram.getAttribute('data-mermaid-enhanced') !== 'true',
+  );
+
+  if (diagrams.length === 0) {
+    return;
+  }
+
+  const { default: mermaid } = await import('mermaid');
+
+  mermaid.initialize({
+    startOnLoad: false,
+    securityLevel: 'strict',
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e8f6f4',
+      primaryTextColor: '#1f2933',
+      primaryBorderColor: '#0f9f8f',
+      lineColor: '#0f9f8f',
+      secondaryColor: '#fff7e8',
+      tertiaryColor: '#f7f9fb',
+      fontFamily: 'Arial, sans-serif',
+    },
+  });
+
+  await Promise.all(
+    diagrams.map(async (diagram, index) => {
+      const sourceElement = diagram.querySelector<HTMLElement>('.snap-mermaid-source');
+      const renderedElement = diagram.querySelector<HTMLElement>('.snap-mermaid-rendered');
+
+      if (!sourceElement || !renderedElement) {
+        return;
+      }
+
+      const source = sourceElement.textContent?.trim() ?? '';
+
+      if (!source) {
+        return;
+      }
+
+      try {
+        const { svg, bindFunctions } = await mermaid.render(`snap-mermaid-${root.id}-${index}`, source);
+        renderedElement.innerHTML = svg;
+        bindFunctions?.(renderedElement);
+        sourceElement.hidden = true;
+        diagram.setAttribute('data-mermaid-enhanced', 'true');
+      } catch (error) {
+        diagram.classList.add('snap-mermaid-error');
+        console.error('Failed to render Mermaid diagram.', error);
+      }
+    }),
+  );
+};
+
 export default function BlogPostEnhancer({ rootId }: Readonly<BlogPostEnhancerProps>) {
   useEffect(() => {
     const root = document.getElementById(rootId);
@@ -160,6 +215,7 @@ export default function BlogPostEnhancer({ rootId }: Readonly<BlogPostEnhancerPr
 
     root.addEventListener('click', onClick);
     collapsibleToc?.addEventListener('toggle', onTocToggle);
+    void renderMermaidDiagrams(root);
 
     return () => {
       tocObserver.disconnect();

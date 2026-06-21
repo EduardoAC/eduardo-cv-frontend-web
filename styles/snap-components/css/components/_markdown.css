@@ -59,7 +59,7 @@
   text-align: left;
 }
 
-.snap-markdown-content > :where(p, ul, ol, blockquote, table, h2, h3, h4, h5, h6, figure, .snap-code-block, .snap-callout, .snap-gist-placeholder) {
+.snap-markdown-content > :where(p, ul, ol, blockquote, table, h2, h3, h4, h5, h6, figure, .snap-code-block, .snap-callout, .snap-gist-placeholder, .snap-mermaid) {
   margin-left: auto;
   margin-right: auto;
 }
@@ -260,6 +260,47 @@
   background: var(--color-success);
   color: var(--color-accent-contrast);
   border-color: var(--color-success);
+}
+
+.snap-mermaid {
+  margin: var(--snap-prose-media-gap) auto;
+  padding: 1rem;
+  border: 1px solid var(--snap-markdown-border);
+  border-radius: 1rem;
+  background: var(--color-surface-elevated);
+  box-shadow: var(--shadow-soft);
+  overflow-x: auto;
+}
+
+.snap-mermaid-source {
+  margin: 0;
+  white-space: pre;
+  color: var(--color-text-secondary);
+}
+
+.snap-mermaid-source code {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+  font-size: var(--snap-prose-code-size);
+  line-height: var(--snap-prose-code-line-height);
+}
+
+.snap-mermaid-source[hidden] {
+  display: none;
+}
+
+.snap-mermaid-rendered:empty {
+  display: none;
+}
+
+.snap-mermaid-rendered svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.snap-mermaid-error {
+  border-color: var(--color-danger, var(--snap-markdown-border));
 }
 
 /* Inline code (optional, do not override Prism's code coloring) */
