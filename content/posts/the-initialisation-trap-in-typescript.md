@@ -7,8 +7,8 @@ author: "Eduardo Aparicio Cardenes"
 tags: ["TypeScript", "Frontend Architecture", "Runtime Safety", "State Management", "Engineering"]
 topic: "Frontend Architecture and Platform Design"
 topicSlug: "frontend-architecture"
-image: "/images/blog/the-initialisation-trap-typescript-vue-store-readiness/the-initialisation-trap-typescript-vue-store-readiness.webp"
-imageAlt: "Illustration comparing an initialising TypeScript Vue store with a ready runtime state"
+image: "/images/blog/the-initialisation-trap-typescript-vue-store-readiness/the-initialisation-trap-typescript-vue-store-readiness.png"
+imageAlt: "Illustration showing the initialising world and ready world in a Vue TypeScript store, with Eduardo explaining the gap between runtime state and type assumptions."
 ---
 
 One of the most dangerous mistakes we can make with TypeScript is not a complex generic, a bad abstraction, or a poorly designed utility type.
@@ -73,27 +73,28 @@ There is the world before initialisation is complete. In this world, business-cr
 
 Then there is the world after initialisation is complete. In this world, the required runtime contract exists. The user is available. Services are available. Runtime flags have been resolved. Payment-sensitive flows can safely depend on those values.
 
-The issue happens when we pretend there is only one world: the ready world. We write the store as if the ready world exists from the first line of code, even though the browser, the redirect, the WebView, or the router can still put the customer inside the initialising world.
-
-### The two realities of a dynamically initialised frontend store
+The state transition is easier to reason about when we make the two realities explicit:
 
 ```mermaid
 flowchart TD
-  A[Application starts] --> B[Vue store created]
-  B --> C[user = null]
+  A[Application starts] --> B[Vue store is created]
+  B --> C[Raw field exists: user = null]
   C --> D{Runtime services ready?}
 
   D -- No --> E[Initialising world]
-  E --> F[Valid: loading UI]
-  E --> G[Valid: waiting route]
-  E --> H[Valid: deferred composable]
-  E --> I[Risky: redirect logic requiring user]
+  E --> F[Safe: show loading UI]
+  E --> G[Safe: wait or defer composable logic]
+  E --> H[Risky: redirect logic requires user too early]
 
-  D -- Yes --> J[Ready world]
+  D -- Yes --> I[Ready world]
+  I --> J[RuntimeServicesState: ready]
   J --> K[user: User]
-  K --> L[services: Services]
-  L --> M[Payment-sensitive flows can execute safely]
+  J --> L[services: Services]
+  K --> M[Payment-sensitive flows can execute]
+  L --> M
 ```
+
+The issue happens when we pretend there is only one world: the ready world. We write the store as if the ready world exists from the first line of code, even though the browser, the redirect, the WebView, or the router can still put the customer inside the initialising world.
 
 This kind of bug is risky because locally, the code can feel reasonable. In the normal path, the assumption often holds. The user is initialised before most of the application needs it. The code passes review because everyone shares the same lifecycle assumption. But production is very good at finding the paths where our assumptions are incomplete.
 
