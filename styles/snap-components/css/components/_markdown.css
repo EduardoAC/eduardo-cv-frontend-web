@@ -332,9 +332,15 @@
 .snap-mermaid-rendered svg .label,
 .snap-mermaid-rendered svg .nodeLabel,
 .snap-mermaid-rendered svg .node p {
-  font-size: 17px !important;
+  font-size: 16px !important;
   font-weight: 600 !important;
   line-height: 1.35 !important;
+}
+
+.snap-mermaid-rendered svg .node p,
+.snap-mermaid-rendered svg .edgeLabel p {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .snap-mermaid-rendered svg .node rect,

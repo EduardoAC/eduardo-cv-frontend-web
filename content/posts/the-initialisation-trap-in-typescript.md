@@ -7,6 +7,7 @@ author: "Eduardo Aparicio Cardenes"
 tags: ["TypeScript", "Frontend Architecture", "Runtime Safety", "State Management", "Engineering"]
 topic: "Frontend Architecture and Platform Design"
 topicSlug: "frontend-architecture"
+image: "/images/blog/the-initialisation-trap-typescript-vue-store-readiness/the-initialisation-trap-typescript-vue-store-readiness.webp"
 ---
 
 One of the most dangerous mistakes we can make with TypeScript is not a complex generic, a bad abstraction, or a poorly designed utility type.
@@ -78,7 +79,7 @@ The issue happens when we pretend there is only one world: the ready world. We w
 ```mermaid
 flowchart TD
   A["Application starts: store created with user = null"]
-  A --> B{Runtime services ready?}
+  A --> B["Runtime services ready?"]
 
   B -- No --> C["Initialising world<br/>Safe: loading UI, waiting route, deferred composable<br/>Risk: redirect logic requiring user"]
   B -- Yes --> D["Ready world<br/>user and services are available<br/>Payment-sensitive flows can execute safely"]
