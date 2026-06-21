@@ -8,6 +8,7 @@ tags: ["TypeScript", "Frontend Architecture", "Runtime Safety", "State Managemen
 topic: "Frontend Architecture and Platform Design"
 topicSlug: "frontend-architecture"
 image: "/images/blog/the-initialisation-trap-typescript-vue-store-readiness/the-initialisation-trap-typescript-vue-store-readiness.webp"
+imageAlt: "Illustration comparing an initialising TypeScript Vue store with a ready runtime state"
 ---
 
 One of the most dangerous mistakes we can make with TypeScript is not a complex generic, a bad abstraction, or a poorly designed utility type.
@@ -78,11 +79,20 @@ The issue happens when we pretend there is only one world: the ready world. We w
 
 ```mermaid
 flowchart TD
-  A["Application starts: store created with user = null"]
-  A --> B["Runtime services ready?"]
+  A[Application starts] --> B[Vue store created]
+  B --> C[user = null]
+  C --> D{Runtime services ready?}
 
-  B -- No --> C["Initialising world<br/>Safe: loading UI, waiting route, deferred composable<br/>Risk: redirect logic requiring user"]
-  B -- Yes --> D["Ready world<br/>user and services are available<br/>Payment-sensitive flows can execute safely"]
+  D -- No --> E[Initialising world]
+  E --> F[Valid: loading UI]
+  E --> G[Valid: waiting route]
+  E --> H[Valid: deferred composable]
+  E --> I[Risky: redirect logic requiring user]
+
+  D -- Yes --> J[Ready world]
+  J --> K[user: User]
+  K --> L[services: Services]
+  L --> M[Payment-sensitive flows can execute safely]
 ```
 
 This kind of bug is risky because locally, the code can feel reasonable. In the normal path, the assumption often holds. The user is initialised before most of the application needs it. The code passes review because everyone shares the same lifecycle assumption. But production is very good at finding the paths where our assumptions are incomplete.
