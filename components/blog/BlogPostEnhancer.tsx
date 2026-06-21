@@ -39,19 +39,43 @@ const renderMermaidDiagrams = async (root: HTMLElement) => {
   }
 
   const { default: mermaid } = await import('mermaid');
+  const themeStyle = getComputedStyle(diagrams[0]);
+  const readThemeColor = (property: string, fallback: string) => themeStyle.getPropertyValue(property).trim() || fallback;
+  const diagramBackground = readThemeColor('--snap-mermaid-background', readThemeColor('--color-surface-elevated', '#ffffff'));
+  const lineColor = readThemeColor('--snap-mermaid-line', readThemeColor('--color-accent', '#1d4ed8'));
+  const nodeBackground = readThemeColor('--snap-mermaid-node-background', readThemeColor('--color-surface', '#ffffff'));
+  const nodeTextColor = readThemeColor('--snap-mermaid-node-text', readThemeColor('--color-text-primary', '#111827'));
+  const nodeBorderColor = readThemeColor('--snap-mermaid-node-border', readThemeColor('--color-border-strong', lineColor));
 
   mermaid.initialize({
     startOnLoad: false,
     securityLevel: 'strict',
     theme: 'base',
+    flowchart: {
+      curve: 'linear',
+      diagramPadding: 12,
+      nodeSpacing: 28,
+      rankSpacing: 38,
+      useMaxWidth: false,
+      wrappingWidth: 160,
+    },
     themeVariables: {
-      primaryColor: '#e8f6f4',
-      primaryTextColor: '#1f2933',
-      primaryBorderColor: '#0f9f8f',
-      lineColor: '#0f9f8f',
-      secondaryColor: '#fff7e8',
-      tertiaryColor: '#f7f9fb',
-      fontFamily: 'Arial, sans-serif',
+      background: diagramBackground,
+      edgeLabelBackground: diagramBackground,
+      fontFamily: 'Inter, Arial, sans-serif',
+      lineColor,
+      mainBkg: nodeBackground,
+      nodeBorder: nodeBorderColor,
+      nodeTextColor,
+      primaryBorderColor: nodeBorderColor,
+      primaryColor: nodeBackground,
+      primaryTextColor: nodeTextColor,
+      secondaryColor: nodeBackground,
+      secondaryTextColor: nodeTextColor,
+      tertiaryColor: diagramBackground,
+      tertiaryTextColor: nodeTextColor,
+      textColor: nodeTextColor,
+      titleColor: nodeTextColor,
     },
   });
 

@@ -263,12 +263,21 @@
 }
 
 .snap-mermaid {
+  --snap-mermaid-background: var(--color-surface-elevated);
+  --snap-mermaid-border: var(--snap-markdown-border);
+  --snap-mermaid-line: var(--color-accent);
+  --snap-mermaid-node-background: var(--color-surface);
+  --snap-mermaid-node-border: var(--color-border-strong);
+  --snap-mermaid-node-text: var(--color-text-primary);
+
   margin: var(--snap-prose-media-gap) auto;
-  padding: 1rem;
-  border: 1px solid var(--snap-markdown-border);
-  border-radius: 1rem;
-  background: var(--color-surface-elevated);
+  max-width: min(100%, 64rem);
+  padding: clamp(0.875rem, 2vw, 1.25rem);
+  border: 1px solid var(--snap-mermaid-border);
+  border-radius: 0.875rem;
+  background: var(--snap-mermaid-background);
   box-shadow: var(--shadow-soft);
+  color: var(--snap-mermaid-node-text);
   overflow-x: auto;
 }
 
@@ -292,11 +301,69 @@
   display: none;
 }
 
+.snap-mermaid-rendered {
+  display: flex;
+  justify-content: center;
+}
+
 .snap-mermaid-rendered svg {
   display: block;
+  width: auto !important;
   max-width: 100%;
+  max-height: min(70vh, 42rem);
   height: auto;
   margin: 0 auto;
+}
+
+.snap-mermaid-rendered svg,
+.snap-mermaid-rendered svg .label,
+.snap-mermaid-rendered svg .nodeLabel,
+.snap-mermaid-rendered svg .edgeLabel,
+.snap-mermaid-rendered svg .edgeLabel p,
+.snap-mermaid-rendered svg .node div,
+.snap-mermaid-rendered svg .node p,
+.snap-mermaid-rendered svg .node span,
+.snap-mermaid-rendered svg text,
+.snap-mermaid-rendered svg tspan {
+  color: var(--snap-mermaid-node-text) !important;
+  fill: var(--snap-mermaid-node-text) !important;
+}
+
+.snap-mermaid-rendered svg .label,
+.snap-mermaid-rendered svg .nodeLabel,
+.snap-mermaid-rendered svg .node p {
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+}
+
+.snap-mermaid-rendered svg .node rect,
+.snap-mermaid-rendered svg .node circle,
+.snap-mermaid-rendered svg .node ellipse,
+.snap-mermaid-rendered svg .node polygon,
+.snap-mermaid-rendered svg .node path {
+  fill: var(--snap-mermaid-node-background) !important;
+  stroke: var(--snap-mermaid-node-border) !important;
+  stroke-width: 1.5px !important;
+}
+
+.snap-mermaid-rendered svg .flowchart-link,
+.snap-mermaid-rendered svg .edgePath .path {
+  stroke: var(--snap-mermaid-line) !important;
+  stroke-width: 1.75px !important;
+}
+
+.snap-mermaid-rendered svg .arrowheadPath,
+.snap-mermaid-rendered svg marker path {
+  fill: var(--snap-mermaid-line) !important;
+  stroke: var(--snap-mermaid-line) !important;
+}
+
+.snap-mermaid-rendered svg .edgeLabel,
+.snap-mermaid-rendered svg .edgeLabel rect,
+.snap-mermaid-rendered svg .labelBkg {
+  background-color: var(--snap-mermaid-background) !important;
+  fill: var(--snap-mermaid-background) !important;
 }
 
 .snap-mermaid-error {
