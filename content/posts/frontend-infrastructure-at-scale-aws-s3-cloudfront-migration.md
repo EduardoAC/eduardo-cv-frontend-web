@@ -52,9 +52,7 @@ The complexity came from growth.
 
 As the product expanded across more jurisdictions, the same shared infrastructure started carrying more responsibility. More markets. More configuration. More routing rules. More security policies. More assumptions. More people involved. More ways for a change in one place to affect something that was never meant to be touched.
 
-What was once simple started becoming harder to reason about.
-
-And once a payment experience becomes harder to reason about, you have a problem.
+What was once simple started becoming harder to reason about and once a payment experience becomes harder to reason about, you have a problem.
 
 ## Shared infrastructure creates shared risk
 
