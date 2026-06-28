@@ -388,14 +388,18 @@ Those are the questions that make architecture real.
 
 ## Final thought
 
-The old architecture was not a failure.
+The old architecture was not a failure. Looking back at the work that came before this migration, it made sense for the stage the product was in. The infrastructure had grown gradually, jurisdiction by jurisdiction, across markets such as Serbia, Poland, Brazil, and others. For a while, that model was enough. Manual changes were manageable, shared infrastructure was practical, and the complexity was still small enough to reason about.
 
-It was a stage that helped us reach a certain point. But once the organisation, the product, and the operational reality changed, the architecture had to change with it.
+However, that stage helped us reach a point where the organisation, the product, and the operational reality had changed. Once that happened, the architecture also had to change with it.
 
-That is something we sometimes forget. Architecture is not something you design once and then preserve forever. It has to keep reflecting the reality of the business.
+Proposing and driving this change was not only a technical exercise. It required alignment across different parts of the organisation, support from teams outside frontend, and enough patience to build confidence step by step through the quarter. The work was not just about creating new AWS resources. It was about creating a migration path that others could trust.
 
-When the reality changes and the architecture does not, complexity starts leaking everywhere.
+That is the part I wanted to share from this experience. The important lesson is not only how we moved from shared S3 and CloudFront delivery to hosted-zone, jurisdiction-owned infrastructure. It is the methodology behind the transition: start from the customer reality, understand where the current architecture no longer matches the stage of the company, and design the next version so it supports scale without putting the existing customer journey at risk.
 
-In this migration, the important work was not only creating new AWS resources. It was keeping the payment journey alive while the delivery model changed underneath it. The old URL still had to serve customers. The new hosted-zone path had to prove itself. Backend origin checks, CSP, monitoring, WebViews, and rollback all had to line up before the migration could be considered safe.
+Architecture is not something you design once and preserve forever. It has to keep reflecting the reality of the business. When the reality changes and the architecture does not, complexity starts leaking into ownership, delivery, security, support, and customer experience.
+
+In this migration, the important work was keeping the payment journey alive while the delivery model changed underneath it. The old URL still had to serve customers. The new hosted-zone path had to prove itself. Backend origin checks, CSP, monitoring, WebViews, and rollback all had to line up before the migration could be considered safe.
 
 That is the part I will carry forward: once frontend infrastructure sits in the payment path, it is no longer only delivery. It is part of how you manage customer risk.
+
+If you are working through a similar frontend architecture or platform migration problem; it's something you are working through, feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/eacardenes/) or through my [ADPList mentoring profile](https://adplist.org/mentors/eduardo-dev). I am always happy to compare notes with people dealing with these kinds of trade-offs in real systems.
