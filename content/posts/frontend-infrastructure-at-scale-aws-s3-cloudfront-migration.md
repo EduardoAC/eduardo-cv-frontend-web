@@ -108,12 +108,6 @@ Each jurisdiction could have its own dedicated S3 bucket, its own CloudFront dis
 
 The new shape looked closer to this:
 
-```txt
-Jurisdiction A -> S3 A -> CloudFront A -> Customer A
-Jurisdiction B -> S3 B -> CloudFront B -> Customer B
-Jurisdiction C -> S3 C -> CloudFront C -> Customer C
-```
-
 ```mermaid
 flowchart LR
   subgraph Old["Old model: shared frontend infrastructure"]
