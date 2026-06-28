@@ -22,11 +22,7 @@ The Player Cashier is the frontend experience responsible for money moving in an
 
 When this experience works, nobody thinks about the infrastructure behind it. Customers deposit, withdraw, authenticate, confirm, and continue with their journey. But when it fails, everybody notices very quickly. That is the reality of payment systems. A broken payment flow is not just a broken screen. It can affect revenue, customer trust, support teams, commercial teams, and incident response.
 
-That is why this migration was never only about AWS. It was never only about S3, CloudFront, Terraform, Route 53 hosted zones, or feature flags.
-
-Those were the tools.
-
-The real story was about creating better boundaries around a critical frontend system without asking customers to pay the price of our architectural evolution.
+The AWS pieces mattered, but the risk was moving a live payment journey while customers still depended on the old path. The practical boundaries were ownership, CSP and origin validation, hosted-zone URLs, and whether we could roll back without asking customers to pay the price of our architectural evolution.
 
 ## The architecture that got us here
 
@@ -71,11 +67,7 @@ That is where the old model started showing its limits. If a shared CloudFront d
 
 That risk became more concrete once we had seen how edge behaviour can amplify frontend failures. In [Mitigating Cache Poisoning in AWS CloudFront](/blog/mitigating-cache-poisoning-in-aws-cloudfront), I wrote about a case where the CDN cache itself became part of the incident. The lesson carried into this migration: shared edge infrastructure is powerful, but its blast radius has to be designed deliberately.
 
-The biggest risk was not AWS going down.
-
-The biggest risk was us.
-
-A wrong configuration. A manual change. An assumption nobody remembered. A security policy that had accumulated over time. A production access surface that was wider than it needed to be.
+The bigger risk was usually more ordinary: a manual change, unclear ownership, a forgotten assumption, a security policy that had accumulated over time, or a production access surface wider than it needed to be.
 
 That is the uncomfortable part of infrastructure work. Many of the most dangerous failures are not dramatic. They are boring. They live in the places where ownership is unclear, where historical configuration has accumulated, and where manual operations still exist because "that is how it has always worked."
 
@@ -89,7 +81,7 @@ The original architecture optimised for shared delivery. The new reality needed 
 
 Some of that pressure was technical. Some of it was operational. Too many people needed access to shared frontend AWS accounts. Too many important details still depended on manual setup, historical knowledge, or configuration that was harder to audit than it should have been. Certificate renewal issues had already shown how small ownership gaps can become real customer risk when they sit in front of a critical journey.
 
-Security, auditability, and ownership became the real drivers.
+Those access, manual setup, and certificate ownership problems made the drivers clearer: changes needed to be reviewable, production access needed to be narrower, and ownership needed to be visible before the next incident exposed the gap for us.
 
 We wanted infrastructure changes to be reviewable. We wanted fewer people to need direct AWS access. We wanted to reduce manual setup. We wanted a clearer audit trail. We wanted better cost attribution. We wanted to reduce the blast radius of unrelated frontend changes. We wanted every jurisdiction to become easier to support, evolve, and reason about.
 
@@ -136,7 +128,7 @@ Yes, this creates more resources. But more resources are not automatically a pro
 
 In our case, the meaningful cost was driven mostly by usage, not by the mere existence of another S3 bucket or CloudFront distribution. The extra infrastructure was a deliberate trade-off: a little more infrastructure surface in exchange for a lot less operational coupling.
 
-That is a trade-off I would make again.
+For this payment journey, that trade-off was worth it because smaller infrastructure boundaries meant smaller failure boundaries.
 
 Because at scale, the cheapest architecture is not always the one with the fewest resources. Sometimes the cheapest architecture is the one that fails in the smallest possible way.
 
@@ -150,7 +142,7 @@ That does not scale.
 
 So we introduced Terraform as the foundation of the new model. Terraform allowed us to describe the infrastructure as code. Buckets, CloudFront distributions, permissions, routing, policies, and environment-specific resources could be defined, reviewed, versioned, and applied consistently.
 
-That changed the nature of the work. Infrastructure was no longer something hidden inside AWS. It became part of the engineering workflow: pull requests, code reviews, version history, repeatable modules, known templates, and consistent patterns.
+It moved infrastructure changes out of the AWS console and into pull requests, reviews, and version history. Buckets, CloudFront distributions, permissions, routing, policies, and environment-specific resources became part of the same engineering workflow as the application.
 
 This mattered because the goal was not to create one new environment manually. The goal was to create a pattern. If we could create one jurisdiction reliably, we needed to be able to create the next one with the same level of confidence.
 
@@ -182,7 +174,7 @@ The DNS layer was another important part of the migration.
 
 Before the change, the Player Cashier lived under a broader website domain structure. That worked, but it also meant the payment experience was still coupled to the wider web ecosystem.
 
-The new model introduced delegated hosted zones for cashier-owned domains. The purpose was not to own everything. The purpose was to own the right thing.
+The new model introduced delegated hosted zones for cashier-owned domains. The Player Cashier did not need to own the wider website domain, but it did need to own the domain boundary used by the payment journey.
 
 Production cashier domains could live inside the production cashier account. Non-production cashier domains could live inside the non-production cashier account. Jurisdiction-specific routing could be managed inside the cashier boundary, while the broader website domain could continue to be owned elsewhere.
 
@@ -277,7 +269,7 @@ flowchart TD
 
 _Feature flags turned the migration from a one-way release into a controlled operational switch._
 
-This is one of the most important lessons of the migration: feature flags are not only for product experiments. Used carefully, they can become a migration control plane.
+In this migration, the feature flag mattered because it let us move traffic back without a redeploy. That is a very different kind of safety when the path being moved is a payment journey.
 
 ## Testing the boundary, not just the UI
 
