@@ -390,20 +390,12 @@ Those are the questions that make architecture real.
 
 The old architecture was not a failure.
 
-It was a stage.
-
-It helped us reach a certain point. But once the organisation, the product, and the operational reality changed, the architecture had to change with it.
+It was a stage that helped us reach a certain point. But once the organisation, the product, and the operational reality changed, the architecture had to change with it.
 
 That is something we sometimes forget. Architecture is not something you design once and then preserve forever. It has to keep reflecting the reality of the business.
 
 When the reality changes and the architecture does not, complexity starts leaking everywhere.
 
-In our case, the answer was not simply Terraform. It was not simply new AWS accounts. It was not simply CloudFront, S3, hosted zones, or feature flags.
+In this migration, the important work was not only creating new AWS resources. It was keeping the payment journey alive while the delivery model changed underneath it. The old URL still had to serve customers. The new hosted-zone path had to prove itself. Backend origin checks, CSP, monitoring, WebViews, and rollback all had to line up before the migration could be considered safe.
 
-Those were implementation details.
-
-The real answer was boundaries.
-
-Boundaries for ownership, security, cost, failure, and change.
-
-Because at scale, reliability is not only about making sure things work. It is about making sure that when things change, they change safely.
+That is the part I will carry forward: once frontend infrastructure sits in the payment path, it is no longer only delivery. It is part of how you manage customer risk.
