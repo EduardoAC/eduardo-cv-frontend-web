@@ -44,6 +44,8 @@ flowchart LR
 
 For a static frontend application, this is a very reasonable model. It is simple, fast, cost-effective, and it lets you serve assets close to the customer without introducing a complex runtime layer. For a long time, it did exactly what we needed.
 
+This was not the first step in that direction. I previously wrote about the earlier move from Nginx containers to CloudFront in [Moving from Nginx to AWS CloudFront](/blog/moving-from-nginx-to-aws-cloudfront), where the main goal was reducing cost and deployment complexity. This migration starts from the next stage: what happens when that delivery model becomes critical payment infrastructure.
+
 The complexity did not come from S3. The complexity did not come from CloudFront.
 
 The complexity came from growth.
@@ -67,6 +69,8 @@ On paper, this can look efficient. Fewer resources, less duplication, one place 
 But infrastructure efficiency is not only about reducing the number of resources you have. It is also about reducing the amount of risk each resource carries.
 
 That is where the old model started showing its limits. If a shared CloudFront distribution is misconfigured, the impact is not necessarily limited to one jurisdiction. If a Content Security Policy change is wrong, it can affect more than the market it was intended for. If a certificate renewal process depends on manual ownership and something is missed, the customer impact can become very real very quickly.
+
+This is also why edge security matters so much in frontend infrastructure. In [Mitigating Cache Poisoning in AWS CloudFront](/blog/mitigating-cache-poisoning-in-aws-cloudfront), I covered how a CDN cache can become a failure amplifier when request handling and cache behaviour are not tightly controlled. The same principle applies here: shared edge infrastructure is powerful, but its blast radius has to be intentional.
 
 The biggest risk was not AWS going down.
 
@@ -283,6 +287,8 @@ This is one of the most important lessons of the migration: feature flags are no
 ## Testing the boundary, not just the UI
 
 Frontend testing at scale cannot only be about components.
+
+This follows the same outside-in testing mindset I described in [Testing Payment Flows with Outside-In Testing](/blog/testing-payment-flows-with-outside-in-testing-part-2). For payment frontends, confidence does not come only from proving that components render. It comes from protecting the boundaries where the customer journey meets URLs, feature flags, APIs, providers, WebViews, and runtime configuration.
 
 Components matter, of course. But many of the failures that hurt customers happen at the boundaries: URLs, initialisation, runtime configuration, APIs, origins, CSP, WebViews, CDN behaviour, authentication, and environment detection.
 
