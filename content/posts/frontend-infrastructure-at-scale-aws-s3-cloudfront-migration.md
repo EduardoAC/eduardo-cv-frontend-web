@@ -7,17 +7,18 @@ author: "Eduardo Aparicio Cardenes"
 tags: ["Frontend Architecture", "AWS", "CloudFront", "S3", "Terraform", "Platform Engineering"]
 topic: "Frontend Architecture and Platform Design"
 topicSlug: "frontend-architecture"
+slug: "frontend-infrastructure-at-scale-aws-s3-cloudfront-migration"
 image: "/images/blog/frontend-infrastructure-at-scale-aws-s3-cloudfront-migration/hero-frontend-infrastructure-at-scale-aws-s3-cloudfront-migration.png"
 imageAlt: "Technical illustration of a frontend infrastructure migration from shared cloud delivery to isolated jurisdiction-owned S3 and CloudFront paths for payment customers."
 ---
 
 The most successful infrastructure migration is usually the one nobody notices.
 
-There is no new button, no redesign, no visible product feature, and no customer-facing announcement that makes people say, “nice, the infrastructure is better now.” There is only a quiet change underneath the surface of the product. A change that, if it goes well, disappears completely into the customer experience. A change that, if it goes wrong, can block the one journey the whole system exists to support.
+There is no new button, no redesign, no visible product feature, and no customer-facing announcement that makes people say, "nice, the infrastructure is better now." There is only a quiet change underneath the surface of the product. A change that, if it goes well, disappears completely into the customer experience. A change that, if it goes wrong, can block the one journey the whole system exists to support.
 
 In our case, that journey was payments.
 
-The Player Cashier is the frontend experience responsible for money moving in and out of the product. It runs across web desktop, mobile web, Android, and iOS through an embedded iframe, which means the same experience has to behave correctly inside browsers, native webviews, different domains, different jurisdictions, and different operational realities.
+The Player Cashier is the frontend experience responsible for money moving in and out of the product. It runs across web desktop, mobile web, Android, and iOS through an embedded iframe, which means the same experience has to behave correctly inside browsers, native WebViews, different domains, different jurisdictions, and different operational realities.
 
 When this experience works, nobody thinks about the infrastructure behind it. Customers deposit, withdraw, authenticate, confirm, and continue with their journey. But when it fails, everybody notices very quickly. That is the reality of payment systems. A broken payment flow is not just a broken screen. It can affect revenue, customer trust, support teams, commercial teams, and incident response.
 
@@ -54,7 +55,7 @@ As the product expanded across more jurisdictions, the same shared infrastructur
 
 What was once simple started becoming harder to reason about and once a payment experience becomes harder to reason about, you have a problem.
 
-## Shared infrastructure creates shared risk
+## Why shared AWS frontend infrastructure stopped scaling
 
 The Player Cashier resolves a lot of its behaviour from the customer context. The URL matters. The environment matters. The jurisdiction matters. The runtime configuration matters.
 
@@ -76,15 +77,17 @@ The biggest risk was us.
 
 A wrong configuration. A manual change. An assumption nobody remembered. A security policy that had accumulated over time. A production access surface that was wider than it needed to be.
 
-That is the uncomfortable part of infrastructure work. Many of the most dangerous failures are not dramatic. They are boring. They live in the places where ownership is unclear, where historical configuration has accumulated, and where manual operations still exist because “that is how it has always worked.”
+That is the uncomfortable part of infrastructure work. Many of the most dangerous failures are not dramatic. They are boring. They live in the places where ownership is unclear, where historical configuration has accumulated, and where manual operations still exist because "that is how it has always worked."
 
-## The real reason we changed
+## Why this became necessary
 
-We did not start this migration because we wanted to use Terraform. We did not do it because creating new AWS accounts sounded exciting. We did not do it because “platform engineering” is a nice phrase to put in a presentation.
+We did not start this migration because we wanted to use Terraform. We did not do it because creating new AWS accounts sounded exciting. We did not do it because "platform engineering" is a nice phrase to put in a presentation.
 
 We did it because the existing model was optimising for a reality that had changed.
 
 The original architecture optimised for shared delivery. The new reality needed owned delivery.
+
+Some of that pressure was technical. Some of it was operational. Too many people needed access to shared frontend AWS accounts. Too many important details still depended on manual setup, historical knowledge, or configuration that was harder to audit than it should have been. Certificate renewal issues had already shown how small ownership gaps can become real customer risk when they sit in front of a critical journey.
 
 Security, auditability, and ownership became the real drivers.
 
@@ -92,15 +95,15 @@ We wanted infrastructure changes to be reviewable. We wanted fewer people to nee
 
 Most importantly, we wanted the infrastructure behind the Player Cashier to reflect the criticality of the experience it was serving.
 
-Payments are not just another page. At the scale we operate, even a small infrastructure mistake can become expensive very quickly. So the question was not simply, “how do we move some resources into a new AWS setup?”
+Payments are not just another page. At the scale we operate, even a small infrastructure mistake can become expensive very quickly. So the question was not simply, "how do we move some resources into a new AWS setup?"
 
-The real question was:
+So the question became:
 
-How do we move from shared frontend infrastructure to owned, auditable, jurisdiction-aware delivery without creating customer impact?
+How do we move from shared frontend infrastructure to owned, auditable, jurisdiction-aware delivery without creating customer disruption?
 
 That question shaped the whole migration.
 
-## The new unit of delivery: a jurisdiction
+## Moving from shared S3 and CloudFront to jurisdiction-owned delivery
 
 The biggest architectural shift was deciding that the new unit of delivery should be the jurisdiction.
 
@@ -209,12 +212,6 @@ Because we already operate with continuous deployment, this was especially impor
 
 So we extended our CI pipeline to deploy to both infrastructures.
 
-```txt
-Application Build
-  -> Deploy to legacy infrastructure
-  -> Deploy to new jurisdiction-owned infrastructure
-```
-
 ```mermaid
 flowchart TD
   A["Application Build"] --> B["CI / GitHub Actions"]
@@ -252,9 +249,9 @@ cashierUrlMode = 'legacy' | 'hosted-zone'
 
 The legacy mode pointed to the existing infrastructure. The hosted-zone mode pointed to the new infrastructure. This was connected to feature flags, which allowed us to control traffic without redeploying the application.
 
-That changed the risk profile completely.
+That meant rollout was no longer tied to a deployment.
 
-If we wanted to enable one jurisdiction, we could do it deliberately. If we saw something unexpected, we could roll back. No emergency deployment. No rushed release. No big bang cutover. Just a controlled switch.
+If we wanted to enable one jurisdiction, we could do it deliberately. If we saw something unexpected, we could roll back without asking the team to ship an emergency deployment during an incident.
 
 ```mermaid
 flowchart TD
@@ -278,7 +275,7 @@ flowchart TD
   L --> D
 ```
 
-_Feature flags turned the migration from a one-way release into a controlled operational switch. That reversibility changed the risk profile of the whole rollout._
+_Feature flags turned the migration from a one-way release into a controlled operational switch._
 
 This is one of the most important lessons of the migration: feature flags are not only for product experiments. Used carefully, they can become a migration control plane.
 
@@ -296,9 +293,7 @@ So before moving customer traffic, we validated the new path across environments
 
 The goal was not just to prove that the new infrastructure existed. The goal was to prove that customers could not tell the difference.
 
-That is a much higher bar.
-
-And it is the right one.
+For a payment journey, page load was not enough evidence.
 
 ## Running in production before sending traffic
 
@@ -308,17 +303,13 @@ The new infrastructure was deployed, kept in sync, and validated, but customers 
 
 For example, we found backend assumptions around allowed origins. That was not really a bug. It was a security control doing its job. The backend expected requests to come from known origins. Once the hosted-zone URLs existed, those origins needed to be explicitly supported.
 
+CSP exposed the same kind of detail. A policy could be correct for the legacy URL and still be wrong for the new hosted-zone URL. It had to be correct per jurisdiction and per environment, because the cashier does not run in one abstract production. It runs through concrete market, domain, provider, and embedding combinations.
+
 That meant the migration crossed more boundaries than the frontend. We needed to make sure that the new hosted-zone path worked with Server-Sent Events, push notifications, money-in journeys, money-out journeys, origin validation, CSP rules, and both web and native consumers.
 
-This is where the project stopped being “frontend infrastructure” in the narrow sense.
+This is where the project stopped being "frontend infrastructure" in the narrow sense. It became a system migration across frontend, infrastructure, backend, security, QA, commercial validation, and monitoring.
 
-It became a system migration.
-
-Frontend. Infrastructure. Backend. Security. QA. Commercial validation. Monitoring.
-
-All of them touched the boundary.
-
-That is what happens when frontend becomes critical infrastructure.
+Each team touched a different part of the same boundary.
 
 ## The runbook was part of the architecture
 
@@ -357,7 +348,7 @@ At every stage, the feature flag gave us a rollback path. That matters because a
 
 Those two things feel very different when the system handles payments.
 
-The native work continued in parallel because iOS and Android needed support for the new hosted-zone URLs inside their webviews. That meant web rollout could move ahead while native validation continued on its own path.
+The native work continued in parallel because iOS and Android needed support for the new hosted-zone URLs inside their WebViews. That meant web rollout could move ahead while native validation continued on its own path.
 
 This is another important part of real migrations: not every consumer moves at the same speed. The architecture has to allow that.
 
@@ -371,13 +362,7 @@ If fewer people have direct AWS access, the system still needs to be visible. Yo
 
 So we relied on dashboards and monitoring instead of asking everyone to open the AWS console. CloudFront health could be observed centrally. Payment behaviour could be checked through business reporting. Errors could be monitored through frontend observability tools. Queries could be tailored when needed to validate specific rollout scenarios.
 
-This is the balance you want.
-
-Less direct production access.
-
-More operational visibility.
-
-Security should not make teams blind. It should make the right information available through safer paths.
+That was the balance we needed: less direct production access, but more operational visibility. Security should not make teams blind. It should make the right information available through safer paths.
 
 ## The outcome
 
@@ -388,8 +373,6 @@ We gained clearer ownership, better auditability, fewer manual AWS changes, smal
 At the time of the rollout, the new CDN infrastructure was already handling hundreds of requests per second and growing.
 
 Most importantly, the migration completed with zero production incidents.
-
-That is the part that matters.
 
 Customers do not care that you migrated your infrastructure.
 
