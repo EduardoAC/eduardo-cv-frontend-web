@@ -35,8 +35,11 @@ That is important to say, because after a migration is finished it is very easy 
 
 Our frontend infrastructure had grown around a shared delivery model. The application was generated as static assets, uploaded to S3, and distributed through CloudFront.
 
-```txt
-Build -> S3 Bucket -> CloudFront -> Customer
+```mermaid
+flowchart LR
+  A[Build] --> B[S3 Bucket]
+  B --> C[CloudFront]
+  C --> D[Customer]
 ```
 
 For a static frontend application, this is a very reasonable model. It is simple, fast, cost-effective, and it lets you serve assets close to the customer without introducing a complex runtime layer. For a long time, it did exactly what we needed.
@@ -339,8 +342,17 @@ We started with web. We started with lower-risk jurisdictions. We validated. We 
 
 The pattern looked like this:
 
-```txt
-Prepare -> Sync -> Validate -> Enable Small -> Observe -> Expand -> Complete
+```mermaid
+flowchart LR
+  A["Prepare"] --> B["Sync old and new infrastructure"]
+  B --> C["Validate critical journeys"]
+  C --> D["Enable smallest rollout"]
+  D --> E["Observe production signals"]
+  E --> F{"Healthy?"}
+  F -->|Yes| G["Expand rollout"]
+  F -->|No| H["Rollback safely"]
+  H --> C
+  G --> I["Complete migration"]
 ```
 
 At every stage, the feature flag gave us a rollback path. That matters because a migration without rollback is a bet. A migration with rollback is a controlled change.
