@@ -20,6 +20,8 @@ In our case, that journey was payments.
 
 The Player Cashier is the frontend experience responsible for money moving in and out of the product. It runs across web desktop, mobile web, Android, and iOS through an embedded iframe, which means the same experience has to behave correctly inside browsers, native WebViews, different domains, different jurisdictions, and different operational realities.
 
+That is what made this frontend infrastructure at scale rather than a simple hosting change: we were migrating AWS S3 and CloudFront delivery without customer disruption while the cashier was still serving real payment journeys.
+
 When this experience works, nobody thinks about the infrastructure behind it. Customers deposit, withdraw, authenticate, confirm, and continue with their journey. But when it fails, everybody notices very quickly. That is the reality of payment systems. A broken payment flow is not just a broken screen. It can affect revenue, customer trust, support teams, commercial teams, and incident response.
 
 The AWS pieces mattered, but the risk was moving a live payment journey while customers still depended on the old path. The practical boundaries were ownership, CSP and origin validation, hosted-zone URLs, and whether we could roll back without asking customers to pay the price of our architectural evolution.
