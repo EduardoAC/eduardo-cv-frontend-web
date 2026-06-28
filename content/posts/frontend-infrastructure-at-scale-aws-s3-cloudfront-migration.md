@@ -44,7 +44,7 @@ flowchart LR
 
 For a static frontend application, this is a very reasonable model. It is simple, fast, cost-effective, and it lets you serve assets close to the customer without introducing a complex runtime layer. For a long time, it did exactly what we needed.
 
-This was not the first step in that direction. I previously wrote about the earlier move from Nginx containers to CloudFront in [Moving from Nginx to AWS CloudFront](/blog/moving-from-nginx-to-aws-cloudfront), where the main goal was reducing cost and deployment complexity. This migration starts from the next stage: what happens when that delivery model becomes critical payment infrastructure.
+By the time we reached this migration, we had already taken one important step away from containerised static delivery. I wrote about that earlier move from Nginx containers to CloudFront in [Moving from Nginx to AWS CloudFront](/blog/moving-from-nginx-to-aws-cloudfront), where the goal was reducing cost and deployment complexity. The work in this article starts later in the story, when that same CDN-based delivery model had become part of a critical payment journey.
 
 The complexity did not come from S3. The complexity did not come from CloudFront.
 
@@ -70,7 +70,7 @@ But infrastructure efficiency is not only about reducing the number of resources
 
 That is where the old model started showing its limits. If a shared CloudFront distribution is misconfigured, the impact is not necessarily limited to one jurisdiction. If a Content Security Policy change is wrong, it can affect more than the market it was intended for. If a certificate renewal process depends on manual ownership and something is missed, the customer impact can become very real very quickly.
 
-This is also why edge security matters so much in frontend infrastructure. In [Mitigating Cache Poisoning in AWS CloudFront](/blog/mitigating-cache-poisoning-in-aws-cloudfront), I covered how a CDN cache can become a failure amplifier when request handling and cache behaviour are not tightly controlled. The same principle applies here: shared edge infrastructure is powerful, but its blast radius has to be intentional.
+That risk became more concrete once we had seen how edge behaviour can amplify frontend failures. In [Mitigating Cache Poisoning in AWS CloudFront](/blog/mitigating-cache-poisoning-in-aws-cloudfront), I wrote about a case where the CDN cache itself became part of the incident. The lesson carried into this migration: shared edge infrastructure is powerful, but its blast radius has to be designed deliberately.
 
 The biggest risk was not AWS going down.
 
@@ -288,7 +288,7 @@ This is one of the most important lessons of the migration: feature flags are no
 
 Frontend testing at scale cannot only be about components.
 
-This follows the same outside-in testing mindset I described in [Testing Payment Flows with Outside-In Testing](/blog/testing-payment-flows-with-outside-in-testing-part-2). For payment frontends, confidence does not come only from proving that components render. It comes from protecting the boundaries where the customer journey meets URLs, feature flags, APIs, providers, WebViews, and runtime configuration.
+I had already been moving towards that outside-in testing mindset in payment work. In [Testing Payment Flows with Outside-In Testing](/blog/testing-payment-flows-with-outside-in-testing-part-2), I described why confidence in a cashier does not come only from proving that components render. For this migration, that lesson became very practical: the important risks lived where the customer journey met URLs, feature flags, APIs, providers, WebViews, and runtime configuration.
 
 Components matter, of course. But many of the failures that hurt customers happen at the boundaries: URLs, initialisation, runtime configuration, APIs, origins, CSP, WebViews, CDN behaviour, authentication, and environment detection.
 
