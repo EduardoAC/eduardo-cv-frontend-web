@@ -47,6 +47,7 @@ export interface InlineImageMeta {
 export interface BlogPostMeta {
   slug: string;
   title: string;
+  seoTitle?: string;
   description: string;
   summary?: string;
   date: string;
@@ -104,6 +105,7 @@ const createPostMetaFromFile = (fileName: string): BlogPostMeta => {
   return {
     slug,
     title: typeof data.title === 'string' ? data.title : '',
+    seoTitle: typeof data.seoTitle === 'string' ? data.seoTitle : undefined,
     description: typeof data.description === 'string' ? data.description : '',
     summary: typeof data.summary === 'string' ? data.summary : typeof data.description === 'string' ? data.description : undefined,
     date: normalizeDate(data.date),

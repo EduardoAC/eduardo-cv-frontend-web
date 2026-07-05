@@ -30,9 +30,10 @@ const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
   const image = getSeoImage(post);
   const topicName = getResolvedTopicName(post);
   const openGraphTags = Array.from(new Set([topicName, ...post.tags].filter(Boolean)));
+  const title = post.seoTitle ?? post.title;
   
   return {
-    title: post.title,
+    title,
     description: post.description,
     url,
     siteName: 'Eduardo Aparicio Cardenes',
@@ -56,10 +57,11 @@ const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
 
 const generateTwitterCard = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
   const image = getSeoImage(post);
+  const title = post.seoTitle ?? post.title;
 
   return {
     card: 'summary_large_image',
-    title: post.title,
+    title,
     description: post.description,
     images: image ? [
       getAbsoluteBlogAssetUrl(image.url, baseUrl)
@@ -120,9 +122,10 @@ export const generateMetaTags = (post: BlogPost | BlogPostMeta, baseUrl: string)
   const structuredData = generateStructuredData(post, baseUrl);
   const topicName = getResolvedTopicName(post);
   const keywords = Array.from(new Set([topicName, ...post.tags].filter(Boolean))).join(', ');
+  const title = post.seoTitle ?? post.title;
 
   return {
-    title: `${post.title} | Eduardo Aparicio Cardenes`,
+    title: `${title} | Eduardo Aparicio Cardenes`,
     description: post.description,
     keywords,
     author: author.name,

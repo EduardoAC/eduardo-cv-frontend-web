@@ -447,6 +447,7 @@ const createPostRecord = async ({ fileName, marked }) => {
   return {
     slug,
     title: typeof data.title === 'string' ? data.title : '',
+    seoTitle: typeof data.seoTitle === 'string' ? data.seoTitle : undefined,
     description: typeof data.description === 'string' ? data.description : '',
     summary: typeof data.summary === 'string' ? data.summary : typeof data.description === 'string' ? data.description : '',
     date: normalizeDate(data.date),
@@ -492,6 +493,7 @@ const generateArtifacts = async () => {
   const manifest = posts.map((post) => ({
     slug: post.slug,
     title: post.title,
+    seoTitle: post.seoTitle,
     description: post.description,
     summary: post.summary,
     date: post.date,
