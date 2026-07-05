@@ -5,15 +5,15 @@ summary: "How Player Cashier moved from release candidates to continuous deploym
 date: "2026-07-05"
 author: "Eduardo Aparicio Cardenes"
 tags: ["Continuous Deployment", "Trunk-Based Development", "Release Strategy", "Frontend Delivery", "Player Cashier"]
-topic: "Testing Strategy and Delivery Confidence"
-topicSlug: "testing-strategy"
+topic: "Frontend Architecture and Platform Design"
+topicSlug: "frontend-architecture"
 image: "/images/blog/from-release-candidates-to-continuous-deployment-player-cashier-journey/the_journey_from_release_candidates_to_deployment.png"
 imageAlt: "Feature image for From Release Candidates to Continuous Deployment: The Player Cashier Journey, showing the move from manual release candidates to automated continuous deployment."
 ---
 
 Over the past year and a half, one very rewarding change that I have been driving in my current company has been the move from release candidates to continuous deployment.
 
-It is fair to say that this is not the first time I have worked through this kind of transition. I have seen different versions of it at previous companies, with different stacks, teams, and levels of maturity. Nevertheless, I have never invested the time to share my journey and lessons before, and this particular project is worth sharing because it happened inside a product surface where delivery speed, operational safety, security boundaries, and customer trust are tightly connected.
+It is fair to say that this is not the first time I have worked through this kind of transition. I have seen different versions of it at previous companies, with different stacks, teams, and levels of maturity. I had never taken the time to write about those lessons before, but this particular project felt worth sharing because it happened inside a product surface where delivery speed, operational safety, security boundaries, and customer trust are tightly connected.
 
 The project was Player Cashier, and it started with a clear purpose: solving two related challenges. The first was enhancing security by isolating payments from the website's third-party libraries and scripts. The second was reducing time-to-market by unifying the channel-native implementations across web, Android, and iOS into a single owned surface.
 
