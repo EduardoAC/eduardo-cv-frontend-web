@@ -25,7 +25,7 @@ When you need to add a payment method, fix a jurisdiction-specific issue, improv
 
 The first extraction simplified part of the problem, but it did not fully change the delivery reality. When I joined, the release process still carried many of the habits from the systems around it, which meant the new payment surface had inherited part of the old operating model.
 
-## The release model we inherited
+## The release model inherited
 
 At that point, the project used a Git Flow-inspired model with two long-lived branches: `nonprod` and `production`.
 
