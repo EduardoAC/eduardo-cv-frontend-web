@@ -1,6 +1,5 @@
 ---
-title: "From Release Candidates to Continuous Deployment: The Player Cashier Journey"
-seoTitle: "From Release Candidates to Continuous Deployment"
+title: "Migrating from Release Candidates to Continuous Deployment: The Player Cashier Journey"
 description: "How Player Cashier moved from release candidates to continuous deployment through validation, trunk-based development, and rollout automation."
 summary: "How Player Cashier moved from release candidates to continuous deployment through validation, trunk-based development, and rollout automation."
 date: "2026-07-05"
