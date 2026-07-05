@@ -111,13 +111,14 @@ I wanted to validate cost before pushing the model further.
 
 It is easy to propose more automation in theory, but every extra deployment has a cost somewhere. In this case, we had to look at GitHub Actions minutes and S3 storage.
 
+
 The GitHub Actions side was less concerning than expected. In the test we ran, each deployment took around thirteen seconds. That made the cost of deploying feature branches to staging environments negligible compared with the operational value of validating changes in isolation.
 
-![GitHub Actions deployment job showing build, deploy to S3, and post-deployment steps](/images/blog/from-release-candidates-to-continuous-deployment-player-cashier-journey/github-actions-deployment.png)
+![S3 upload output showing Player Cashier assets being uploaded during deployment](/images/blog/from-release-candidates-to-continuous-deployment-player-cashier-journey/s3-asset-upload.png)
 
 The S3 side was also small per deployment. At the time, the project size was around 4.3MB. One deployment was not the issue. The real question was accumulation. If every branch and every release can create assets, storage remains cheap in the short term but still needs a cleanup model over time.
 
-![S3 upload output showing Player Cashier assets being uploaded during deployment](/images/blog/from-release-candidates-to-continuous-deployment-player-cashier-journey/s3-asset-upload.png)
+![GitHub Actions deployment job showing build, deploy to S3, and post-deployment steps](/images/blog/from-release-candidates-to-continuous-deployment-player-cashier-journey/github-actions-deployment.png)
 
 That cost analysis did not block the migration, but it revealed something important that became more relevant later: as deployments become more frequent, assets start to accumulate. Solving release speed raises the next operational question: how long those versions and assets should remain alive.
 
