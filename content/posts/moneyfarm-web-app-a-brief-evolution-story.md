@@ -63,7 +63,7 @@ On our efforts last year we have achieved amazing milestones for the frontend ec
 
 Please stay tuned to this blog, we will be sharing with you a series of posts about our journey to this date. The problems we encountered, the solutions we had put in place, and what lessons we’ve learned. In the upcoming months we will be blogging about:
 
-- [Migration from Nginx to AWS cloud front](https://medium.com/@byeduardoac/moving-from-nginx-to-aws-cloudfront-a62cedc9c882)
+- [Migration from Nginx to AWS cloud front](/blog/moving-from-nginx-to-aws-cloudfront)
 - Concourse and Frontend pipelines: the big mystery
 - Challenges of migrating between codebases and technologies
 - From Services to SPA, from 3 repositories to 1, what could go wrong? 
