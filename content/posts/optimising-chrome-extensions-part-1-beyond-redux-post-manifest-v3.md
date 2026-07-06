@@ -64,7 +64,7 @@ As a result, our proposed solution had to be temporarily shelved. This setback u
 
 Following challenges encountered with the browser cache, we determined that the optimal solution for persisting data between service worker executions was to leverage the Chrome Storage API. This approach enabled asynchronous persistence of the data required for the extension to function. However, our exploration revealed complexities associated with handling concurrency.
 
-For an in-depth understanding of these complexities and how we manage concurrency in Chrome Extensions, please check out our detailed explanation in [Managing Concurrency in Chrome Extensions](https://medium.com/@byeduardoac/managing-concurrency-in-chrome-extensions-86de537c911d). This additional resource delves into the intricacies of ensuring seamless data persistence within the Chrome Storage API.
+For an in-depth understanding of these complexities and how we manage concurrency in Chrome Extensions, please check out our detailed explanation in [Managing Concurrency in Chrome Extensions](/blog/managing-concurrency-in-chrome-extensions). This additional resource delves into the intricacies of ensuring seamless data persistence within the Chrome Storage API.
 
 #### Optimising pub-sub messaging efficiency
 

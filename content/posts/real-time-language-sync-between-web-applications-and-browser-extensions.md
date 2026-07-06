@@ -12,7 +12,7 @@ imageAlt: "Diagram showing language data syncing between a web app and browser e
 
 **Real-time Language Sync Between Web Applications and Browser Extensions**
 
-In previous articles, I went into an efficient implementation of internationalisation using [react-i18next](https://medium.com/@byeduardoac/using-react-i18next-within-chrome-extension-manifest-v3-1d6f16a43556) for browser extensions and discussed the usage of [event-driven models using messages](https://medium.com/@byeduardoac/optimizing-chrome-extensions-state-and-communication-in-react-c8dadfd32a45), so I assumed you were already familiar with them. If you still need to read those, I encourage you to do so, as they set the groundwork for the content in this article.
+In previous articles, I went into an efficient implementation of internationalisation using [react-i18next](/blog/using-react-i18next-within-chrome-extension-manifest-v3) for browser extensions and discussed the usage of [event-driven models using messages](/blog/optimizing-chrome-extensions-state-and-communication-in-react), so I assumed you were already familiar with them. If you still need to read those, I encourage you to do so, as they set the groundwork for the content in this article.
 
 ### Introduction
 
@@ -64,7 +64,7 @@ We’ve successfully gone through updating the language and propagating it from 
 
 ```gist:EduardoAC/3e959b65d287528487bf33c20d698433```
 
-In the implementation, I’ve decided to initialise translation when the content script loads within the tab page, creating a new instance with the translation from the language at the time [(Using react-i18next within Chrome extension)](https://medium.com/@byeduardoac/using-react-i18next-within-chrome-extension-manifest-v3-1d6f16a43556). However, we need to monitor language updates to allow real-time language synchronisation. As you can see above, we integrated the listener as part of the React lifecycle to gain more granular control for the onMessage listener.
+In the implementation, I’ve decided to initialise translation when the content script loads within the tab page, creating a new instance with the translation from the language at the time [(Using react-i18next within Chrome extension)](/blog/using-react-i18next-within-chrome-extension-manifest-v3). However, we need to monitor language updates to allow real-time language synchronisation. As you can see above, we integrated the listener as part of the React lifecycle to gain more granular control for the onMessage listener.
 
 And that’s it. I hope you find this article useful, and drop me a line if you have any questions.
 
