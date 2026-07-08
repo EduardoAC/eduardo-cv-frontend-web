@@ -62,9 +62,3 @@ jobs:
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
           ALLOWED_ORIGIN: ${{ secrets.ALLOWED_ORIGIN }}
           EMAIL_KV: ${{ secrets.EMAIL_KV }}
-      - name: Deploy legacy service worker retirement route
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --config ./workers/legacy-site-redirect/wrangler.toml
