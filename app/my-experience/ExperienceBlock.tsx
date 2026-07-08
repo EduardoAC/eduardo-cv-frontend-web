@@ -49,7 +49,7 @@ export default function ExperienceBlock({
         <div className={styles.details}>
           <h4>
             {website ? (
-              <a href={website} target="_blank" rel="noopener noreferrer">
+              <a href={website} target="_blank" rel="nofollow noopener noreferrer">
                 {company}
               </a>
             ) : (

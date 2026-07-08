@@ -247,7 +247,7 @@ export const experienceList: Experience[] = [
         position: 'Junior Web developer',
         logo: '/images/companies/canarias-7-digital.png',
         description: '<p>Contract to develop '
-        + '<a href="http://monicavieira.com/" rel="nofollow" target="_blank">Monica Vieira</a>. '
+        + '<a href="http://monicavieira.com/" rel="nofollow noopener noreferrer" target="_blank">Monica Vieira</a>. '
         + 'my second contract for Canarias 7 digital to develop a new website. '
         + 'I created this one using Symfony 1.4 based in a new design provided from Canarias 7 Digital. '
         + 'As my previous contract with them, I implemented a full website using '
@@ -264,7 +264,7 @@ export const experienceList: Experience[] = [
         position: 'Junior Web developer',
         logo: '/images/companies/canarias-7-digital.png',
         description: '<p>Contract to develop '
-        + '<a href="http://www.gestaltcanarias.es/" rel="nofollow" target="_blank">Gelstalt Canarias Website</a>. '
+        + '<a href="http://www.gestaltcanarias.es/" rel="nofollow noopener noreferrer" target="_blank">Gelstalt Canarias Website</a>. '
         + 'I started my professional career as a web developer '
         + 'creating full sites in symphony 1.0 and 1.4 where I was responsible to '
         + 'deliver a full website based on a design provide for the company. '
@@ -279,7 +279,7 @@ export const experienceList: Experience[] = [
         startDate: 'June, 2009',
         endDate: 'April ,2011',
         company: 'University of Las Palmas de Gran Canaria',
-        position: '<a href="http://berlioz.dis.ulpgc.es/roc-siani/publicaciones-principal/pdfs/memoria-pfc-eduardo-aparicio-cardenes-jul-2011.pdf" rel="nofollow" target="_blank">Odometry error reduction in a mobile robot using scan matching algorithms based in laser sensor range</a>',
+        position: '<a href="http://berlioz.dis.ulpgc.es/roc-siani/publicaciones-principal/pdfs/memoria-pfc-eduardo-aparicio-cardenes-jul-2011.pdf" rel="nofollow noopener noreferrer" target="_blank">Odometry error reduction in a mobile robot using scan matching algorithms based in laser sensor range</a>',
         logo: '/images/companies/ulpgc.png',
         description: '<p>The MbICP is a variant of the ICP algorithm (Iterative '
         + 'Closest Point). This method has aim to correct the error caused by '
@@ -320,7 +320,7 @@ export const experienceList: Experience[] = [
         + 'skills to be ready to become a Software architect. From the beginning,'
         + 'I studied every signature with a big passion to be ready for a good '
         + 'professional career. If you want to know more about what did I study'
-        + 'here please enter in the <a href="http://www.eii.ulpgc.es/tb_university_ex/?q=ingenier%C3%ADa-inform%C3%A1tica-ii" rel="nofollow" target="_blank">'
+        + 'here please enter in the <a href="http://www.eii.ulpgc.es/tb_university_ex/?q=ingenier%C3%ADa-inform%C3%A1tica-ii" rel="nofollow noopener noreferrer" target="_blank">'
         + 'ULPGC university plan</a></p>',
         articles: [],
         technologies: ['Robotics', 'Programming', 'Software Engineering'],
