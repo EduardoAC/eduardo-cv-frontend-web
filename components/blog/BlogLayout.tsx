@@ -1,11 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
+import type { BlogBreadcrumbItem } from '@/lib/blog/breadcrumbs';
 import Container from '@/components/layout/Container';
 import type { MeaningfulTagArchiveSummary } from '@/lib/blog/archive';
 import type { ArchivePaginationData } from '@/lib/blog/pagination';
 import type { BlogTopicSummary } from '@/lib/blog/topics';
 import Tag from '../content/Tag';
 import { ArchivePagination } from './ArchivePagination';
+import Breadcrumbs from './Breadcrumbs';
 import { TopicHubGrid } from './TopicHubGrid';
 import styles from './Blog.module.scss';
 
@@ -19,10 +21,7 @@ interface BlogLayoutProps {
   currentTag?: string;
   tags: ReadonlyArray<MeaningfulTagArchiveSummary>;
   pagination: ArchivePaginationData;
-  backLink?: {
-    href: string;
-    label: string;
-  };
+  breadcrumbs: ReadonlyArray<BlogBreadcrumbItem>;
 }
 
 export function BlogLayout({
@@ -35,7 +34,7 @@ export function BlogLayout({
   currentTag,
   pagination,
   tags,
-  backLink,
+  breadcrumbs,
 }: BlogLayoutProps) {
   const topTags = tags.slice(0, 3);
   const currentTagEntry = currentTag ? tags.find((tag) => tag.tag === currentTag) : undefined;
@@ -59,13 +58,7 @@ export function BlogLayout({
   return (
     <Container as="section" variant="default" padding="small" className={styles['blog-layout']}>
       <header className={`${styles['blog-header']}`}>
-        {backLink && (
-          <nav className={styles['archive-back-link']} aria-label="Archive breadcrumb">
-            <Link className={`snap-link snap-read-more ${styles['archive-inline-link']}`} href={backLink.href}>
-              {backLink.label}
-            </Link>
-          </nav>
-        )}
+        <Breadcrumbs items={breadcrumbs} className={styles['archive-breadcrumbs']} />
         <h1 className="text-align-left">
           {title}
         </h1>

@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
 import topicsConfig from './topics.json';
+import {
+  createBlogBreadcrumbItems,
+  createBreadcrumbStructuredData,
+  createStructuredDataGraph,
+  getAbsoluteSiteUrl,
+  type BlogBreadcrumbItem,
+} from './breadcrumbs';
 import { getAllPosts, type BlogPostMeta } from './markdown';
 import {
   createArchivePagination,
@@ -46,6 +53,7 @@ export interface BlogTopicArchiveViewModel {
   showBottomPagination: boolean;
   subthemes: ReadonlyArray<BlogTopicSubthemeGroup>;
   structuredData: Record<string, unknown>;
+  breadcrumbs: BlogBreadcrumbItem[];
 }
 
 const topicDefinitions = (topicsConfig.topics ?? []) as BlogTopicDefinition[];
@@ -54,7 +62,7 @@ const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? DEFAULT_BASE_URL).replace(/
 
 const sortPostsByDate = (a: BlogPostMeta, b: BlogPostMeta): number => (a.date < b.date ? 1 : -1);
 
-const getAbsoluteUrl = (path: string): string => `${baseUrl}${path}`;
+const getAbsoluteUrl = (path: string): string => getAbsoluteSiteUrl(path, baseUrl);
 
 const getTopicSummaryDescription = (topic: BlogTopicDefinition, count: number): string =>
   `${topic.description} Browse ${count} article${count === 1 ? '' : 's'} in this topic hub.`;
@@ -82,6 +90,28 @@ const buildTopicMetaTitle = (topicName: string, currentPage: number): string =>
 
 export const buildTopicPath = (topicSlug: string, pageNumber: number = 1): string =>
   pageNumber <= 1 ? `/blog/topics/${topicSlug}` : `/blog/topics/${topicSlug}/page/${pageNumber}`;
+
+const getTopicBreadcrumbItems = (
+  topic: Pick<BlogTopicDefinition, 'name' | 'slug'>,
+  pageNumber: number = 1,
+): BlogBreadcrumbItem[] =>
+  createBlogBreadcrumbItems(
+    pageNumber > 1
+      ? [
+          {
+            label: topic.name,
+            href: buildTopicPath(topic.slug),
+          },
+          {
+            label: `Page ${pageNumber}`,
+          },
+        ]
+      : [
+          {
+            label: topic.name,
+          },
+        ],
+  );
 
 export const getBlogTopics = (): BlogTopicDefinition[] => topicDefinitions;
 
@@ -196,10 +226,12 @@ export const getTopicStructuredData = (topicSlug: string, pageNumber: number = 1
   }
 
   const path = buildTopicPath(topicSlug, pageNumber);
+  const pageUrl = getAbsoluteUrl(path);
+  const breadcrumbs = getTopicBreadcrumbItems(topic, pageNumber);
 
-  return {
-    '@context': 'https://schema.org',
+  const collectionPage = {
     '@type': 'CollectionPage',
+    '@id': `${pageUrl}#collection`,
     name: topic.name,
     description: buildTopicPageDescription({
       topic,
@@ -231,6 +263,11 @@ export const getTopicStructuredData = (topicSlug: string, pageNumber: number = 1
       })),
     },
   };
+
+  return createStructuredDataGraph([
+    collectionPage,
+    createBreadcrumbStructuredData(breadcrumbs, path, baseUrl),
+  ]);
 };
 
 export const getTopicArchiveViewModel = (topicSlug: string, pageNumber: number): BlogTopicArchiveViewModel | null => {
@@ -255,5 +292,6 @@ export const getTopicArchiveViewModel = (topicSlug: string, pageNumber: number):
     showBottomPagination: archivePage.totalPages > 1,
     subthemes: getTopicSubthemeGroups(topicSlug),
     structuredData: getTopicStructuredData(topicSlug, pageNumber) ?? {},
+    breadcrumbs: getTopicBreadcrumbItems(topic, pageNumber),
   };
 };

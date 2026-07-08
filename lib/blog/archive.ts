@@ -1,4 +1,11 @@
 import type { Metadata } from 'next';
+import {
+  createBlogBreadcrumbItems,
+  createBreadcrumbStructuredData,
+  createStructuredDataGraph,
+  getAbsoluteSiteUrl,
+  type BlogBreadcrumbItem,
+} from './breadcrumbs';
 import { getAllPosts, type BlogPostMeta } from './markdown';
 import blogConfig from './config.json';
 import {
@@ -48,11 +55,8 @@ export interface ArchivePageViewModel {
   tags: MeaningfulTagArchiveSummary[];
   pagination: ArchivePaginationData;
   structuredData: Record<string, unknown>;
+  breadcrumbs: BlogBreadcrumbItem[];
   currentTag?: string;
-  backLink?: {
-    href: string;
-    label: string;
-  };
 }
 
 interface MeaningfulTagArchiveIndex extends MeaningfulTagArchiveSummary {
@@ -69,7 +73,7 @@ const baseUrl = (process.env.NEXT_PUBLIC_BASE_URL ?? DEFAULT_BASE_URL).replace(/
 
 let cachedMeaningfulTagArchives: MeaningfulTagArchiveCache | null = null;
 
-const getAbsoluteUrl = (path: string): string => `${baseUrl}${path}`;
+const getAbsoluteUrl = (path: string): string => getAbsoluteSiteUrl(path, baseUrl);
 
 const slugifyTag = (value: string): string => {
   return value
@@ -370,6 +374,7 @@ export const getArchiveStructuredData = ({
   path,
   posts,
   startIndex,
+  breadcrumbs,
   tag,
 }: {
   title: string;
@@ -377,14 +382,16 @@ export const getArchiveStructuredData = ({
   path: string;
   posts: ReadonlyArray<BlogPostMeta>;
   startIndex: number;
+  breadcrumbs: ReadonlyArray<BlogBreadcrumbItem>;
   tag?: string;
 }) => {
-  return {
-    '@context': 'https://schema.org',
+  const pageUrl = getAbsoluteUrl(path);
+  const collectionPage = {
     '@type': 'CollectionPage',
+    '@id': `${pageUrl}#collection`,
     name: title,
     description,
-    url: getAbsoluteUrl(path),
+    url: pageUrl,
     isPartOf: {
       '@type': 'Blog',
       name: BLOG_ARCHIVE_NAME,
@@ -409,6 +416,11 @@ export const getArchiveStructuredData = ({
       })),
     },
   };
+
+  return createStructuredDataGraph([
+    collectionPage,
+    createBreadcrumbStructuredData(breadcrumbs, path, baseUrl),
+  ]);
 };
 
 export const getBlogArchiveViewModel = (pageNumber: number): ArchivePageViewModel | null => {
@@ -423,6 +435,16 @@ export const getBlogArchiveViewModel = (pageNumber: number): ArchivePageViewMode
     typeof metadata.description === 'string'
       ? metadata.description
       : buildArchiveDescription(archivePage);
+  const archivePath = buildBlogArchivePath(pageNumber);
+  const breadcrumbs = createBlogBreadcrumbItems(
+    pageNumber > 1
+      ? [
+          {
+            label: `Page ${pageNumber}`,
+          },
+        ]
+      : [],
+  );
 
   return {
     title: BLOG_ARCHIVE_NAME,
@@ -442,10 +464,12 @@ export const getBlogArchiveViewModel = (pageNumber: number): ArchivePageViewMode
     structuredData: getArchiveStructuredData({
       title: BLOG_ARCHIVE_NAME,
       description: metadataDescription,
-      path: buildBlogArchivePath(pageNumber),
+      path: archivePath,
       posts: archivePage.posts,
       startIndex: archivePage.startIndex,
+      breadcrumbs,
     }),
+    breadcrumbs,
   };
 };
 
@@ -467,9 +491,28 @@ export const getTagArchiveViewModel = (tagSlug: string, pageNumber: number): Arc
           totalPages: archivePage.totalPages,
           totalPosts: archivePage.totalPosts,
         });
+  const title = `${archiveSummary.tag} Articles`;
+  const archivePath = buildTagArchivePath(tagSlug, pageNumber);
+  const breadcrumbs = createBlogBreadcrumbItems(
+    pageNumber > 1
+      ? [
+          {
+            label: title,
+            href: buildTagArchivePath(tagSlug),
+          },
+          {
+            label: `Page ${pageNumber}`,
+          },
+        ]
+      : [
+          {
+            label: title,
+          },
+        ],
+  );
 
   return {
-    title: `${archiveSummary.tag} Articles`,
+    title,
     description: `Browse ${archiveSummary.count} articles filed under ${archiveSummary.tag}.`,
     supportingText:
       'Tags stay available for narrower browsing, while the main blog archive now groups articles by topic first.',
@@ -485,17 +528,15 @@ export const getTagArchiveViewModel = (tagSlug: string, pageNumber: number): Arc
       buildTagArchivePath(tagSlug, currentPage),
     ),
     structuredData: getArchiveStructuredData({
-      title: `${archiveSummary.tag} Articles`,
+      title,
       description: metadataDescription,
-      path: buildTagArchivePath(tagSlug, pageNumber),
+      path: archivePath,
       posts: archivePage.posts,
       startIndex: archivePage.startIndex,
+      breadcrumbs,
       tag: archiveSummary.tag,
     }),
+    breadcrumbs,
     currentTag: archiveSummary.tag,
-    backLink: {
-      href: '/blog',
-      label: '← Back to all posts',
-    },
   };
 };
