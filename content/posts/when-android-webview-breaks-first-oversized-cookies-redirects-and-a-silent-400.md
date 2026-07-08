@@ -1,6 +1,6 @@
 ---
 title: "When Android WebView breaks first: oversized cookies, redirects, and a silent 400"
-description: "My five traits that define an excellent software engineer"
+description: "Learn how oversized cookies caused silent 400 errors in Android WebView redirects, and how a production payment flow regained reliability by reducing payload size."
 date: "2025-12-21"
 author: "Eduardo Aparicio Cardenes"
 tags: ["Android WebView", "Http redirect", "Cookies", "Payment systems", "Iframe"]
