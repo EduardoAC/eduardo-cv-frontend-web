@@ -33,8 +33,6 @@
     "worker:typecheck": "tsc -p workers/subscription-handler/tsconfig.json --noEmit",
     "worker:dev": "wrangler dev --config ./workers/subscription-handler/wrangler.toml --env stagee",
     "worker:deploy": "wrangler deploy --config ./workers/subscription-handler/wrangler.toml --env production",
-    "worker:legacy:dev": "wrangler dev --config ./workers/legacy-site-redirect/wrangler.toml",
-    "worker:legacy:deploy": "wrangler deploy --config ./workers/legacy-site-redirect/wrangler.toml",
     "generate-csp-hashes": "node scripts/generate-csp-hashes.ts"
   },
   "dependencies": {

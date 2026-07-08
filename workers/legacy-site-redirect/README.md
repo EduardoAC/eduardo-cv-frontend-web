@@ -7,7 +7,11 @@ same-origin `200` response instead of redirecting to `https://eduardoac.dev`.
 
 ## Cloudflare configuration
 
-1. Deploy with `npm run worker:legacy:deploy`.
+This worker is preserved for historical old-domain service worker cleanup, but
+it is not part of the normal CI deployment. Deploy it manually only if the
+legacy hostname needs a same-origin `/service-worker.js` response again.
+
+1. Deploy with `wrangler deploy --config ./workers/legacy-site-redirect/wrangler.toml`.
 2. Update the existing legacy-domain redirect rule so it does not match
    `/service-worker.js`. Bulk Redirects and redirect rules execute before the
    Worker route.

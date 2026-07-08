@@ -110,7 +110,7 @@ npx playwright install
 | `public/` | Static assets, legacy redirects, icons, and generated blog image variants |
 | `scripts/` | Blog generation, validation, export verification, service worker generation, CSP helpers, and reporting utilities |
 | `workers/subscription-handler/` | Cloudflare Worker used by the newsletter flow |
-| `workers/legacy-site-redirect/` | Narrow Cloudflare Worker route that retires service workers installed by the legacy domain |
+| `workers/legacy-site-redirect/` | Historical Cloudflare Worker route for retiring service workers installed by the legacy domain |
 | `docs/` | Deeper notes on performance, rollout, and blog architecture |
 
 ## Content, SEO, And Performance
@@ -139,7 +139,6 @@ Deployment is currently handled through [`.github/workflows/deploy-cloudflare.ym
 7. runs `npm run generate-csp-hashes`
 8. deploys `./dist` to Cloudflare Pages
 9. deploys the subscription worker with Wrangler
-10. deploys the legacy-domain service worker retirement route
 
 Environment details that matter:
 
@@ -149,7 +148,7 @@ Environment details that matter:
 
 Because production is a static export, caching is mainly a Cloudflare concern rather than a Next.js server concern. Hashed assets under `/_next/static/` and generated blog images are suitable for aggressive caching, while HTML routes, `sitemap.xml`, `robots.txt`, and `manifest.webmanifest` need normal revalidation. `service-worker.js` is a cache-retirement script and must use `no-store` so browser or edge TTL settings cannot delay its installation.
 
-The legacy hostname needs one Cloudflare exception: its permanent redirect must not match `/service-worker.js`. That path is handled by `workers/legacy-site-redirect/`, which returns the retirement script as a same-origin response. See that worker's README for the account configuration.
+The legacy hostname now redirects to `https://eduardoac.dev` and is no longer deployed from the normal CI workflow. If the old-domain service worker retirement route is needed again, `workers/legacy-site-redirect/` contains the preserved Worker source and deployment notes.
 
 ## Scripts Reference
 
@@ -171,7 +170,6 @@ The legacy hostname needs one Cloudflare exception: its permanent redirect must 
 | `npm run test:service-worker` | Tests cache cleanup, legacy navigation, and the legacy-domain worker response |
 | `npm run worker:typecheck` | Type checks the Cloudflare subscription worker |
 | `npm run worker:deploy` | Deploys the subscription worker with Wrangler |
-| `npm run worker:legacy:deploy` | Deploys the legacy-domain service worker retirement route |
 | `npm run generate-csp-hashes` | Generates suggested CSP hashes for deployment |
 
 ## Maintenance Notes
