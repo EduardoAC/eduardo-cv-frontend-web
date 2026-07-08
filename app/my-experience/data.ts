@@ -4,6 +4,7 @@ interface Experience {
   company: string;
   position: string;
   description: string;
+  website?: string;
   logo?: string;
   articles?: { title: string; slug: string }[];
   technologies?: string[];
@@ -13,18 +14,31 @@ export const experienceList: Experience[] = [
     {
         startDate: 'March 2025',
         endDate: 'Present',
-        company: 'Happening',
-        position: 'Senior Frontend Engineer',
-        logo: '/images/companies/happening-logo-blue-bg.webp',
+        company: 'Super',
+        position: 'Senior Frontend Engineer — Payment UI / Player Cashier<br /><span>formerly Happening / Superbet</span>',
+        website: 'https://www.super.xyz/',
+        logo: '/images/companies/super-logo.webp',
         description: `<ul>
-<li>Engineering excellence with initiatives in continuous deployment, testing strategy, web performance, and contract-driven development.</li>
-<li>Upskilled the team and provided technical direction.</li>
-<li>Mentored and sponsored technical initiatives.</li>
+<li>Led frontend delivery for Player Cashier, the embedded payment UI powering deposit and withdrawal journeys across web, native apps, Android WebView, iOS WebView, and mobile web.</li>
+<li>Drove the migration from release candidates to continuous deployment, improving release confidence through feature flags, validation gates, rollout automation, and production-safe delivery practices.</li>
+<li>Led the Checkout.com card payments integration for Romania, coordinating with Comtrade and enabling an estimated €260K/month cost saving.</li>
+<li>Led cross-squad collaboration for IBAN verification with Authologic across the Transact tribe, enabling customers in Poland to safely verify their bank accounts.</li>
+<li>Owned critical iframe and native integration boundaries across host apps, backend APIs, feature flags, payment providers, redirects, and frontend state.</li>
+<li>Defined outside-in testing for payment flows using Vitest and MSW.js, covering customer-visible journeys, API contracts, host adapters, provider handoffs, and WebView-specific risks.</li>
+<li>Helped evolve frontend delivery on AWS infrastructure, including S3, CloudFront, Terraform, progressive rollout, hosted zones, and operational runbooks.</li>
+<li>Improved reliability across high-risk payment journeys, including Android WebView redirects, oversized cookies, CloudFront cache-poisoning protection, and runtime initialisation safety.</li>
 </ul>`,
         articles: [
+            { title: 'Migrating from Release Candidates to Continuous Deployment: The Player Cashier Journey', slug: 'from-release-candidates-to-continuous-deployment-player-cashier-journey' },
+            { title: 'Frontend Infrastructure at Scale: Migrating AWS S3 and CloudFront Without Customer Disruption', slug: 'frontend-infrastructure-at-scale-aws-s3-cloudfront-migration' },
+            { title: 'The Initialisation Trap in TypeScript: When Your Types Describe a World Your Users Are Not In Yet', slug: 'the-initialisation-trap-in-typescript' },
+            { title: 'Testing Payment Flows with Outside-In Testing: A Practical Integration Testing Case Study - Part 2', slug: 'testing-payment-flows-with-outside-in-testing-part-2' },
+            { title: 'Outside-In Testing Strategy: Building Confidence for Continuous Deployment - Part 1', slug: 'outside-in-testing-strategy-building-confidence-for-continuous-deployment' },
+            { title: 'When Android WebView breaks first: oversized cookies, redirects, and a silent 400', slug: 'when-android-webview-breaks-first-oversized-cookies-redirects-and-a-silent-400' },
+            { title: "Mitigating Cache Poisoning in AWS CloudFront: A Frontend Engineer's Guide", slug: 'mitigating-cache-poisoning-in-aws-cloudfront' },
             { title: 'React Higher-Order Components vs Vue.js Slots: A Dynamic Components Comparison', slug: 'react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison' },
         ],
-        technologies: ['VueJS', 'TypeScript', 'Pinia', 'Vite'],
+        technologies: ['Vue.js', 'TypeScript', 'Vite', 'AWS infrastructure', 'Vitest & MSW.js'],
     },
     {
         startDate: 'October 2023',
@@ -309,4 +323,4 @@ export const experienceList: Experience[] = [
         articles: [],
         technologies: ['Robotics', 'Programming', 'Software Engineering'],
     },
-]; 
+];

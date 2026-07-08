@@ -10,6 +10,7 @@ interface ExperienceBlockProps {
   company: string;
   position: string;
   description: string;
+  website?: string;
   logo?: string;
   articles?: { title: string; slug: string }[];
   technologies?: string[];
@@ -21,6 +22,7 @@ export default function ExperienceBlock({
   company,
   position,
   description,
+  website,
   logo,
   articles = [],
   technologies = [],
@@ -43,7 +45,15 @@ export default function ExperienceBlock({
           />
         </div>
         <div className={styles.details}>
-          <h4>{company}</h4>
+          <h4>
+            {website ? (
+              <a href={website} target="_blank" rel="noopener noreferrer">
+                {company}
+              </a>
+            ) : (
+              company
+            )}
+          </h4>
           <h5 dangerouslySetInnerHTML={{ __html: position }}></h5>
           <div dangerouslySetInnerHTML={{ __html: description }}></div>
           {technologies.length > 0 && (
