@@ -1,6 +1,6 @@
 ---
 title: "When Android WebView breaks first: oversized cookies, redirects, and a silent 400"
-description: "Learn how oversized cookies caused silent 400 errors in Android WebView redirects, and how a production payment flow regained reliability by reducing payload size."
+description: "Learn how oversized cookies caused silent 400 errors in Android WebView redirects, and how a payment flow regained reliability."
 date: "2025-12-21"
 author: "Eduardo Aparicio Cardenes"
 tags: ["Android WebView", "Http redirect", "Cookies", "Payment systems", "Iframe"]
