@@ -3,10 +3,12 @@ import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import { getMeaningfulTagHref } from '@/lib/blog/archive';
 import { BLOG_AUTHOR_PATH, getCanonicalBlogAuthorName } from '@/lib/blog/author';
+import { createBlogBreadcrumbItems } from '@/lib/blog/breadcrumbs';
 import type { BlogPost as BlogPostType, BlogPostMeta, BlogResponsiveImageContext } from '@/lib/blog/markdown';
 import type { BlogSeriesContext } from '@/lib/blog/series';
 import { buildTopicPath, getResolvedTopicName } from '@/lib/blog/topics';
 import Container from '@/components/layout/Container';
+import Breadcrumbs from './Breadcrumbs';
 import MarkdownRenderer from './MarkdownRenderer';
 import BlogAuthorCard from './BlogAuthorCard';
 import BlogShareActions from './BlogShareActions';
@@ -64,24 +66,25 @@ export default function BlogPost({
   const shouldShowTableOfContents = post.toc.length > 0;
   const topicName = getResolvedTopicName(post);
   const topicHref = post.topicSlug ? buildTopicPath(post.topicSlug) : null;
+  const breadcrumbs = createBlogBreadcrumbItems([
+    ...(topicHref && topicName
+      ? [
+          {
+            label: topicName,
+            href: topicHref,
+          },
+        ]
+      : []),
+    {
+      label: post.title,
+    },
+  ]);
 
   return (
     <Container as="article" padding="small" variant="wide" className={styles['blog-post-page']}>
       <header className={styles['blog-post-header']}>
-        <nav className={styles['blog-post-back-link']}>
-          <Link className="snap-link snap-read-more" href="/blog">
-            ← Back to all posts
-          </Link>
-        </nav>
+        <Breadcrumbs items={breadcrumbs} className={styles['blog-post-breadcrumbs']} />
         <div className={styles['blog-post-header-content']}>
-          {topicHref && topicName && (
-            <div className={styles['blog-post-topic']}>
-              <span className={styles['blog-post-topic-label']}>Topic</span>
-              <Link className={`snap-link ${styles['blog-post-topic-link']}`} href={topicHref}>
-                {topicName}
-              </Link>
-            </div>
-          )}
           <h1 className={`text-align-left ${styles['blog-post-title']}`}>{post.title}</h1>
           <p className={styles['blog-post-dek']}>{post.description}</p>
           <div className={styles['blog-post-meta']}>

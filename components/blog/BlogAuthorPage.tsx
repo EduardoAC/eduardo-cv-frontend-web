@@ -3,7 +3,9 @@ import Link from 'next/link';
 import Container from '@/components/layout/Container';
 import type { BlogPostMeta } from '@/lib/blog/markdown';
 import { getBlogAuthor } from '@/lib/blog/author';
+import { createBlogBreadcrumbItems } from '@/lib/blog/breadcrumbs';
 import { BlogList } from './BlogList';
+import Breadcrumbs from './Breadcrumbs';
 import styles from './BlogAuthorPage.module.scss';
 
 interface BlogAuthorPageProps {
@@ -14,6 +16,11 @@ interface BlogAuthorPageProps {
 export default function BlogAuthorPage({ posts, structuredData }: Readonly<BlogAuthorPageProps>) {
   const author = getBlogAuthor();
   const latestPost = posts[0] ?? null;
+  const breadcrumbs = createBlogBreadcrumbItems([
+    {
+      label: author.name,
+    },
+  ]);
 
   return (
     <>
@@ -25,11 +32,7 @@ export default function BlogAuthorPage({ posts, structuredData }: Readonly<BlogA
       />
 
       <Container as="section" variant="default" padding="small" className={styles['author-page']}>
-        <nav className={styles['author-back-link']} aria-label="Blog breadcrumb">
-          <Link className={`snap-link snap-read-more ${styles['author-back-link-anchor']}`} href="/blog">
-            ← Back to all posts
-          </Link>
-        </nav>
+        <Breadcrumbs items={breadcrumbs} className={styles['author-breadcrumbs']} />
 
         <header className={styles['author-hero']}>
           <div className={styles['author-hero-media']}>

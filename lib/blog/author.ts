@@ -1,3 +1,8 @@
+import {
+  createBlogBreadcrumbItems,
+  createBreadcrumbStructuredData,
+  createStructuredDataGraph,
+} from './breadcrumbs';
 import { getAllPosts, type BlogPostMeta } from './markdown';
 
 const DEFAULT_BASE_URL = 'https://eduardoac.dev';
@@ -135,10 +140,15 @@ export const getBlogAuthor = (baseUrl: string = DEFAULT_BASE_URL): BlogAuthorPro
 
 export const getBlogAuthorStructuredData = (baseUrl: string = DEFAULT_BASE_URL) => {
   const author = getBlogAuthor(baseUrl);
+  const breadcrumbs = createBlogBreadcrumbItems([
+    {
+      label: author.name,
+    },
+  ]);
 
-  return {
-    '@context': 'https://schema.org',
+  const profilePage = {
     '@type': 'ProfilePage',
+    '@id': `${author.url}#profile`,
     url: author.url,
     name: `${author.name} | Blog Author`,
     description: author.description,
@@ -153,6 +163,11 @@ export const getBlogAuthorStructuredData = (baseUrl: string = DEFAULT_BASE_URL) 
       knowsAbout: author.expertise,
     },
   };
+
+  return createStructuredDataGraph([
+    profilePage,
+    createBreadcrumbStructuredData(breadcrumbs, BLOG_AUTHOR_PATH, baseUrl),
+  ]);
 };
 
 export const getPostsByPrimaryBlogAuthor = (): BlogPostMeta[] =>

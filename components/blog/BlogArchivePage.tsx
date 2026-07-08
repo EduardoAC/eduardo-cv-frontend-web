@@ -1,5 +1,6 @@
 import type { BlogPostMeta } from '@/lib/blog/markdown';
 import type { MeaningfulTagArchiveSummary } from '@/lib/blog/archive';
+import type { BlogBreadcrumbItem } from '@/lib/blog/breadcrumbs';
 import type { ArchivePaginationData } from '@/lib/blog/pagination';
 import type { BlogTopicSummary } from '@/lib/blog/topics';
 import { ArchivePagination } from './ArchivePagination';
@@ -18,11 +19,8 @@ interface BlogArchivePageProps {
   tags: ReadonlyArray<MeaningfulTagArchiveSummary>;
   pagination: ArchivePaginationData;
   structuredData: Record<string, unknown>;
+  breadcrumbs: ReadonlyArray<BlogBreadcrumbItem>;
   currentTag?: string;
-  backLink?: {
-    href: string;
-    label: string;
-  };
   emptyMessage?: string;
 }
 
@@ -36,8 +34,8 @@ export function BlogArchivePage({
   tags,
   pagination,
   structuredData,
+  breadcrumbs,
   currentTag,
-  backLink,
   emptyMessage,
 }: BlogArchivePageProps) {
   const showSubscribeCta = posts.length > 0 && !currentTag && pagination.currentPage === 1;
@@ -61,7 +59,7 @@ export function BlogArchivePage({
         currentTag={currentTag}
         tags={tags}
         pagination={pagination}
-        backLink={backLink}
+        breadcrumbs={breadcrumbs}
       >
         <BlogList posts={posts} emptyMessage={emptyMessage} />
         {showSubscribeCta && (

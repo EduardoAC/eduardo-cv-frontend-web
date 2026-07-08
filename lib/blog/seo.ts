@@ -1,6 +1,11 @@
 import type { BlogPost, BlogPostMeta } from './markdown';
 import { getAbsoluteBlogAssetUrl, getBlogAuthor, getBlogPostUrl } from './author';
-import { getResolvedTopicName } from './topics';
+import {
+  createBlogBreadcrumbItems,
+  createBreadcrumbStructuredData,
+  createStructuredDataGraph,
+} from './breadcrumbs';
+import { buildTopicPath, getResolvedTopicName } from './topics';
 
 const getSeoImage = (post: BlogPost | BlogPostMeta) => {
   if (post.image) {
@@ -74,9 +79,21 @@ const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) 
   const url = getBlogPostUrl(post.slug, baseUrl);
   const image = getSeoImage(post);
   const topicName = getResolvedTopicName(post);
-  
-  return {
-    '@context': 'https://schema.org',
+  const breadcrumbItems = createBlogBreadcrumbItems([
+    ...(post.topicSlug && topicName
+      ? [
+          {
+            label: topicName,
+            href: buildTopicPath(post.topicSlug),
+          },
+        ]
+      : []),
+    {
+      label: post.title,
+    },
+  ]);
+
+  const blogPosting = {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
@@ -106,6 +123,11 @@ const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) 
     articleSection: topicName || 'Blog',
     inLanguage: 'en-GB',
   };
+
+  return createStructuredDataGraph([
+    blogPosting,
+    createBreadcrumbStructuredData(breadcrumbItems, `/blog/${post.slug}`, baseUrl),
+  ]);
 };
 
 const generateCanonicalUrl = (slug: string, baseUrl: string) => {

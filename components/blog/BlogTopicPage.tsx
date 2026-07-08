@@ -1,3 +1,4 @@
+import type { BlogBreadcrumbItem } from '@/lib/blog/breadcrumbs';
 import type { BlogPostMeta } from '@/lib/blog/markdown';
 import type { ArchivePaginationData } from '@/lib/blog/pagination';
 import type { BlogTopicDefinition, BlogTopicSubthemeGroup } from '@/lib/blog/topics';
@@ -14,6 +15,7 @@ interface BlogTopicPageProps {
   showBottomPagination: boolean;
   subthemes: ReadonlyArray<BlogTopicSubthemeGroup>;
   structuredData: Record<string, unknown>;
+  breadcrumbs: ReadonlyArray<BlogBreadcrumbItem>;
 }
 
 export function BlogTopicPage({
@@ -24,6 +26,7 @@ export function BlogTopicPage({
   showBottomPagination,
   subthemes,
   structuredData,
+  breadcrumbs,
 }: Readonly<BlogTopicPageProps>) {
   return (
     <>
@@ -42,10 +45,7 @@ export function BlogTopicPage({
         topics={[]}
         tags={[]}
         pagination={pagination}
-        backLink={{
-          href: '/blog',
-          label: '← Back to all posts',
-        }}
+        breadcrumbs={breadcrumbs}
       >
         {subthemes.length > 0 && (
           <section className={styles['topic-subthemes']} aria-labelledby="topic-subthemes-heading">
