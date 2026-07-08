@@ -79,16 +79,23 @@ const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) 
   const url = getBlogPostUrl(post.slug, baseUrl);
   const image = getSeoImage(post);
   const topicName = getResolvedTopicName(post);
-  const breadcrumbItems = createBlogBreadcrumbItems([
+  const breadcrumbItems = createBlogBreadcrumbItems(
     post.topicSlug && topicName
-      ? {
-          label: topicName,
-          href: buildTopicPath(post.topicSlug),
-        }
-      : {
-          label: post.title,
-        },
-  ]);
+      ? [
+          {
+            label: topicName,
+            href: buildTopicPath(post.topicSlug),
+          },
+          {
+            label: post.title,
+          },
+        ]
+      : [
+          {
+            label: post.title,
+          },
+        ],
+  );
 
   const blogPosting = {
     '@type': 'BlogPosting',

@@ -17,9 +17,15 @@ export default function Breadcrumbs({ items, className }: Readonly<BreadcrumbsPr
       <ol className={styles['breadcrumbs-list']}>
         {items.map((item, index) => {
           const isCurrentPage = index === items.length - 1 && !item.href;
+          const itemClassName = [
+            styles['breadcrumbs-item'],
+            item.isVisuallyHidden ? styles['breadcrumbs-item-visually-hidden'] : null,
+          ]
+            .filter(Boolean)
+            .join(' ');
 
           return (
-            <li key={`${item.label}-${index}`} className={styles['breadcrumbs-item']}>
+            <li key={`${item.label}-${index}`} className={itemClassName}>
               {item.href ? (
                 <Link className={styles['breadcrumbs-link']} href={item.href}>
                   {item.label}
