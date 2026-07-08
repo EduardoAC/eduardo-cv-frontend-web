@@ -10,7 +10,9 @@ interface ExperienceBlockProps {
   company: string;
   position: string;
   description: string;
+  website?: string;
   logo?: string;
+  logoAlt?: string;
   articles?: { title: string; slug: string }[];
   technologies?: string[];
 }
@@ -21,7 +23,9 @@ export default function ExperienceBlock({
   company,
   position,
   description,
+  website,
   logo,
+  logoAlt,
   articles = [],
   technologies = [],
 }: ExperienceBlockProps) {
@@ -36,14 +40,22 @@ export default function ExperienceBlock({
         <div className={styles.logo_container}>
           <Image
             src={logo || '/images/defaultImage-optimized-1280.webp'}
-            alt={company}
+            alt={logoAlt ?? company}
             width={60}
             height={60}
             sizes={EXPERIENCE_LOGO_IMAGE_SIZES}
           />
         </div>
         <div className={styles.details}>
-          <h4>{company}</h4>
+          <h4>
+            {website ? (
+              <a href={website} target="_blank" rel="nofollow noopener noreferrer">
+                {company}
+              </a>
+            ) : (
+              company
+            )}
+          </h4>
           <h5 dangerouslySetInnerHTML={{ __html: position }}></h5>
           <div dangerouslySetInnerHTML={{ __html: description }}></div>
           {technologies.length > 0 && (

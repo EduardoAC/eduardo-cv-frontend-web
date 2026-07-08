@@ -4,7 +4,9 @@ interface Experience {
   company: string;
   position: string;
   description: string;
+  website?: string;
   logo?: string;
+  logoAlt?: string;
   articles?: { title: string; slug: string }[];
   technologies?: string[];
 }
@@ -13,18 +15,32 @@ export const experienceList: Experience[] = [
     {
         startDate: 'March 2025',
         endDate: 'Present',
-        company: 'Happening',
-        position: 'Senior Frontend Engineer',
-        logo: '/images/companies/happening-logo-blue-bg.webp',
+        company: 'Super (formerly Happening/Superbet)',
+        position: 'Senior Frontend Engineer — Payments at Scale / Player Cashier / Transact',
+        website: 'https://www.super.xyz/',
+        logo: '/images/companies/super-logo.webp',
+        logoAlt: 'Super',
         description: `<ul>
-<li>Engineering excellence with initiatives in continuous deployment, testing strategy, web performance, and contract-driven development.</li>
-<li>Upskilled the team and provided technical direction.</li>
-<li>Mentored and sponsored technical initiatives.</li>
+<li>Led frontend delivery for Player Cashier, the embedded payment UI powering deposit and withdrawal journeys across web, native apps, Android WebView, iOS WebView, and mobile web.</li>
+<li>Drove the migration from release candidates to continuous deployment, improving release confidence through feature flags, validation gates, rollout automation, and production-safe delivery practices.</li>
+<li>Led the Checkout.com card payments integration for Romania, coordinating with <a href="https://www.comtrade.com/" rel="nofollow noopener noreferrer" target="_blank">Comtrade</a> and enabling an estimated €260K/month cost saving.</li>
+<li>Led cross-squad collaboration for IBAN verification with Authologic across the Transact tribe, enabling customers in Poland to safely verify their bank accounts.</li>
+<li>Owned critical iframe and native integration boundaries across host apps, backend APIs, feature flags, payment providers, redirects, and frontend state.</li>
+<li>Defined outside-in testing for payment flows using Vitest and MSW.js, covering customer-visible journeys, API contracts, host adapters, provider handoffs, and WebView-specific risks.</li>
+<li>Helped evolve frontend delivery on AWS infrastructure, including S3, CloudFront, Terraform, progressive rollout, hosted zones, and operational runbooks.</li>
+<li>Improved reliability across high-risk payment journeys, including Android WebView redirects, oversized cookies, CloudFront cache-poisoning protection, and runtime initialisation safety.</li>
 </ul>`,
         articles: [
+            { title: 'Migrating from Release Candidates to Continuous Deployment: The Player Cashier Journey', slug: 'from-release-candidates-to-continuous-deployment-player-cashier-journey' },
+            { title: 'Frontend Infrastructure at Scale: Migrating AWS S3 and CloudFront Without Customer Disruption', slug: 'frontend-infrastructure-at-scale-aws-s3-cloudfront-migration' },
+            { title: 'The Initialisation Trap in TypeScript: When Your Types Describe a World Your Users Are Not In Yet', slug: 'the-initialisation-trap-in-typescript' },
+            { title: 'Testing Payment Flows with Outside-In Testing: A Practical Integration Testing Case Study - Part 2', slug: 'testing-payment-flows-with-outside-in-testing-part-2' },
+            { title: 'Outside-In Testing Strategy: Building Confidence for Continuous Deployment - Part 1', slug: 'outside-in-testing-strategy-building-confidence-for-continuous-deployment' },
+            { title: 'When Android WebView breaks first: oversized cookies, redirects, and a silent 400', slug: 'when-android-webview-breaks-first-oversized-cookies-redirects-and-a-silent-400' },
+            { title: "Mitigating Cache Poisoning in AWS CloudFront: A Frontend Engineer's Guide", slug: 'mitigating-cache-poisoning-in-aws-cloudfront' },
             { title: 'React Higher-Order Components vs Vue.js Slots: A Dynamic Components Comparison', slug: 'react-higher-order-components-vs-vue-js-slots-a-dynamic-components-comparison' },
         ],
-        technologies: ['VueJS', 'TypeScript', 'Pinia', 'Vite'],
+        technologies: ['Vue.js', 'TypeScript', 'Vite', 'AWS infrastructure', 'Vitest & MSW.js'],
     },
     {
         startDate: 'October 2023',
@@ -231,7 +247,7 @@ export const experienceList: Experience[] = [
         position: 'Junior Web developer',
         logo: '/images/companies/canarias-7-digital.png',
         description: '<p>Contract to develop '
-        + '<a href="http://monicavieira.com/" rel="nofollow" target="_blank">Monica Vieira</a>. '
+        + '<a href="http://monicavieira.com/" rel="nofollow noopener noreferrer" target="_blank">Monica Vieira</a>. '
         + 'my second contract for Canarias 7 digital to develop a new website. '
         + 'I created this one using Symfony 1.4 based in a new design provided from Canarias 7 Digital. '
         + 'As my previous contract with them, I implemented a full website using '
@@ -248,7 +264,7 @@ export const experienceList: Experience[] = [
         position: 'Junior Web developer',
         logo: '/images/companies/canarias-7-digital.png',
         description: '<p>Contract to develop '
-        + '<a href="http://www.gestaltcanarias.es/" rel="nofollow" target="_blank">Gelstalt Canarias Website</a>. '
+        + '<a href="http://www.gestaltcanarias.es/" rel="nofollow noopener noreferrer" target="_blank">Gelstalt Canarias Website</a>. '
         + 'I started my professional career as a web developer '
         + 'creating full sites in symphony 1.0 and 1.4 where I was responsible to '
         + 'deliver a full website based on a design provide for the company. '
@@ -263,7 +279,7 @@ export const experienceList: Experience[] = [
         startDate: 'June, 2009',
         endDate: 'April ,2011',
         company: 'University of Las Palmas de Gran Canaria',
-        position: '<a href="http://berlioz.dis.ulpgc.es/roc-siani/publicaciones-principal/pdfs/memoria-pfc-eduardo-aparicio-cardenes-jul-2011.pdf" rel="nofollow" target="_blank">Odometry error reduction in a mobile robot using scan matching algorithms based in laser sensor range</a>',
+        position: '<a href="http://berlioz.dis.ulpgc.es/roc-siani/publicaciones-principal/pdfs/memoria-pfc-eduardo-aparicio-cardenes-jul-2011.pdf" rel="nofollow noopener noreferrer" target="_blank">Odometry error reduction in a mobile robot using scan matching algorithms based in laser sensor range</a>',
         logo: '/images/companies/ulpgc.png',
         description: '<p>The MbICP is a variant of the ICP algorithm (Iterative '
         + 'Closest Point). This method has aim to correct the error caused by '
@@ -304,9 +320,9 @@ export const experienceList: Experience[] = [
         + 'skills to be ready to become a Software architect. From the beginning,'
         + 'I studied every signature with a big passion to be ready for a good '
         + 'professional career. If you want to know more about what did I study'
-        + 'here please enter in the <a href="http://www.eii.ulpgc.es/tb_university_ex/?q=ingenier%C3%ADa-inform%C3%A1tica-ii" rel="nofollow" target="_blank">'
+        + 'here please enter in the <a href="http://www.eii.ulpgc.es/tb_university_ex/?q=ingenier%C3%ADa-inform%C3%A1tica-ii" rel="nofollow noopener noreferrer" target="_blank">'
         + 'ULPGC university plan</a></p>',
         articles: [],
         technologies: ['Robotics', 'Programming', 'Software Engineering'],
     },
-]; 
+];
