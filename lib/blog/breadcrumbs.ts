@@ -23,23 +23,29 @@ export const getAbsoluteSiteUrl = (path: string, baseUrl: string = DEFAULT_BASE_
 
 export const createBlogBreadcrumbItems = (
   childItems: ReadonlyArray<BlogBreadcrumbItem> = [],
-): BlogBreadcrumbItem[] => [
-  {
-    label: 'Home',
-    href: '/',
-  },
-  {
-    label: 'Blog',
-    href: childItems.length > 0 ? '/blog' : undefined,
-  },
-  ...childItems,
-];
+): BlogBreadcrumbItem[] => {
+  if (childItems.length === 0) {
+    return [];
+  }
+
+  return [
+    {
+      label: 'Blog',
+      href: '/blog',
+    },
+    ...childItems,
+  ];
+};
 
 export const createBreadcrumbStructuredData = (
   items: ReadonlyArray<BlogBreadcrumbItem>,
   currentPath: string,
   baseUrl: string = DEFAULT_BASE_URL,
 ) => {
+  if (items.length < 2) {
+    return null;
+  }
+
   const currentUrl = getAbsoluteSiteUrl(currentPath, baseUrl);
 
   return {
@@ -60,8 +66,8 @@ export const createBreadcrumbStructuredData = (
 };
 
 export const createStructuredDataGraph = (
-  nodes: ReadonlyArray<Record<string, unknown>>,
+  nodes: ReadonlyArray<Record<string, unknown> | null>,
 ) => ({
   '@context': 'https://schema.org',
-  '@graph': nodes,
+  '@graph': nodes.filter((node): node is Record<string, unknown> => Boolean(node)),
 });
