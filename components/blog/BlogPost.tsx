@@ -67,17 +67,14 @@ export default function BlogPost({
   const topicName = getResolvedTopicName(post);
   const topicHref = post.topicSlug ? buildTopicPath(post.topicSlug) : null;
   const breadcrumbs = createBlogBreadcrumbItems([
-    ...(topicHref && topicName
-      ? [
-          {
-            label: topicName,
-            href: topicHref,
-          },
-        ]
-      : []),
-    {
-      label: post.title,
-    },
+    topicHref && topicName
+      ? {
+          label: topicName,
+          href: topicHref,
+        }
+      : {
+          label: post.title,
+        },
   ]);
 
   return (

@@ -16,11 +16,11 @@ export default function Breadcrumbs({ items, className }: Readonly<BreadcrumbsPr
     <nav className={[styles.breadcrumbs, className].filter(Boolean).join(' ')} aria-label="Breadcrumb">
       <ol className={styles['breadcrumbs-list']}>
         {items.map((item, index) => {
-          const isCurrentPage = index === items.length - 1;
+          const isCurrentPage = index === items.length - 1 && !item.href;
 
           return (
             <li key={`${item.label}-${index}`} className={styles['breadcrumbs-item']}>
-              {item.href && !isCurrentPage ? (
+              {item.href ? (
                 <Link className={styles['breadcrumbs-link']} href={item.href}>
                   {item.label}
                 </Link>
