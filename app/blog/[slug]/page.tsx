@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getRelatedPosts, getAllPosts, getPostMetaBySlug } from '@/lib/blog/markdown';
 import { getSeriesContext } from '@/lib/blog/series';
-import { generateMetaTags } from '@/lib/blog/seo';
+import { formatBlogSeoDateTime, generateMetaTags } from '@/lib/blog/seo';
 import { getResolvedTopicName } from '@/lib/blog/topics';
 import BlogPost from '@/components/blog/BlogPost';
 
@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://eduardoac.dev';
   const metaTags = generateMetaTags(post, baseUrl);
   const articleSection = getResolvedTopicName(post) || 'Blog';
+  const seoDateTime = formatBlogSeoDateTime(post.date);
 
   return {
     title: metaTags.title,
@@ -46,8 +47,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     openGraph: metaTags.openGraph,
     twitter: metaTags.twitter,
     other: {
-      'article:published_time': post.date,
-      'article:modified_time': post.date,
+      'article:published_time': seoDateTime,
+      'article:modified_time': seoDateTime,
       'article:author': metaTags.authorUrl,
       'article:section': articleSection,
       'article:tag': post.tags.join(', '),

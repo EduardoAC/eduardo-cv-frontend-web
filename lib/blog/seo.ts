@@ -7,6 +7,25 @@ import {
 } from './breadcrumbs';
 import { buildTopicPath, getResolvedTopicName } from './topics';
 
+const BLOG_SEO_DEFAULT_TIME = '17:00:00';
+const BLOG_SEO_TIMEZONE_OFFSET = '+00:00';
+const ISO_DATE_ONLY_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
+const ISO_DATE_TIMEZONE_PATTERN = /(?:Z|[+-]\d{2}:?\d{2})$/;
+
+export const formatBlogSeoDateTime = (date: string) => {
+  const normalizedDate = date.trim();
+
+  if (ISO_DATE_ONLY_PATTERN.test(normalizedDate)) {
+    return `${normalizedDate}T${BLOG_SEO_DEFAULT_TIME}${BLOG_SEO_TIMEZONE_OFFSET}`;
+  }
+
+  if (normalizedDate.includes('T') && !ISO_DATE_TIMEZONE_PATTERN.test(normalizedDate)) {
+    return `${normalizedDate}${BLOG_SEO_TIMEZONE_OFFSET}`;
+  }
+
+  return normalizedDate;
+};
+
 const getSeoImage = (post: BlogPost | BlogPostMeta) => {
   if (post.image) {
     return {
@@ -35,6 +54,7 @@ const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
   const image = getSeoImage(post);
   const topicName = getResolvedTopicName(post);
   const openGraphTags = Array.from(new Set([topicName, ...post.tags].filter(Boolean)));
+  const seoDateTime = formatBlogSeoDateTime(post.date);
   
   return {
     title: post.title,
@@ -51,8 +71,8 @@ const generateOpenGraph = (post: BlogPost | BlogPostMeta, baseUrl: string) => {
     ] : [],
     locale: 'en_GB',
     type: 'article',
-    publishedTime: post.date,
-    modifiedTime: post.date,
+    publishedTime: seoDateTime,
+    modifiedTime: seoDateTime,
     authors: [author.url],
     section: topicName || 'Blog',
     tags: openGraphTags,
@@ -79,6 +99,7 @@ const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) 
   const url = getBlogPostUrl(post.slug, baseUrl);
   const image = getSeoImage(post);
   const topicName = getResolvedTopicName(post);
+  const seoDateTime = formatBlogSeoDateTime(post.date);
   const breadcrumbItems = createBlogBreadcrumbItems(
     post.topicSlug && topicName
       ? [
@@ -116,8 +137,8 @@ const generateStructuredData = (post: BlogPost | BlogPostMeta, baseUrl: string) 
       url: author.url,
       image: getAbsoluteBlogAssetUrl(author.image.src, baseUrl),
     },
-    datePublished: post.date,
-    dateModified: post.date,
+    datePublished: seoDateTime,
+    dateModified: seoDateTime,
     url,
     mainEntityOfPage: {
       '@type': 'WebPage',
