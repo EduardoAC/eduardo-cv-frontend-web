@@ -12,6 +12,7 @@ interface ExperienceBlockProps {
   description: string;
   website?: string;
   logo?: string;
+  logoAlt?: string;
   articles?: { title: string; slug: string }[];
   technologies?: string[];
 }
@@ -24,6 +25,7 @@ export default function ExperienceBlock({
   description,
   website,
   logo,
+  logoAlt,
   articles = [],
   technologies = [],
 }: ExperienceBlockProps) {
@@ -38,7 +40,7 @@ export default function ExperienceBlock({
         <div className={styles.logo_container}>
           <Image
             src={logo || '/images/defaultImage-optimized-1280.webp'}
-            alt={company}
+            alt={logoAlt ?? company}
             width={60}
             height={60}
             sizes={EXPERIENCE_LOGO_IMAGE_SIZES}

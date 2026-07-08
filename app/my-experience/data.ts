@@ -6,6 +6,7 @@ interface Experience {
   description: string;
   website?: string;
   logo?: string;
+  logoAlt?: string;
   articles?: { title: string; slug: string }[];
   technologies?: string[];
 }
@@ -14,14 +15,15 @@ export const experienceList: Experience[] = [
     {
         startDate: 'March 2025',
         endDate: 'Present',
-        company: 'Super',
-        position: 'Senior Frontend Engineer — Payment UI / Player Cashier<br /><span>formerly Happening / Superbet</span>',
+        company: 'Super (formerly Happening/Superbet)',
+        position: 'Senior Frontend Engineer — Payments at Scale / Player Cashier / Transact',
         website: 'https://www.super.xyz/',
         logo: '/images/companies/super-logo.webp',
+        logoAlt: 'Super',
         description: `<ul>
 <li>Led frontend delivery for Player Cashier, the embedded payment UI powering deposit and withdrawal journeys across web, native apps, Android WebView, iOS WebView, and mobile web.</li>
 <li>Drove the migration from release candidates to continuous deployment, improving release confidence through feature flags, validation gates, rollout automation, and production-safe delivery practices.</li>
-<li>Led the Checkout.com card payments integration for Romania, coordinating with Comtrade and enabling an estimated €260K/month cost saving.</li>
+<li>Led the Checkout.com card payments integration for Romania, coordinating with <a href="https://www.comtrade.com/" rel="nofollow noopener noreferrer" target="_blank">Comtrade</a> and enabling an estimated €260K/month cost saving.</li>
 <li>Led cross-squad collaboration for IBAN verification with Authologic across the Transact tribe, enabling customers in Poland to safely verify their bank accounts.</li>
 <li>Owned critical iframe and native integration boundaries across host apps, backend APIs, feature flags, payment providers, redirects, and frontend state.</li>
 <li>Defined outside-in testing for payment flows using Vitest and MSW.js, covering customer-visible journeys, API contracts, host adapters, provider handoffs, and WebView-specific risks.</li>
