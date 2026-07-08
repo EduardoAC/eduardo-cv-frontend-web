@@ -1,3 +1,5 @@
+@use '../../styles/utilities' as utilities;
+
 .breadcrumbs {
   max-width: 100%;
   overflow: hidden;
@@ -42,6 +44,14 @@
   font: inherit;
   margin: 0 0.45rem;
   opacity: 0.65;
+}
+
+.breadcrumbs-item-visually-hidden {
+  @include utilities.visually-hidden;
+}
+
+.breadcrumbs-item-visually-hidden::before {
+  content: none;
 }
 
 .breadcrumbs-link,

@@ -66,16 +66,24 @@ export default function BlogPost({
   const shouldShowTableOfContents = post.toc.length > 0;
   const topicName = getResolvedTopicName(post);
   const topicHref = post.topicSlug ? buildTopicPath(post.topicSlug) : null;
-  const breadcrumbs = createBlogBreadcrumbItems([
+  const breadcrumbs = createBlogBreadcrumbItems(
     topicHref && topicName
-      ? {
-          label: topicName,
-          href: topicHref,
-        }
-      : {
-          label: post.title,
-        },
-  ]);
+      ? [
+          {
+            label: topicName,
+            href: topicHref,
+          },
+          {
+            label: post.title,
+            isVisuallyHidden: true,
+          },
+        ]
+      : [
+          {
+            label: post.title,
+          },
+        ],
+  );
 
   return (
     <Container as="article" padding="small" variant="wide" className={styles['blog-post-page']}>

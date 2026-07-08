@@ -1,6 +1,7 @@
 export interface BlogBreadcrumbItem {
   label: string;
   href?: string;
+  isVisuallyHidden?: boolean;
 }
 
 const DEFAULT_BASE_URL = 'https://eduardoac.dev';
