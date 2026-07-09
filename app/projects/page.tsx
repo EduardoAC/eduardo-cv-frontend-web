@@ -78,6 +78,7 @@ const buildStructuredData = () => {
       {
         '@type': 'BreadcrumbList',
         '@id': `${pageUrl}#breadcrumbs`,
+        name: 'Home > Projects breadcrumbs',
         itemListElement: [
           {
             '@type': 'ListItem',
